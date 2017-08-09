@@ -7,13 +7,13 @@
 
 ## Usge
 
-####npm
+#### npm
 
 ```bash
 npm install anchor-rosso-ui
 ```
 
-####script
+#### script
 
 ```javascript
 // use plugins of anchor-rosso-ui
