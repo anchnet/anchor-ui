@@ -2,6 +2,9 @@
 
 > An UI Library Based On Bootstrap@3.3.7.
 
+[![NPM downloads](https://img.shields.io/npm/dt/anchor-rosso-ui.svg)](https://www.npmjs.com/package/anchor-rosso-ui)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/anchor-rosso-ui)
+
 ## Usge
 
 ####npm
