@@ -1,5 +1,6 @@
 node_modules
 .idea
+.idea/
 .env
 npm-debug.log
 npm-debug.log.*
