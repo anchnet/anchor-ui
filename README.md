@@ -8,11 +8,13 @@
 ## Usge
 
 ####npm
+
 ```bash
 npm install anchor-rosso-ui
 ```
 
 ####script
+
 ```javascript
 // use plugins of anchor-rosso-ui
 import anchorRossoUi from 'anchor-rosso-ui'
