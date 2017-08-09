@@ -10,7 +10,11 @@
     "build": "webpack -p --config build/webpack.prod.conf.js --progress --colors",
     "postbuild": "rm libs/css/anchor-ui.min.js",
     "clean": "rm -rf libs",
-    "clean:dist": "rm -rf dist"
+    "clean:dist": "rm -rf dist",
+    "pub:major": "npm run prepub && npm version minor && npm publish",
+    "pub:minor": "npm run prepub && npm version minor && npm publish",
+    "pub": "npm version patch && npm publish",
+    "prepub": "npm run build"
   },
   "repository": {
     "type": "git",
