@@ -4,5 +4,5 @@ $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 
-  $.testConsole()
+  console.log($.ANCHOR_VERSION)
 })

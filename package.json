@@ -1,8 +1,8 @@
 {
-  "name": "anchor-ui",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "anchor-rosso-ui",
+  "version": "0.0.0",
+  "description": "An UI Library Based On Bootstrap",
+  "main": "libs/anchor-ui.min.js",
   "scripts": {
     "start": "npm run watch",
     "watch": "webpack-dev-server --hot --inline --config build/webpack.dev.conf.js --progress --colors",
@@ -16,6 +16,14 @@
     "type": "git",
     "url": "git+https://github.com/51idc/anchor-ui.git"
   },
+  "files": [
+    "libs/"
+  ],
+  "keywords": [
+    "anchor",
+    "ui",
+    "bootstrap"
+  ],
   "bugs": {
     "url": "https://github.com/51idc/anchor-ui/issues"
   },
@@ -44,5 +52,5 @@
   },
   "dependencies": {},
   "author": "liuzmeng liuzhimengcn@gmail.com",
-  "license": "ISC"
+  "license": "MIT"
 }
