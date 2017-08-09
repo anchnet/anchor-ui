@@ -1,6 +1,6 @@
 {
   "name": "anchor-rosso-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An UI Library Based On Bootstrap",
   "main": "libs/anchor-ui.min.js",
   "scripts": {
