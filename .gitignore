@@ -6,4 +6,5 @@ node_modules
 npm-debug.log
 npm-debug.log.*
 .DS_Store
-libs/
+libs
+libs/*
