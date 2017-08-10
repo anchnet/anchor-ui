@@ -21,8 +21,8 @@
     "url": "git+https://github.com/51idc/anchor-ui.git"
   },
   "files": [
-    "assets/",
-    "libs/"
+    "assets",
+    "libs"
   ],
   "keywords": [
     "anchor",
