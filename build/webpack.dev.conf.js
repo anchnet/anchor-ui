@@ -14,6 +14,15 @@ module.exports = merge(baseWebpackConfig, {
     filename: '[name].js'
   },
 
+  module: {
+    rules: [
+      {
+        test: /\.art$/,
+        loader: 'art-template-loader'
+      },
+    ]
+  },
+
   devServer: {
     contentBase: utils.webpackResolve('examples'),
     historyApiFallback: true,
@@ -25,6 +34,10 @@ module.exports = merge(baseWebpackConfig, {
 
   devtool: '#cheap-module-eval-source-map',
 
+  node: {
+    fs: 'empty'
+  },
+
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
@@ -33,7 +46,7 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       template: utils.webpackResolve('examples/index.html'),
       inject: true,
-      chunks: ['app'],
+      chunks: ['main'],
       filename: 'index.html'
     })
   ]

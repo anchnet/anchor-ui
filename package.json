@@ -34,6 +34,8 @@
   },
   "homepage": "https://github.com/51idc/anchor-ui#readme",
   "devDependencies": {
+    "art-template": "^4.12.1",
+    "art-template-loader": "^1.4.3",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",

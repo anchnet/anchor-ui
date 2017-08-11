@@ -5,7 +5,7 @@ const config = {
   dev: {
     env: require('./dev.env'),
     entries: {
-      app: './examples/app.js',           // 主入口文件
+      main: './examples/main.js',           // 主入口文件
       'static/js/anchor-ui': jsresource   // 引入 anchor-ui.js
     },
     port: 8099,
