@@ -1,8 +1,6 @@
-// import bootstrap from '../assets/js/index'
-
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 
-  console.log($.ANCHOR_VERSION)
+  console.log('ANCHOR_VERSION: ' + $.ANCHOR_VERSION)
 })
