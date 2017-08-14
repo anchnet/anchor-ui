@@ -48,6 +48,13 @@ module.exports = merge(baseWebpackConfig, {
       inject: true,
       chunks: ['main'],
       filename: 'index.html'
-    })
+    }),
+
+    new HtmlWebpackPlugin({
+      template: utils.webpackResolve('examples/resource/document.html'),
+      inject: true,
+      chunks: ['document'],
+      filename: 'document.html'
+    }),
   ]
 })

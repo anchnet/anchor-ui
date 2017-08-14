@@ -1,0 +1,6 @@
+{
+  "anchor-ui": "./assets/scss/anchor-ui.scss",
+  "base": "./examples/scss/base.scss",
+  "index": "./examples/scss/index.scss",
+  "document": "./examples/scss/document.scss"
+}

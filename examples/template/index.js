@@ -1,5 +1,6 @@
-import headerTemplate from './header.art'
+import Header from './header.art'
+import Footer from './footer.art'
 
 module.exports = {
-  headerTemplate
+  Header, Footer,
 }

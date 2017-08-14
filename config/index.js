@@ -1,12 +1,13 @@
-const cssPath = require('../resource.json')
-const jsresource = './assets/js/index.js'
+const jsResource = require('../js_resource.json')
+const cssResource = require('../css_resource.json')
+
+const anchorUIRoute = './assets/js/index.js'
 
 const config = {
   dev: {
     env: require('./dev.env'),
     entries: {
-      main: './examples/main.js',           // 主入口文件
-      'static/js/anchor-ui': jsresource   // 引入 anchor-ui.js
+      'static/js/anchor-ui': anchorUIRoute   // 引入 anchor-ui.js
     },
     port: 8099,
     cssSourceMap: false,
@@ -16,7 +17,7 @@ const config = {
   build: {
     env: require('./prod.env'),
     entries: {
-      'js/anchor-ui.min': jsresource // anchor-ui.min.js
+      'js/anchor-ui.min': anchorUIRoute // anchor-ui.min.js
     },
     productionSourceMap: false,
     publicPath: '/libs',
@@ -24,14 +25,19 @@ const config = {
   }
 }
 
+// dev 入口文件
+Object.keys(jsResource).forEach((name) => {
+  config.dev.entries['static/js/' + name] = jsResource[name]
+})
+
 // dev 环境引入编译后的 css
-Object.keys(cssPath).forEach((name) => {
-  config.dev.entries['static/css/' + name] = cssPath[name]
+Object.keys(cssResource).forEach((name) => {
+  config.dev.entries['static/css/' + name] = cssResource[name]
 })
 
 // build 输出 anchor-ui-.min.css
-Object.keys(cssPath).forEach((name) => {
-  config.build.entries['css/' + name + '.min'] = cssPath[name]
+Object.keys(cssResource).forEach((name) => {
+  config.build.entries['css/' + name + '.min'] = cssResource[name]
 })
 
 module.exports = config

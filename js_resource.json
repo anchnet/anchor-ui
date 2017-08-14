@@ -1,0 +1,4 @@
+{
+  "main": "./examples/main.js",
+  "document": "./examples/js/controller/document.js"
+}

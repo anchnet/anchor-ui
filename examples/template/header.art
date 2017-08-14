@@ -1,16 +1,17 @@
 <div class="container">
   <div class="navbar-header">
-    <a href="../" class="navbar-brand">{{webName}}</a>
+    <a href="../" class="navbar-brand">Anchor Rosso UI Document</a>
   </div>
   <nav class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
-      <li>
-        <a href="">起步</a>
-      </li>
+      <li><a href="/document.html">文档</a></li>
+      <li><a href="/route2">菜单二</a></li>
+      <li><a href="/route3">菜单三</a></li>
+      <li><a href="/route4">菜单四</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <a href="">Bootstrap中文网</a>
+        <a href="https://www.anchnet.com/}">安畅网络</a>
       </li>
     </ul>
   </nav>
