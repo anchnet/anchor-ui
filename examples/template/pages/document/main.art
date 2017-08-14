@@ -1,118 +1,35 @@
 <div class="docs-header" id="content">
-  <div class="container">
-    <h1>文档</h1>
-    <p>本项目用于介绍 Anchor Rosso UI及其下载安装、使用方法等等。</p>
-  </div>
+    <div class="container">
+        <h1>文档</h1>
+        <p>本项目用于介绍 Anchor Rosso UI及其下载安装、使用方法等等。</p>
+    </div>
 </div>
 <div class="container container-fluid">
-  <div class="row">
-    <div class="col-md-9" role="main">
-      <div>
-        <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">Profile</a></li>
-          <li role="presentation"><a href="#">Messages</a></li>
-        </ul>
-      </div>
+    <div class="row">
+        <div class="col-md-9" role="main">
+            <h1 id="button" class="page-header">按钮</h1>
+            <h2 id="button-tags">可作为按钮使用的标签或元素</h2>
+            <div class="bs-example">
 
-      <div>
-        <nav aria-label="Page navigation">
-          <ul class="pagination">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div style="margin-bottom: 20px">
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-      </div>
-
-      <div>
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Library</a></li>
-          <li class="active">Data</li>
-        </ol>
-      </div>
-
-      <div style="margin-bottom: 20px">
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">点我弹出/隐藏弹出框</button>
-      </div>
-
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        Launch demo modal
-      </button>
-
-      <div style="margin-bottom: 20px">
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
             </div>
-          </div>
+
         </div>
-      </div>
 
-      <div style="margin-bottom: 20px">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="checkbox" autocomplete="off" checked> Checkbox 1
-          </label>
-          <label class="btn btn-primary">
-            <input type="checkbox" autocomplete="off"> Checkbox 2
-          </label>
-          <label class="btn btn-primary">
-            <input type="checkbox" autocomplete="off"> Checkbox 3
-          </label>
+        <div class="col-md-3" role="complementary">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+                <ul class="nav bs-docs-sidenav">
+                    <li>
+                        <a href="#button">按钮</a>
+                        <ul class="nav">
+                            <li><a href="#button-tags">可作为按钮使用的标签或元素</a></li>
+                            <li><a href="#overview-mobile">移动设备优先</a></li>
+                            <li><a href="#overview-type-links">排版与链接</a></li>
+                            <li><a href="#overview-normalize">Normalize.css</a></li>
+                            <li><a href="#overview-container">布局容器</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
-      </div>
-
     </div>
-
-    <div class="col-md-3" role="complementary">
-      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
-        <ul class="nav bs-docs-sidenav">
-          <li>
-            <a href="/index.html">概览</a>
-            <ul class="nav">
-              <li><a href="#overview-doctype">HTML5 文档类型</a></li>
-              <li><a href="#overview-mobile">移动设备优先</a></li>
-              <li><a href="#overview-type-links">排版与链接</a></li>
-              <li><a href="#overview-normalize">Normalize.css</a></li>
-              <li><a href="#overview-container">布局容器</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
 </div>
