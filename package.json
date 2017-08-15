@@ -1,11 +1,12 @@
 {
   "name": "anchor-rosso-ui",
   "version": "0.0.6",
-  "description": "An UI Library Based On Bootstrap",
+  "description": "An Front-end Framework Based On Bootstrap",
   "main": "libs/anchor-ui.min.js",
   "scripts": {
     "start": "npm run watch",
     "watch": "webpack-dev-server --hot --inline --config build/webpack.dev.conf.js --progress --colors",
+    "postwatch": "cp -rf ./examples/libs ./dist/libs",
     "prebuild": "npm run clean",
     "build": "webpack -p --config build/webpack.prod.conf.js --progress --colors",
     "postbuild": "rm libs/css/anchor-ui.min.js",

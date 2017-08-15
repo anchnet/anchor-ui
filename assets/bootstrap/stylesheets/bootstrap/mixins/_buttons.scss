@@ -11,27 +11,27 @@
   &:focus,
   &.focus {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 25%);
+    background-color: darken($background, 5%);
+        border-color: darken($border, 5%);
   }
   &:hover {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    background-color: darken($background, 5%);
+        border-color: darken($border, 5%);
   }
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    background-color: darken($background, 5%);
+        border-color: darken($border, 5%);
 
     &:hover,
     &:focus,
     &.focus {
       color: $color;
-      background-color: darken($background, 17%);
-          border-color: darken($border, 25%);
+      background-color: darken($background, 5%);
+          border-color: darken($border, 5%);
     }
   }
   &:active,
@@ -53,6 +53,117 @@
   .badge {
     color: $background;
     background-color: $color;
+  }
+}
+
+
+//新增按钮样式
+@mixin button-variant-default-primary() {
+  color: $brand-primary;
+  background-color: #ffffff;
+  border-color: $brand-border;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 2.5%);
+    border-color: $brand-primary;
+  }
+}
+@mixin button-variant-default-gray() {
+  color: $brand-base;
+  background-color: $brand-base-background;
+  border-color: transparent;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: lighten($brand-base, 15%);
+    background-color: $brand-base-background;
+    border-color: $brand-border;
+  }
+}
+@mixin button-variant-default-base() {
+  color: $brand-base;
+  background-color: #ffffff;
+  border-color: transparent;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: $brand-primary;
+  }
+}
+@mixin button-variant-primary-base() {
+  color: $brand-primary;
+  background-color: $brand-primary-background;
+  border-color: transparent;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 1.5%);
+  }
+}
+@mixin button-variant-primary-base-border() {
+  color: $brand-primary;
+  background-color: $brand-primary-background;
+  border-color: transparent;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 1%);
+    border-color: $brand-primary;
+  }
+}
+@mixin button-variant-primary-light() {
+  color: #ffffff;
+  background-color: $brand-primary;
+  border-color: transparent;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: #ffffff;
+    background-color: lighten($brand-primary, 10%);
+    border-color: transparent;
+  }
+}
+
+
+//禁用状态
+@mixin button-variant-disabled-base() {
+  &.disabled {
+    background-color: #ffffff !important;
+    border-color: transparent !important;
+  }
+}
+@mixin button-variant-disabled-border() {
+  &.disabled {
+    background-color: #ffffff !important;
+    border-color: $brand-border !important;
+  }
+}
+@mixin button-variant-disabled-primary() {
+  &.disabled {
+    background-color: $gray-lighter !important;
+    border-color: transparent !important;
   }
 }
 

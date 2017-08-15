@@ -16,11 +16,21 @@ $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:         #E2003B !default;
+$brand-primary-light:   #F2CBD5 !default;
+$brand-base:            #4b556a !default;
+$brand-base-background: #f3f4f5 !default;
+$brand-tips:            #89909a !default;
+$brand-border:          #d4d4d4 !default;
+
+/* primary */
+$brand-primary-background:       lighten($brand-primary-light, 8%);
+$brand-primary-border:           $brand-primary-light;
+
+/* 状态 */
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
-
 
 //== Scaffolding
 //
@@ -109,7 +119,7 @@ $line-height-small:         1.5 !default;
 
 $border-radius-base:        4px !default;
 $border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-small:       2px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
