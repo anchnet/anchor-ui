@@ -1,0 +1,117 @@
+<h1 id="form" class="page-header">表单</h1>
+<h2 id="form-instance">基本实例</h2>
+<p>单独的表单控件会被自动赋予一些全局样式。所有设置了 <code>.form-control</code> 类的 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 元素都将被默认设置宽度属性为 <code>width: 100%;</code>。 将 <code>label</code> 元素和前面提到的控件包裹在 <code>.form-group</code> 中可以获得最好的排列。</p>
+<div class="bs-example">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Mobile</label>
+            <input type="tel" class="form-control" disabled placeholder="18818216729">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default-primary">Submit</button>
+        <button type="cancel" class="btn btn-default-gray">Cancel</button>
+    </form>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="form-inline">内联表单</h2>
+<p>为 <code>&lt;form&gt;</code> 元素添加 <code>.form-inline</code> 类可使其内容左对齐并且表现为 <code>inline-block</code> 级别的控件。<strong>只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话就会使表单折叠）。</strong></p>
+<div class="bs-example">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn-default-primary">Send invitation</button>
+    </form>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+<div class="bs-example">
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default-primary">Sign in</button>
+    </form>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+<div class="bs-example">
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <div class="input-group-addon">.00</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default-primary">Transfer cash</button>
+    </form>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="form-horizontal">水平排列的表单</h2>
+<p>通过为表单添加 <code>.form-horizontal</code> 类，并联合使用 Bootstrap 预置的栅格类，可以将 <code>label</code> 标签和控件组水平并排布局。这样做将改变 <code>.form-group</code> 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 <code>.row</code> 了。</p>
+<div class="bs-example">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default-primary">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+

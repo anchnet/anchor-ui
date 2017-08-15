@@ -10,5 +10,13 @@
                 <li><a href="#button-disabled">禁用状态</a></li>
             </ul>
         </li>
+        <li>
+            <a href="#form">表单</a>
+            <ul class="nav nav-children">
+                <li><a href="#form-instance">基本实例</a></li>
+                <li><a href="#form-inline">内联表单</a></li>
+                <li><a href="#form-horizontal">水平排列的表单</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
