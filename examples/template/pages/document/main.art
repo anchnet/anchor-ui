@@ -1,6 +1,6 @@
 <div class="docs-header" id="content">
     <div class="container">
-        <h1>文档</h1>
+        <h2>文档</h2>
         <p>介绍 Anchor Rosso UI 安装、下载、包含内容及使用方法等等</p>
         <p class="version">
             本文档主要内容来源于 Bootstrap 官方文档，如有疑问，可以查看

@@ -1,5 +1,6 @@
 {
-  "home": "./examples/js/controller/home.js",
+  "index": "./examples/js/controller/index.js",
   "document": "./examples/js/controller/document.js",
-  "layout": "./examples/js/controller/layout.js"
+  "layout": "./examples/js/controller/layout.js",
+  "plugin": "./examples/js/controller/plugin.js"
 }

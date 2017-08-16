@@ -1,5 +1,5 @@
-<h1 id="button" class="page-header">按钮</h1>
-<h2 id="button-tags">可作为按钮使用的标签或元素</h2>
+<h2 id="button" class="page-header">按钮</h2>
+<h3 id="button-tags">可作为按钮使用的标签或元素</h3>
 <div class="bs-example" data-example-id="button-tags">
     <a class="btn btn-default" href="#" role="button">Link</a>
     <button class="btn btn-default" type="submit">Button</button>
@@ -8,7 +8,7 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h2 id="button-options" style="color: #ffffff">预定义样式</h2>
+<h3 id="button-options" style="color: #ffffff">预定义样式</h3>
 <div class="bs-example" data-example-id="button-options">
     <p>
         <span>默认样式类：</span>
@@ -51,7 +51,7 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h2 id="button-size">尺寸</h2>
+<h3 id="button-size">尺寸</h3>
 <p>使用<code>.btn-lg</code>、<code>.btn-sm</code> 或 <code>.btn-xs</code> 就可以获得不同尺寸的按钮。</p>
 <div class="bs-example" data-example-id="button-size">
     <p>
@@ -79,7 +79,7 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h2 id="button-active">激活状态</h2>
+<h3 id="button-active">激活状态</h3>
 <p>当按钮处于激活状态时，其表现为被按压下去（底色更深、边框夜色更深、向内投射阴影）。对于
     <code>&lt;button&gt;</code> 元素，是通过
     <code>:active</code> 状态实现的。对于
@@ -97,7 +97,7 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h2 id="button-disabled">禁用状态</h2>
+<h3 id="button-disabled">禁用状态</h3>
 <p>为元素添加 <code>disabled</code> 或者 <code>.disabled</code> 样式，使其表现出禁用状态。</p>
 <div class="bs-example" data-example-id="button-disabled">
     <button type="button" class="btn btn-default disabled">btn-default disabled</button>
