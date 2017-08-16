@@ -1,4 +1,5 @@
 import bootstrap from '../bootstrap/javascripts/bootstrap'
+import Sidebar from './src/sidebar'
 
 !function ($) {
   $.extend({

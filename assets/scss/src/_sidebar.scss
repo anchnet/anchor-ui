@@ -1,0 +1,135 @@
+/**
+ * sidebar style
+ */
+
+@mixin menu-title {
+  display: block;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+@mixin default-dot {
+  display: block;
+  position: absolute;
+  top: 17px;
+  left: 37px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 50;
+  width: 240px;
+  height: 100%;
+  .logo-wrapper {
+    position: relative;
+    height: 54px;
+    background-color: $brand-primary;
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .menu-wrapper {
+    position: relative;
+    height: calc(100% - 54px);
+    overflow-y: auto;
+    background-color: #2F323A;
+  }
+  .menu-group {
+    height: 40px;
+    overflow: hidden;
+  }
+  .menu-title {
+    @include menu-title;
+    padding-left: 80px;
+    padding-right: 35px;
+    color: #FFF;
+    i.default-dot {
+      @include default-dot;
+      background-color: #FFF;
+    }
+    i.menu-dot {
+      display: block;
+      position: absolute;
+      top: 17px;
+      right: 25px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #FFF;
+    }
+    &.active, &:hover {
+      i.menu-dot {
+        background-color: $brand-primary;
+      }
+    }
+  }
+  .menu-sub-title {
+    @include menu-title;
+    padding-left: 80px;
+    padding-right: 35px;
+    background-color: #1B1D23;
+    color: #A5A7AB;
+    &:hover {
+      color: #FFF;
+    }
+    i.default-dot {
+      @include default-dot;
+      background-color: #A5A7AB;
+    }
+    i.menu-triangle {
+      display: block;
+      position: absolute;
+      top: 16px;
+      right: 25px;
+      width: 0;
+      height: 0;
+      line-height: 0;
+      border-left: 6px solid #A5A7AB;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transform: rotate(0deg);
+      transition: transform 0.15s
+    }
+    @for $i from 1 through 10 {
+      &.sub-#{$i} {
+        padding-left: #{80 + 10 * ($i - 1)}px;
+      }
+    }
+    &:hover {
+      i.menu-triangle {
+        border-left-color: $brand-primary;
+      }
+    }
+    &.active {
+      i.menu-triangle {
+        transform: rotate(90deg)
+      }
+    }
+    &.selected {
+      background-color: #0C0D0D;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: $brand-primary;
+      }
+    }
+  }
+}

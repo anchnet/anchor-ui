@@ -1,0 +1,40 @@
+<div class="sidebar" data-toggle="sidebar">
+  <div class="logo-wrapper">
+    <img class="logo" src="../../../img/sidebar-logo.svg">
+  </div>
+  <div class="menu-wrapper">
+    {{each menus as menu}}
+      <div class="menu-group">
+        <div class="menu-title">
+          <i class="default-dot"></i>
+          {{menu['title']}}
+        </div>
+        {{if menu['children']}}
+          {{each menu['children'] as subMenu}}
+            <div class="menu-group">
+              {{if subMenu['children']}}
+                <div class="menu-sub-title">
+                  <i class="default-dot"></i>
+                  {{subMenu['title']}}
+                </div>
+                {{each subMenu['children'] as baseMenu}}
+                  <div class="menu-group">
+                    <a class="menu-sub-title sub-2 {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
+                      <i class="default-dot"></i>
+                      {{baseMenu['title']}}
+                    </a>
+                  </div>
+                {{/each}}
+              {{else}}
+                <a class="menu-sub-title" href="{{subMenu['link']}}">
+                  <i class="default-dot"></i>
+                  {{subMenu['title']}}
+                </a>
+              {{/if}}
+            </div>
+          {{/each}}
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</div>

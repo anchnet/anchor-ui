@@ -2,5 +2,6 @@
   "anchor-ui": "./assets/scss/anchor-ui.scss",
   "base": "./examples/scss/base.scss",
   "home": "./examples/scss/home.scss",
-  "document": "./examples/scss/document.scss"
+  "document": "./examples/scss/document.scss",
+  "layout": "./examples/scss/layout.scss"
 }

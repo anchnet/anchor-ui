@@ -1,4 +1,5 @@
 {
   "home": "./examples/js/controller/home.js",
-  "document": "./examples/js/controller/document.js"
+  "document": "./examples/js/controller/document.js",
+  "layout": "./examples/js/controller/layout.js"
 }

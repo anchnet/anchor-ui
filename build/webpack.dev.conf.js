@@ -56,5 +56,12 @@ module.exports = merge(baseWebpackConfig, {
       chunks: ['document'],
       filename: 'document.html'
     }),
+
+    new HtmlWebpackPlugin({
+      template: utils.webpackResolve('examples/resource/layout.html'),
+      inject: true,
+      chunks: ['layout'],
+      filename: 'layout.html'
+    }),
   ]
 })
