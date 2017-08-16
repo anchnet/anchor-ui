@@ -28,6 +28,7 @@ module.exports = merge(baseWebpackConfig, {
     historyApiFallback: true,
     clientLogLevel: 'warning',
     compress: true,
+    host: config.dev.host || 'localhost',
     port: config.dev.port,
     hot: true
   },
