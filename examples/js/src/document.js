@@ -7,7 +7,4 @@ $(document).ready(function () {
   console.log('ANCHOR_VERSION: ' + $.ANCHOR_VERSION)
 
   utils.generateCode()
-  $('figure.highlight code').each(function(i, block) {
-    hljs.highlightBlock(block)
-  })
 })
