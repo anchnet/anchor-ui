@@ -17,7 +17,8 @@ const config = {
   build: {
     env: require('./prod.env'),
     entries: {
-      'js/anchor-ui.min': anchorUIRoute // anchor-ui.min.js
+      'js/anchor-ui.min': anchorUIRoute, // anchor-ui.min.js
+      'css/anchor-ui.min': './assets/scss/anchor-ui.scss' // anchor-ui.min.css
     },
     productionSourceMap: false,
     publicPath: '/libs',
@@ -33,11 +34,6 @@ Object.keys(jsResource).forEach((name) => {
 // dev 环境引入编译后的 css
 Object.keys(cssResource).forEach((name) => {
   config.dev.entries['static/css/' + name] = cssResource[name]
-})
-
-// build 输出 anchor-ui-.min.css
-Object.keys(cssResource).forEach((name) => {
-  config.build.entries['css/' + name + '.min'] = cssResource[name]
 })
 
 module.exports = config
