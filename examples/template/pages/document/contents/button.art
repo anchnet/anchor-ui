@@ -1,6 +1,6 @@
 <h1 id="button" class="page-header">按钮</h1>
 <h2 id="button-tags">可作为按钮使用的标签或元素</h2>
-<div class="bs-example">
+<div class="bs-example" data-example-id="button-tags">
     <a class="btn btn-default" href="#" role="button">Link</a>
     <button class="btn btn-default" type="submit">Button</button>
     <input class="btn btn-default" type="button" value="Input">
@@ -8,49 +8,52 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h2 id="button-options">预定义样式</h2>
-<div class="bs-example">
+<h2 id="button-options" style="color: #ffffff">预定义样式</h2>
+<div class="bs-example" data-example-id="button-options">
     <p>
         <span>默认样式类：</span>
-        <!-- Standard button -->
+
         <button type="button" class="btn btn-default">btn-default</button>
-        <!-- Standard button (base)  -->
+
         <button type="button" class="btn btn-default-base">btn-default-base</button>
-        <!-- Standard button (primary)  -->
+
         <button type="button" class="btn btn-default-primary">btn-default-primary</button>
-        <!-- Standard button (gray)  -->
+
         <button type="button" class="btn btn-default-gray">btn-default-gray</button>
     </p>
     <p>
         <span>通用样式类：</span>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
         <button type="button" class="btn btn-primary">btn-primary</button>
+
         <button type="button" class="btn btn-primary-light">btn-primary-light</button>
+
         <button type="button" class="btn btn-primary-base">btn-primary-base</button>
+
         <button type="button" class="btn btn-primary-base-border">btn-primary-base-border</button>
     </p>
     <p>
         <span>功能样式类：</span>
-        <!-- Indicates a successful or positive action -->
+
         <button type="button" class="btn btn-success">(成功) Success</button>
-        <!-- Contextual button for informational alert messages -->
+
         <button type="button" class="btn btn-info">(一般信息) Info</button>
-        <!-- Indicates caution should be taken with this action -->
+
         <button type="button" class="btn btn-warning">(警告) Warning</button>
-        <!-- Indicates a dangerous or potentially negative action -->
+
         <button type="button" class="btn btn-danger">(危险) Danger</button>
-        <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
     </p>
     <p>
         <span>链接样式：</span>
+
         <button type="button" class="btn btn-link">(链接) Link</button>
     </p>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
 <h2 id="button-size">尺寸</h2>
-使用 <code>.btn-lg</code>、<code>.btn-sm</code> 或 <code>.btn-xs</code> 就可以获得不同尺寸的按钮。</p>
-<div class="bs-example">
+<p>使用<code>.btn-lg</code>、<code>.btn-sm</code> 或 <code>.btn-xs</code> 就可以获得不同尺寸的按钮。</p>
+<div class="bs-example" data-example-id="button-size">
     <p>
         <button type="button" class="btn btn-primary btn-lg">(大按钮) Large button</button>
         <button type="button" class="btn btn-default btn-lg">(大按钮) Large button</button>
@@ -70,7 +73,7 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 <p>通过给按钮添加<code>.btn-block</code>类可以将其拉伸至父元素100%的宽度，而且按钮也变为了块级（block）元素。</p>
-<div class="bs-example">
+<div class="bs-example" data-example-id="button-block">
     <button type="button" class="btn btn-primary btn-lg btn-block">（块级元素）Block level button</button>
     <button type="button" class="btn btn-default btn-lg btn-block">（块级元素）Block level button</button>
 </div>
@@ -88,7 +91,7 @@
 </p>
 <h4 id="button-status">button 元素</h4>
 <p>由于 <code>:active</code> 是伪状态，因此无需额外添加，但是在需要让其表现出同样外观的时候可以添加 <code>.active</code> 类。</p>
-<div class="bs-example">
+<div class="bs-example" data-example-id="button-active">
     <button type="button" class="btn btn-primary btn-lg active">Primary button</button>
     <button type="button" class="btn btn-default btn-lg active">Button</button>
 </div>
@@ -96,7 +99,7 @@
 
 <h2 id="button-disabled">禁用状态</h2>
 <p>为元素添加 <code>disabled</code> 或者 <code>.disabled</code> 样式，使其表现出禁用状态。</p>
-<div class="bs-example">
+<div class="bs-example" data-example-id="button-disabled">
     <button type="button" class="btn btn-default disabled">btn-default disabled</button>
     <button type="button" class="btn btn-default-base disabled">btn-default-base disabled</button>
     <button type="button" class="btn btn-primary-light disabled">btn-primary-light disabled</button>

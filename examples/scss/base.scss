@@ -77,6 +77,18 @@
   margin: -15px -15px 15px;
   border-width: 0 0 1px;
   border-radius: 0;
+  .hljs{
+    color: #4b556a;
+    .hljs-tag{
+      font-weight: bold;
+    }
+    .hljs-attr{
+      color: #E2003B;
+    }
+    .hljs-string{
+      color: #1d8a27;
+    }
+  }
 }
 
 /* Make the examples and snippets not full-width */
