@@ -1,0 +1,6 @@
+{
+  "index": "examples/resource/index.html",
+  "document": "examples/resource/document.html",
+  "layout": "examples/resource/layout.html",
+  "plugin": "examples/resource/plugin.html"
+}

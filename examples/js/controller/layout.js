@@ -1,4 +1,4 @@
-import { Main } from '../../template/pages/layout'
+import { Main } from 'examples/template/pages/layout'
 
 let data = {
   menus: [
