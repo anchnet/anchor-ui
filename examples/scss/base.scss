@@ -79,14 +79,17 @@
   border-radius: 0;
   .hljs{
     color: #4b556a;
+    font-weight: normal;
     .hljs-tag{
       font-weight: bold;
     }
     .hljs-attr{
       color: #E2003B;
+      font-weight: normal;
     }
     .hljs-string{
       color: #1d8a27;
+      font-weight: normal;
     }
   }
 }
