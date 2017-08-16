@@ -17,7 +17,8 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+  transition: color .2s, background-color .2s;
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-base, $line-height-base, $btn-border-radius-small);
   @include user-select(none);
 
   &,
@@ -47,7 +48,7 @@
   &[disabled],
   fieldset[disabled] & {
     cursor: $cursor-disabled;
-    @include opacity(.65);
+    color: $brand-tips !important;
     @include box-shadow(none);
   }
 
@@ -68,9 +69,35 @@ a.btn {
 .btn-default {
   @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
+.btn-default-primary {
+  @include button-variant-default-primary();
+  @include button-variant-disabled-border();
+}
+.btn-default-gray {
+  @include button-variant-default-gray();
+  @include button-variant-disabled-primary();
+}
+.btn-default-base {
+  @include button-variant-default-base();
+  @include button-variant-disabled-base();
+}
+
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
+.btn-primary-light {
+  @include button-variant-primary-light();
+  @include button-variant-disabled-primary();
+}
+.btn-primary-base {
+  @include button-variant-primary-base();
+  @include button-variant-disabled-primary();
+}
+.btn-primary-base-border {
+  @include button-variant-primary-base-border();
+  @include button-variant-disabled-primary();
+}
+
 // Success appears as green
 .btn-success {
   @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
@@ -115,7 +142,6 @@ a.btn {
   &:hover,
   &:focus {
     color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
     background-color: transparent;
   }
   &[disabled],

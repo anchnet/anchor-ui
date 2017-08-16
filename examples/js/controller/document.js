@@ -1,6 +1,6 @@
-import { Header, Footer } from '../../template'
-import { Main } from '../../template/pages/document'
-import Document from '../../js/src/document'
+import { Header, Footer } from 'examples/template'
+import { Main } from 'examples/template/pages/document'
+import Document from 'examples/js/src/document'
 
 document.getElementById('header').innerHTML = Header()
 document.getElementById('footer').innerHTML = Footer()

@@ -10,8 +10,7 @@ module.exports = merge(baseWebpackConfig, {
   output: {
     path: utils.webpackResolve('libs/'),
     publicPath: config.build.publicPath,
-    filename: '[name].js',
-    libraryTarget: 'commonjs2'
+    filename: '[name].js'
   },
 
   devtool: config.build.productionSourceMap ? '#source-map' : false,

@@ -1,4 +1,4 @@
-<div class="docs-header" id="content" tabindex="-1">
+<div class="docs-header" id="content">
 <div class="container">
   <h1>Anchor Rosso UI</h1>
   <p>基于 Bootstrap 的前端响应式框架 (Bootstrap@3.3.7)</p>

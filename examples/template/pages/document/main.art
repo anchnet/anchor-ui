@@ -1,35 +1,16 @@
 <div class="docs-header" id="content">
     <div class="container">
         <h1>文档</h1>
-        <p>本项目用于介绍 Anchor Rosso UI及其下载安装、使用方法等等。</p>
+        <p>介绍 Anchor Rosso UI 安装、下载、包含内容及使用方法等等</p>
+        <p class="version">
+            本文档主要内容来源于 Bootstrap 官方文档，如有疑问，可以查看
+            <a href="http://v3.bootcss.com/css/" target="_blank">官方文档</a>
+        </p>
     </div>
 </div>
 <div class="container container-fluid">
     <div class="row">
-        <div class="col-md-9" role="main">
-            <h1 id="button" class="page-header">按钮</h1>
-            <h2 id="button-tags">可作为按钮使用的标签或元素</h2>
-            <div class="bs-example">
-
-            </div>
-
-        </div>
-
-        <div class="col-md-3" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
-                <ul class="nav bs-docs-sidenav">
-                    <li>
-                        <a href="#button">按钮</a>
-                        <ul class="nav">
-                            <li><a href="#button-tags">可作为按钮使用的标签或元素</a></li>
-                            <li><a href="#overview-mobile">移动设备优先</a></li>
-                            <li><a href="#overview-type-links">排版与链接</a></li>
-                            <li><a href="#overview-normalize">Normalize.css</a></li>
-                            <li><a href="#overview-container">布局容器</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        {{include './contents.art'}}
+        {{include './sidebar.art'}}
     </div>
 </div>

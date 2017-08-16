@@ -3,6 +3,6 @@ import Sidebar from './src/sidebar'
 
 !function ($) {
   $.extend({
-    ANCHOR_VERSION: '0.0.6'
+    ANCHOR_VERSION: '0.1.3'
   })
 }(jQuery)

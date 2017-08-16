@@ -6,7 +6,8 @@ module.exports = {
     extensions: ['.js', '.scss', '.json'],
     modules: ['node_modules'],
     alias: {
-      'scss': utils.webpackResolve('/examples/src/scss')
+      'scss': utils.webpackResolve('examples/src/scss'),
+      'examples': utils.webpackResolve('examples')
     }
   },
 
