@@ -1,10 +1,10 @@
 <div class="docs-header" id="content">
     <div class="container">
-        <h2>文档</h2>
-        <p>介绍 Anchor Rosso UI 安装、下载、包含内容及使用方法等等</p>
+        <h2>插件</h2>
+        <p>介绍基于 Boostrap 的扩展插件及第三方插件的使用方法等等</p>
         <p class="version">
             本文档主要内容来源于 Bootstrap 官方文档，如有疑问，可以查看
-            <a href="http://v3.bootcss.com/css/" target="_blank">官方文档</a>
+            <a href="http://v3.bootcss.com/components/" target="_blank">官方文档</a>
         </p>
     </div>
 </div>

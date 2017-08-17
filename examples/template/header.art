@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container docs-top">
   <div class="navbar-header">
     <a href="../" class="navbar-brand">Anchor Rosso UI</a>
   </div>
@@ -6,8 +6,7 @@
     <ul class="nav navbar-nav">
       <li><a href="/document.html">文档</a></li>
       <li><a href="/layout.html">布局</a></li>
-      <li><a href="/route3">菜单三</a></li>
-      <li><a href="/route4">菜单四</a></li>
+      <li><a href="/plugin.html">插件</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>

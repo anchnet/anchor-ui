@@ -1,0 +1,7 @@
+{
+  "base": "./examples/scss/base.scss",
+  "index": "./examples/scss/index.scss",
+  "document": "./examples/scss/document.scss",
+  "layout": "./examples/scss/layout.scss",
+  "plugin": "./examples/scss/plugin.scss"
+}

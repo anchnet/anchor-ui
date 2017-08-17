@@ -1,0 +1,3 @@
+<div class="col-md-9" role="main">
+    {{include './contents/bootstrap-select.art'}}
+</div>

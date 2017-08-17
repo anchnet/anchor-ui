@@ -1,12 +1,12 @@
-const utils = require('./utils.js')
-const webpack = require('webpack')
 const merge = require('webpack-merge')
-const config = require('../config/index')
 const baseWebpackConfig = require('./webpack.base.conf')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const config = require('../config/index')
+const utils = require('./utils.js')
+const entry = require('./entry')
+const plugins = require('./plugins')
 
 module.exports = merge(baseWebpackConfig, {
-  entry: config.dev.entries,
+  entry: entry.dev,
 
   output: {
     path: utils.webpackResolve('dist/'),
@@ -39,30 +39,5 @@ module.exports = merge(baseWebpackConfig, {
     fs: 'empty'
   },
 
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': config.dev.env
-    }),
-
-    new HtmlWebpackPlugin({
-      template: utils.webpackResolve('examples/resource/index.html'),
-      inject: true,
-      chunks: ['home'],
-      filename: 'index.html'
-    }),
-
-    new HtmlWebpackPlugin({
-      template: utils.webpackResolve('examples/resource/document.html'),
-      inject: true,
-      chunks: ['document'],
-      filename: 'document.html'
-    }),
-
-    new HtmlWebpackPlugin({
-      template: utils.webpackResolve('examples/resource/layout.html'),
-      inject: true,
-      chunks: ['layout'],
-      filename: 'layout.html'
-    }),
-  ]
+  plugins: plugins.dev
 })

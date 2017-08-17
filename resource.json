@@ -1,0 +1,4 @@
+{
+  "js/anchor-ui": "./assets/js/index.js",
+  "css/anchor-ui": "./assets/scss/anchor-ui.scss"
+}
