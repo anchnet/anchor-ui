@@ -53,9 +53,7 @@ select.selectpicker {
   width: 220px;
 }
 .bootstrap-select .dropdown-toggle:focus {
-  outline: thin dotted #333333 !important;
-  outline: 5px auto -webkit-focus-ring-color !important;
-  outline-offset: -2px;
+  outline: 0;
 }
 .bootstrap-select.form-control {
   margin-bottom: 0;
