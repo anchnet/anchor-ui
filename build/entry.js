@@ -8,7 +8,7 @@ const entry = {
 }
 
 // dev 入口文件
-//环境引入编译后的 全局 js && css 文件
+// dev 环境引入编译后的 全局 js && css 文件
 Object.keys(resource).forEach((name) => {
   entry.dev['static/' + name] = resource[name]
 })
