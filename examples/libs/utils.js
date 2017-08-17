@@ -29,10 +29,8 @@ export default {
 
     let codeArr = code.split(/\r?\n/)
 
-    // 首行的开头空格数
+    // 首行和末行的开头空格数
     let firstLineSpaceLen = code.match(/^\s*/)[0].length
-
-    // 末行的开头空格数
     let lastLineSpaceLen = codeArr[codeArr.length - 1].match(/^\s*/)[0].length
 
     // 取较大的空格数并删除每行开头的此数量的空格
