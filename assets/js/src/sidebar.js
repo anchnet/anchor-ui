@@ -1,5 +1,5 @@
 /**
- * sidebar functions
+ * sidebar
  */
 
 const Sidebar = (($) => {
