@@ -1,4 +1,5 @@
 <h2 id="form" class="page-header">表单</h2>
+
 <h3 id="form-instance">基本实例</h3>
 <p>单独的表单控件会被自动赋予一些全局样式。所有设置了 <code>.form-control</code> 类的 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 元素都将被默认设置宽度属性为 <code>width: 100%;</code>。 将 <code>label</code> 元素和前面提到的控件包裹在 <code>.form-group</code> 中可以获得最好的排列。</p>
 <div  class="bs-example" data-example-id="form-instance">

@@ -1,0 +1,26 @@
+<h2 id="select" class="page-header">下拉菜单</h2>
+<p>
+    本插件基于<code>boostrap-select</code>第三方插件，使用方法已参考源文档
+    <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/examples/">点击访问</a>
+</p>
+<div class="bs-callout bs-callout-danger" id="callout-inline-form-width">
+    <h4>可能需要手动设置宽度</h4>
+    <p>在 Bootstrap 中，输入框和单选/多选框控件默认被设置为 <code>width: 100%;</code> 宽度。在内联表单，我们将这些元素的宽度设置为 <code>width: auto;</code>，因此，多个控件可以排列在同一行。根据你的布局需求，可能需要一些额外的定制化组件。</p>
+</div>
+
+<h3 id="select-standard">标准菜单</h3>
+<div class="bs-example" data-noGenerated="true" data-example-id="select-standard">
+    <select class="selectpicker">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select>
+</div>
+<figure class="highlight">
+    <pre><code data-decode="true">
+    <select class="Selectpicker">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select></code></pre>
+</figure>

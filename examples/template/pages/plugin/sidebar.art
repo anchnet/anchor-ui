@@ -1,21 +1,9 @@
 <div class="col-md-3">
     <ul class="nav sidenav">
         <li>
-            <a href="#button">按钮</a>
+            <a href="#select">下拉菜单</a>
             <ul class="nav nav-children">
-                <li><a href="#button-tags">可作为按钮使用的标签或元素</a></li>
-                <li><a href="#button-options">预定义样式</a></li>
-                <li><a href="#button-size">尺寸</a></li>
-                <li><a href="#button-active">激活状态</a></li>
-                <li><a href="#button-disabled">禁用状态</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#form">表单</a>
-            <ul class="nav nav-children">
-                <li><a href="#form-instance">基本实例</a></li>
-                <li><a href="#form-inline">内联表单</a></li>
-                <li><a href="#form-horizontal">水平排列的表单</a></li>
+                <li><a href="#select-standard">标准菜单</a></li>
             </ul>
         </li>
     </ul>
