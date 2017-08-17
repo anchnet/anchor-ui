@@ -16,7 +16,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: ['node_modules']
+        exclude: ['node_modules'],
+        query: {
+          compact: false  // 禁止 babel 大文件编译警告
+        }
       },
       {
         test: /\.scss$/,
@@ -46,6 +49,7 @@ module.exports = {
   },
 
   plugins: [
+    // https://github.com/webpack-contrib/extract-text-webpack-plugin
     new ExtractTextPlugin('[name].css')
   ]
 }
