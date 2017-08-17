@@ -358,7 +358,7 @@
     doneButtonText: 'Close',
     multipleSeparator: ', ',
     styleBase: 'btn',
-    style: 'btn-default',
+    style: 'btn-default-primary',
     size: 'auto',
     title: null,
     selectedTextFormat: 'values',

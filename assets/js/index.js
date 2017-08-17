@@ -1,5 +1,5 @@
 import '../bootstrap/javascripts/bootstrap'
-import '../libs/bootstrap-select/bootstrap-select.js'
+import '../libs/bootstrap-select/bootstrap-select'
 import './src/sidebar'
 
 !function ($) {

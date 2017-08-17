@@ -1,5 +1,4 @@
 import { Main } from 'examples/template/pages/layout'
-import Layout from 'examples/js/src/layout'
 
 let data = {
   menus: [

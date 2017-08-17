@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= htmlWebpackPlugin.options.templateOptions.title %></title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/anchor-ui.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.templateOptions.style %>">
+</head>
+<body>
+<header id="header"></header>
+<main id="main"></main>
+<footer id="footer"></footer>
+
+<script type="text/javascript" src="<%= htmlWebpackPlugin.options.templateOptions.render %>"></script>
+<script type="text/javascript" src="./libs/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./libs/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../assets/js/index.js"></script>
+</body>
+</html>

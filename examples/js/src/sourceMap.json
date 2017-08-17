@@ -1,0 +1,6 @@
+{
+  "index": "./examples/js/src/index.js",
+  "document": "./examples/js/src/document.js",
+  "layout": "./examples/js/src/layout.js",
+  "plugin": "./examples/js/src/plugin.js"
+}

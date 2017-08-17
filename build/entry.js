@@ -1,5 +1,6 @@
 const resource = require('../resource.json')
-const jsSourceMap = require('../examples/js/controller/sourceMap.json')
+const controllerSourceMap = require('../examples/js/controller/sourceMap.json')
+const srcSourceMap = require('../examples/js/src/sourceMap.json')
 const cssSourceMap = require('../examples/scss/sourceMap.json')
 
 const entry = {
@@ -12,9 +13,13 @@ const entry = {
 Object.keys(resource).forEach((name) => {
   entry.dev['static/' + name] = resource[name]
 })
-// dev 环境引入编译后的 js
-Object.keys(jsSourceMap).forEach((name) => {
-  entry.dev['static/js/' + name] = jsSourceMap[name]
+// dev 环境引入编译后的 js/controller
+Object.keys(controllerSourceMap).forEach((name) => {
+  entry.dev['static/js/controller/' + name] = controllerSourceMap[name]
+})
+// dev 环境引入编译后的 js/src
+Object.keys(srcSourceMap).forEach((name) => {
+  entry.dev['static/js/src/' + name] = srcSourceMap[name]
 })
 // dev 环境引入编译后的 css
 Object.keys(cssSourceMap).forEach((name) => {

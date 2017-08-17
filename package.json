@@ -7,6 +7,8 @@
     "start": "npm run watch",
     "watch": "webpack-dev-server --hot --inline --config build/webpack.dev.conf.js --progress --colors",
     "postwatch": "cp -rf ./examples/libs ./dist/libs",
+    "watch:static": "webpack --config build/webpack.dev.conf.js --progress --colors",
+    "prewatch:static": "rm -rf ./dist",
     "prebuild": "npm run clean",
     "build": "webpack -p --config build/webpack.prod.conf.js --progress --colors",
     "postbuild": "rm libs/css/anchor-ui.min.js",

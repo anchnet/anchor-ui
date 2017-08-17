@@ -4,12 +4,25 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const utils = require('./utils')
 const config = require('../config/index')
 const sourceMap = require('../examples/resource/sourceMap.json')
+const ExamplesMap = require('../examples/sourceMap.json')
 
 const plugins = {
   dev: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
+
+    // new HtmlWebpackPlugin({
+    //   templateOptions: {
+    //     title: 'template',
+    //     style: '/static/css/plugin.css',
+    //     render: '../js/controller/plugin.js',
+    //   },
+    //   template: utils.webpackResolve('./examples/template.ejs'),
+    //   filename: 'plugin.html',
+    //   chunks: ['plugin'],
+    //   inject: true
+    // })
   ],
 
   build: [
