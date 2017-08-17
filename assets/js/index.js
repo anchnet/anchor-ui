@@ -1,6 +1,6 @@
-import bootstrap from '../bootstrap/javascripts/bootstrap'
-import bootstrapSelect from '../libs/bootstrap-select/bootstrap-select.js'
-import Sidebar from './src/sidebar'
+import '../bootstrap/javascripts/bootstrap'
+import '../libs/bootstrap-select/bootstrap-select.js'
+import './src/sidebar'
 
 !function ($) {
   $.extend({

@@ -502,10 +502,10 @@
       var actionsbox = this.multiple && this.options.actionsBox ?
       '<div class="bs-actionsbox">' +
       '<div class="btn-group btn-group-sm btn-block">' +
-      '<button type="button" class="actions-btn bs-select-all btn btn-default">' +
+      '<button type="button" class="actions-btn bs-select-all btn btn-default-primary">' +
       this.options.selectAllText +
       '</button>' +
-      '<button type="button" class="actions-btn bs-deselect-all btn btn-default">' +
+      '<button type="button" class="actions-btn bs-deselect-all btn btn-default-primary">' +
       this.options.deselectAllText +
       '</button>' +
       '</div>' +
@@ -514,7 +514,7 @@
       var donebutton = this.multiple && this.options.doneButton ?
       '<div class="bs-donebutton">' +
       '<div class="btn-group btn-block">' +
-      '<button type="button" class="btn btn-sm btn-default">' +
+      '<button type="button" class="btn btn-sm btn-default-primary">' +
       this.options.doneButtonText +
       '</button>' +
       '</div>' +

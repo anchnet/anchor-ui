@@ -1,18 +1,24 @@
 import escape from './escape'
 
-export default {
+const utils = {
   generateCode () {
+    // 暴露 html
     $('.bs-example').each(function (key, dom) {
-      if (!$(this).attr('data-noGenerated')) {
-        let codeHtml = escape.decode($(dom).html())
-        $(dom).next('figure.highlight').find('code').html(codeHtml)
+      let $this = $(this)
+      if (!$this.attr('data-no-generated')) {
+        let $dom = $(dom), parsedHtml = ''
+        if ($dom.attr('data-code-type') === 'selectpicker') {
+          let $selectpicker = $dom.find('.selectpicker').clone()
+          let tempDOM = document.createElement('div')
+          $(tempDOM).append($selectpicker)
+          parsedHtml = utils.parseHtmlCode($(tempDOM).html())
+        } else {
+          parsedHtml = utils.parseHtmlCode($dom.html())
+        }
+        $(dom).next('figure.highlight').find('code').html(parsedHtml)
       }
     })
     $('figure.highlight code').each(function (i, block) {
-      if ($(this).attr('data-decode')) {
-        let codeHtml = escape.decode($(block).html())
-        $(block).html(codeHtml)
-      }
       hljs.highlightBlock(block)
     })
   },
@@ -41,3 +47,5 @@ export default {
     return code
   }
 }
+
+export default utils
