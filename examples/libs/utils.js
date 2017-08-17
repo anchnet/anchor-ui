@@ -45,6 +45,12 @@ const utils = {
 
     code = escape.decode(code)
     return code
+  },
+
+  /* 获取html内容（包含自身） */
+  getHtml (el) {
+    let $div = $('<div>').append($(el).clone())
+    return this.parseHtmlCode($div.html())
   }
 }
 
