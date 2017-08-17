@@ -1,5 +1,5 @@
 /**
- * sidebar style
+ * sidebar
  */
 
 @mixin menu-title {
@@ -24,7 +24,7 @@
   border-radius: 50%;
 }
 
-.sidebar {
+.app-sidebar {
   position: fixed;
   z-index: 50;
   width: 240px;

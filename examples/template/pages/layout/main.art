@@ -1,40 +1,91 @@
-<div class="sidebar" data-toggle="sidebar">
-  <div class="logo-wrapper">
-    <img class="logo" src="../../../img/sidebar-logo.svg">
-  </div>
-  <div class="menu-wrapper">
-    {{each menus as menu}}
-      <div class="menu-group">
-        <div class="menu-title">
-          <i class="default-dot"></i>
-          {{menu['title']}}
-        </div>
-        {{if menu['children']}}
-          {{each menu['children'] as subMenu}}
+<div class="app-sidebar" data-toggle="sidebar">
+    <div class="logo-wrapper">
+        <img class="logo" src="../../../img/sidebar-logo.svg">
+    </div>
+    <div class="menu-wrapper">
+        {{each menus as menu}}
+        <div class="menu-group">
+            <div class="menu-title">
+                <i class="default-dot"></i>
+                {{menu['title']}}
+            </div>
+            {{if menu['children']}}
+            {{each menu['children'] as subMenu}}
             <div class="menu-group">
-              {{if subMenu['children']}}
+                {{if subMenu['children']}}
                 <div class="menu-sub-title">
-                  <i class="default-dot"></i>
-                  {{subMenu['title']}}
+                    <i class="default-dot"></i>
+                    {{subMenu['title']}}
                 </div>
                 {{each subMenu['children'] as baseMenu}}
-                  <div class="menu-group">
+                <div class="menu-group">
                     <a class="menu-sub-title sub-2 {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
-                      <i class="default-dot"></i>
-                      {{baseMenu['title']}}
+                        <i class="default-dot"></i>
+                        {{baseMenu['title']}}
                     </a>
-                  </div>
+                </div>
                 {{/each}}
-              {{else}}
+                {{else}}
                 <a class="menu-sub-title" href="{{subMenu['link']}}">
-                  <i class="default-dot"></i>
-                  {{subMenu['title']}}
+                    <i class="default-dot"></i>
+                    {{subMenu['title']}}
                 </a>
-              {{/if}}
+                {{/if}}
             </div>
-          {{/each}}
-        {{/if}}
+            {{/each}}
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="app-main">
+  <div class="app-header">
+      <div class="pull-left">
+          <div class="nav-item">
+              <a class="nav-item-title" href="">控制台首页</a>
+          </div>
       </div>
-    {{/each}}
+      <div class="pull-right">
+          <div class="nav-item">
+              <a class="nav-item-title" href="">消息</a>
+          </div>
+          <div class="nav-item dropdown">
+              <span id="headerSupport" class="nav-item-title" data-toggle="dropdown">
+                  帮助与服务
+                  <span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu" aria-labelledby="headerSupport">
+                  <li><a href="">帮助</a></li>
+                  <li><a href="">服务</a></li>
+              </ul>
+          </div>
+          <div class="nav-item dropdown">
+              <span id="headerAccount" class="nav-item-title" data-toggle="dropdown">
+                  fe@51idc.com
+                  <span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu" aria-labelledby="headerAccount">
+                  <li><a href="">用户信息</a></li>
+                  <li><a href="">注销</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <div class="app-body">
+    <div class="app-block">
+      <h3>基础布局</h3>
+      <div class="bs-example">本页布局</div>
+      <figure id="layoutCode" class="highlight"></figure>
+
+      <h3>侧边栏</h3>
+      <div class="bs-example">← 请看左边</div>
+      <figure id="sidebarCode" class="highlight"></figure>
+
+      <h3>顶部</h3>
+      <div class="bs-example">↑ 请看上面</div>
+      <figure id="headerCode" class="highlight"></figure>
+    </div>
   </div>
 </div>

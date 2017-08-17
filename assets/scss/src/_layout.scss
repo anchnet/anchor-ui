@@ -1,0 +1,22 @@
+.app-main {
+  position: relative;
+  height: 100%;
+  margin-left: 240px;
+}
+
+.app-body {
+  position: relative;
+  height: calc(100% - 54px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #EEF0F6;
+}
+
+.app-block {
+  position: relative;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #FFF;
+  box-shadow: 0 0 5px rgba(210, 208, 208, 0.5);
+}

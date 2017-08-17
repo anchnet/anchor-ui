@@ -15,5 +15,15 @@ export default {
       }
       hljs.highlightBlock(block)
     })
+  },
+
+  parseHtmlCode (html) {
+    let code = html
+    code = code.replace(/data:image\/svg\+xml;base64[^"]+/g, '...')
+    code = code.replace(/^\s*[\r\n]/gm, '').replace(/^\s*$/gm, '')
+    let spaceLen = code.match(/^\s*/)[0].length
+    code = code.replace(new RegExp(`^\\s{${spaceLen}}`, 'gm'), '')
+    code = escape.decode(code)
+    return code
   }
 }
