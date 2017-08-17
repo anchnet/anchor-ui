@@ -1,31 +1,42 @@
-import escape from 'examples/libs/escape'
+import utils from 'examples/libs/utils'
 
 /* 插入代码 */
 const insertCode = (code) => `<pre><code>${code}</code></pre>`
-const getHtml = (el) => escape.decode($(el).clone().appendTo('<div>').html())
+const getHtml = (el) => {
+  let $el = $(el).clone()
+  $el.find('.menu-group').removeAttr('style')
+  $el.find('.menu-dot').remove()
+  $el.find('.menu-triangle').remove()
+  let $div = $('<div>').append($el)
+  return utils.parseHtmlCode($div.html())
+}
 
 $(document).ready(function () {
-  /* 布局代码 */
+  /* 布局模板 */
   let layoutTemplate = `
-    <div class="app-sidebar" data-toggle="sidebar"></div>
-    <div class="app-wrapper">
-      <div class="app-header"></div>
-      <div class="app-body">
-        <div class="app-block">
-          ...
+    <body style="height: 100%; overflow: hidden;">
+        <div class="app-sidebar" data-toggle="sidebar">
+            ...
         </div>
-      </div>
-    </div>
+        <div class="app-main">
+            <div class="app-header">
+                ...
+            </div>
+            <div class="app-body">
+                <div class="app-block">
+                    ...
+                </div>
+            </div>
+        </div>
+    </body>
   `
-  $('#layoutCode').html(insertCode(escape.decode(layoutTemplate)))
 
-  /* 侧边栏代码 */
+  /* 插入代码 */
+  $('#layoutCode').html(insertCode(utils.parseHtmlCode(layoutTemplate)))
   $('#sidebarCode').html(insertCode(getHtml('.app-sidebar')))
-
-  /* 顶部代码 */
   $('#headerCode').html(insertCode(getHtml('.app-header')))
 
-  /* 代码高亮 */
+  /* 代码高亮初始化 */
   $('figure.highlight code').each(function(i, block) {
     hljs.highlightBlock(block)
   })
