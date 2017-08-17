@@ -1,9 +1,12 @@
+$color-primary: #E2003B;
+$color-base: #4b556a;
+
 #header{
   .navbar-brand{
     font-weight: bold;
   }
   a{
-    color: #4b556a;
+    color: $color-base;
   }
 }
 
@@ -47,7 +50,7 @@
 .sidenav{
   > li{
     > a{
-      color: #4b556a;
+      color: $color-base;
       font-weight: bold;
     }
   }
@@ -56,7 +59,7 @@
       > a{
         padding: 5px 20px;
         font-size: 12px;
-        color: #4b556a;
+        color: $color-base;
       }
     }
   }
@@ -97,13 +100,13 @@
   border-width: 0 0 1px;
   border-radius: 0;
   .hljs{
-    color: #4b556a;
+    color: $color-base;
     font-weight: normal;
     .hljs-tag{
       font-weight: bold;
     }
     .hljs-attr{
-      color: #E2003B;
+      color: $color-primary;
       font-weight: normal;
     }
     .hljs-string{
@@ -231,3 +234,17 @@
   max-width: 400px;
 }
 /* Examples --end-- */
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.bs-callout-danger {
+  border-left-color: $color-primary;
+  h4{
+    color: $color-primary;
+  }
+}
