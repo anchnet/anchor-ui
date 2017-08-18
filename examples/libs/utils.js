@@ -18,9 +18,20 @@ const utils = {
         $(dom).next('figure.highlight').find('code').html(parsedHtml)
       }
     })
-    $('figure.highlight code').each(function (i, block) {
+    this.highlightCode()
+  },
+
+  /* 代码高亮 */
+  highlightCode (el = 'figure.highlight code') {
+    let $el = el instanceof jQuery ? el : $(el)
+    $el.each(function (i, block) {
       hljs.highlightBlock(block)
     })
+  },
+
+  /* 插入代码标签 */
+  insertCode (code) {
+    return `<pre><code>${code}</code></pre>`
   },
 
   /* 将html转化为code并美化 */
