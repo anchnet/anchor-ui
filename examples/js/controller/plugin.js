@@ -6,4 +6,6 @@ document.getElementById('footer').innerHTML = Footer()
 
 document.getElementById('main').innerHTML = Main()
 
-// import 'examples/js/src/plugin'
+import utils from 'examples/libs/utils'
+
+utils.generateCode()
