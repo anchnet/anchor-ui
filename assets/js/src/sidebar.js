@@ -13,6 +13,7 @@ const Sidebar = (($) => {
   const DATA_KEY = 'anchor.sidebar'
   const EVENT_KEY = `.${DATA_KEY}`
   const DATA_API_KEY = '.data-api'
+  const DATA_HIERARCHY = '[data-hierarchy]'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
   const TRANSITION_UNIT_DURATION = 1.2
 
@@ -25,6 +26,7 @@ const Sidebar = (($) => {
 
   const Selector = {
     DATA_SIDEBAR: '[data-toggle="sidebar"]',
+    MENU_WRAPPER: '.menu-wrapper',
     MENU_GROUP: '.menu-group',
     MENU_TITLE: '.menu-title',
     MENU_SUB_TITLE: '.menu-sub-title',
@@ -60,6 +62,38 @@ const Sidebar = (($) => {
 
     init () {
       let _class = this
+
+      let hierarchies = []
+
+      this.$root.find(Selector.MENU_TITLE).each(function (i) {
+        let $menuGroup = $(this).closest(Selector.MENU_GROUP)
+        let groupNum = $(this).parents(Selector.MENU_GROUP).length
+
+        while ($menuGroup.find(Selector.MENU_TITLE).length <= 1 && groupNum > 0) {
+          groupNum -= 1
+          $menuGroup = $menuGroup.parent().closest(Selector.MENU_GROUP)
+        }
+
+        let isFirst = $(this).index($menuGroup.find(Selector.MENU_TITLE)) === 0
+        let hierarchyNum = groupNum + (isFirst ? 0 : 1)
+
+        if (!hierarchies[hierarchyNum]) hierarchies[hierarchyNum] = []
+        hierarchies[hierarchyNum].push(this)
+      })
+
+      let hierarchyCount = 0
+      hierarchies.forEach((hierarchyItems) => {
+        if (!hierarchyItems) return
+        hierarchyItems.forEach((element) => {
+          if (hierarchyCount) {
+            $(element)
+              .addClass(this._getNameFromClass(Selector.MENU_SUB_TITLE))
+              .removeClass(this._getNameFromClass(Selector.MENU_TITLE))
+            if (hierarchyCount > 1) $(element).addClass(`sub-${hierarchyCount}`)
+          }
+        })
+        hierarchyCount ++
+      })
 
       this.$root.find(Selector.MENU_TITLE).append(`<i class="${_class._getNameFromClass(Selector.MENU_DOT)}"></i>`)
       this.$root.find(Selector.MENU_SUB_TITLE).each(function () {
@@ -168,6 +202,8 @@ const Sidebar = (($) => {
 
       if (!$(target).length) return
       if ($(this).attr('href')) return
+
+      event.preventDefault()
 
       let config = $.extend({}, $(target).data())
       Sidebar._jQueryInterface.call($(target), config)
