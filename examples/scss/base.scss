@@ -63,6 +63,13 @@ $color-base: #4b556a;
       }
     }
   }
+  .return-top{
+    font-size: 12px;
+    color: $color-primary;
+    &:hover{
+      background-color: transparent;
+    }
+  }
 }
 
 

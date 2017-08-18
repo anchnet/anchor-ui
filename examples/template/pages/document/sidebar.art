@@ -18,5 +18,6 @@
                 <li><a href="#form-horizontal">水平排列的表单</a></li>
             </ul>
         </li>
+        <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>
 </div>

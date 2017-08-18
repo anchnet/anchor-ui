@@ -6,6 +6,6 @@ $(document).ready(function () {
 
   console.log('ANCHOR_VERSION: ' + $.ANCHOR_VERSION)
 
-  _public.smoothScroll()
   _public.fixedNavSidebar()
+  _public.smoothScroll()
 })

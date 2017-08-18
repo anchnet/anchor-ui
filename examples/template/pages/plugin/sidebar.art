@@ -25,5 +25,6 @@
                 <li><a href="#select-disabled-group">禁用指定组</a></li>
             </ul>
         </li>
+        <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>
 </div>
