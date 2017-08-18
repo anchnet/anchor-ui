@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <ul class="nav sidenav">
+    <ul id="nav-slidebar" class="nav sidenav">
         <li>
             <a href="#button">按钮</a>
             <ul class="nav nav-children">

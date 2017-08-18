@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <ul class="nav sidenav">
+    <ul id="nav-slidebar" class="nav sidenav">
         <li>
             <a href="#select">下拉菜单</a>
             <ul class="nav nav-children">

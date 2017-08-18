@@ -5,6 +5,10 @@ class Utils {
     this.generateCode.bind(this)
   }
 
+  getSelector (el) {
+    return el instanceof jQuery ? el : $(el)
+  }
+
   generateCode () {
     let _this = this
     // 暴露 html 到前端页面
@@ -31,7 +35,7 @@ class Utils {
 
   /* 代码高亮 */
   highlightCode (el = 'figure.highlight code') {
-    let $el = el instanceof jQuery ? el : $(el)
+    let $el = this.getSelector(el)
     $el.each(function (i, block) {
       hljs.highlightBlock(block)
     })
@@ -71,7 +75,7 @@ class Utils {
 
   /* 获取html内容（包含自身） */
   getHtml (el) {
-    let $el = el instanceof jQuery ? el : $(el)
+    let $el = this.getSelector(el)
     let html = $('<div>').append($el.clone()).html()
     return html
   }
