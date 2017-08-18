@@ -129,3 +129,41 @@
     </div>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="select-disabled" class="page-header">禁用状态</h2>
+
+<h3 id="select-disabled-standard" class="page-header">标准用法</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-disabled-standard">
+    <select class="selectpicker" disabled="true">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="select-disabled-item" class="page-header">禁用指定子列</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-disabled-item">
+    <select class="selectpicker">
+        <option>Mustard</option>
+        <option disabled="true">Ketchup</option>
+        <option>Relish</option>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="select-disabled-group" class="page-header">禁用指定组</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-disabled-group">
+    <select class="selectpicker test">
+        <optgroup label="Picnic" disabled="true">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+        </optgroup>
+        <optgroup label="Camping">
+            <option>Tent</option>
+            <option>Flashlight</option>
+            <option>Toilet Paper</option>
+        </optgroup>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>

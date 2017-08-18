@@ -1,6 +1,6 @@
 import escape from './escape'
 
-const utils = {
+class Utils {
   generateCode () {
     // 暴露 html 到前端页面
     $('.bs-example').each(function (key, dom) {
@@ -11,18 +11,18 @@ const utils = {
         // 对 bootstrap-select 插件代码进行差异化处理
         if ($dom.attr('data-code-type') === 'selectpicker') {
           // 获取.selectpicker DOM 节点，并在相邻 DOM 间插入回车换行符
-          parsedHtml = utils.getHtml($dom.find('.selectpicker')).replace(/\/select>[ |\r|\n]*<select/gm, '/select>\r\n<select')
+          parsedHtml = this.getHtml($dom.find('.selectpicker')).replace(/\/select>[ |\r|\n]*<select/gm, '/select>\r\n<select')
           // 转义 DOM 节点
-          parsedHtml = utils.parseHtmlCode(parsedHtml)
+          parsedHtml = this.parseHtmlCode(parsedHtml)
         } else {
-          parsedHtml = utils.parseHtmlCode($dom.html())
+          parsedHtml = this.parseHtmlCode($dom.html())
         }
         // 高亮代码（基于 highlight 插件）
         $dom.next('figure.highlight').find('code').html(parsedHtml)
       }
     })
     this.highlightCode()
-  },
+  }
 
   /* 代码高亮 */
   highlightCode (el = 'figure.highlight code') {
@@ -30,12 +30,12 @@ const utils = {
     $el.each(function (i, block) {
       hljs.highlightBlock(block)
     })
-  },
+  }
 
   /* 插入代码标签 */
   insertCode (code) {
     return `<pre><code>${code}</code></pre>`
-  },
+  }
 
   /* 将html转化为code并美化 */
   parseHtmlCode (html, options = {}) {
@@ -62,7 +62,7 @@ const utils = {
 
     code = escape.decode(code)
     return code
-  },
+  }
 
   /* 获取html内容（包含自身） */
   getHtml (el) {
@@ -70,6 +70,10 @@ const utils = {
     let html = $('<div>').append($el.clone()).html()
     return html
   }
+}
+
+function utils () {
+  return new Utils()
 }
 
 export default utils

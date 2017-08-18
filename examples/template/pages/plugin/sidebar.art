@@ -17,5 +17,13 @@
         </li>
         <li><a href="#select-limit">限制多选菜单</a></li>
         <li><a href="#select-width">自定义宽度模式</a></li>
+        <li>
+            <a href="#select-disabled">禁用状态</a>
+            <ul class="nav nav-children">
+                <li><a href="#select-disabled-standard">标准状态</a></li>
+                <li><a href="#select-disabled-item">禁用指定子列</a></li>
+                <li><a href="#select-disabled-group">禁用指定组</a></li>
+            </ul>
+        </li>
     </ul>
 </div>

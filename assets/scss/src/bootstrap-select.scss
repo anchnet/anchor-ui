@@ -7,6 +7,16 @@
             color: $brand-primary;
           }
         }
+        &.disabled {
+          > a{
+            &:hover{
+              background-color: #ffffff;
+              span.text{
+                color: $gray-light;
+              }
+            }
+          }
+        }
         > a{
           &:hover{
             background-color: $brand-primary-background;
