@@ -83,16 +83,17 @@ const Sidebar = (($) => {
 
       let hierarchyCount = 0
       hierarchies.forEach((hierarchyItems) => {
-        if (!hierarchyItems) return
-        hierarchyItems.forEach((element) => {
-          if (hierarchyCount) {
-            $(element)
-              .addClass(this._getNameFromClass(Selector.MENU_SUB_TITLE))
-              .removeClass(this._getNameFromClass(Selector.MENU_TITLE))
-            if (hierarchyCount > 1) $(element).addClass(`sub-${hierarchyCount}`)
-          }
-        })
-        hierarchyCount ++
+        if (hierarchyItems) {
+          hierarchyItems.forEach((element) => {
+            if (hierarchyCount) {
+              $(element)
+                .addClass(this._getNameFromClass(Selector.MENU_SUB_TITLE))
+                .removeClass(this._getNameFromClass(Selector.MENU_TITLE))
+              if (hierarchyCount > 1) $(element).addClass(`sub-${hierarchyCount}`)
+            }
+          })
+          hierarchyCount ++
+        }
       })
 
       this.$root.find(Selector.MENU_TITLE).append(`<i class="${_class._getNameFromClass(Selector.MENU_DOT)}"></i>`)
