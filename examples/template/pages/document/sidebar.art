@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <ul class="nav sidenav">
+    <ul id="nav-slidebar" class="nav sidenav">
         <li>
             <a href="#button">按钮</a>
             <ul class="nav nav-children">
@@ -18,5 +18,6 @@
                 <li><a href="#form-horizontal">水平排列的表单</a></li>
             </ul>
         </li>
+        <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>
 </div>

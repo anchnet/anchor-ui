@@ -1,4 +1,5 @@
 import utils from 'examples/libs/utils'
+import _public from './_public'
 
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip()
@@ -7,4 +8,7 @@ $(document).ready(function () {
   console.log('ANCHOR_VERSION: ' + $.ANCHOR_VERSION)
 
   utils.generateCode()
+
+  _public.fixedNavSidebar()
+  _public.smoothScroll()
 })
