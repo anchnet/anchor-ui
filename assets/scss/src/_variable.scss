@@ -23,7 +23,7 @@ $brand-tips:            #89909a !default;
 $brand-border:          #d4d4d4 !default;
 
 /* primary */
-$brand-primary-background:       lighten($brand-primary-light, 8%);
+$brand-primary-background:       lighten($brand-primary-light, 10%);
 $brand-primary-border:           $brand-primary-light;
 
 /* 状态 */
@@ -122,9 +122,9 @@ $border-radius-large:       6px !default;
 $border-radius-small:       2px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
-$component-active-color:    #fff !default;
+$component-active-color:    $brand-primary !default;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $brand-primary !default;
+$component-active-bg:       $brand-primary-background !default;
 
 //** Width of the `border` for generating carets that indicate dropdowns.
 $caret-width-base:          4px !default;

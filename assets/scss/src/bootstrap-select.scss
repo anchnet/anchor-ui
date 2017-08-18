@@ -1,0 +1,21 @@
+.bootstrap-select{
+  &.btn-group{
+    .dropdown-menu{
+      li{
+        &.selected {
+          span.text {
+            color: $brand-primary;
+          }
+        }
+        > a{
+          &:hover{
+            background-color: $brand-primary-background;
+            span.text{
+              color: $brand-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

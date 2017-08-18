@@ -4,7 +4,18 @@
             <a href="#select">下拉菜单</a>
             <ul class="nav nav-children">
                 <li><a href="#select-standard">标准菜单</a></li>
+                <li><a href="#select-group">分组菜单</a></li>
+                <li><a href="#select-multiple">多选菜单</a></li>
             </ul>
         </li>
+        <li>
+            <a href="#select-search">下拉搜索菜单</a>
+            <ul class="nav nav-children">
+                <li><a href="#select-search-live">标准搜索菜单</a></li>
+                <li><a href="#select-search-keyword">自定义关键字搜索菜单</a></li>
+            </ul>
+        </li>
+        <li><a href="#select-limit">限制多选菜单</a></li>
+        <li><a href="#select-width">自定义宽度模式</a></li>
     </ul>
 </div>

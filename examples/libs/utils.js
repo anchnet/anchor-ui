@@ -2,18 +2,23 @@ import escape from './escape'
 
 const utils = {
   generateCode () {
-    // 暴露 html
+    // 暴露 html 到前端页面
     $('.bs-example').each(function (key, dom) {
       let $this = $(this)
+      // 是否进行代码暴露
       if (!$this.attr('data-no-generated')) {
-        let $dom = $(dom), parsedHtml = ''
+        let parsedHtml = '', $dom = $(dom)
+        // 对 bootstrap-select 插件代码进行差异化处理
         if ($dom.attr('data-code-type') === 'selectpicker') {
-          parsedHtml = utils.getHtml($dom.find('.selectpicker'))
+          // 获取.selectpicker DOM 节点，并在相邻 DOM 间插入回车换行符
+          parsedHtml = utils.getHtml($dom.find('.selectpicker')).replace(/\/select>[ |\r|\n]*<select/gm, '/select>\r\n<select')
+          // 转义 DOM 节点
           parsedHtml = utils.parseHtmlCode(parsedHtml)
         } else {
           parsedHtml = utils.parseHtmlCode($dom.html())
         }
-        $(dom).next('figure.highlight').find('code').html(parsedHtml)
+        // 高亮代码（基于 highlight 插件）
+        $dom.next('figure.highlight').find('code').html(parsedHtml)
       }
     })
     this.highlightCode()
@@ -33,7 +38,7 @@ const utils = {
   },
 
   /* 将html转化为code并美化 */
-  parseHtmlCode (html) {
+  parseHtmlCode (html, options = {}) {
     let code = html
 
     // base64图片替换为...
@@ -51,6 +56,9 @@ const utils = {
     // 取较大的空格数并删除每行开头的此数量的空格
     let spaceLen = Math.max(firstLineSpaceLen, lastLineSpaceLen)
     code = code.replace(new RegExp(`^\\s{${spaceLen}}`, 'gm'), '')
+
+    // 是否在开头加入换行符
+    if (options.unshiftNewLine) code = '\r\n' + code
 
     code = escape.decode(code)
     return code

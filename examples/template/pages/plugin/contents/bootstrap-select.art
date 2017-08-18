@@ -1,11 +1,13 @@
 <h2 id="select" class="page-header">下拉菜单</h2>
-<p>
-    本插件基于<code>boostrap-select</code>第三方插件，使用方法已参考源文档
-    <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/examples/">点击访问</a>
-</p>
-<div class="bs-callout bs-callout-danger" id="callout-inline-form-width">
-    <h4>可能需要手动设置宽度</h4>
-    <p>在 Bootstrap 中，输入框和单选/多选框控件默认被设置为 <code>width: 100%;</code> 宽度。在内联表单，我们将这些元素的宽度设置为 <code>width: auto;</code>，因此，多个控件可以排列在同一行。根据你的布局需求，可能需要一些额外的定制化组件。</p>
+
+
+<div class="bs-callout bs-callout-danger">
+    <h4>bootstrap-select 插件说明</h4>
+    <p>
+        本插件基于<code>boostrap-select</code>第三方插件，文档来源于其官方文档，如有不全，请
+        <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/examples/">点击访问</a>
+        官方页面
+    </p>
 </div>
 
 <h3 id="select-standard">标准菜单</h3>
@@ -15,5 +17,115 @@
         <option>Ketchup</option>
         <option>Relish</option>
     </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="select-group">分组菜单</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-group">
+    <select class="selectpicker">
+        <optgroup label="Picnic">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </optgroup>
+        <optgroup label="Camping">
+            <option>Tent</option>
+            <option>Flashlight</option>
+            <option>Toilet Paper</option>
+        </optgroup>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="select-multiple">多选菜单</h2>
+
+<h3 id="select-multiple-standard">多选菜单</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-multiple-standard">
+    <select class="selectpicker" multiple="true">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="select-search" class="page-header">下拉搜索菜单 🔍</h2>
+<h3 id="select-search-live">基本搜索框</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-search-live">
+    <select class="selectpicker" data-live-search="true">
+        <option>Hot Dog, Fries and a Soda</option>
+        <option>Burger, Shake and a Smile</option>
+        <option>Sugar, Spice and all things nice</option>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="select-search-keyword">自定义关键字的搜索框</h3>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-search-keyword">
+    <select class="selectpicker" data-live-search="true">
+        <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+        <option data-tokens="mustard">Burger, Shake and a Smile</option>
+        <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="select-limit" class="page-header">限制性菜单</h2>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-limit">
+    <select class="selectpicker" multiple="true" data-max-options="2">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select>
+
+    <select class="selectpicker" multiple="true">
+        <optgroup label="Condiments" data-max-options="2">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </optgroup>
+        <optgroup label="Breads" data-max-options="2">
+            <option>Plain</option>
+            <option>Steamed</option>
+            <option>Toasted</option>
+        </optgroup>
+    </select>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h2 id="select-width" class="page-header">自定义宽度模式</h2>
+<div class="bs-example" data-code-type="selectpicker" data-example-id="select-width">
+    <div>
+        <h5>width: 'auto'</h5>
+        <select class="selectpicker" data-width="auto">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </select>
+    </div>
+    <div>
+        <h5>width: 'fit'</h5>
+        <select class="selectpicker" data-width="fit">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </select>
+    </div>
+    <div>
+        <h5>width: '100px'</h5>
+        <select class="selectpicker" data-width="100px">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </select>
+    </div>
+    <div>
+        <h5>width: '75%'</h5>
+        <select class="selectpicker" data-width="75%">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </select>
+    </div>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
