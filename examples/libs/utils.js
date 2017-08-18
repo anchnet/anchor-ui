@@ -1,7 +1,12 @@
 import escape from './escape'
 
 class Utils {
+  constructor () {
+    this.generateCode.bind(this)
+  }
+
   generateCode () {
+    let _this = this
     // 暴露 html 到前端页面
     $('.bs-example').each(function (key, dom) {
       let $this = $(this)
@@ -11,11 +16,11 @@ class Utils {
         // 对 bootstrap-select 插件代码进行差异化处理
         if ($dom.attr('data-code-type') === 'selectpicker') {
           // 获取.selectpicker DOM 节点，并在相邻 DOM 间插入回车换行符
-          parsedHtml = this.getHtml($dom.find('.selectpicker')).replace(/\/select>[ |\r|\n]*<select/gm, '/select>\r\n<select')
+          parsedHtml = _this.getHtml($dom.find('.selectpicker')).replace(/\/select>[ |\r|\n]*<select/gm, '/select>\r\n<select')
           // 转义 DOM 节点
-          parsedHtml = this.parseHtmlCode(parsedHtml)
+          parsedHtml = _this.parseHtmlCode(parsedHtml)
         } else {
-          parsedHtml = this.parseHtmlCode($dom.html())
+          parsedHtml = _this.parseHtmlCode($dom.html())
         }
         // 高亮代码（基于 highlight 插件）
         $dom.next('figure.highlight').find('code').html(parsedHtml)
@@ -72,8 +77,4 @@ class Utils {
   }
 }
 
-function utils () {
-  return new Utils()
-}
-
-export default utils
+export default new Utils()
