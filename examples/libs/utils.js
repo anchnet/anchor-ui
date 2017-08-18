@@ -59,8 +59,8 @@ const utils = {
   /* 获取html内容（包含自身） */
   getHtml (el) {
     let $el = el instanceof jQuery ? el : $(el)
-    let $div = $('<div>').append($el.clone())
-    return $div.html()
+    let html = $('<div>').append($el.clone()).html()
+    return html
   }
 }
 
