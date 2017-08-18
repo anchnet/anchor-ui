@@ -8,10 +8,8 @@ const utils = {
       if (!$this.attr('data-no-generated')) {
         let $dom = $(dom), parsedHtml = ''
         if ($dom.attr('data-code-type') === 'selectpicker') {
-          let $selectpicker = $dom.find('.selectpicker').clone()
-          let tempDOM = document.createElement('div')
-          $(tempDOM).append($selectpicker)
-          parsedHtml = utils.parseHtmlCode($(tempDOM).html())
+          parsedHtml = utils.getHtml($dom.find('.selectpicker'))
+          parsedHtml = utils.parseHtmlCode(parsedHtml)
         } else {
           parsedHtml = utils.parseHtmlCode($dom.html())
         }
@@ -60,8 +58,9 @@ const utils = {
 
   /* 获取html内容（包含自身） */
   getHtml (el) {
-    let $div = $('<div>').append($(el).clone())
-    return this.parseHtmlCode($div.html())
+    let $el = el instanceof jQuery ? el : $(el)
+    let $div = $('<div>').append($el.clone())
+    return $div.html()
   }
 }
 
