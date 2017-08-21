@@ -15,7 +15,7 @@ const Sidebar = (($) => {
   const DATA_API_KEY = '.data-api'
   const DATA_HIERARCHY = '[data-hierarchy]'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  const TRANSITION_UNIT_DURATION = 1.2
+  const TRANSITION_UNIT_DURATION = 13.5
 
   const Default = {}
 
@@ -33,7 +33,8 @@ const Sidebar = (($) => {
     MENU_DOT: '.menu-dot',
     MENU_TRIANGLE: '.menu-triangle',
     ACTIVE: '.active',
-    SELECTED: '.selected'
+    SELECTED: '.selected',
+    NO_TRANSITION: '.no-transition'
   }
 
   /**
@@ -119,6 +120,7 @@ const Sidebar = (($) => {
           else if ($el.attr('href')) return
           else if ($menuTitle.length) return
 
+          $el.addClass(_class._getNameFromClass(Selector.NO_TRANSITION))
           _class.toggleMenuGroup($el[0], false)
         })
         $selected.parents(Selector.MENU_GROUP).each(function () {
@@ -152,12 +154,15 @@ const Sidebar = (($) => {
       if (transition) {
         let heightDiff = targetHeight - currentHeight
         if (heightDiff < 0) heightDiff = heightDiff * -1
-        transitionDuration = TRANSITION_UNIT_DURATION * heightDiff
+        transitionDuration = TRANSITION_UNIT_DURATION * Math.sqrt(heightDiff)
       } else {
         transitionDuration = 0
       }
 
       $element.toggleClass(activeClass)
+      setTimeout(() => {
+        $element.removeClass(this._getNameFromClass(Selector.NO_TRANSITION))
+      }, 0)
       $menuGroup.animate({height: targetHeight}, transitionDuration, () => {
         if (isActive) {}
         else {
