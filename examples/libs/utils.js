@@ -5,6 +5,37 @@ class Utils {
     this.generateCode.bind(this)
   }
 
+  /**
+   * 伪链式操作
+   *
+   * 使用姿势：utils.chain('text', 'utilA', ['utilB', 'paramA', 'paramB'], customUtil)
+   */
+  chain (...args) {
+    if (args.length < 2) return args[0]
+    let major = args.shift()
+
+    args.forEach((ring) => {
+      let func
+      let params
+
+      if (Array.isArray(ring)) {
+        func = ring.shift()
+        params = [major, ...ring]
+      } else {
+        func = ring
+        params = [major]
+      }
+
+      if (this[func] !== undefined) {
+        func = this[func].bind(this)
+      }
+
+      major = func(...params)
+    })
+
+    return major
+  }
+
   getSelector (el) {
     return el instanceof jQuery ? el : $(el)
   }
