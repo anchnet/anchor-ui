@@ -18,7 +18,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 $brand-primary:         #E2003B !default;
 $brand-primary-light:   #F2CBD5 !default;
 $brand-base:            #4b556a !default;
-$brand-base-background: #f3f4f5 !default;
+$brand-base-background: #f5f5f5 !default;
 $brand-tips:            #89909a !default;
 $brand-border:          #d4d4d4 !default;
 
@@ -445,9 +445,9 @@ $nav-tabs-border-color:                     #ddd !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
-$nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $gray !default;
-$nav-tabs-active-link-hover-border-color:   #ddd !default;
+$nav-tabs-active-link-hover-bg:             #ffffff !default;
+$nav-tabs-active-link-hover-color:          $brand-primary !default;
+$nav-tabs-active-link-hover-border-color:   #d4d4d4 !default;
 
 $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;

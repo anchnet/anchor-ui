@@ -2129,6 +2129,10 @@ if (typeof jQuery === 'undefined') {
       && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length)
 
     function next() {
+      if (container.hasClass('nav-tabs-primary')) {
+        $active.find('i.triangle-down').remove()
+      }
+
       $active
         .removeClass('active')
         .find('> .dropdown-menu > .active')
@@ -2141,6 +2145,15 @@ if (typeof jQuery === 'undefined') {
         .addClass('active')
         .find('[data-toggle="tab"]')
           .attr('aria-expanded', true)
+
+      if (container.hasClass('nav-tabs-primary')) {
+        element
+          .find('.nav-tabs-primary-item')
+            .prepend('<i class="triangle-down"></i>')
+          .end()
+          .find('> li > a')
+            .prepend('<i class="triangle-down"></i>')
+      }
 
       if (transition) {
         element[0].offsetWidth // reflow for transition

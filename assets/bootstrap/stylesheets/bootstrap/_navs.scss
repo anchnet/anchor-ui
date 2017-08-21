@@ -81,6 +81,7 @@
 
     // Actual tabs (as links)
     > a {
+      color: $brand-base;
       margin-right: 2px;
       line-height: $line-height-base;
       border: 1px solid transparent;
@@ -110,6 +111,60 @@
   }
 }
 
+// nav-tabs-primary
+.nav-tabs-primary {
+  border-bottom: 1px solid $nav-tabs-border-color;
+  > li {
+    float: left;
+    margin-bottom: -1px;
+
+    > a, > .nav-tabs-primary-item {
+      color: $brand-base;
+      line-height: $line-height-base;
+      border: 1px solid $nav-tabs-active-link-hover-border-color;
+      border-bottom: 1px solid $brand-base-background;
+      background-color: $brand-base-background;
+      &:hover{
+        color: $nav-tabs-active-link-hover-color;
+      }
+      > i.triangle-down {
+        position: absolute;
+        left: 49%;
+        left: calc(50% - 2px);
+        top: 0;
+        display: inline-block;
+        border-top: 4px solid $nav-tabs-active-link-hover-color;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+    }
+
+    &.active > a, &.active > .nav-tabs-primary-item {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-tabs-active-link-hover-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        border: 1px solid $nav-tabs-active-link-hover-border-color;
+        border-bottom-color: transparent;
+        border-top: 2px solid $nav-tabs-active-link-hover-color;
+        cursor: default;
+      }
+    }
+  }
+
+  li + li > a, li + li > .nav-tabs-primary-item {
+    border-left: transparent;
+  }
+
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+    @extend .nav-justified;
+    @extend .nav-tabs-justified;
+  }
+}
+
 
 // Pills
 // -------------------------
@@ -119,6 +174,7 @@
 
     // Links rendered as pills
     > a {
+      color: $brand-base;
       border-radius: $nav-pills-border-radius;
     }
     + li {

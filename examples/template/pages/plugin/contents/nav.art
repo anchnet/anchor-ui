@@ -1,0 +1,41 @@
+<h2 id="nav" class="page-header">导航</h2>
+
+<h3 id="nav-tabs">标签页</h3>
+<p>注意 <code>.nav-tabs</code> 类依赖 <code>.nav</code> 基类。</p>
+<div class="bs-example" data-example-id="nav-tabs">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+</div>
+<figure class="highlight"><pre><code class="html"></code></pre></figure>
+
+<h3 id="nav-tabs-primary">通用标签页</h3>
+<p>注意 <code>.nav-tabs-primary</code> 类依赖 <code>.nav</code> 基类。</p>
+<div class="bs-example" data-example-id="nav-tabs-primary">
+    <ul id="myTabs" class="nav nav-tabs-primary">
+        <li role="presentation" class="active"><a href="#"><i class="triangle-down"></i>Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <script type="text/javascript">
+      $('#myTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      })
+    </script>
+</div>
+<figure class="highlight"><pre><code class="html"></code></pre></figure>
+
+<h3 id="nav-pills">胶囊式标签页</h3>
+<p>HTML 标记相同，但使用 <code>.nav-pills</code> 类：</p>
+<div class="bs-example" data-example-id="nav-tabs">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+</div>
+<figure class="highlight"><pre><code class="html"></code></pre></figure>
+
