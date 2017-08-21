@@ -1,6 +1,10 @@
 $color-primary: #E2003B;
 $color-base: #4b556a;
 
+.pr{ position: relative; }
+.pa{ position: absolute; }
+.pf{ position: fixed; }
+
 #header{
   .navbar-brand{
     font-weight: bold;
@@ -112,7 +116,7 @@ $color-base: #4b556a;
     .hljs-tag{
       font-weight: bold;
     }
-    .hljs-attr{
+    .hljs-attr, .hljs-class{
       color: $color-primary;
       font-weight: normal;
     }
@@ -254,4 +258,7 @@ $color-base: #4b556a;
   h4{
     color: $color-primary;
   }
+}
+.bs-callout-warning {
+  border-left-color: #aa6708;
 }

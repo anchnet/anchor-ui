@@ -20,9 +20,8 @@
       position: relative;
       display: block;
       padding: $nav-link-padding;
-      &:hover,
-      &:focus {
-        text-decoration: none;
+      text-decoration: none;
+      &:hover{
         background-color: $nav-link-hover-bg;
       }
     }

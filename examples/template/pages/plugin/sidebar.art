@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 pr">
     <ul id="nav-slidebar" class="nav sidenav">
         <li>
             <a href="#select">下拉菜单</a>
@@ -23,6 +23,14 @@
                 <li><a href="#select-disabled-standard">标准状态</a></li>
                 <li><a href="#select-disabled-item">禁用指定子列</a></li>
                 <li><a href="#select-disabled-group">禁用指定组</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#button">按钮</a>
+            <ul class="nav nav-children">
+                <li><a href="#button-single-toggle">开关按钮</a></li>
+                <li><a href="#button-radio-checkbox">单选/多选</a></li>
+                <li><a href="#button-methods">方法</a></li>
             </ul>
         </li>
         <li><a class="return-top" href="#return-top">返回顶部</a></li>

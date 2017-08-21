@@ -58,6 +58,61 @@
 
 
 //新增按钮样式
+@mixin button-variant-default($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+  }
+
+  &:hover {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 2.5%);
+    border-color: $brand-primary;
+  }
+
+  .open > &.dropdown-toggle {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 2.5%);
+    border-color: $brand-primary;
+
+    &:hover {
+      color: $brand-primary;
+      background-color: lighten($brand-primary-background, 2.5%);
+      border-color: $brand-primary;
+    }
+  }
+
+  &:active,
+  &.active {
+    color: #ffffff;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+  }
+
+  &.active:hover {
+    color: #ffffff;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
 @mixin button-variant-default-primary() {
   color: $brand-primary;
   background-color: #ffffff;

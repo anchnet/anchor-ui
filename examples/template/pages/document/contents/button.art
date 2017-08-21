@@ -14,35 +14,37 @@
     <p>
         <span>默认样式类：</span>
 
-        <button type="button" class="btn btn-default">btn-default</button>
+        <button type="button" class="btn btn-default">默认样式</button>
 
-        <button type="button" class="btn btn-default-base">btn-default-base</button>
+        <button type="button" class="btn btn-default-light">默认变亮样式</button>
 
-        <button type="button" class="btn btn-default-primary">btn-default-primary</button>
+        <button type="button" class="btn btn-default-base">默认无边框样式</button>
 
-        <button type="button" class="btn btn-default-gray">btn-default-gray</button>
+        <button type="button" class="btn btn-default-primary">默认通用样式</button>
+
+        <button type="button" class="btn btn-default-gray">默认灰底样式</button>
     </p>
     <p>
         <span>通用样式类：</span>
 
-        <button type="button" class="btn btn-primary">btn-primary</button>
+        <button type="button" class="btn btn-primary">通用样式</button>
 
-        <button type="button" class="btn btn-primary-light">btn-primary-light</button>
+        <button type="button" class="btn btn-primary-light">通用变亮样式</button>
 
-        <button type="button" class="btn btn-primary-base">btn-primary-base</button>
+        <button type="button" class="btn btn-primary-base">通用基本样式</button>
 
-        <button type="button" class="btn btn-primary-base-border">btn-primary-base-border</button>
+        <button type="button" class="btn btn-primary-base-border">通用基本加框样式</button>
     </p>
     <p>
         <span>功能样式类：</span>
 
-        <button type="button" class="btn btn-success">(成功) Success</button>
+        <button type="button" class="btn btn-success">成功提示</button>
 
-        <button type="button" class="btn btn-info">(一般信息) Info</button>
+        <button type="button" class="btn btn-info">一般提示</button>
 
-        <button type="button" class="btn btn-warning">(警告) Warning</button>
+        <button type="button" class="btn btn-warning">警告提示</button>
 
-        <button type="button" class="btn btn-danger">(危险) Danger</button>
+        <button type="button" class="btn btn-danger">危险提示</button>
     </p>
     <p>
         <span>链接样式：</span>
