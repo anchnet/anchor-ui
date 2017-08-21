@@ -13,20 +13,20 @@
             {{each menu['children'] as subMenu}}
             <div class="menu-group">
                 {{if subMenu['children']}}
-                <div class="menu-sub-title">
+                <div class="menu-title">
                     <i class="default-dot"></i>
                     {{subMenu['title']}}
                 </div>
                 {{each subMenu['children'] as baseMenu}}
                 <div class="menu-group">
-                    <a class="menu-sub-title sub-2 {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
+                    <a class="menu-title {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
                         <i class="default-dot"></i>
                         {{baseMenu['title']}}
                     </a>
                 </div>
                 {{/each}}
                 {{else}}
-                <a class="menu-sub-title" href="{{subMenu['link']}}">
+                <a class="menu-title" href="{{subMenu['link']}}">
                     <i class="default-dot"></i>
                     {{subMenu['title']}}
                 </a>

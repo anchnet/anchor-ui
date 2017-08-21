@@ -18,9 +18,9 @@ const layoutTemplate = `
 `
 
 /* 插入代码 */
-$('#layoutCode').html(utils.insertCode(utils.parseHtmlCode(layoutTemplate)))
-$('#sidebarCode').html(utils.insertCode(utils.parseHtmlCode(utils.getHtml('.app-sidebar'))))
-$('#headerCode').html(utils.insertCode(utils.parseHtmlCode(utils.getHtml('.app-header'))))
+$('#layoutCode').html(utils.chain(layoutTemplate, 'parseHtmlCode', 'insertCode'))
+$('#sidebarCode').html(utils.chain('.app-sidebar', 'getHtml', 'parseHtmlCode', 'insertCode'))
+$('#headerCode').html(utils.chain('.app-header', 'getHtml', 'parseHtmlCode', 'insertCode'))
 
 /* 代码高亮初始化 */
 utils.highlightCode()

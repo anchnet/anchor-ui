@@ -103,7 +103,7 @@
       border-top: 4px solid transparent;
       border-bottom: 4px solid transparent;
       transform: rotate(0deg);
-      transition: transform 0.15s
+      transition: transform 0.15s;
     }
     @for $i from 1 through 10 {
       &.sub-#{$i} {
@@ -117,7 +117,12 @@
     }
     &.active {
       i.menu-triangle {
-        transform: rotate(90deg)
+        transform: rotate(90deg);
+      }
+    }
+    &.no-transition {
+      i.menu-triangle {
+        transition-duration: 0s;
       }
     }
     &.selected {
