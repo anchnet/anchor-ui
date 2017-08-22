@@ -2,4 +2,5 @@
     {{include './contents/bootstrap-select.art'}}
     {{include './contents/button.art'}}
     {{include './contents/table.art'}}
+    {{include './contents/nav.art'}}
 </div>
