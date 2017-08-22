@@ -33,6 +33,13 @@
                 <li><a href="#button-methods">方法</a></li>
             </ul>
         </li>
+        <li>
+            <a href="#tooltips">工具提示</a>
+            <ul class="nav nav-children">
+                <li><a href="#tooltips-example">实例</a></li>
+                <li><a href="#tooltips-direction">四个方向</a></li>
+            </ul>
+        </li>
         <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>
 </div>

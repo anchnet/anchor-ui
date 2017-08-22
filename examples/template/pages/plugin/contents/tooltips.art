@@ -1,0 +1,33 @@
+<h2 id="tooltips" class="page-header">工具提示</h2>
+
+<h3 id="tooltips-example">实例</h3>
+<div class="bs-example" data-example-id="tooltips-example">
+    <p>
+        jQuery 是一个高效、精简并且功能丰富的 JavaScript 工具库。它提供的 API 易于使用且兼容众多浏览器，这让诸如
+        <a href="#" data-toggle="tooltip" title="" data-original-title="HTML提示内容">HTML文档遍历</a>
+        和操作、事件处理、动画和
+        <a href="#" data-toggle="tooltip" title="" data-original-title="Ajax提示内容">Ajax</a>
+        操作更加简单。本中文文档适用jQuery 1.0 - jQuery 3.1，翻译至
+        <a href="#" data-toggle="tooltip" title="" data-original-title="官方文档">官方文档</a>，
+        并且跟随官方文档持续更新。如果你是一个 jQuery 新手，我们建议你先到jQuery 学习中心练习一下。
+    </p>
+</div>
+<figure class="highlight"><pre><code class="html"></code></pre></figure>
+
+<h3 id="tooltips-direction">四个方向</h3>
+<div class="bs-example" data-example-id="tooltips-direction">
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="left" title="向左">向左</button>
+
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="向上">向上</button>
+
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="向下">向下</button>
+
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="right" title="向右">向右</button>
+</div>
+<figure class="highlight"><pre><code class="html"></code></pre></figure>
+
+<div class="bs-callout bs-callout-danger" id="callout-tooltip-opt-in">
+    <h4>其他使用方法、参数、事件</h4>
+    <p><a href="http://v3.bootcss.com/javascript/#tooltips-usage" target="_blank"><strong>点击</strong></a> 查看官方文档</p>
+</div>
+
