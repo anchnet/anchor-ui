@@ -1,6 +1,7 @@
 import '../bootstrap/javascripts/bootstrap'
 import '../libs/bootstrap-select/bootstrap-select'
 import './src/sidebar'
+import './src/table'
 
 !function ($) {
   $.extend({

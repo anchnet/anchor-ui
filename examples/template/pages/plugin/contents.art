@@ -1,6 +1,7 @@
 <div class="col-md-9" role="main">
     {{include './contents/bootstrap-select.art'}}
     {{include './contents/button.art'}}
+    {{include './contents/table.art'}}
     {{include './contents/nav.art'}}
     {{include './contents/tooltips.art'}}
 </div>
