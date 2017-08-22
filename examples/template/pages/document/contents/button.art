@@ -62,12 +62,12 @@
         <button type="button" class="btn btn-default btn-lg">(大按钮) Large button</button>
     </p>
     <p>
-        <button type="button" class="btn btn-primary">(默认尺寸) Default button</button>
-        <button type="button" class="btn btn-default">(默认尺寸) Default button</button>
+        <button type="button" class="btn btn-primary btn-rlg">(偏大按钮) Rather Large button</button>
+        <button type="button" class="btn btn-default btn-rlg">(偏大按钮) Rather Large button</button>
     </p>
     <p>
-        <button type="button" class="btn btn-primary btn-sm">(小按钮) Small button</button>
-        <button type="button" class="btn btn-default btn-sm">(小按钮) Small button</button>
+        <button type="button" class="btn btn-primary">(默认尺寸，行高28px) Default button</button>
+        <button type="button" class="btn btn-default">(默认尺寸，行高28px) Default button</button>
     </p>
     <p>
         <button type="button" class="btn btn-primary btn-xs">(超小尺寸) Extra small button</button>
