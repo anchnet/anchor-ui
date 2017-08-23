@@ -24,14 +24,13 @@ const Table =(($) => {
 
   const Selector = {
     DATA_TABLE: '[data-toggle="table"]',
-    TABLE_CONFIG: '.table-config'
   }
 
   const Template = (id, options = {}) => {
-    const Templates = {
+    let templates = {
       TABLE_CONFIG: `
-        <th style="width: 36px;">
-          <span class="${options.className} glyphicon glyphicon-cog" data-toggle="modal" data-target="#${options.modalId}"></span>
+        <th class="first-column">
+          <span class="table-config glyphicon glyphicon-cog" data-toggle="modal" data-target="#${options.modalId}"></span>
         </th>
       `,
       TABLE_ROW_SELECT: `
@@ -59,7 +58,7 @@ const Table =(($) => {
         </div>
       `
     }
-    return Templates[id]
+    return templates[id]
   }
 
   /**
@@ -70,6 +69,9 @@ const Table =(($) => {
     constructor (root, config) {
       this._config = this._getConfig(config)
       this.$root = $(root)
+      this.$table = this.$root.find('table')
+      this.$thead = this.$table.find('thead')
+      this.$tbody = this.$table.find('tbody')
 
       this.init()
     }
@@ -87,17 +89,11 @@ const Table =(($) => {
     // public
 
     init () {
-      let $table = this.$root.find('table')
-      let $thead = $table.find('thead')
-      let $tbody = $table.find('tbody')
-      let modalId =  `tableConfigModal-${Math.random().toString(36).substr(2)}`
+      let modalId = `tableConfigModal-${Math.random().toString(36).substr(2)}`
 
       this.$root.append(Template('TABLE_CONFIG_MODAL', {modalId}))
-      $thead.find('tr').prepend(Template('TABLE_CONFIG', {
-        className: this._getNameFromClass(Selector.TABLE_CONFIG),
-        modalId
-      }))
-      $tbody.find('tr').prepend(Template('TABLE_ROW_SELECT'))
+      this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {modalId}))
+      this.$tbody.find('tr').prepend(Template('TABLE_ROW_SELECT'))
     }
 
     // private

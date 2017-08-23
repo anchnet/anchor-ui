@@ -3,25 +3,25 @@
 
 <h3 id="table-basic">基础表格</h3>
 <div class="bs-example" data-example-id="table-basic">
-  <div class="table-wrapper" data-toggle="table">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>B</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="table-wrapper" data-toggle="table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>B</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <figure class="highlight"><pre><code class="html"></code></pre></figure>
