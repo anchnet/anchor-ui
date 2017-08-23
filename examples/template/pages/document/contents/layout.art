@@ -1,0 +1,35 @@
+<h2 id="layout">布局</h2>
+
+<h3 id="layout-group">两列布局</h3>
+<p>
+    常用于页面内非表单区块布局，默认<code>.layout-label</code>宽度为 <strong>80px</strong>
+    ，目前内置从 <strong>50px</strong> 到 <strong>400px</strong> 的<code>.layout-label</code>宽度。
+</p>
+
+<div class="bs-callout bs-callout-danger">
+    <h4>使用说明</h4>
+    <p>
+        外层元素必须含有 <code>.layout-group</code> 样式，标题元素必须包含 <code>.layout-label</code> 样式，内容部分必须是 <code>display: inline-block</code>属性
+    </p>
+</div>
+
+<div class="bs-example" data-example-id="layout-group">
+    <div class="layout-group label-w50">
+        <div class="layout-label">标题内容</div>
+        ...
+    </div>
+    <!-- 默认宽度 -->
+    <div class="layout-group">
+        <div class="layout-label">标题内容标题</div>
+        ...
+    </div>
+    <div class="layout-group label-w145">
+        <div class="layout-label">标题内容标题内容标题</div>
+        ...
+    </div>
+    <div class="layout-group label-w200">
+        <div class="layout-label">标题内容标题内容标题内容标题内容</div>
+        ...
+    </div>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
