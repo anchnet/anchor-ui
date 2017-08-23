@@ -1,0 +1,86 @@
+.layout-group {
+  min-height: 28px;
+  line-height: 28px;
+  margin-bottom: 10px;
+  padding-left: 90px;
+  .layout-label {
+    float: left;
+    width: 80px;
+    line-height: 28px;
+    margin-left: -90px;
+    text-align: right;
+    font-size: 12px;
+    color: $brand-base;
+  }
+
+  .layout-content {
+    display: inline-block;
+  }
+
+  &.label-w50 {
+    @include label-width(50px);
+  }
+  &.label-w60 {
+    @include label-width(60px);
+  }
+  &.label-w70 {
+    @include label-width(70px);
+  }
+  &.label-w80 {
+    @include label-width(80px);
+  }
+  &.label-w90 {
+    @include label-width(90px);
+  }
+  &.label-w100 {
+    @include label-width(100px);
+  }
+  &.label-w105 {
+    @include label-width(105px);
+  }
+  &.label-w110 {
+    @include label-width(110px);
+  }
+  &.label-w115 {
+    @include label-width(115px);
+  }
+  &.label-w120 {
+    @include label-width(120px);
+  }
+  &.label-w125 {
+    @include label-width(125px);
+  }
+  &.label-w130 {
+    @include label-width(130px);
+  }
+  &.label-w135 {
+    @include label-width(130px);
+  }
+  &.label-w140 {
+    @include label-width(130px);
+  }
+  &.label-w145 {
+    @include label-width(130px);
+  }
+  &.label-w150 {
+    @include label-width(150px);
+  }
+  &.label-w180 {
+    @include label-width(180px);
+  }
+  &.label-w200 {
+    @include label-width(200px);
+  }
+  &.label-w230 {
+    @include label-width(230px);
+  }
+  &.label-w250 {
+    @include label-width(250px);
+  }
+  &.label-w300 {
+    @include label-width(300px);
+  }
+  &.label-w400 {
+    @include label-width(400px);
+  }
+}

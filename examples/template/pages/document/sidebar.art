@@ -1,6 +1,12 @@
 <div class="col-md-3 pr">
     <ul id="nav-slidebar" class="nav sidenav">
         <li>
+            <a href="#layout">布局</a>
+            <ul class="nav nav-children">
+                <li><a href="#layout-tags">两列布局</a></li>
+            </ul>
+        </li>
+        <li>
             <a href="#button">按钮</a>
             <ul class="nav nav-children">
                 <li><a href="#button-tags">可作为按钮使用的标签或元素</a></li>

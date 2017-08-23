@@ -18,7 +18,13 @@
   border: 1px solid transparent;
   white-space: nowrap;
   transition: color .2s, background-color .2s;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-small);
+
+  padding: $padding-small-vertical $padding-small-horizontal;
+  font-size: $font-size-small;
+  line-height: 16px;
+  border-radius: $btn-border-radius-small;
+
+  //@include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-small);
   @include user-select(none);
 
   &,
@@ -165,6 +171,9 @@ a.btn {
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+}
+.btn-rlg {
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-small);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input

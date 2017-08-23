@@ -1,0 +1,7 @@
+@mixin label-width ($width) {
+  padding-left: $width + 10px;
+  .layout-label {
+    margin-left: -$width - 10px;
+    width: $width;
+  }
+}

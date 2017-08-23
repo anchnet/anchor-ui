@@ -7,6 +7,6 @@ import './src/table'
 !function ($) {
   $.fn.reverse = [].reverse
   $.extend({
-    ANCHOR_VERSION: '0.2.0'
+    ANCHOR_VERSION: '0.3.0'
   })
 }(jQuery)
