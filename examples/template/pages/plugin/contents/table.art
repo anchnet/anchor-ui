@@ -7,18 +7,21 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
+                    <th data-display="show">A</th>
+                    <th>B</th>
+                    <th data-display="show">C</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>A</td>
+                    <td>a1</td>
+                    <td>b1</td>
+                    <td>c1</td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td>B</td>
+                    <td>a2</td>
+                    <td>b2</td>
+                    <td>c2</td>
                 </tr>
             </tbody>
         </table>

@@ -106,17 +106,17 @@ const Transfer = (($) => {
         if (maxOptions) {
           $(this).attr({'data-max-options-text': `最多选择${maxOptions}项`})
         }
-      })
 
-      this.$select.left.add(this.$select.right).each(function () {
         $(this).on('changed.bs.select', function (event) {
           let oppositeDirection
           if ($(event.target).closest(Selector.BLOCK_LEFT).length) oppositeDirection = 'right'
           else if ($(event.target).closest(Selector.BLOCK_RIGHT).length) oppositeDirection = 'left'
-          _class.$select[oppositeDirection].find('option').prop('selected', false)
+          _class.$select[oppositeDirection].find('option').prop({'selected': false})
           _class._refreshSelect()
         })
       })
+
+      this._refreshSelect()
     }
 
     transferItems (element, direction) {
@@ -167,6 +167,18 @@ const Transfer = (($) => {
       this._refreshSelect()
     }
 
+    val () {
+      let val = []
+      this.$select.right.find('option').each(function () {
+        val.push($(this).attr('value'))
+      })
+      return val
+    }
+
+    deselectAll () {
+      this.$select.left.add(this.$select.right).selectpicker('deselectAll')
+    }
+
     // private
 
     _getConfig (config) {
@@ -188,11 +200,14 @@ const Transfer = (($) => {
     // static
 
     static _jQueryInterface (config) {
-      return this.each(function () {
+      let funcResult
+
+      let defaultResult = this.each(function () {
         let data = $(this).data(DATA_KEY)
         let _config = $.extend(
           {},
           Transfer.Default,
+          $(this).data(),
           typeof config === 'object' && config
         )
 
@@ -200,7 +215,16 @@ const Transfer = (($) => {
           data = new Transfer(this, _config)
           $(this).data(DATA_KEY, data)
         }
+
+        if (typeof config === 'string') {
+          if (typeof data[config] === 'undefined') {
+            throw new Error(`No method named "${config}"`)
+          }
+          funcResult = data[config]()
+        }
       })
+
+      return funcResult === undefined ? defaultResult : funcResult
     }
 
     static _transferBtnClickHandler (direction, event) {
