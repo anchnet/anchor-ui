@@ -3,7 +3,7 @@
         <li>
             <a href="#layout">布局</a>
             <ul class="nav nav-children">
-                <li><a href="#layout-tags">两列布局</a></li>
+                <li><a href="#layout-group">两列布局</a></li>
             </ul>
         </li>
         <li>
