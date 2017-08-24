@@ -31,6 +31,13 @@
                 <option value="optB">操作B</option>
             </select>
         </div>
+        <div style="display: none;">
+            <select data-for="transfer">
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+            </select>
+        </div>
     </div>
 
     <script>

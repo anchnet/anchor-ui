@@ -27,6 +27,7 @@ const Table =(($) => {
   const Selector = {
     DATA_TABLE: '[data-toggle="table"]',
     DATA_TRANSFER: '[data-toggle="transfer"]',
+    DATA_TRANSFER_SELECT: '[data-for="transfer"]',
     TABLE_BOTTOM: '.table-bottom',
     CELL_HIDE: '.cell-hide',
     CHECK_ROW: '.check-row',
@@ -95,7 +96,6 @@ const Table =(($) => {
       this.$thead = this.$table.find('thead')
       this.$tbody = this.$table.find('tbody')
       this.$bottom = this.$root.find(Selector.TABLE_BOTTOM)
-      this.fields = []
       this.checkData = []
 
       this.init()
@@ -117,23 +117,14 @@ const Table =(($) => {
       let _class = this
       let modalId = `tableConfigModal-${Math.random().toString(36).substr(2)}`
       let modalSelector = `#${modalId}`
-      let options = {
-        left: [],
-        right: []
-      }
+      let options = []
 
       this.$thead.find('th').each(function (index) {
         let text = $(this).data('text') || $(this).text()
-        let isShow = $(this).data('display') !== 'hide'
-        let direction = isShow ? 'right' : 'left'
 
-        $(this).attr({'data-field': text})
-        _class.$tbody.find(`td:nth-child(${index + 1})`).attr({'data-field': text})
-        _class.fields.push({isShow, text})
-
-        options[direction].push(Template('SELECT_OPTION', {
+        options.push(Template('SELECT_OPTION', {
           text,
-          value: text,
+          value: text
         }))
       })
 
@@ -142,11 +133,10 @@ const Table =(($) => {
       this.$bottom.prepend(Template('TABLE_ALL_CHECKBOX'))
       this.$root.append(Template('TABLE_CONFIG_MODAL', {
         modalId,
-        leftOptions: options.left.join(''),
-        rightOptions: options.right.join('')
+        leftOptions: this.$root.find(Selector.DATA_TRANSFER_SELECT).html(),
+        rightOptions: options.join('')
       }))
 
-      this._renderFields()
       this.$root.find(Selector.DATA_TRANSFER).transfer()
 
       this.$root.find(`${modalSelector} .submit-btn`).on('click', function () {
@@ -154,28 +144,6 @@ const Table =(($) => {
 
         let data = _class.$root.find(Selector.DATA_TRANSFER).transfer('val')
         _class.$root.trigger(Event.FILTER_CHANGED, {data})
-
-        /*
-        let originFields = JSON.parse(JSON.stringify(_class.fields))
-        let targetFields = []
-
-        fieldsShow.forEach((fieldShow) => {
-          let index = originFields.findIndex((originField) => originField.text === fieldShow)
-          let field = originFields[index]
-
-          field.isShow = true
-          targetFields.push(field)
-          originFields.splice(index, 1)
-        })
-
-        originFields.forEach((field) => {
-          field.isShow = false
-          targetFields.push(field)
-        })
-
-        _class.fields = targetFields
-        _class._renderFields()
-        */
       })
 
       this.$root.find(modalSelector).on('hidden.bs.modal', function () {
@@ -242,24 +210,6 @@ const Table =(($) => {
     }
 
     // private
-
-    _renderFields () {
-      let _class = this
-
-      this.$table.find('tr').each(function () {
-        let cells = $(this).find('[data-field]').remove()
-
-        _class.fields.forEach((field) => {
-          let cell = cells.filter(`[data-field="${field.text}"]`)
-          let classHide = Table._getNameFromClass(Selector.CELL_HIDE)
-
-          if (field.isShow) cell.removeClass(classHide)
-          else cell.addClass(classHide)
-
-          $(this).append(cell)
-        })
-      })
-    }
 
     _getConfig (config) {
       config = $.extend({}, Default, config)
