@@ -3,7 +3,13 @@
  */
 
 .table-wrapper {
+  .first-column {
+    width: 36px;
+  }
   .table-config {
     cursor: pointer;
+  }
+  .cell-hide {
+    display: none;
   }
 }

@@ -1,0 +1,45 @@
+/**
+ * transfer
+ */
+
+.transfer-wrapper {
+  overflow: hidden;
+
+  .transfer-left, .transfer-right {
+    float: left;
+    width: 284px;
+    overflow: hidden;
+  }
+
+  .transfer-btns {
+    float: left;
+    margin-top: 96px;
+    margin-left: 20px;
+
+    .btn {
+      display: block;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  .bootstrap-select {
+    display: block !important;
+    float: left !important;
+
+    .dropdown-toggle {
+      display: none !important;
+    }
+
+    .dropdown-menu {
+      display: block !important;
+      position: relative;
+
+      &.inner {
+        height: 250px;
+        overflow: auto;
+      }
+    }
+  }
+}
