@@ -1,6 +1,13 @@
 <div class="col-md-3 pr">
     <ul id="nav-slidebar" class="nav sidenav">
         <li>
+            <a href="#icon">图标</a>
+            <ul class="nav nav-children">
+                <li><a href="#icon-example">实例</a></li>
+                <li><a href="#icon-increase">新增 boostrap 之外的图标</a></li>
+            </ul>
+        </li>
+        <li>
             <a href="#select">下拉菜单</a>
             <ul class="nav nav-children">
                 <li><a href="#select-standard">标准菜单</a></li>

@@ -1,0 +1,19 @@
+<h2 id="icon" class="page-header">图标</h2>
+
+<h3 id="icon-example">实例</h3>
+<div class="bs-example" data-example-id="icon-example">
+    <button type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+    </button>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="icon-increase">新增 boostrap 之外的图标</h3>
+<div class="bs-example" data-example-id="icon-increase">
+    <span class="optionicon optionicon-list-add"></span>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+

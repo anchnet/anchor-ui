@@ -1,4 +1,5 @@
 <div class="col-md-9" role="main">
+    {{include './contents/icons.art'}}
     {{include './contents/bootstrap-select.art'}}
     {{include './contents/button.art'}}
     {{include './contents/table.art'}}

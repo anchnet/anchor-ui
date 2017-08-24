@@ -41,7 +41,7 @@ const plugins = {
           properties: true,       // 用点号重写属性
           dead_code: true,        // 移除没有用到的代码
           drop_debugger: true,    // 移除 debugger 代码
-          join_vars: true,
+          join_vars: true,        // 拼接连续多个变量声明
           collapse_vars: true,    // 内嵌定义了但是只用到一次的变量
           reduce_vars: true,      // 提取出出现多次但是没有定义成变量去引用的静态值
           drop_console: true,     // 移除 console
