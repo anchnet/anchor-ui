@@ -29,10 +29,16 @@
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  color: $brand-base;
+  //color: $brand-base;
+  color: #8c8c8c;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &:hover,
+  &.active {
+    color: $brand-primary;
+  }
 }
 
 // Individual icons
@@ -310,8 +316,8 @@
 
 .optionicon {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -323,7 +329,39 @@
   background-image: url('../img/icons/option-list.svg');
   background-repeat: no-repeat;
 
-  &.optionicon-list-add {
-    background-position: 0 0;
+  &.optionicon-add {
+    background-position: 2px -23px;
+    &:hover,
+    &.active {
+      background-position: 2px 1px;
+    }
+  }
+  &.optionicon-vertical {
+    background-position: -18px -23px;
+    &:hover,
+    &.active {
+      background-position: -18px 1px;
+    }
+  }
+  &.optionicon-edit {
+    background-position: -39px -23px;
+    &:hover,
+    &.active {
+      background-position: -39px 1px;
+    }
+  }
+  &.optionicon-delete {
+    background-position: -60px -23px;
+    &:hover,
+    &.active {
+      background-position: -60px 1px;
+    }
+  }
+  &.optionicon-horizontal {
+    background-position: -78px -24px;
+    &:hover,
+    &.active {
+      background-position: -78px 0;
+    }
   }
 }

@@ -5,4 +5,5 @@
     {{include './contents/table.art'}}
     {{include './contents/nav.art'}}
     {{include './contents/tooltips.art'}}
+    {{include './contents/panel.art'}}
 </div>

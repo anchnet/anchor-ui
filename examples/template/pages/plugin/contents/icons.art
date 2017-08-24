@@ -13,7 +13,16 @@
 
 <h3 id="icon-increase">新增 boostrap 之外的图标</h3>
 <div class="bs-example" data-example-id="icon-increase">
-    <span class="optionicon optionicon-list-add"></span>
+    <span class="optionicon optionicon-add"></span>
+    <span class="optionicon optionicon-vertical"></span>
+    <span class="optionicon optionicon-edit"></span>
+    <span class="optionicon optionicon-delete"></span>
+    <span class="optionicon optionicon-horizontal"></span>
+    <span class="optionicon optionicon-add active"></span>
+    <span class="optionicon optionicon-vertical active"></span>
+    <span class="optionicon optionicon-edit active"></span>
+    <span class="optionicon optionicon-delete active"></span>
+    <span class="optionicon optionicon-horizontal active"></span>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 

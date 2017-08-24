@@ -47,6 +47,13 @@
                 <li><a href="#tooltips-direction">四个方向</a></li>
             </ul>
         </li>
+        <li>
+            <a href="#panel">面版</a>
+            <ul class="nav nav-children">
+                <li><a href="#panel-example">实例</a></li>
+                <li><a href="#panel-title">带标题的面版</a></li>
+            </ul>
+        </li>
         <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>
 </div>
