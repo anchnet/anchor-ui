@@ -19,13 +19,18 @@ const Table =(($) => {
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    CHANGE_DATA_API: `change${EVENT_KEY}${DATA_API_KEY}`,
+    FILTER_CHANGED: `filter.changed${EVENT_KEY}`
   }
 
   const Selector = {
     DATA_TABLE: '[data-toggle="table"]',
     DATA_TRANSFER: '[data-toggle="transfer"]',
-    CELL_HIDE: '.cell-hide'
+    TABLE_BOTTOM: '.table-bottom',
+    CELL_HIDE: '.cell-hide',
+    CHECK_ROW: '.check-row',
+    CHECK_ALL: '.check-all'
   }
 
   const Template = (id, options = {}) => {
@@ -35,10 +40,15 @@ const Table =(($) => {
           <span class="table-config glyphicon glyphicon-cog" data-toggle="modal" data-target="#${options.modalId}"></span>
         </th>
       `,
-      TABLE_ROW_SELECT: `
+      TABLE_ROW_CHECKBOX: `
         <td data-renderer="plugin">
-          <input type="checkbox"/>
+          <input class="${Table._getNameFromClass(Selector.CHECK_ROW)}" type="checkbox"/>
         </td>
+      `,
+      TABLE_ALL_CHECKBOX: `
+        <span class="check-all-wrapper">
+          <input class="${Table._getNameFromClass(Selector.CHECK_ALL)}" type="checkbox"/>
+        </span>
       `,
       TABLE_CONFIG_MODAL: `
         <div class="modal fade" id="${options.modalId}" tabindex="-1" role="dialog">
@@ -84,7 +94,9 @@ const Table =(($) => {
       this.$table = this.$root.find('table')
       this.$thead = this.$table.find('thead')
       this.$tbody = this.$table.find('tbody')
+      this.$bottom = this.$root.find(Selector.TABLE_BOTTOM)
       this.fields = []
+      this.checkData = []
 
       this.init()
     }
@@ -112,7 +124,7 @@ const Table =(($) => {
 
       this.$thead.find('th').each(function (index) {
         let text = $(this).data('text') || $(this).text()
-        let isShow = $(this).data('display') === 'show'
+        let isShow = $(this).data('display') !== 'hide'
         let direction = isShow ? 'right' : 'left'
 
         $(this).attr({'data-field': text})
@@ -126,7 +138,8 @@ const Table =(($) => {
       })
 
       this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {modalId}))
-      this.$tbody.find('tr').prepend(Template('TABLE_ROW_SELECT'))
+      this.$tbody.find('tr').prepend(Template('TABLE_ROW_CHECKBOX'))
+      this.$bottom.prepend(Template('TABLE_ALL_CHECKBOX'))
       this.$root.append(Template('TABLE_CONFIG_MODAL', {
         modalId,
         leftOptions: options.left.join(''),
@@ -139,7 +152,10 @@ const Table =(($) => {
       this.$root.find(`${modalSelector} .submit-btn`).on('click', function () {
         _class.$root.find(modalSelector).modal('hide')
 
-        let fieldsShow = _class.$root.find(Selector.DATA_TRANSFER).transfer('val')
+        let data = _class.$root.find(Selector.DATA_TRANSFER).transfer('val')
+        _class.$root.trigger(Event.FILTER_CHANGED, {data})
+
+        /*
         let originFields = JSON.parse(JSON.stringify(_class.fields))
         let targetFields = []
 
@@ -159,11 +175,70 @@ const Table =(($) => {
 
         _class.fields = targetFields
         _class._renderFields()
+        */
       })
 
       this.$root.find(modalSelector).on('hidden.bs.modal', function () {
         _class.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
       })
+    }
+
+    checkItems (element, type) {
+      let checkData = JSON.parse(JSON.stringify(this.checkData))
+      let len = this.$tbody.find('tr').length
+
+      switch (type) {
+        case 'row':
+          let index = $(element).closest('tr').index()
+
+          if (checkData.includes(index)) {
+            checkData.splice(checkData.indexOf(index), 1)
+          } else {
+            checkData.push(index)
+          }
+          break
+
+        case 'all':
+          let checked = $(element).is(':checked')
+
+          if (checked) {
+            for (let i = 0; i < len; i++) {
+              checkData.push(i)
+            }
+          } else {
+            checkData = []
+          }
+          break
+      }
+
+      checkData.sort((a, b) => a - b)
+
+      switch (checkData.length) {
+        case 0:
+          this
+            .$root
+            .find(Selector.CHECK_ROW)
+            .add(this.$root.find(Selector.CHECK_ALL))
+            .prop('checked', false)
+          break
+
+        case len:
+          this
+            .$root
+            .find(Selector.CHECK_ROW)
+            .add(this.$root.find(Selector.CHECK_ALL))
+            .prop('checked', true)
+          break
+
+        default:
+          this.$root.find(Selector.CHECK_ALL).prop('checked', false)
+      }
+
+      this.checkData = checkData
+    }
+
+    val () {
+      return this.checkData
     }
 
     // private
@@ -176,7 +251,7 @@ const Table =(($) => {
 
         _class.fields.forEach((field) => {
           let cell = cells.filter(`[data-field="${field.text}"]`)
-          let classHide = _class._getNameFromClass(Selector.CELL_HIDE)
+          let classHide = Table._getNameFromClass(Selector.CELL_HIDE)
 
           if (field.isShow) cell.removeClass(classHide)
           else cell.addClass(classHide)
@@ -191,15 +266,17 @@ const Table =(($) => {
       return config
     }
 
-    _getNameFromClass (className) {
+    // static
+
+    static _getNameFromClass (className) {
       className = className.replace(/\./g, '')
       return className
     }
 
-    // static
-
     static _jQueryInterface (config) {
-      return this.each(function () {
+      let funcResult
+
+      let defaultResult = this.each(function () {
         let data = $(this).data(DATA_KEY)
         let _config = $.extend(
           {},
@@ -211,13 +288,36 @@ const Table =(($) => {
           data = new Table(this, _config)
           $(this).data(DATA_KEY, data)
         }
+
+        if (typeof config === 'string') {
+          if (typeof data[config] === 'undefined') {
+            throw new Error(`No method named "${config}"`)
+          }
+          funcResult = data[config]()
+        }
       })
+
+      return funcResult === undefined ? defaultResult : funcResult
+    }
+
+    static _checkHandler (event) {
+      let target = $(this).closest(Selector.DATA_TABLE)[0]
+      if (!$(target).length) return
+
+      let config = $.extend({}, $(target).data())
+      Table._jQueryInterface.call($(target), config)
+
+      $(target).data(DATA_KEY).checkItems(this, event.data.type)
     }
   }
 
   /**
    * Data Api
    */
+
+  $(document)
+    .on(Event.CHANGE_DATA_API, Selector.CHECK_ROW, {type: 'row'}, Table._checkHandler)
+    .on(Event.CHANGE_DATA_API, Selector.CHECK_ALL, {type: 'all'}, Table._checkHandler)
 
   $(window).on(Event.LOAD_DATA_API, () => {
     $(Selector.DATA_TABLE).each(function () {

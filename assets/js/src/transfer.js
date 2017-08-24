@@ -227,14 +227,14 @@ const Transfer = (($) => {
       return funcResult === undefined ? defaultResult : funcResult
     }
 
-    static _transferBtnClickHandler (direction, event) {
+    static _transferBtnClickHandler (event) {
       let target = $(this).closest(Selector.DATA_TRANSFER)[0]
       if (!$(target).length) return
 
       let config = $.extend({}, $(target).data())
       Transfer._jQueryInterface.call($(target), config)
 
-      $(target).data(DATA_KEY).transferItems(this, direction)
+      $(target).data(DATA_KEY).transferItems(this, event.data.direction)
     }
   }
 
@@ -243,18 +243,10 @@ const Transfer = (($) => {
    */
 
   $(document)
-    .on(Event.CLICK_DATA_API, Selector.TRANSFER_TO_RIGHT, function (event) {
-      Transfer._transferBtnClickHandler.call(this, 'right', event)
-    })
-    .on(Event.CLICK_DATA_API, Selector.TRANSFER_TO_LEFT, function (event) {
-      Transfer._transferBtnClickHandler.call(this, 'left', event)
-    })
-    .on(Event.CLICK_DATA_API, Selector.SORT_UP, function (event) {
-      Transfer._transferBtnClickHandler.call(this, 'up', event)
-    })
-    .on(Event.CLICK_DATA_API, Selector.SORT_DOWN, function (event) {
-      Transfer._transferBtnClickHandler.call(this, 'down', event)
-    })
+    .on(Event.CLICK_DATA_API, Selector.TRANSFER_TO_RIGHT, {direction: 'right'}, Transfer._transferBtnClickHandler)
+    .on(Event.CLICK_DATA_API, Selector.TRANSFER_TO_LEFT, {direction: 'left'}, Transfer._transferBtnClickHandler)
+    .on(Event.CLICK_DATA_API, Selector.SORT_UP, {direction: 'up'}, Transfer._transferBtnClickHandler)
+    .on(Event.CLICK_DATA_API, Selector.SORT_DOWN, {direction: 'down'}, Transfer._transferBtnClickHandler)
 
   $(window).on(Event.LOAD_DATA_API, () => {
     $(Selector.DATA_TRANSFER).each(function () {
