@@ -1,0 +1,42 @@
+<h2 id="panel" class="page-header">面版</h2>
+
+<h3 id="panel-example">实例</h3>
+<p>默认的 <code>.panel</code> 组件无边框，可通过 <code>.panel-default</code>设置基本的边框（border）和内补（padding）来包含内容。</p>
+<div class="bs-example" data-example-id="panel-example">
+    <div class="panel">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="panel-title">带标题的面版</h3>
+<div class="bs-example" data-example-id="panel-title">
+    <div class="panel">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+            Panel content
+        </div>
+        <div class="panel-footer">Panel footer</div>
+    </div>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+

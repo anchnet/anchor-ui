@@ -9,9 +9,10 @@ module.exports = merge(baseWebpackConfig, {
   entry: entry.dev,
 
   output: {
-    path: utils.webpackResolve('dist/'),
-    publicPath: config.dev.path,
-    filename: '[name].js'
+    path: utils.webpackResolve('dist'),
+    publicPath: config.dev.publicPath,
+    filename: '[name].js',
+    pathinfo: true
   },
 
   module: {

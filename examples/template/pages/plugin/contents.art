@@ -1,8 +1,10 @@
 <div class="col-md-9" role="main">
+    {{include './contents/icons.art'}}
     {{include './contents/bootstrap-select.art'}}
     {{include './contents/button.art'}}
     {{include './contents/transfer.art'}}
     {{include './contents/table.art'}}
     {{include './contents/nav.art'}}
     {{include './contents/tooltips.art'}}
+    {{include './contents/panel.art'}}
 </div>

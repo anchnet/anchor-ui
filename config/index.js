@@ -9,8 +9,8 @@ const config = {
   build: {
     env: require('./prod.env'),
     productionSourceMap: false,
-    publicPath: '/libs',
-    subDirectory: '/libs/static'
+    publicPath: '/',
+    subDirectory: 'static'
   }
 }
 

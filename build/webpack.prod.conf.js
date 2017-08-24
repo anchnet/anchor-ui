@@ -9,7 +9,7 @@ module.exports = merge(baseWebpackConfig, {
   entry: entry.build,
 
   output: {
-    path: utils.webpackResolve('libs/'),
+    path: utils.webpackResolve('libs'),
     publicPath: config.build.publicPath,
     filename: '[name].js'
   },

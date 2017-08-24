@@ -252,7 +252,36 @@
 
 // Contextual variations
 .panel-default {
-  @include panel-variant($panel-default-border, $panel-default-text, $panel-default-heading-bg, $panel-default-border);
+  //@include panel-variant($panel-default-border, $panel-default-text, $panel-default-heading-bg, $panel-default-border);
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 12px;
+  & > .panel-heading {
+    line-height: 1;
+    padding: 10px 15px;
+    color: $brand-base;
+    background-color: $brand-base-background;
+    border: none;
+
+    + .panel-collapse > .panel-body {
+      border: none;
+    }
+    .badge {
+      color: #ffffff;
+      background-color: $brand-primary;
+    }
+  }
+
+  & > .panel-body {
+    border: none;
+  }
+
+  & > .panel-footer {
+    border: none;
+    + .panel-collapse > .panel-body {
+      border: none;
+    }
+  }
 }
 .panel-primary {
   @include panel-variant($panel-primary-border, $panel-primary-text, $panel-primary-heading-bg, $panel-primary-border);
