@@ -27,7 +27,7 @@
         </table>
         <div class="table-bottom">
             <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
                     操作 <span class="caret"></span>
                 </button>
                 <ul id="basicTableOpt" class="dropdown-menu">
