@@ -12,8 +12,9 @@ $(document).ready(function () {
   $('#basicTable').on('filter.changed.anchor.table', function (event, data) {
     console.log('字段更新', data)
   })
-  $('#basicTableOpt').on('changed.bs.select', function () {
-    var value = $(this).selectpicker('val')
+  $('#basicTableOpt a').on('click', function (event) {
+    event.preventDefault()
+    var value = $(this).data('opt')
     var selected = $('#basicTable').table('val')
     console.log('操作按钮', value, selected)
   })

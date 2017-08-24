@@ -26,10 +26,15 @@
             </tbody>
         </table>
         <div class="table-bottom">
-            <select id="basicTableOpt" class="selectpicker" title="操作">
-                <option value="optA">操作A</option>
-                <option value="optB">操作B</option>
-            </select>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    操作 <span class="caret"></span>
+                </button>
+                <ul id="basicTableOpt" class="dropdown-menu">
+                    <li><a href="" data-opt="optA">操作A</a></li>
+                    <li><a href="" data-opt="optB">操作B</a></li>
+                </ul>
+            </div>
         </div>
         <div style="display: none;">
             <select data-for="transfer">
@@ -44,8 +49,9 @@
         $('#basicTable').on('filter.changed.anchor.table', function (event, data) {
             console.log('字段更新', data)
         })
-        $('#basicTableOpt').on('changed.bs.select', function () {
-            var value = $(this).selectpicker('val')
+        $('#basicTableOpt a').on('click', function (event) {
+            event.preventDefault()
+            var value = $(this).data('opt')
             var selected = $('#basicTable').table('val')
             console.log('操作按钮', value, selected)
         })
