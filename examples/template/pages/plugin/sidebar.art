@@ -40,6 +40,8 @@
                 <li><a href="#button-methods">方法</a></li>
             </ul>
         </li>
+        <li><a href="#transfer">穿梭框</a></li>
+        <li><a href="#table">表格</a></li>
         <li>
             <a href="#tooltips">工具提示</a>
             <ul class="nav nav-children">
