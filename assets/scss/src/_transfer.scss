@@ -7,14 +7,14 @@
 
   .transfer-left, .transfer-right {
     float: left;
-    width: 284px;
+    width: 400px;
     overflow: hidden;
   }
 
   .transfer-btns {
     float: left;
     margin-top: 96px;
-    margin-left: 15px;
+    margin-left: 32px;
 
     .btn {
       display: block;
@@ -37,8 +37,18 @@
       position: relative;
 
       &.inner {
-        height: 250px;
-        overflow: auto;
+        max-width: 300px;
+        height: 375px;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        > li {
+          > a {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
       }
     }
   }

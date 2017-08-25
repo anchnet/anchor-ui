@@ -4,14 +4,14 @@
 <div class="bs-example" data-example-id="transfer-basic">
     <div class="transfer-wrapper" data-toggle="transfer">
         <div class="transfer-left">
-            <select class="selectpicker" multiple="multiple">
+            <select multiple>
                 <% for (var i = 0; i < 11; i++) { %>
                 <option value="<%= i %>">option <%= i %></option>
                 <% } %>
             </select>
         </div>
         <div class="transfer-right">
-            <select class="selectpicker" multiple="multiple">
+            <select multiple>
                 <% for (var i = 100; i < 105; i++) { %>
                 <option value="<%= i %>">option <%= i %></option>
                 <% } %>

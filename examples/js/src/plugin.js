@@ -10,7 +10,7 @@ $(document).ready(function () {
   _public.smoothScroll()
 
   $('#basicTable').on('filter.changed.anchor.table', function (event, data) {
-    console.log('字段更新', data)
+    console.log('字段更新', data.data)
   })
   $('#basicTableOpt a').on('click', function (event) {
     event.preventDefault()

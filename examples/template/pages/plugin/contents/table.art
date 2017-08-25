@@ -7,18 +7,18 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>C</th>
+                    <th data-value="valueA">A</th>
+                    <th data-value="valueB">B</th>
+                    <th data-value="valueC">C</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr data-id="rowA">
                     <td>a1</td>
                     <td>b1</td>
                     <td>c1</td>
                 </tr>
-                <tr>
+                <tr data-id="rowB">
                     <td>a2</td>
                     <td>b2</td>
                     <td>c2</td>
@@ -38,16 +38,16 @@
         </div>
         <div style="display: none;">
             <select data-for="transfer">
-                <option value="X">X</option>
-                <option value="Y">Y</option>
-                <option value="Z">Z</option>
+                <option value="valueX">X</option>
+                <option value="valueY">Y</option>
+                <option value="valueZ">Z</option>
             </select>
         </div>
     </div>
 
     <script>
         $('#basicTable').on('filter.changed.anchor.table', function (event, data) {
-            console.log('字段更新', data)
+            console.log('字段更新', data.data)
         })
         $('#basicTableOpt a').on('click', function (event) {
             event.preventDefault()

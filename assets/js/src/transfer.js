@@ -102,9 +102,13 @@ const Transfer = (($) => {
       }))
 
       this.$select.left.add(this.$select.right).each(function () {
+        $(this)
+          .addClass('selectpicker')
+          .attr({'data-width': '300px'})
+
         let maxOptions = $(this).data('maxOptions')
         if (maxOptions) {
-          $(this).attr({'data-max-options-text': `最多选择${maxOptions}项`})
+          $(this).attr('data-max-options-text', `最多选择${maxOptions}项`)
         }
 
         $(this).on('changed.bs.select', function (event) {

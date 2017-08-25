@@ -53,7 +53,7 @@ const Table =(($) => {
       `,
       TABLE_CONFIG_MODAL: `
         <div class="modal fade" id="${options.modalId}" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -63,11 +63,11 @@ const Table =(($) => {
                 <div class="transfer-wrapper" data-toggle="transfer">
                   <div class="transfer-left">
                     <div>可选</div>
-                    <select class="selectpicker" multiple="multiple">${options.leftOptions}</select>
+                    <select multiple="multiple">${options.leftOptions}</select>
                   </div>
                   <div class="transfer-right">
                     <div>已选</div>
-                    <select class="selectpicker" multiple="multiple">${options.rightOptions}</select>
+                    <select multiple="multiple">${options.rightOptions}</select>
                   </div>
                 </div>
               </div>
@@ -121,11 +121,9 @@ const Table =(($) => {
 
       this.$thead.find('th').each(function (index) {
         let text = $(this).data('text') || $(this).text()
+        let value = $(this).data('value') || text
 
-        options.push(Template('SELECT_OPTION', {
-          text,
-          value: text
-        }))
+        options.push(Template('SELECT_OPTION', {text, value}))
       })
 
       this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {modalId}))
@@ -206,7 +204,12 @@ const Table =(($) => {
     }
 
     selected () {
-      return this.checkData
+      let selected = this.checkData.map((index) => {
+        let data = this.$tbody.find('tr').eq(index).data('id') || index
+        return data
+      })
+
+      return selected
     }
 
     // private
