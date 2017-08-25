@@ -15,7 +15,7 @@ $(document).ready(function () {
   $('#basicTableOpt a').on('click', function (event) {
     event.preventDefault()
     var value = $(this).data('opt')
-    var selected = $('#basicTable').table('val')
+    var selected = $('#basicTable').table('selected')
     console.log('操作按钮', value, selected)
   })
 })

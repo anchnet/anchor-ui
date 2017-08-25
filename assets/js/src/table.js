@@ -205,7 +205,7 @@ const Table =(($) => {
       this.checkData = checkData
     }
 
-    val () {
+    selected () {
       return this.checkData
     }
 
