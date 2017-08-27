@@ -21,6 +21,7 @@ $brand-base:            #4b556a !default;
 $brand-base-background: #f5f5f5 !default;
 $brand-tips:            #89909a !default;
 $brand-border:          #d4d4d4 !default;
+$brand-table:           #89909a !default;
 
 /* primary */
 $brand-primary-background:       lighten($brand-primary-light, 10%);
@@ -143,6 +144,7 @@ $table-condensed-cell-padding:  5px !default;
 
 //** Default background color used for all tables.
 $table-bg:                      transparent !default;
+$table-bg-head:                 #F4F4F4 !default;
 //** Background color used for `.table-striped`.
 $table-bg-accent:               #f9f9f9 !default;
 //** Background color used for `.table-hover`.
@@ -150,7 +152,8 @@ $table-bg-hover:                #f5f5f5 !default;
 $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+$table-border-color:            #f1f1f1 !default;
+$table-outer-border-color:      #d4d4d4 !default;
 
 
 //== Buttons

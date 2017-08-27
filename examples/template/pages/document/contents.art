@@ -2,5 +2,6 @@
     {{include './contents/layout.art'}}
     {{include './contents/button.art'}}
     {{include './contents/form.art'}}
+    {{include './contents/table.art'}}
     {{include './contents/breadcrumb.art'}}
 </div>

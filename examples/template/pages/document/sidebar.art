@@ -24,6 +24,7 @@
                 <li><a href="#form-horizontal">水平排列的表单</a></li>
             </ul>
         </li>
+        <li><a href="#table">表格</a></li>
         <li><a href="#breadcrumb">面包屑</a></li>
         <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>

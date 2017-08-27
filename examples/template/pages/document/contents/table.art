@@ -1,0 +1,29 @@
+<h2 id="table">表格</h2>
+
+<h3 id="table-basic">基础表格</h3>
+<div class="bs-example" data-example-id="table-basic">
+    <table class="table">
+        <thead>
+            <tr><th>昵称</th><th>姓名</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>猛哥</td><td>刘志猛</td></tr>
+            <tr><td>小打</td><td>戴立勤</td></tr>
+        </tbody>
+    </table>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="table-panel">面板表格</h3>
+<div class="bs-example" data-example-id="table-panel">
+    <table class="table table-panel">
+        <thead>
+            <tr><th>昵称</th><th>姓名</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>猛哥</td><td>刘志猛</td></tr>
+            <tr><td>小打</td><td>戴立勤</td></tr>
+        </tbody>
+    </table>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
