@@ -7,20 +7,23 @@
 
   .transfer-left, .transfer-right {
     float: left;
-    width: 400px;
+    width: 350px;
     overflow: hidden;
   }
 
   .transfer-btns {
     float: left;
-    margin-top: 96px;
-    margin-left: 32px;
+    margin-top: 160px;
+    margin-left: 18px;
 
     .btn {
       display: block;
+      width: 32px;
+      height: 32px;
+      line-height: 16px;
       margin-bottom: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding: 8px;
+      text-align: center;
     }
   }
 
@@ -37,7 +40,7 @@
       position: relative;
 
       &.inner {
-        max-width: 300px;
+        max-width: 280px;
         height: 375px;
         overflow-x: hidden;
         overflow-y: auto;

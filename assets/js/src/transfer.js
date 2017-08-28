@@ -15,7 +15,9 @@ const Transfer = (($) => {
   const DATA_API_KEY = '.data-api'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {}
+  const Default = {
+    SELECT_WIDTH: 280
+  }
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
@@ -104,7 +106,7 @@ const Transfer = (($) => {
       this.$select.left.add(this.$select.right).each(function () {
         $(this)
           .addClass('selectpicker')
-          .attr({'data-width': '300px'})
+          .attr({'data-width': `${Default.SELECT_WIDTH}px`})
 
         let maxOptions = $(this).data('maxOptions')
         if (maxOptions) {

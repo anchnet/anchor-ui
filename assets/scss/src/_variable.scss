@@ -153,7 +153,8 @@ $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.
 $table-border-color:            #f1f1f1 !default;
-$table-outer-border-color:      #d4d4d4 !default;
+$table-border-color-outer:      #d4d4d4 !default;
+$table-border-color-green:      #10c953 !default;
 
 
 //== Buttons
@@ -630,6 +631,7 @@ $modal-header-border-color:   #e5e5e5 !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
 
 $modal-lg:                    900px !default;
+$modal-rlg:                   750px !default;
 $modal-md:                    600px !default;
 $modal-sm:                    300px !default;
 

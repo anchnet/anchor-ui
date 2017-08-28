@@ -246,8 +246,12 @@ table {
 
 // Panel table
 .table-panel {
-  border: 1px solid $table-outer-border-color;
+  border: 1px solid $table-border-color-outer;
   border-top: 2px solid $brand-primary;
+
+  &.table-panel-green {
+    border-top-color: $table-border-color-green;
+  }
 
   > thead {
     tr {
