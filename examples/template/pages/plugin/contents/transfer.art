@@ -1,7 +1,7 @@
 <h2 id="transfer" class="page-header">穿梭框</h2>
 
-<h3 id="transfer-basic">基础穿梭框</h3>
-<div class="bs-example" data-example-id="transfer-basic">
+<h3 id="transfer-example">穿梭框实例</h3>
+<div class="bs-example" data-example-id="transfer-example">
     <div class="transfer-wrapper" data-toggle="transfer">
         <div class="transfer-left">
             <select multiple>

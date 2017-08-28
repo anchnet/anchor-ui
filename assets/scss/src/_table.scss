@@ -3,8 +3,10 @@
  */
 
 .table-wrapper {
-  overflow-x: auto;
-
+  .table-element-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
   .first-column {
     width: 36px;
   }

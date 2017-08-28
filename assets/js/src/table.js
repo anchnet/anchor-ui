@@ -126,6 +126,7 @@ const Table =(($) => {
         options.push(Template('SELECT_OPTION', {text, value}))
       })
 
+      this.$table.wrap('<div class="table-element-wrapper"></div>')
       this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {modalId}))
       this.$tbody.find('tr').prepend(Template('TABLE_ROW_CHECKBOX'))
       this.$bottom.prepend(Template('TABLE_ALL_CHECKBOX'))

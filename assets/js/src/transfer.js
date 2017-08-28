@@ -106,7 +106,7 @@ const Transfer = (($) => {
       this.$select.left.add(this.$select.right).each(function () {
         $(this)
           .addClass('selectpicker')
-          .attr({'data-width': `${Default.SELECT_WIDTH}px`})
+          .attr({'data-width': `${Transfer.Default.SELECT_WIDTH}px`})
 
         let maxOptions = $(this).data('maxOptions')
         if (maxOptions) {
