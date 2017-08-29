@@ -28,6 +28,7 @@ const Table =(($) => {
     DATA_TABLE: '[data-toggle="table"]',
     DATA_TRANSFER: '[data-toggle="transfer"]',
     DATA_TRANSFER_SELECT: '[data-for="transfer"]',
+    TABLE_WRAPPER: '.table-wrapper',
     TABLE_BOTTOM: '.table-bottom',
     CELL_HIDE: '.cell-hide',
     CHECK_ROW: '.check-row',
@@ -60,7 +61,7 @@ const Table =(($) => {
                 <h4 class="modal-title">表格设置</h4>
               </div>
               <div class="modal-body">
-                <div class="transfer-wrapper" data-toggle="transfer">
+                <div data-toggle="transfer">
                   <div class="transfer-left">
                     <div>可选</div>
                     <select multiple="multiple">${options.leftOptions}</select>
@@ -114,18 +115,18 @@ const Table =(($) => {
     // public
 
     init () {
-      let _class = this
       let modalId = `tableConfigModal-${Math.random().toString(36).substr(2)}`
       let modalSelector = `#${modalId}`
       let options = []
 
-      this.$thead.find('th').each(function (index) {
-        let text = $(this).data('text') || $(this).text()
-        let value = $(this).data('value') || text
+      this.$thead.find('th').each((i, el) => {
+        let text = $(el).data('text') || $(el).text()
+        let value = $(el).data('value') || text
 
         options.push(Template('SELECT_OPTION', {text, value}))
       })
 
+      this.$root.addClass(Table._getNameFromClass(Selector.TABLE_WRAPPER))
       this.$table.wrap('<div class="table-element-wrapper"></div>')
       this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {modalId}))
       this.$tbody.find('tr').prepend(Template('TABLE_ROW_CHECKBOX'))
@@ -138,15 +139,15 @@ const Table =(($) => {
 
       this.$root.find(Selector.DATA_TRANSFER).transfer()
 
-      this.$root.find(`${modalSelector} .submit-btn`).on('click', function () {
-        _class.$root.find(modalSelector).modal('hide')
+      this.$root.find(`${modalSelector} .submit-btn`).on('click', () => {
+        this.$root.find(modalSelector).modal('hide')
 
-        let data = _class.$root.find(Selector.DATA_TRANSFER).transfer('val')
-        _class.$root.trigger(Event.FILTER_CHANGED, {data})
+        let data = this.$root.find(Selector.DATA_TRANSFER).transfer('val')
+        this.$root.trigger(Event.FILTER_CHANGED, {data})
       })
 
-      this.$root.find(modalSelector).on('hidden.bs.modal', function () {
-        _class.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
+      this.$root.find(modalSelector).on('hidden.bs.modal', () => {
+        this.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
       })
     }
 
@@ -167,13 +168,12 @@ const Table =(($) => {
 
         case 'all':
           let checked = $(element).is(':checked')
+          checkData = []
 
           if (checked) {
             for (let i = 0; i < len; i++) {
               checkData.push(i)
             }
-          } else {
-            checkData = []
           }
           break
       }
@@ -230,8 +230,8 @@ const Table =(($) => {
     static _jQueryInterface (config) {
       let funcResult
 
-      let defaultResult = this.each(function () {
-        let data = $(this).data(DATA_KEY)
+      let defaultResult = this.each((i, el) => {
+        let data = $(el).data(DATA_KEY)
         let _config = $.extend(
           {},
           Table.Default,
@@ -239,8 +239,8 @@ const Table =(($) => {
         )
 
         if (!data) {
-          data = new Table(this, _config)
-          $(this).data(DATA_KEY, data)
+          data = new Table(el, _config)
+          $(el).data(DATA_KEY, data)
         }
 
         if (typeof config === 'string') {
@@ -255,13 +255,13 @@ const Table =(($) => {
     }
 
     static _checkHandler (event) {
-      let target = $(this).closest(Selector.DATA_TABLE)[0]
+      let target = $(event.target).closest(Selector.DATA_TABLE)[0]
       if (!$(target).length) return
 
       let config = $.extend({}, $(target).data())
       Table._jQueryInterface.call($(target), config)
 
-      $(target).data(DATA_KEY).checkItems(this, event.data.type)
+      $(target).data(DATA_KEY).checkItems(event.target, event.data.type)
     }
   }
 
@@ -274,8 +274,8 @@ const Table =(($) => {
     .on(Event.CHANGE_DATA_API, Selector.CHECK_ALL, {type: 'all'}, Table._checkHandler)
 
   $(window).on(Event.LOAD_DATA_API, () => {
-    $(Selector.DATA_TABLE).each(function () {
-      let $table = $(this)
+    $(Selector.DATA_TABLE).each((i, el) => {
+      let $table = $(el)
 
       Table._jQueryInterface.call($table, $table.data())
     })
@@ -287,7 +287,7 @@ const Table =(($) => {
 
   $.fn[NAME] = Table._jQueryInterface
   $.fn[NAME].Constructor = Table
-  $.fn[NAME].noConflict = function () {
+  $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Table._jQueryInterface
   }

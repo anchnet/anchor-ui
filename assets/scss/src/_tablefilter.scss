@@ -1,0 +1,27 @@
+/**
+ * tablefilter
+ */
+
+.tablefilter-wrapper {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  &.show-tablefilter {
+    display: block;
+  }
+
+  .tablefilter-row {
+    margin-bottom: 10px;
+  }
+
+  .tablefilter-row-section {
+    display: inline-block;
+  }
+
+  .tablefilter-bottom {
+    .btn {
+      margin-right: 10px;
+    }
+  }
+}

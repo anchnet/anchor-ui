@@ -62,24 +62,22 @@ const Sidebar = (($) => {
     // public
 
     init () {
-      let _class = this
-
       let hierarchies = []
 
-      this.$root.find(Selector.MENU_TITLE).each(function (i) {
-        let $menuGroup = $(this).closest(Selector.MENU_GROUP)
-        let groupNum = $(this).parents(Selector.MENU_GROUP).length
+      this.$root.find(Selector.MENU_TITLE).each((i, el) => {
+        let $menuGroup = $(el).closest(Selector.MENU_GROUP)
+        let groupNum = $(el).parents(Selector.MENU_GROUP).length
 
         while ($menuGroup.find(Selector.MENU_TITLE).length <= 1 && groupNum > 0) {
           groupNum -= 1
           $menuGroup = $menuGroup.parent().closest(Selector.MENU_GROUP)
         }
 
-        let isFirst = $(this).index($menuGroup.find(Selector.MENU_TITLE)) === 0
+        let isFirst = $(el).index($menuGroup.find(Selector.MENU_TITLE)) === 0
         let hierarchyNum = groupNum + (isFirst ? 0 : 1)
 
         if (!hierarchies[hierarchyNum]) hierarchies[hierarchyNum] = []
-        hierarchies[hierarchyNum].push(this)
+        hierarchies[hierarchyNum].push(el)
       })
 
       let hierarchyCount = 0
@@ -88,8 +86,8 @@ const Sidebar = (($) => {
           hierarchyItems.forEach((element) => {
             if (hierarchyCount) {
               $(element)
-                .addClass(this._getNameFromClass(Selector.MENU_SUB_TITLE))
-                .removeClass(this._getNameFromClass(Selector.MENU_TITLE))
+                .addClass(Sidebar._getNameFromClass(Selector.MENU_SUB_TITLE))
+                .removeClass(Sidebar._getNameFromClass(Selector.MENU_TITLE))
               if (hierarchyCount > 1) $(element).addClass(`sub-${hierarchyCount}`)
             }
           })
@@ -97,38 +95,38 @@ const Sidebar = (($) => {
         }
       })
 
-      this.$root.find(Selector.MENU_TITLE).append(`<i class="${_class._getNameFromClass(Selector.MENU_DOT)}"></i>`)
-      this.$root.find(Selector.MENU_SUB_TITLE).each(function () {
-        let $menuGroup = $(this).closest(Selector.MENU_GROUP)
-        let isFirst = $(this).index($menuGroup.find(Selector.MENU_SUB_TITLE)) === 0
+      this.$root.find(Selector.MENU_TITLE).append(`<i class="${Sidebar._getNameFromClass(Selector.MENU_DOT)}"></i>`)
+      this.$root.find(Selector.MENU_SUB_TITLE).each((i, el) => {
+        let $menuGroup = $(el).closest(Selector.MENU_GROUP)
+        let isFirst = $(el).index($menuGroup.find(Selector.MENU_SUB_TITLE)) === 0
         let hasChildren = $menuGroup.find(Selector.MENU_SUB_TITLE).length > 1
 
         if (!isFirst) return
         else if (!hasChildren) return
 
-        $(this).append(`<i class="${_class._getNameFromClass(Selector.MENU_TRIANGLE)}"></i>`)
+        $(el).append(`<i class="${Sidebar._getNameFromClass(Selector.MENU_TRIANGLE)}"></i>`)
       })
 
       let $selected = this.$root.find(`${Selector.MENU_SUB_TITLE}${Selector.SELECTED}`)
       if ($selected.length) {
-        let activeClass = this._getNameFromClass(Selector.ACTIVE)
-        $selected.parents(Selector.MENU_GROUP).each(function () {
-          let $el = $(this).find(Selector.MENU_SUB_TITLE).first()
-          let $menuTitle = $(this).find(Selector.MENU_TITLE)
+        let activeClass = Sidebar._getNameFromClass(Selector.ACTIVE)
+        $selected.parents(Selector.MENU_GROUP).each((i, el) => {
+          let $el = $(el).find(Selector.MENU_SUB_TITLE).first()
+          let $menuTitle = $(el).find(Selector.MENU_TITLE)
 
           if (!$el.length) return
           else if ($el.attr('href')) return
           else if ($menuTitle.length) return
 
-          $el.addClass(_class._getNameFromClass(Selector.NO_TRANSITION))
-          _class.toggleMenuGroup($el[0], false)
+          $el.addClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
+          this.toggleMenuGroup($el[0], false)
         })
-        $selected.parents(Selector.MENU_GROUP).each(function () {
-          let $el = $(this).find(Selector.MENU_TITLE).first()
+        $selected.parents(Selector.MENU_GROUP).each((i, el) => {
+          let $el = $(el).find(Selector.MENU_TITLE).first()
 
           if (!$el.length) return
 
-          _class.toggleMenuGroup($el[0], false)
+          this.toggleMenuGroup($el[0], false)
         })
       }
     }
@@ -136,7 +134,7 @@ const Sidebar = (($) => {
     toggleMenuGroup (element, transition = true) {
       let $element = $(element)
       let $menuGroup = $element.closest(Selector.MENU_GROUP)
-      let activeClass = this._getNameFromClass(Selector.ACTIVE)
+      let activeClass = Sidebar._getNameFromClass(Selector.ACTIVE)
       let isActive = $element.hasClass(activeClass)
       let currentHeight = $menuGroup.height()
       let targetHeight
@@ -145,8 +143,8 @@ const Sidebar = (($) => {
         targetHeight = 40
       } else {
         targetHeight = 0
-        $menuGroup.children().each(function () {
-          targetHeight += $(this).height()
+        $menuGroup.children().each((i, el) => {
+          targetHeight += $(el).height()
         })
       }
 
@@ -161,7 +159,7 @@ const Sidebar = (($) => {
 
       $element.toggleClass(activeClass)
       setTimeout(() => {
-        $element.removeClass(this._getNameFromClass(Selector.NO_TRANSITION))
+        $element.removeClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
       }, 0)
       $menuGroup.animate({height: targetHeight}, transitionDuration, () => {
         if (isActive) {}
@@ -180,16 +178,16 @@ const Sidebar = (($) => {
       return config
     }
 
-    _getNameFromClass (className) {
+    // static
+
+    static _getNameFromClass (className) {
       className = className.replace(/\./g, '')
       return className
     }
 
-    // static
-
     static _jQueryInterface (config) {
-      return this.each(function () {
-        let data = $(this).data(DATA_KEY)
+      return this.each((i, el) => {
+        let data = $(el).data(DATA_KEY)
         let _config = $.extend(
           {},
           Sidebar.Default,
@@ -197,8 +195,8 @@ const Sidebar = (($) => {
         )
 
         if (!data) {
-          data = new Sidebar(this, _config)
-          $(this).data(DATA_KEY, data)
+          data = new Sidebar(el, _config)
+          $(el).data(DATA_KEY, data)
         }
       })
     }
@@ -227,8 +225,8 @@ const Sidebar = (($) => {
     .on(Event.CLICK_DATA_API, Selector.MENU_SUB_TITLE, Sidebar._menuTitleClickHandler)
 
   $(window).on(Event.LOAD_DATA_API, () => {
-    $(Selector.DATA_SIDEBAR).each(function () {
-      let $sidebar = $(this)
+    $(Selector.DATA_SIDEBAR).each((i, el) => {
+      let $sidebar = $(el)
 
       Sidebar._jQueryInterface.call($sidebar, $sidebar.data())
     })
@@ -240,7 +238,7 @@ const Sidebar = (($) => {
 
   $.fn[NAME] = Sidebar._jQueryInterface
   $.fn[NAME].Constructor = Sidebar
-  $.fn[NAME].noConflict = function () {
+  $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Sidebar._jQueryInterface
   }

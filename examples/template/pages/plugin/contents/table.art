@@ -3,7 +3,7 @@
 
 <h3 id="table-basic">基础表格</h3>
 <div class="bs-example" data-example-id="table-basic">
-    <div id="basicTable" class="table-wrapper" data-toggle="table">
+    <div id="basicTable" data-toggle="table">
         <table class="table">
             <thead>
                 <tr>
