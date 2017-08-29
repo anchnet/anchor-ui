@@ -1,0 +1,21 @@
+<h2 id="tablefilter" class="page-header">表格过滤器</h2>
+
+<h3 id="tablefilter-example">表格过滤器实例</h3>
+<div class="bs-example" data-example-id="tablefilter-example">
+    <div>
+        <button type="button" class="btn btn-default-light" id="toggleTableFilter">
+            <span class="glyphicon glyphicon-screenshot"></span>
+            显示高级搜索
+        </button>
+    </div>
+    <div id="basicTableFilter" data-toggle="tablefilter">
+        <div style="display: none;">
+            <select data-for="fields">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+        </div>
+    </div>
+</div>
+<figure class="highlight"><pre><code class="html"></code></pre></figure>

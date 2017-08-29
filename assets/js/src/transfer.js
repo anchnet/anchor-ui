@@ -15,7 +15,9 @@ const Transfer = (($) => {
   const DATA_API_KEY = '.data-api'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {}
+  const Default = {
+    SELECT_WIDTH: 280
+  }
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
@@ -26,6 +28,7 @@ const Transfer = (($) => {
     DATA_TRANSFER: '[data-toggle="transfer"]',
     BLOCK_LEFT: '.transfer-left',
     BLOCK_RIGHT: '.transfer-right',
+    TRANSFER_WRAPPER: '.transfer-wrapper',
     TRANSFER_TO_RIGHT: '.transfer-to-right',
     TRANSFER_TO_LEFT: '.transfer-to-left',
     SORT_UP: '.sort-up',
@@ -85,34 +88,38 @@ const Transfer = (($) => {
     // public
 
     init () {
-      let _class = this
+      this.$root.addClass(Transfer._getNameFromClass(Selector.TRANSFER_WRAPPER))
 
       this.$block.left.append(Template('LEFT_BUTTONS', {
         className: {
-          right: this._getNameFromClass(Selector.TRANSFER_TO_RIGHT),
-          left: this._getNameFromClass(Selector.TRANSFER_TO_LEFT)
+          right: Transfer._getNameFromClass(Selector.TRANSFER_TO_RIGHT),
+          left: Transfer._getNameFromClass(Selector.TRANSFER_TO_LEFT)
         }
       }))
 
       this.$block.right.append(Template('RIGHT_BUTTONS', {
         className: {
-          up: this._getNameFromClass(Selector.SORT_UP),
-          down: this._getNameFromClass(Selector.SORT_DOWN)
+          up: Transfer._getNameFromClass(Selector.SORT_UP),
+          down: Transfer._getNameFromClass(Selector.SORT_DOWN)
         }
       }))
 
-      this.$select.left.add(this.$select.right).each(function () {
-        let maxOptions = $(this).data('maxOptions')
+      this.$select.left.add(this.$select.right).each((i, el) => {
+        $(el)
+          .addClass('selectpicker')
+          .attr({'data-width': `${this._getConfig().SELECT_WIDTH}px`})
+
+        let maxOptions = $(el).data('maxOptions')
         if (maxOptions) {
-          $(this).attr({'data-max-options-text': `最多选择${maxOptions}项`})
+          $(el).attr('data-max-options-text', `最多选择${maxOptions}项`)
         }
 
-        $(this).on('changed.bs.select', function (event) {
+        $(el).on('changed.bs.select', (event) => {
           let oppositeDirection
           if ($(event.target).closest(Selector.BLOCK_LEFT).length) oppositeDirection = 'right'
           else if ($(event.target).closest(Selector.BLOCK_RIGHT).length) oppositeDirection = 'left'
-          _class.$select[oppositeDirection].find('option').prop({'selected': false})
-          _class._refreshSelect()
+          this.$select[oppositeDirection].find('option').prop({'selected': false})
+          this._refreshSelect()
         })
       })
 
@@ -136,28 +143,28 @@ const Transfer = (($) => {
           $selectTo.append($selectItems)
           break
         case 'up':
-          $selectItems.each(function () {
+          $selectItems.each((i, el) => {
             let len = $selectTo.find('option').length
-            let index = $(this).index()
+            let index = $(el).index()
 
             if (index) {
               let $prevOption = $selectTo.find('option').eq(index - 1)
               if (!$prevOption.is(':selected')) {
-                $prevOption.before($(this))
+                $prevOption.before($(el))
               }
             }
           })
           break
         case 'down':
           $selectItems = $selectItems.reverse()
-          $selectItems.each(function () {
+          $selectItems.each((i, el) => {
             let len = $selectTo.find('option').length
-            let index = $(this).index()
+            let index = $(el).index()
 
             if (index < len - 1) {
               let $nextOption = $selectTo.find('option').eq(index + 1)
               if (!$nextOption.is(':selected')) {
-                $nextOption.after($(this))
+                $nextOption.after($(el))
               }
             }
           })
@@ -169,8 +176,8 @@ const Transfer = (($) => {
 
     val () {
       let val = []
-      this.$select.right.find('option').each(function () {
-        val.push($(this).attr('value'))
+      this.$select.right.find('option').each((i, el) => {
+        val.push($(el).attr('value'))
       })
       return val
     }
@@ -186,34 +193,32 @@ const Transfer = (($) => {
       return config
     }
 
-    _getNameFromClass (className) {
-      className = className.replace(/\./g, '')
-      return className
-    }
-
     _refreshSelect () {
-      this.$select.left.add(this.$select.right).each(function () {
-        $(this).selectpicker('refresh')
-      })
+      this.$select.left.add(this.$select.right).selectpicker('refresh')
     }
 
     // static
 
+    static _getNameFromClass (className) {
+      className = className.replace(/\./g, '')
+      return className
+    }
+
     static _jQueryInterface (config) {
       let funcResult
 
-      let defaultResult = this.each(function () {
-        let data = $(this).data(DATA_KEY)
+      let defaultResult = this.each((i, el) => {
+        let data = $(el).data(DATA_KEY)
         let _config = $.extend(
           {},
           Transfer.Default,
-          $(this).data(),
+          $(el).data(),
           typeof config === 'object' && config
         )
 
         if (!data) {
-          data = new Transfer(this, _config)
-          $(this).data(DATA_KEY, data)
+          data = new Transfer(el, _config)
+          $(el).data(DATA_KEY, data)
         }
 
         if (typeof config === 'string') {
@@ -228,13 +233,13 @@ const Transfer = (($) => {
     }
 
     static _transferBtnClickHandler (event) {
-      let target = $(this).closest(Selector.DATA_TRANSFER)[0]
+      let target = $(event.target).closest(Selector.DATA_TRANSFER)[0]
       if (!$(target).length) return
 
       let config = $.extend({}, $(target).data())
       Transfer._jQueryInterface.call($(target), config)
 
-      $(target).data(DATA_KEY).transferItems(this, event.data.direction)
+      $(target).data(DATA_KEY).transferItems(event.target, event.data.direction)
     }
   }
 
@@ -249,8 +254,8 @@ const Transfer = (($) => {
     .on(Event.CLICK_DATA_API, Selector.SORT_DOWN, {direction: 'down'}, Transfer._transferBtnClickHandler)
 
   $(window).on(Event.LOAD_DATA_API, () => {
-    $(Selector.DATA_TRANSFER).each(function () {
-      let $transfer = $(this)
+    $(Selector.DATA_TRANSFER).each((i, el) => {
+      let $transfer = $(el)
 
       Transfer._jQueryInterface.call($transfer, $transfer.data())
     })
@@ -262,7 +267,7 @@ const Transfer = (($) => {
 
   $.fn[NAME] = Transfer._jQueryInterface
   $.fn[NAME].Constructor = Transfer
-  $.fn[NAME].noConflict = function () {
+  $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Transfer._jQueryInterface
   }

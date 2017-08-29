@@ -146,5 +146,6 @@
 }
 
 @media (min-width: $screen-md-min) {
+  .modal-rlg { width: $modal-rlg }
   .modal-lg { width: $modal-lg; }
 }

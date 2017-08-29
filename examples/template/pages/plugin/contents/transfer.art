@@ -1,17 +1,17 @@
 <h2 id="transfer" class="page-header">穿梭框</h2>
 
-<h3 id="transfer-basic">基础穿梭框</h3>
-<div class="bs-example" data-example-id="transfer-basic">
-    <div class="transfer-wrapper" data-toggle="transfer">
+<h3 id="transfer-example">穿梭框实例</h3>
+<div class="bs-example" data-example-id="transfer-example">
+    <div data-toggle="transfer">
         <div class="transfer-left">
-            <select class="selectpicker" multiple="multiple">
+            <select multiple>
                 <% for (var i = 0; i < 11; i++) { %>
                 <option value="<%= i %>">option <%= i %></option>
                 <% } %>
             </select>
         </div>
         <div class="transfer-right">
-            <select class="selectpicker" multiple="multiple">
+            <select multiple>
                 <% for (var i = 100; i < 105; i++) { %>
                 <option value="<%= i %>">option <%= i %></option>
                 <% } %>
@@ -20,3 +20,9 @@
     </div>
 </div>
 <figure class="highlight"><pre><code class="html"></code></pre></figure>
+
+<h3 id="transfer-methods">方法</h3>
+<h4><code>$().transfer('val')</code></h4>
+<p>获取右框的值</p>
+<h4><code>$().transfer('deselectAll')</code></h4>
+<p>取消所有选中状态</p>
