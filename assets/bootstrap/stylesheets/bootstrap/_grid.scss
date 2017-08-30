@@ -37,10 +37,7 @@
 // Rows contain and clear the floats of your columns.
 
 .row {
-  //@include make-row;
-  margin-left:  10px;
-  margin-right: 10px;
-  @include clearfix;
+  @include make-row;
 }
 
 
