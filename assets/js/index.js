@@ -1,5 +1,7 @@
 import '../bootstrap/javascripts/bootstrap'
 import '../libs/bootstrap-select/bootstrap-select'
+import '../libs/bootstrap-tagsinput/bootstrap-tagsinput'
+import datetimepicker from '../libs/bootstrap-datetimepicker/bootstrap-datetimepicker.min'
 import './src/sidebar'
 import './src/tablefilter'
 import './src/transfer'
@@ -7,6 +9,8 @@ import './src/table'
 
 !function ($) {
   $.fn.reverse = [].reverse
+  $.fn.datetimepicker = datetimepicker
+
   $.extend({
     ANCHOR_VERSION: '0.3.0'
   })

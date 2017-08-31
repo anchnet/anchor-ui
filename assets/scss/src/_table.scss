@@ -2,20 +2,30 @@
  * table
  */
 
+[data-toggle="table"] {
+  visibility: hidden;
+}
+
 .table-wrapper {
+  visibility: visible;
+
   .table-element-wrapper {
     width: 100%;
     overflow-x: auto;
   }
+
   .first-column {
     width: 36px;
   }
+
   .table-config {
     cursor: pointer;
   }
+
   .cell-hide {
     display: none;
   }
+
   .check-all-wrapper {
     display: inline-block;
     width: 36px;

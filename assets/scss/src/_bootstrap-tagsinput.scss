@@ -1,0 +1,10 @@
+.bootstrap-tagsinput {
+  overflow: auto;
+  width: 220px;
+  padding: 2px 4px;
+  border-radius: $border-radius-small;
+
+  .label-info {
+    background-color: $brand-primary;
+  }
+}

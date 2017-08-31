@@ -202,17 +202,16 @@ const Sidebar = (($) => {
     }
 
     static _menuTitleClickHandler (event) {
-      let target = $(this).closest(Selector.DATA_SIDEBAR)[0]
-
+      let target = $(event.target).closest(Selector.DATA_SIDEBAR)[0]
       if (!$(target).length) return
-      if ($(this).attr('href')) return
 
+      if ($(event.target).attr('href')) return
       event.preventDefault()
 
       let config = $.extend({}, $(target).data())
       Sidebar._jQueryInterface.call($(target), config)
 
-      $(target).data(DATA_KEY).toggleMenuGroup(this)
+      $(target).data(DATA_KEY).toggleMenuGroup(event.target)
     }
   }
 
