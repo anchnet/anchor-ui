@@ -28,6 +28,12 @@ const TableFilter = (($) => {
     TABLEFILTER_WRAPPER: '.tablefilter-wrapper',
     TABLEFILTER_BODY: '.tablefilter-body',
     TABLEFILTER_BLOCK: '.tablefilter-block',
+    TABLEFILTER_BLOCK_TITLE: '.tablefilter-block-title',
+    TABLEFILTER_ROWS: '.tablefilter-rows',
+    TABLEFILTER_ROW: '.tablefilter-row',
+    SELECT_FIELD: '.select-field',
+    SELECT_OPERATOR: '.select-operator',
+    INPUT_VALUE: '.input-value',
     TABLEFILTER_BOTTOM: '.tablefilter-bottom',
     SHOW_TABLEFILTER: '.show-tablefilter'
   }
@@ -88,44 +94,47 @@ const TableFilter = (($) => {
   const Template = (id, options = {}) => {
     let templates = {
       BODY: `
-        <div class="${TableFilter._getNameFromClass(Selector.TABLEFILTER_BODY)}"></div>
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BODY)}"></div>
       `,
       BOTTOM: `
-        <div class="${TableFilter._getNameFromClass(Selector.TABLEFILTER_BOTTOM)}">
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BOTTOM)}">
           <button type="button" class="btn btn-primary-base-border" data-action="and">AND</button><!--
           --><button type="button" class="btn btn-primary-base-border" data-action="or">OR</button><!--
-          --><button type="button" class="btn btn-primary-base-border" data-action="search">搜索</button>
+          --><button type="button" class="btn btn-primary-base-border" data-action="search">
+            <span class="glyphicon glyphicon-search"></span>
+            搜索
+          </button>
         </div>
       `,
       BLOCK: `
-        <div class="${TableFilter._getNameFromClass(Selector.TABLEFILTER_BLOCK)}">
-          ${options.text}
-          <div class="tablefilter-rows"></div>
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BLOCK)}">
+          <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BLOCK_TITLE)}"></div>
+          <div class="${TableFilter._getClassName(Selector.TABLEFILTER_ROWS)}"></div>
         </div>
       `,
       ROW: `
-        <div class="tablefilter-row"></div>
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_ROW)}"></div>
       `,
       SECTION_FIELD: `
         <span class="tablefilter-row-section field-section">
-          <select class="select-field selectpicker" title="请选择字段">${options.options}</select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段">${options.options}</select>
         </span>
       `,
       SECTION_OPERATOR: `
         <span class="tablefilter-row-section operator-section">
-          <select class="select-operator selectpicker" title="关系" disabled></select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled></select>
         </span>
       `,
       SECTION_VALUE: `
         <span class="tablefilter-row-section value-section">
-          <input class="input-value form-control" placeholder="值" disabled/>
+          <input class="${TableFilter._getClassName(Selector.INPUT_VALUE)} form-control" placeholder="值" disabled/>
         </span>
       `,
       SECTION_BUTTON: `
         <span class="tablefilter-row-section btn-section">
           <button type="button" class="btn btn-default hide" data-action="and">and</button>
           <button type="button" class="btn btn-default hide" data-action="or">or</button>
-          <button type="button" class="btn btn-default hide" data-action="delete">×</button>
+          <button type="button" class="btn btn-default" data-action="delete">×</button>
         </span>
       `
     }
@@ -160,7 +169,7 @@ const TableFilter = (($) => {
     // public
 
     init () {
-      this.$root.addClass(`${TableFilter._getNameFromClass(Selector.TABLEFILTER_WRAPPER)} form-inline`)
+      this.$root.addClass(`${TableFilter._getClassName(Selector.TABLEFILTER_WRAPPER)} form-inline`)
       this.$root
         .append(Template('BODY'))
         .append(Template('BOTTOM'))
@@ -170,7 +179,6 @@ const TableFilter = (($) => {
 
       this.getFieldsOptions()
       this.addBlock()
-      this.addRow()
     }
 
     getFieldsOptions () {
@@ -180,12 +188,13 @@ const TableFilter = (($) => {
     }
 
     addBlock () {
-      let text = this._getCurrentBlocksNum() ? `<div class="tablefilter-block-text">OR</div>` : ``
-
-      let block = Template('BLOCK', {text})
+      let block = Template('BLOCK')
       let $block = $(block)
 
       this.$body.append($block)
+      this.addRow({
+        blockIndex: this._getCurrentBlocksNum() - 1
+      })
     }
 
     deleteBlock (index) {
@@ -231,11 +240,38 @@ const TableFilter = (($) => {
         .append(section.value)
         .append(section.btn)
 
-      $row.find('select.select-field').on('changed.bs.select', (event) => {
+      let $btns = $row.find('.btn-section .btn')
+
+      $btns.on('click', (event) => {
+        let action = $(event.target).data('action')
+        let $block = $(event.target).closest(Selector.TABLEFILTER_BLOCK)
+        let $row = $(event.target).closest(Selector.TABLEFILTER_ROW)
+        let blockIndex = $block.index()
+        let rowIndex = $row.index()
+
+        switch (action) {
+          case 'and':
+            this.addRow({blockIndex})
+            break
+
+          case 'or':
+            this.addRow({
+              blockIndex,
+              rowIndex: rowIndex + 1,
+              type: 'or'
+            })
+            break
+
+          case 'delete':
+            this.deleteRow({blockIndex, rowIndex})
+            break
+        }
+      })
+
+      $row.find(`select${Selector.SELECT_FIELD}`).on('changed.bs.select', (event) => {
         let type = $(event.target).find('option:selected').data('type')
         let operators = FieldTypeData.find((item) => item.typeId === type).operators
-        let $selectOperator = $row.find('select.select-operator')
-        let $btns = $row.find('.btn-section .btn')
+        let $selectOperator = $row.find(`select${Selector.SELECT_OPERATOR}`)
 
         $selectOperator.empty()
         $selectOperator.prop('disabled', false)
@@ -256,41 +292,15 @@ const TableFilter = (($) => {
           })
         }
 
-        $btns.on('click', (event) => {
-          let action = $(event.target).data('action')
-          let $block = $(event.target).closest(Selector.TABLEFILTER_BLOCK)
-          let $row = $(event.target).closest('.tablefilter-row')
-          let blockIndex = $block.index()
-          let rowIndex = $row.index()
-
-          switch (action) {
-            case 'and':
-              this.addRow({blockIndex})
-              break
-
-            case 'or':
-              this.addRow({
-                blockIndex,
-                rowIndex: rowIndex + 1,
-                type: 'or'
-              })
-              break
-
-            case 'delete':
-              this.deleteRow({blockIndex, rowIndex})
-              break
-          }
-        })
-
-        $row.find('select.select-operator').trigger('changed.bs.select')
+        $row.find(`select${Selector.SELECT_OPERATOR}`).trigger('changed.bs.select')
         this._refreshFormEl()
       })
 
-      $row.find('select.select-operator').on('changed.bs.select', (event) => {
+      $row.find(`select${Selector.SELECT_OPERATOR}`).on('changed.bs.select', (event) => {
         let operator = $(event.target).selectpicker('val')
-        let type = $row.find('select.select-field option:selected').data('type')
+        let type = $row.find(`select${Selector.SELECT_FIELD} option:selected`).data('type')
         let formType = FieldTypeData.find((item) => item.typeId === type).formType
-        let $inputValue = $row.find('input.input-value')
+        let $inputValue = $row.find(`input${Selector.INPUT_VALUE}`)
 
         $inputValue.prop('disabled', false)
 
@@ -298,12 +308,14 @@ const TableFilter = (($) => {
         this._refreshFormEl()
       })
 
-      if (options.rowIndex === -1) $block.find('.tablefilter-rows').append($row)
+      if (options.rowIndex === -1) $block.find(Selector.TABLEFILTER_ROWS).append($row)
       else {
-        let $el = $block.find('.tablefilter-row').eq(options.rowIndex)
+        let $el = $block.find(Selector.TABLEFILTER_ROW).eq(options.rowIndex)
         if ($el.length) $el.before($row)
-        else $block.find('.tablefilter-rows').append($row)
+        else $block.find(Selector.TABLEFILTER_ROWS).append($row)
       }
+
+      this._adjustLayout()
       this._refreshFormEl()
     }
 
@@ -311,11 +323,10 @@ const TableFilter = (($) => {
       if ([options.blockIndex, options.rowIndex].includes(undefined)) return
 
       let $block = this.$body.find(Selector.TABLEFILTER_BLOCK).eq(options.blockIndex)
-      let $row = $block.find('.tablefilter-row').eq(options.rowIndex)
+      let $row = $block.find(Selector.TABLEFILTER_ROW).eq(options.rowIndex)
 
       $row.remove()
-
-      if (!$block.find('.tablefilter-row').length) this.deleteBlock(options.blockIndex)
+      this._adjustLayout()
     }
 
     renderValueSection ($row, operator, formType) {
@@ -345,24 +356,44 @@ const TableFilter = (($) => {
       }
       let formEl = formElMap[formType]
       let $section = $row.find('.value-section')
+      let prevRenderType = $section.data('render-type')
+      let renderType
+
+      Object.keys(group).forEach((type) => {
+        if (group[type].includes(operator)) renderType = type
+      })
+
+      $section.data('render-type', renderType)
+
+      if (renderType === prevRenderType) return
 
       $section.empty()
 
-      if (group.zeroInput.includes(operator)) {}
-      else if (group.oneInput.includes(operator)) {
-        $section.append(formEl)
-      } else if (group.twoInput.includes(operator)) {
-        $section.append(new Array(2).fill(formEl).join(' 与 '))
-      } else if (group.tagsInput.includes(operator)) {
-        let input = `<input class="form-control tagsinput"/>`
+      switch (renderType) {
+        case 'zeroInput':
+          break
 
-        $section.append(input)
-      } else if (group.selectField.includes(operator)) {
-        let select = `<select class="selectpicker"></select>`
-        let $select = $(select)
+        case 'oneInput':
+          $section.append(formEl)
+          break
 
-        $select.append(this.fieldsOptions)
-        $section.append($select)
+        case 'twoInput':
+          $section.append(new Array(2).fill(formEl).join(' 与 '))
+          break
+
+        case 'tagsInput':
+          let input = `<input class="form-control tagsinput"/>`
+
+          $section.append(input)
+          break
+
+        case 'selectField':
+          let select = `<select class="selectpicker"></select>`
+          let $select = $(select)
+
+          $select.append(this.fieldsOptions)
+          $section.append($select)
+          break
       }
     }
 
@@ -375,9 +406,6 @@ const TableFilter = (($) => {
           break
         case 'or':
           this.addBlock()
-          this.addRow({
-            blockIndex: this._getCurrentBlocksNum() - 1
-          })
           break
         case 'search':
           break
@@ -385,7 +413,7 @@ const TableFilter = (($) => {
     }
 
     toggle () {
-      this.$root.toggleClass(TableFilter._getNameFromClass(Selector.SHOW_TABLEFILTER))
+      this.$root.toggleClass(TableFilter._getClassName(Selector.SHOW_TABLEFILTER))
     }
 
     // private
@@ -401,9 +429,35 @@ const TableFilter = (($) => {
     }
 
     _getCurrentRowsNum (blockIndex) {
-      let $block = this.$body.find(Selector.TABLEFILTER_BLOCK).eq(blockIndex)
-      let $rows = $block.find('.tablefilter-row')
+      let $block = this.$body.find(Selector.TABLEFILTER_BLOCK)
+      if (blockIndex !== undefined) $block = $block.eq(blockIndex)
+      let $rows = $block.find(Selector.TABLEFILTER_ROW)
+
       return $rows.length
+    }
+
+    _adjustLayout () {
+      this.$body.find(Selector.TABLEFILTER_BLOCK).each((i, el) => {
+        if (!$(el).find(Selector.TABLEFILTER_ROW).length) this.deleteBlock(i)
+      })
+
+      let $blocks = this.$body.find(Selector.TABLEFILTER_BLOCK)
+      let blocksNum = this._getCurrentBlocksNum()
+      let rowsNum = this._getCurrentRowsNum()
+
+      if (blocksNum) {
+        $blocks.each((i, el) => {
+          let title = i ? 'OR' : ''
+          $(el).find(Selector.TABLEFILTER_BLOCK_TITLE).empty().text(title)
+        })
+
+        {
+          let title = rowsNum > 1 ? '所有条件必须满足' : ''
+          $blocks.eq(0).find(Selector.TABLEFILTER_BLOCK_TITLE).empty().text(title)
+        }
+      } else {
+        this.addBlock()
+      }
     }
 
     _refreshFormEl () {
@@ -417,7 +471,7 @@ const TableFilter = (($) => {
 
     // static
 
-    static _getNameFromClass (className) {
+    static _getClassName (className) {
       className = className.replace(/\./g, '')
       return className
     }
