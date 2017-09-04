@@ -11,9 +11,9 @@
     <div id="basicTableFilter" data-toggle="tablefilter">
         <div style="display: none;">
             <select data-for="fields">
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
+                <option value="keyword" data-type="keyword">关键字</option>
+                <option value="description" data-type="string">描述</option>
+                <option value="create" data-type="date">创建日期</option>
             </select>
         </div>
     </div>

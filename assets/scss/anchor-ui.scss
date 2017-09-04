@@ -3,6 +3,8 @@
 @import "./src/_base";
 @import "../bootstrap/stylesheets/_bootstrap";
 @import "../libs/bootstrap-select/bootstrap-select.css";
+@import "../libs/bootstrap-tagsinput/bootstrap-tagsinput.css";
+@import "../libs/bootstrap-datetimepicker/bootstrap-datetimepicker.css";
 
 @import "./src/layout";
 @import "./src/header";
@@ -11,4 +13,6 @@
 @import "./src/transfer";
 @import "./src/table";
 @import "./src/_bootstrap-select";
+@import "./src/_bootstrap-tagsinput";
+@import "./src/_bootstrap-datetimepicker";
 @import "./src/_assist";

@@ -11,12 +11,32 @@
     display: block;
   }
 
+  .tablefilter-block {
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed $brand-border;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .tablefilter-block-title {
+    margin-bottom: 10px;
+  }
+
   .tablefilter-row {
     margin-bottom: 10px;
+
+    .row-type {
+      line-height: 28px;
+      margin-right: 5px;
+    }
   }
 
   .tablefilter-row-section {
     display: inline-block;
+    vertical-align: top;
   }
 
   .tablefilter-bottom {
