@@ -39,6 +39,10 @@
     vertical-align: top;
   }
 
+  input[readonly] {
+    background-color: #FFF !important;
+  }
+
   .tablefilter-bottom {
     .btn {
       margin-right: 10px;

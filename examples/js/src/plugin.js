@@ -14,6 +14,10 @@ $(document).ready(function () {
     $('#toggleTableFilter').on('click', function () {
       $('#basicTableFilter').tablefilter('toggle')
     })
+
+    $('#basicTableFilter').on('search.anchor.tablefilter', function (event, data) {
+      console.log('过滤器条件语句', data.query)
+    })
   }
 
   /* 表格组件 */

@@ -19,12 +19,14 @@ const TableFilter = (($) => {
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    SEARCH_DATA_API: `search${EVENT_KEY}`
   }
 
   const Selector = {
     DATA_TABLEFILTER: '[data-toggle="tablefilter"]',
     DATA_FIELDS: '[data-for="fields"]',
+    DATA_SUB_FIELDS: '[data-sub-field]',
     TABLEFILTER_WRAPPER: '.tablefilter-wrapper',
     TABLEFILTER_BODY: '.tablefilter-body',
     TABLEFILTER_BLOCK: '.tablefilter-block',
@@ -38,32 +40,63 @@ const TableFilter = (($) => {
     SHOW_TABLEFILTER: '.show-tablefilter'
   }
 
-  const FieldTypeData = [
+  const FieldData = [
     {
-      typeId: 'keyword',
-      operators: ['EQUALS'],
-      formType: 'text'
-    },
-    {
-      typeId: 'string',
+      fieldType: 'string',
       operators: [
-        'EQUALS', 'NOT_EQUALS', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
-        'LT', 'GT', 'STARTSWITH', 'ENDSWITH',
-        'LIKE', 'NOTLIKE', 'ISEMPTY', 'ISNOTEMPTY',
-        'IN', 'NOT_IN', 'EMPTYSTRING', 'BETWEEN',
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
         'SAMEAS', 'NSAMEAS'
       ],
       formType: 'text'
     },
     {
-      typeId: 'date',
+      fieldType: 'reference',
       operators: [
-        'EQUALS', 'NOT_EQUALS', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
-        'LT', 'GT', 'ISEMPTY', 'ISNOTEMPTY',
-        'BETWEEN', 'SAMEAS', 'NSAMEAS'
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'SAMEAS', 'NSAMEAS', 'EMPTYSTRING'
       ],
-      formType: 'datetime'
+      formType: 'reference'
     },
+    {
+      fieldType: 'choice',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'IN', 'NOT_IN',
+        'LIKE', 'NOTLIKE', 'STARTSWITH', 'ENDSWITH',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'select'
+    },
+    {
+      fieldType: 'date-time',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
+        'GT', 'GT_AND_EQUALS', 'BETWEEN',
+        'ISEMPTY', 'ISNOTEMPTY', 'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'dateTime'
+    },
+    {
+      fieldType: 'numeric',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'number'
+    },
+    {
+      fieldType: 'boolean',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'bool'
+    }
   ]
 
   const OperatorData = [
@@ -151,7 +184,11 @@ const TableFilter = (($) => {
       this.$root = $(root)
       this.$body = null
       this.$bottom = null
-      this.fieldsOptions = null
+      this.options = {
+        fields: null,
+        sub: {}
+      }
+      this.url = {}
 
       this.init()
     }
@@ -178,13 +215,33 @@ const TableFilter = (($) => {
       this.$bottom = this.$root.find(Selector.TABLEFILTER_BOTTOM)
 
       this.getFieldsOptions()
+      this.getSubFieldsOptions()
+      this.getUrl()
       this.addBlock()
     }
 
     getFieldsOptions () {
-      let $fieldsOptions = this.$root.find(Selector.DATA_FIELDS).children()
+      let $options = this.$root.find(Selector.DATA_FIELDS).children()
 
-      this.fieldsOptions = $('<div>').append($fieldsOptions).html()
+      this.options.fields = this._getHtml($options)
+    }
+
+    getSubFieldsOptions () {
+      this.$root.find(Selector.DATA_SUB_FIELDS).each((i, el) => {
+        let field = $(el).data('sub-field')
+        let $options = $(el).children()
+
+        this.options.sub[field] = this._getHtml($options)
+      })
+    }
+
+    getUrl () {
+      this.$root.find(Selector.DATA_FIELDS).children().each((i, el) => {
+        let key = $(el).attr('value')
+        let url = $(el).data('url')
+
+        if (url) this.url[key] = url
+      })
     }
 
     addBlock () {
@@ -216,7 +273,7 @@ const TableFilter = (($) => {
       let $row = $(row)
       let section = {
         field: Template('SECTION_FIELD', {
-          options: this.fieldsOptions
+          options: this.options.fields
         }),
         operator: Template('SECTION_OPERATOR'),
         value: Template('SECTION_VALUE'),
@@ -234,6 +291,7 @@ const TableFilter = (($) => {
       }
 
       $row
+        .data('condition', options.type)
         .append(section.type)
         .append(section.field)
         .append(section.operator)
@@ -269,8 +327,8 @@ const TableFilter = (($) => {
       })
 
       $row.find(`select${Selector.SELECT_FIELD}`).on('changed.bs.select', (event) => {
-        let type = $(event.target).find('option:selected').data('type')
-        let operators = FieldTypeData.find((item) => item.typeId === type).operators
+        let fieldType = $(event.target).find('option:selected').data('field')
+        let operators = FieldData.find((item) => item.fieldType === fieldType).operators
         let $selectOperator = $row.find(`select${Selector.SELECT_OPERATOR}`)
 
         $selectOperator.empty()
@@ -298,13 +356,11 @@ const TableFilter = (($) => {
 
       $row.find(`select${Selector.SELECT_OPERATOR}`).on('changed.bs.select', (event) => {
         let operator = $(event.target).selectpicker('val')
-        let type = $row.find(`select${Selector.SELECT_FIELD} option:selected`).data('type')
-        let formType = FieldTypeData.find((item) => item.typeId === type).formType
-        let $inputValue = $row.find(`input${Selector.INPUT_VALUE}`)
+        let fieldType = $row.find(`select${Selector.SELECT_FIELD} option:selected`).data('field')
+        let formType = FieldData.find((item) => item.fieldType === fieldType).formType
+        let subField = $row.find(`select${Selector.SELECT_FIELD} option:selected`).attr('value')
 
-        $inputValue.prop('disabled', false)
-
-        this.renderValueSection($row, operator, formType)
+        this.renderValueSection({$row, operator, formType, subField})
         this._refreshFormEl()
       })
 
@@ -329,76 +385,126 @@ const TableFilter = (($) => {
       this._adjustLayout()
     }
 
-    renderValueSection ($row, operator, formType) {
+    renderValueSection (options = {}) {
+      let {$row, operator, formType, subField} = options
       let group = {
         zeroInput: [
           'ISEMPTY', 'ISNOTEMPTY', 'EMPTYSTRING'
         ],
         oneInput: [
           'EQUALS', 'NOT_EQUALS', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
-          'LT', 'GT', 'STARTSWITH', 'ENDSWITH',
-          'LIKE', 'NOTLIKE'
+          'LT', 'GT'
         ],
         twoInput: [
           'BETWEEN'
         ],
-        tagsInput: [
+        textInput: [
+          'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE'
+        ],
+        multipleInput: [
           'IN', 'NOT_IN'
         ],
         selectField: [
           'SAMEAS', 'NSAMEAS', 'GT_FIELD', 'LT_FIELD',
           'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
-        ]
+        ],
       }
       let formElMap = {
         text: `<input class="form-control"/>`,
-        datetime: `<input class="form-control datetimepicker"/>`
+        number: `<input class="form-control" type="number"/>`,
+        select: `<select class="selectpicker"></select>`,
+        multipleSelect: `<select class="selectpicker" multiple title="请选择"></select>`,
+        dateTime: `<input class="form-control datetimepicker"/>`,
+        tagsInput: `<input class="form-control tagsinput"/>`,
+        bool: `
+          <select class="selectpicker">
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
+        `,
+        reference: `
+          <div class="input-group">
+            <input class="form-control reference-input" readonly/>
+            <a class="input-group-addon reference-input-addon" href="">
+              <span class="glyphicon glyphicon-search"></span>
+            </a>
+          </div>
+        `
       }
       let formEl = formElMap[formType]
       let $section = $row.find('.value-section')
-      let prevRenderType = $section.data('render-type')
       let renderType
 
       Object.keys(group).forEach((type) => {
         if (group[type].includes(operator)) renderType = type
       })
 
-      $section.data('render-type', renderType)
+      let renderInfo = `${formType}-${renderType}`
+      let prevRenderInfo = $row.data('render-info')
 
-      if (renderType === prevRenderType) return
+      if (renderInfo === prevRenderInfo) return
+      if (
+        ['text-oneInput', 'text-textInput'].includes(renderInfo) &&
+        ['text-oneInput', 'text-textInput'].includes(prevRenderInfo)
+      ) return
 
+      $row.data('render-info', renderInfo)
       $section.empty()
+
+      let content = formEl
+      let callback = `callback_${Math.random().toString(36).substr(2)}`
+
+      switch (formType) {
+        case 'select':
+          content = this._getHtml($(content).append(this.options.sub[subField]))
+          break
+      }
 
       switch (renderType) {
         case 'zeroInput':
-          break
-
-        case 'oneInput':
-          $section.append(formEl)
+          content = null
           break
 
         case 'twoInput':
-          $section.append(new Array(2).fill(formEl).join(' 与 '))
+          content = new Array(2).fill(content).join(' 与 ')
           break
 
-        case 'tagsInput':
-          let input = `<input class="form-control tagsinput"/>`
+        case 'textInput':
+          content = formElMap.text
+          break
 
-          $section.append(input)
+        case 'multipleInput':
+          if (formType === 'text') content = formElMap.tagsInput
+          else if (formType === 'select') content = this._getHtml($(formElMap.multipleSelect).html(content))
           break
 
         case 'selectField':
-          let select = `<select class="selectpicker"></select>`
-          let $select = $(select)
+          content = this._getHtml($(formElMap.select).append(this.options.fields))
+          break
+      }
 
-          $select.append(this.fieldsOptions)
-          $section.append($select)
+      $section.append(content)
+
+      switch (formType) {
+        case 'reference':
+          window[callback] = (val, name) => {
+            $row.find('.reference-input').val(name).data('value', val)
+          }
+
+          $section.find('.reference-input-addon').on('click', (event) => {
+            event.preventDefault()
+
+            let url = `${this.url[subField]}${this.url[subField].includes('?') ? '&' : '?'}callback=${callback}`
+            window.open(url, null, 'width=1024,height=500')
+          })
+
           break
       }
     }
 
     actionBtnClick (element) {
-      let action = $(element).data('action')
+      let $btn = $(element).closest('.btn')
+      let action = $btn.data('action')
 
       switch (action) {
         case 'and':
@@ -408,6 +514,7 @@ const TableFilter = (($) => {
           this.addBlock()
           break
         case 'search':
+          this.search()
           break
       }
     }
@@ -416,11 +523,62 @@ const TableFilter = (($) => {
       this.$root.toggleClass(TableFilter._getClassName(Selector.SHOW_TABLEFILTER))
     }
 
+    search () {
+      let conditionOperatorMap = {
+        and: '^',
+        or: '^OR',
+        AND: '',
+        OR: '^NQ'
+      }
+      let query = ''
+
+      this.$body.find(Selector.TABLEFILTER_BLOCK).each((blockIndex, block) => {
+        $(block).find(Selector.TABLEFILTER_ROW).each((rowIndex, row) => {
+          let condition = rowIndex ? $(row).data('condition') : $(block).data('condition')
+          let field = $(row).find(Selector.SELECT_FIELD).selectpicker('val')
+          let operator = $(row).find(Selector.SELECT_OPERATOR).selectpicker('val')
+          let $valueSection = $(row).find('.value-section')
+          let vals = []
+
+          if (field) {
+            $valueSection.find('input, select').each((i, el) => {
+              let tag = $(el).prop('tagName').toLowerCase()
+              let val
+
+              switch (tag) {
+                case 'input':
+                  val = $(el).data('value') !== undefined ? $(el).data('value') : $(el).val()
+                  break
+
+                case 'select':
+                  val = $(el).selectpicker('val')
+                  break
+              }
+
+              vals.push(val)
+            })
+
+            let separator = ''
+            if (operator === 'BETWEEN') separator = '@'
+            let value = vals.join(separator)
+
+            query += `${conditionOperatorMap[condition]}${field}${operator}${value}`
+          }
+        })
+      })
+
+      this.$root.trigger(Event.SEARCH_DATA_API, {query})
+    }
+
     // private
 
     _getConfig (config) {
       config = $.extend({}, Default, config)
       return config
+    }
+
+    _getHtml ($el) {
+      return $('<div>').append($el.clone()).html()
     }
 
     _getCurrentBlocksNum () {
@@ -448,7 +606,9 @@ const TableFilter = (($) => {
       if (blocksNum) {
         $blocks.each((i, el) => {
           let title = i ? 'OR' : ''
-          $(el).find(Selector.TABLEFILTER_BLOCK_TITLE).empty().text(title)
+          $(el)
+            .data('condition', i ? 'OR' : 'AND')
+            .find(Selector.TABLEFILTER_BLOCK_TITLE).empty().text(title)
         })
 
         {
@@ -464,6 +624,7 @@ const TableFilter = (($) => {
       this.$body
         .find('.selectpicker').selectpicker('refresh')
         .end().find('.datetimepicker').datetimepicker({
+          format: 'YYYY-MM-DD HH:mm:ss',
           locale: 'zh-cn'
         })
         .end().find('.tagsinput').tagsinput()
