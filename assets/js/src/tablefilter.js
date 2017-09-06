@@ -146,7 +146,7 @@ const TableFilter = (($) => {
         </div>
       `,
       ROW: `
-        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_ROW)} ${options.type}-row"></div>
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_ROW)} ${options.type}-row hide"></div>
       `,
       SECTION_FIELD: `
         <span class="tablefilter-row-section field-section">
@@ -270,6 +270,10 @@ const TableFilter = (($) => {
         blockIndex: 0,
         rowIndex: -1,
         type: 'and',
+        value: {
+          field: null,
+          operator: null
+        },
         ...options
       }
 
@@ -296,6 +300,16 @@ const TableFilter = (($) => {
 
         case 'or':
           section.type = '<span class="row-type">or</span>'
+
+          setTimeout(() => {
+            $row.find(`select${Selector.SELECT_FIELD}`)
+              .val(options.value.field)
+              .trigger('changed.bs.select')
+
+            $row.find(`select${Selector.SELECT_OPERATOR}`)
+              .val(options.value.operator)
+              .trigger('changed.bs.select')
+          }, 0)
           break
       }
 
@@ -315,6 +329,8 @@ const TableFilter = (($) => {
         let $row = $(event.target).closest(Selector.TABLEFILTER_ROW)
         let blockIndex = $block.index()
         let rowIndex = $row.index()
+        let fieldValue = $row.find(`select${Selector.SELECT_FIELD}`).selectpicker('val')
+        let operatorValue = $row.find(`select${Selector.SELECT_OPERATOR}`).selectpicker('val')
 
         switch (action) {
           case 'and':
@@ -328,7 +344,11 @@ const TableFilter = (($) => {
             this.addRow({
               blockIndex,
               rowIndex: orRowIndex,
-              type: 'or'
+              type: 'or',
+              value: {
+                field: fieldValue,
+                operator: operatorValue
+              }
             })
             break
 
@@ -385,6 +405,10 @@ const TableFilter = (($) => {
 
       this._adjustLayout()
       this._refreshFormEl()
+
+      setTimeout(() => {
+        $row.removeClass('hide')
+      }, 0)
     }
 
     deleteRow (options = {}) {
