@@ -555,14 +555,14 @@ const TableFilter = (($) => {
                   break
               }
 
-              vals.push(val)
+              vals.push(encodeURIComponent(val))
             })
 
             let separator = ''
             if (operator === 'BETWEEN') separator = '@'
             let value = vals.join(separator)
 
-            query += `${conditionOperatorMap[condition]}${field}${operator}${value}`
+            query += `${conditionOperatorMap[condition]}${encodeURIComponent(field)}${operator}${value}`
           }
         })
       })
