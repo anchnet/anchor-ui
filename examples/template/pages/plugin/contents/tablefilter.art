@@ -2,7 +2,17 @@
 
 <h3 id="tablefilter-example">表格过滤器实例</h3>
 <div class="bs-example" data-example-id="tablefilter-example">
-    <div>
+    <div class="form-inline">
+        <select class="selectpicker" title="请选择字段">
+            <option value="name">name</option>
+            <option value="id">id</option>
+        </select>
+        <div class="input-group">
+            <input class="form-control" placeholder="值" />
+            <a class="input-group-addon" href="">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+        </div>
         <button type="button" class="btn btn-default-light" id="toggleTableFilter">
             <span class="glyphicon glyphicon-screenshot"></span>
             显示高级搜索
@@ -11,11 +21,29 @@
     <div id="basicTableFilter" data-toggle="tablefilter">
         <div style="display: none;">
             <select data-for="fields">
-                <option value="keyword" data-type="keyword">关键字</option>
-                <option value="description" data-type="string">描述</option>
-                <option value="create" data-type="date">创建日期</option>
+                <option value="str" data-field="string">字符串类型</option>
+                <option value="ref" data-field="reference" data-url="/api?table=ref">引用类型</option>
+                <option value="opt" data-field="choice">选择类型</option>
+                <option value="date" data-field="date-time">日期时间类型</option>
+                <option value="num" data-field="numeric">数字类型</option>
+                <option value="bool" data-field="boolean">布尔类型</option>
+            </select>
+
+            <select data-sub-field="opt">
+                <option value="opt1">选择1</option>
+                <option value="opt2">选择2</option>
             </select>
         </div>
     </div>
+
+    <script>
+        $('#toggleTableFilter').on('click', function () {
+            $('#basicTableFilter').tablefilter('toggle')
+        })
+
+        $('#basicTableFilter').on('search.anchor.tablefilter', function (event, data) {
+            console.log('过滤器条件语句', data.query)
+        })
+    </script>
 </div>
 <figure class="highlight"><pre><code class="html"></code></pre></figure>
