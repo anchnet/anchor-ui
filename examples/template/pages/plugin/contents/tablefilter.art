@@ -8,7 +8,7 @@
             <option value="id">id</option>
         </select>
         <div class="input-group">
-            <input class="form-control" placeholder="请输入模型名称" />
+            <input class="form-control" placeholder="值" />
             <a class="input-group-addon" href="">
                 <span class="glyphicon glyphicon-search"></span>
             </a>

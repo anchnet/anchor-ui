@@ -146,7 +146,7 @@ const TableFilter = (($) => {
         </div>
       `,
       ROW: `
-        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_ROW)}"></div>
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_ROW)} ${options.type}-row"></div>
       `,
       SECTION_FIELD: `
         <span class="tablefilter-row-section field-section">
@@ -165,8 +165,13 @@ const TableFilter = (($) => {
       `,
       SECTION_BUTTON: `
         <span class="tablefilter-row-section btn-section">
-          <button type="button" class="btn btn-default hide" data-action="and">and</button>
-          <button type="button" class="btn btn-default hide" data-action="or">or</button>
+          ${
+            options.type === 'and' ?
+            `
+              <button type="button" class="btn btn-default hide" data-action="and">and</button>
+              <button type="button" class="btn btn-default hide" data-action="or">or</button>
+            ` : ``
+          }
           <button type="button" class="btn btn-default" data-action="delete">×</button>
         </span>
       `
@@ -269,7 +274,9 @@ const TableFilter = (($) => {
       }
 
       let $block = this.$body.find(Selector.TABLEFILTER_BLOCK).eq(options.blockIndex)
-      let row = Template('ROW')
+      let row = Template('ROW', {
+        type: options.type
+      })
       let $row = $(row)
       let section = {
         field: Template('SECTION_FIELD', {
@@ -277,7 +284,9 @@ const TableFilter = (($) => {
         }),
         operator: Template('SECTION_OPERATOR'),
         value: Template('SECTION_VALUE'),
-        btn: Template('SECTION_BUTTON')
+        btn: Template('SECTION_BUTTON', {
+          type: options.type
+        })
       }
 
       switch (options.type) {
@@ -313,9 +322,12 @@ const TableFilter = (($) => {
             break
 
           case 'or':
+            let nextOrRowsNum = $row.nextUntil('.and-row').length
+            let orRowIndex = rowIndex + 1 + nextOrRowsNum
+
             this.addRow({
               blockIndex,
-              rowIndex: rowIndex + 1,
+              rowIndex: orRowIndex,
               type: 'or'
             })
             break
@@ -510,9 +522,11 @@ const TableFilter = (($) => {
         case 'and':
           this.addRow()
           break
+
         case 'or':
           this.addBlock()
           break
+
         case 'search':
           this.search()
           break
