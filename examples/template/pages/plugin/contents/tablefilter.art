@@ -21,12 +21,12 @@
     <div id="basicTableFilter" data-toggle="tablefilter" data-query="">
         <div style="display: none;">
             <select data-for="fields">
-                <option value="str" data-field="string">字符串类型</option>
-                <option value="ref" data-field="reference" data-url="/api?table=ref">引用类型</option>
-                <option value="opt" data-field="choice">选择类型</option>
-                <option value="date" data-field="date-time">日期时间类型</option>
-                <option value="num" data-field="numeric">数字类型</option>
-                <option value="bool" data-field="boolean">布尔类型</option>
+                <option value="str" data-type="string">字符串类型</option>
+                <option value="ref" data-type="reference" data-url="/api?table=ref">引用类型</option>
+                <option value="opt" data-type="choice">选择类型</option>
+                <option value="date" data-type="date-time">日期时间类型</option>
+                <option value="num" data-type="numeric">数字类型</option>
+                <option value="bool" data-type="boolean">布尔类型</option>
             </select>
 
             <select data-sub-field="opt">

@@ -374,7 +374,7 @@ const TableFilter = (($) => {
       })
 
       $row.find(`select${Selector.SELECT_FIELD}`).on('changed.bs.select', (event) => {
-        let fieldType = $(event.target).find('option:selected').data('field')
+        let fieldType = $(event.target).find('option:selected').data('type')
         let operators = FieldData.find((item) => item.fieldType === fieldType).operators
         let $selectOperator = $row.find(`select${Selector.SELECT_OPERATOR}`)
 
@@ -403,7 +403,7 @@ const TableFilter = (($) => {
 
       $row.find(`select${Selector.SELECT_OPERATOR}`).on('changed.bs.select', (event) => {
         let operator = $(event.target).selectpicker('val')
-        let fieldType = $row.find(`select${Selector.SELECT_FIELD} option:selected`).data('field')
+        let fieldType = $row.find(`select${Selector.SELECT_FIELD} option:selected`).data('type')
         let formType = FieldData.find((item) => item.fieldType === fieldType).formType
         let subField = $row.find(`select${Selector.SELECT_FIELD} option:selected`).attr('value')
 
