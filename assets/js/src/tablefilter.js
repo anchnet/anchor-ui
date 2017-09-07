@@ -581,8 +581,9 @@ const TableFilter = (($) => {
 
       switch (formType) {
         case 'reference':
-          window[callback] = (val, name) => {
-            $row.find('.reference-input').val(name).data('value', val)
+          window[callback] = (objs) => {
+            let obj = objs.pop()
+            $row.find('.reference-input').val(obj.name).data('value', obj.value)
           }
 
           $section.find('.reference-input-addon').on('click', (event) => {
