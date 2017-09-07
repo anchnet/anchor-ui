@@ -179,6 +179,13 @@ const TableFilter = (($) => {
     return templates[id]
   }
 
+  const ConditionOperatorMap = {
+    and: '^',
+    or: '^OR',
+    AND: '',
+    OR: '^NQ'
+  }
+
   /**
    * Class Definition
    */
@@ -189,11 +196,11 @@ const TableFilter = (($) => {
       this.$root = $(root)
       this.$body = null
       this.$bottom = null
-      this.options = {
+      this._options = {
         fields: null,
         sub: {}
       }
-      this.url = {}
+      this._url = {}
 
       this.init()
     }
@@ -222,13 +229,18 @@ const TableFilter = (($) => {
       this.getFieldsOptions()
       this.getSubFieldsOptions()
       this.getUrl()
-      this.addBlock()
+
+      if (this._config.query) {
+        this.setQuery(this._config.query)
+      } else {
+        this.addBlock()
+      }
     }
 
     getFieldsOptions () {
       let $options = this.$root.find(Selector.DATA_FIELDS).children()
 
-      this.options.fields = this._getHtml($options)
+      this._options.fields = this._getHtml($options)
     }
 
     getSubFieldsOptions () {
@@ -236,7 +248,7 @@ const TableFilter = (($) => {
         let field = $(el).data('sub-field')
         let $options = $(el).children()
 
-        this.options.sub[field] = this._getHtml($options)
+        this._options.sub[field] = this._getHtml($options)
       })
     }
 
@@ -245,18 +257,30 @@ const TableFilter = (($) => {
         let key = $(el).attr('value')
         let url = $(el).data('url')
 
-        if (url) this.url[key] = url
+        if (url) this._url[key] = url
       })
     }
 
-    addBlock () {
+    clearBlocks () {
+      this.$body.find(Selector.TABLEFILTER_BLOCK).remove()
+    }
+
+    addBlock (options) {
+      options = {
+        addRow: true,
+        ...options
+      }
+
       let block = Template('BLOCK')
       let $block = $(block)
 
       this.$body.append($block)
-      this.addRow({
-        blockIndex: this._getCurrentBlocksNum() - 1
-      })
+
+      if (options.addRow) {
+        this.addRow({
+          blockIndex: this._getCurrentBlocksNum() - 1
+        })
+      }
     }
 
     deleteBlock (index) {
@@ -272,7 +296,8 @@ const TableFilter = (($) => {
         type: 'and',
         value: {
           field: null,
-          operator: null
+          operator: null,
+          value: []
         },
         ...options
       }
@@ -284,7 +309,7 @@ const TableFilter = (($) => {
       let $row = $(row)
       let section = {
         field: Template('SECTION_FIELD', {
-          options: this.options.fields
+          options: this._options.fields
         }),
         operator: Template('SECTION_OPERATOR'),
         value: Template('SECTION_VALUE'),
@@ -300,16 +325,6 @@ const TableFilter = (($) => {
 
         case 'or':
           section.type = '<span class="row-type">or</span>'
-
-          setTimeout(() => {
-            $row.find(`select${Selector.SELECT_FIELD}`)
-              .val(options.value.field)
-              .trigger('changed.bs.select')
-
-            $row.find(`select${Selector.SELECT_OPERATOR}`)
-              .val(options.value.operator)
-              .trigger('changed.bs.select')
-          }, 0)
           break
       }
 
@@ -408,6 +423,49 @@ const TableFilter = (($) => {
 
       setTimeout(() => {
         $row.removeClass('hide')
+
+        if (options.value.field) {
+          $row.find(`select${Selector.SELECT_FIELD}`)
+            .val(options.value.field)
+            .trigger('changed.bs.select')
+        }
+
+        if (options.value.operator) {
+          $row.find(`select${Selector.SELECT_OPERATOR}`)
+            .val(options.value.operator)
+            .trigger('changed.bs.select')
+        }
+
+        if (options.value.value.length) {
+          let $section = $row.find('.value-section')
+
+          $section.find('select, input').each((i, el) => {
+            let tag = $(el).prop('tagName').toLowerCase()
+            let val = options.value.value[i]
+
+            switch (tag) {
+              case 'select':
+                if (val.includes(',')) val = val.split(',')
+
+                $(el)
+                  .val(val)
+                  .trigger('changed.bs.select')
+                break
+
+              case 'input':
+                $(el)
+                  .val(val)
+                  .trigger('blur')
+
+                if ($section.find('.bootstrap-tagsinput').length) {
+                  $section.find('.bootstrap-tagsinput input').attr('size', 1)
+                }
+                break
+            }
+          })
+        }
+
+        this._refreshFormEl()
       }, 0)
     }
 
@@ -492,7 +550,7 @@ const TableFilter = (($) => {
 
       switch (formType) {
         case 'select':
-          content = this._getHtml($(content).append(this.options.sub[subField]))
+          content = this._getHtml($(content).append(this._options.sub[subField]))
           break
       }
 
@@ -515,7 +573,7 @@ const TableFilter = (($) => {
           break
 
         case 'selectField':
-          content = this._getHtml($(formElMap.select).append(this.options.fields))
+          content = this._getHtml($(formElMap.select).append(this._options.fields))
           break
       }
 
@@ -530,7 +588,7 @@ const TableFilter = (($) => {
           $section.find('.reference-input-addon').on('click', (event) => {
             event.preventDefault()
 
-            let url = `${this.url[subField]}${this.url[subField].includes('?') ? '&' : '?'}callback=${callback}`
+            let url = `${this._url[subField]}${this._url[subField].includes('?') ? '&' : '?'}callback=${callback}`
             window.open(url, null, 'width=1024,height=500')
           })
 
@@ -552,7 +610,7 @@ const TableFilter = (($) => {
           break
 
         case 'search':
-          this.search()
+          this.getQuery()
           break
       }
     }
@@ -561,13 +619,7 @@ const TableFilter = (($) => {
       this.$root.toggleClass(TableFilter._getClassName(Selector.SHOW_TABLEFILTER))
     }
 
-    search () {
-      let conditionOperatorMap = {
-        and: '^',
-        or: '^OR',
-        AND: '',
-        OR: '^NQ'
-      }
+    getQuery () {
       let query = ''
 
       this.$body.find(Selector.TABLEFILTER_BLOCK).each((blockIndex, block) => {
@@ -600,13 +652,72 @@ const TableFilter = (($) => {
             if (operator === 'BETWEEN') separator = '@'
             let value = vals.join(separator)
 
-            query += `${conditionOperatorMap[condition]}${encodeURIComponent(field)}${operator}${value}`
+            query += `${ConditionOperatorMap[condition]}${encodeURIComponent(field)}${operator}${value}`
           }
         })
       })
 
       this.$root.trigger(Event.SEARCH_DATA_API, {query})
     }
+
+    setQuery (query) {
+      let rowRegex = RegExp(/\^?[^\^]+/, 'g')
+      let tmpRows = query.match(rowRegex)
+
+      if (!tmpRows) return
+
+      let rows = tmpRows.map((rowQuery) => {
+        let tmpConditionOperator = rowQuery.match(/^(\^OR|\^NQ|\^)+/)
+        let conditionOperator = tmpConditionOperator ? tmpConditionOperator[0] : ''
+
+        rowQuery = rowQuery.replace(conditionOperator, '')
+
+        Object.keys(ConditionOperatorMap).forEach((key) => {
+          if (conditionOperator === ConditionOperatorMap[key]) conditionOperator = key
+        })
+
+        let operators = OperatorData.map((item) => {
+          return item.operator
+        })
+
+        operators = operators.join('|')
+
+        let operatorRegex = RegExp(operators, 'g')
+        let tmpOperator = rowQuery.match(operatorRegex)
+        let operator = tmpOperator ? tmpOperator[0] : ''
+
+        let fieldValueData = rowQuery.split(operator)
+        let field = decodeURIComponent(fieldValueData[0])
+        let value = decodeURIComponent(fieldValueData[1])
+
+        if (operator === 'BETWEEN' && value.includes('@')) value = value.split('@')
+        if (!Array.isArray(value)) value = [value]
+
+        return {conditionOperator, field, operator, value}
+      })
+
+      this.clearBlocks()
+
+      let blockIndex = 0
+
+      rows.forEach((row) => {
+        if (['AND', 'OR'].includes(row.conditionOperator)) this.addBlock({addRow: false})
+        if (['OR'].includes(row.conditionOperator)) blockIndex ++
+
+        let type = row.conditionOperator === 'or' ? 'or' : 'and'
+
+        this.addRow({
+          blockIndex, type,
+          value: {
+            field: row.field,
+            operator: row.operator,
+            value: row.value
+          }
+        })
+      })
+    }
+
+    addQuery () {}
 
     // private
 
@@ -659,13 +770,12 @@ const TableFilter = (($) => {
     }
 
     _refreshFormEl () {
-      this.$body
-        .find('.selectpicker').selectpicker('refresh')
-        .end().find('.datetimepicker').datetimepicker({
-          format: 'YYYY-MM-DD HH:mm:ss',
-          locale: 'zh-cn'
-        })
-        .end().find('.tagsinput').tagsinput()
+      this.$body.find('.selectpicker').selectpicker('refresh')
+      this.$body.find('.datetimepicker').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss',
+        locale: 'zh-cn'
+      })
+      this.$body.find('.tagsinput').tagsinput('refresh')
     }
 
     // static
@@ -675,7 +785,7 @@ const TableFilter = (($) => {
       return className
     }
 
-    static _jQueryInterface (config) {
+    static _jQueryInterface (config, ...args) {
       let funcResult
 
       let defaultResult = this.each((i, el) => {
@@ -696,7 +806,7 @@ const TableFilter = (($) => {
           if (typeof data[config] === 'undefined') {
             throw new Error(`No method named "${config}"`)
           }
-          funcResult = data[config]()
+          funcResult = data[config](...args)
         }
       })
 

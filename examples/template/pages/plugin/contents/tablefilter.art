@@ -18,7 +18,7 @@
             显示高级搜索
         </button>
     </div>
-    <div id="basicTableFilter" data-toggle="tablefilter">
+    <div id="basicTableFilter" data-toggle="tablefilter" data-query="">
         <div style="display: none;">
             <select data-for="fields">
                 <option value="str" data-field="string">字符串类型</option>
