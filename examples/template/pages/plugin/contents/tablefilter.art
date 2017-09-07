@@ -1,6 +1,6 @@
 <h2 id="tablefilter" class="page-header">表格过滤器</h2>
 
-<h3 id="tablefilter-example">表格过滤器实例</h3>
+<h3 id="tablefilter-example">实例</h3>
 <div class="bs-example" data-example-id="tablefilter-example">
     <div class="form-inline">
         <select class="selectpicker" title="请选择字段">
@@ -47,3 +47,11 @@
     </script>
 </div>
 <figure class="highlight"><pre><code class="html"></code></pre></figure>
+
+<h3 id="tablefilter-methods">方法</h3>
+<h4><code>$().tablefilter('toggle')</code></h4>
+<p>展开、收起表格过滤器</p>
+
+<h3 id="tablefilter-events">事件</h3>
+<h4><code>$().on('search.anchor.tablefilter')</code></h4>
+<p>搜索按钮点击事件</p>
