@@ -436,7 +436,7 @@ const TableFilter = (($) => {
             .trigger('changed.bs.select')
         }
 
-        if (options.value.value.length) {
+        if (options.value.value && options.value.value.length) {
           let $section = $row.find('.value-section')
 
           $section.find('select, input').each((i, el) => {
