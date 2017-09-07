@@ -1,0 +1,37 @@
+.btn {
+  &.btn-default-primary,
+  &.btn-primary-base,
+  &.btn-primary-base-border {
+    .glyphicon {
+      color: $brand-primary;
+    }
+  }
+
+  &.btn-default-light,
+  &.btn-default-base {
+    &:hover,
+    &:active,
+    &.active {
+      .glyphicon {
+        color: $brand-primary;
+      }
+    }
+  }
+
+  &.btn-primary,
+  &.btn-primary-light {
+    .glyphicon {
+      color: #FFF;
+    }
+  }
+
+  &.btn-default-gray {
+    &:hover,
+    &:active,
+    &.active {
+      .glyphicon {
+        color: lighten($brand-base, 15%);
+      }
+    }
+  }
+}

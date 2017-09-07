@@ -1,5 +1,17 @@
 .bootstrap-select{
   &.btn-group{
+    .dropdown-toggle{
+      &.disabled{
+        background-color: #eee !important;
+        .filter-option{
+          color: #999 !important;
+        }
+      }
+      .filter-option{
+        color: #555;
+        font-size: $font-size-medium;
+      }
+    }
     .dropdown-menu{
       li{
         &.selected {
@@ -10,7 +22,7 @@
         &.disabled {
           > a{
             &:hover{
-              background-color: #ffffff;
+              background-color: #fff;
               span.text{
                 color: $gray-light;
               }

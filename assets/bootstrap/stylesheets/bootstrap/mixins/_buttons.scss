@@ -12,7 +12,7 @@
   &.focus {
     color: $color;
     background-color: darken($background, 5%);
-        border-color: darken($border, 5%);
+        // border-color: darken($border, 5%);
   }
   &:hover {
     color: $color;
@@ -31,7 +31,7 @@
     &.focus {
       color: $color;
       background-color: darken($background, 5%);
-          border-color: darken($border, 5%);
+          // border-color: darken($border, 5%);
     }
   }
   &:active,
@@ -42,11 +42,13 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    &:hover,
+    &:hover {
+      background-color: $background;
+          border-color: $border;
+    }
     &:focus,
     &.focus {
       background-color: $background;
-          border-color: $border;
     }
   }
 
@@ -67,7 +69,7 @@
   &.focus {
     color: $color;
     background-color: $background;
-    border-color: $border;
+    // border-color: $border;
   }
 
   &:hover {
@@ -119,7 +121,10 @@
   border-color: $brand-border;
 
   &:focus,
-  &.focus,
+  &.focus {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 2.5%);
+  }
   &:hover,
   &:active,
   &.active {
@@ -134,7 +139,10 @@
   border-color: transparent;
 
   &:focus,
-  &.focus,
+  &.focus {
+    color: lighten($brand-base, 15%);
+    background-color: $brand-base-background;
+  }
   &:hover,
   &:active,
   &.active {
@@ -176,7 +184,10 @@
   border-color: transparent;
 
   &:focus,
-  &.focus,
+  &.focus {
+    color: $brand-primary;
+    background-color: lighten($brand-primary-background, 1%);
+  }
   &:hover,
   &:active,
   &.active {
@@ -191,7 +202,10 @@
   border-color: transparent;
 
   &:focus,
-  &.focus,
+  &.focus {
+    color: #ffffff;
+    background-color: lighten($brand-primary, 10%);
+  }
   &:hover,
   &:active,
   &.active {
