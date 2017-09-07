@@ -129,16 +129,6 @@ const TableFilter = (($) => {
       BODY: `
         <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BODY)}"></div>
       `,
-      BOTTOM: `
-        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BOTTOM)}">
-          <button type="button" class="btn btn-primary-base-border" data-action="and">AND</button><!--
-          --><button type="button" class="btn btn-primary-base-border" data-action="or">OR</button><!--
-          --><button type="button" class="btn btn-primary-base-border" data-action="search">
-            <span class="glyphicon glyphicon-search"></span>
-            搜索
-          </button>
-        </div>
-      `,
       BLOCK: `
         <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BLOCK)}">
           <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BLOCK_TITLE)}"></div>
@@ -174,6 +164,19 @@ const TableFilter = (($) => {
           }
           <button type="button" class="btn btn-default" data-action="delete">×</button>
         </span>
+      `,
+      BOTTOM: `
+        <div class="${TableFilter._getClassName(Selector.TABLEFILTER_BOTTOM)}">
+          <button type="button" class="btn btn-primary-base-border" data-action="and">AND</button><!--
+          --><button type="button" class="btn btn-primary-base-border" data-action="or">OR</button><!--
+          --><button type="button" class="btn btn-primary-base-border" data-action="search">
+            <span class="glyphicon glyphicon-search"></span>
+            搜索
+          </button><!--
+          --><button type="button" class="btn btn-primary-base-border" data-action="pin">
+            <span class="glyphicon glyphicon-pushpin"></span>
+          </button>
+        </div>
       `
     }
     return templates[id]
@@ -196,6 +199,9 @@ const TableFilter = (($) => {
       this.$root = $(root)
       this.$body = null
       this.$bottom = null
+      this._status = {
+        pinned: false
+      }
       this._options = {
         fields: null,
         sub: {}
@@ -235,6 +241,13 @@ const TableFilter = (($) => {
       } else {
         this.addBlock()
       }
+
+      let cookieName = `tablefilter-pin-id-${this.$root.prop('id')}`
+
+      this._status.pinned = $.cookie(cookieName) == 1
+      this._adjustPinBtnStyle()
+
+      if (this._status.pinned) this.toggle(true)
     }
 
     getFieldsOptions () {
@@ -613,11 +626,30 @@ const TableFilter = (($) => {
         case 'search':
           this.getQuery()
           break
+
+        case 'pin':
+          this._status.pinned = !this._status.pinned
+          this._adjustPinBtnStyle()
+
+          let cookieName = `tablefilter-pin-id-${this.$root.prop('id')}`
+
+          if (this._status.pinned) {
+            $.cookie(cookieName, 1, {expires: 3650})
+          } else {
+            $.removeCookie(cookieName)
+          }
+          break
       }
     }
 
-    toggle () {
-      this.$root.toggleClass(TableFilter._getClassName(Selector.SHOW_TABLEFILTER))
+    toggle (status) {
+      let action
+
+      if (status === undefined) action = 'toggleClass'
+      else if (status) action = 'addClass'
+      else action = 'removeClass'
+
+      this.$root[action](TableFilter._getClassName(Selector.SHOW_TABLEFILTER))
     }
 
     getQuery () {
@@ -767,6 +799,20 @@ const TableFilter = (($) => {
         }
       } else {
         this.addBlock()
+      }
+    }
+
+    _adjustPinBtnStyle () {
+      let $el = this.$bottom.find('[data-action="pin"]')
+
+      if (this._status.pinned) {
+        $el
+          .addClass('btn-primary-light')
+          .removeClass('btn-primary-base-border')
+      } else {
+        $el
+          .addClass('btn-primary-base-border')
+          .removeClass('btn-primary-light')
       }
     }
 
