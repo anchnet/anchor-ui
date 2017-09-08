@@ -140,12 +140,12 @@ const TableFilter = (($) => {
       `,
       SECTION_FIELD: `
         <span class="tablefilter-row-section field-section">
-          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段">${options.options}</select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段" data-live-search="true">${options.options}</select>
         </span>
       `,
       SECTION_OPERATOR: `
         <span class="tablefilter-row-section operator-section">
-          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled></select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled data-live-search="true"></select>
         </span>
       `,
       SECTION_VALUE: `
@@ -253,6 +253,13 @@ const TableFilter = (($) => {
     getFieldsOptions () {
       let $options = this.$root.find(Selector.DATA_FIELDS).children()
 
+      $options.each((i, el) => {
+        let value = $(el).attr('value')
+        let text = $(el).text()
+
+        $(el).attr('data-tokens', `${value} ${text}`)
+      })
+
       this._options.fields = this._getHtml($options)
     }
 
@@ -260,6 +267,13 @@ const TableFilter = (($) => {
       this.$root.find(Selector.DATA_SUB_FIELDS).each((i, el) => {
         let field = $(el).data('sub-field')
         let $options = $(el).children()
+
+        $options.each((i, el) => {
+          let value = $(el).attr('value')
+          let text = $(el).text()
+
+          $(el).attr('data-tokens', `${value} ${text}`)
+        })
 
         this._options.sub[field] = this._getHtml($options)
       })
@@ -400,7 +414,7 @@ const TableFilter = (($) => {
 
           operators.forEach((operator) => {
             let data = OperatorData.find((opt) => opt.operator === operator)
-            let option = `<option value="${data.operator}">${data.text}</option>`
+            let option = `<option value="${data.operator}" data-tokens="${data.operator} ${data.text}">${data.text}</option>`
             let $option = $(option)
             if (!i) $option.attr('selected', 'selected')
 
@@ -519,8 +533,8 @@ const TableFilter = (($) => {
       let formElMap = {
         text: `<input class="form-control"/>`,
         number: `<input class="form-control" type="number"/>`,
-        select: `<select class="selectpicker"></select>`,
-        multipleSelect: `<select class="selectpicker" multiple title="请选择"></select>`,
+        select: `<select class="selectpicker" data-live-search="true"></select>`,
+        multipleSelect: `<select class="selectpicker" multiple title="请选择" data-live-search="true"></select>`,
         dateTime: `<input class="form-control datetimepicker"/>`,
         tagsInput: `<input class="form-control tagsinput"/>`,
         bool: `
