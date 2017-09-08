@@ -71,7 +71,16 @@ const TableFilter = (($) => {
       formType: 'select'
     },
     {
-      fieldType: 'date-time',
+      fieldType: 'date',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
+        'GT', 'GT_AND_EQUALS', 'BETWEEN',
+        'ISEMPTY', 'ISNOTEMPTY', 'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'date'
+    },
+    {
+      fieldType: 'datetime',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
         'GT', 'GT_AND_EQUALS', 'BETWEEN',
@@ -80,14 +89,24 @@ const TableFilter = (($) => {
       formType: 'dateTime'
     },
     {
-      fieldType: 'numeric',
+      fieldType: 'integer',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
         'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
         'BETWEEN', 'SAMEAS', 'NSAMEAS',
         'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
       ],
-      formType: 'number'
+      formType: 'integer'
+    },
+    {
+      fieldType: 'decimal',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'decimal'
     },
     {
       fieldType: 'boolean',
@@ -244,10 +263,42 @@ const TableFilter = (($) => {
 
       let cookieName = `tablefilter-pin-id-${this.$root.prop('id')}`
 
-      this._status.pinned = $.cookie(cookieName) == 1
+      this._status.pinned = Number($.cookie(cookieName)) == 1
       this._adjustPinBtnStyle()
 
       if (this._status.pinned) this.toggle(true)
+
+      this.$root.on('keydown', `${Selector.TABLEFILTER_ROW} input[data-type]`, (event) => {
+        let type = $(event.target).data('type')
+        let value = $(event.target).val()
+        let result = true
+
+        switch (type) {
+          case 'integer':
+            if (event.key === '.') result = false
+            break
+
+          case 'decimal':
+            if (event.key === '.' && value.includes('.')) result = false
+            break
+        }
+
+        return result
+      })
+
+      this.$root.on('input', `${Selector.TABLEFILTER_ROW} input[data-type]`, (event) => {
+        let type = $(event.target).data('type')
+        let value = $(event.target).val()
+
+        switch (type) {
+          case 'integer':
+          case 'decimal':
+            value = value.replace(/[^0-9\.]/g, '')
+            break
+        }
+
+        $(event.target).val(value)
+      })
     }
 
     getFieldsOptions () {
@@ -532,15 +583,17 @@ const TableFilter = (($) => {
       }
       let formElMap = {
         text: `<input class="form-control"/>`,
-        number: `<input class="form-control" type="number"/>`,
+        integer: `<input class="form-control" data-type="integer"/>`,
+        decimal: `<input class="form-control" data-type="decimal"/>`,
         select: `<select class="selectpicker" data-live-search="true"></select>`,
         multipleSelect: `<select class="selectpicker" multiple title="请选择" data-live-search="true"></select>`,
+        date: `<input class="form-control datepicker"/>`,
         dateTime: `<input class="form-control datetimepicker"/>`,
         tagsInput: `<input class="form-control tagsinput"/>`,
         bool: `
           <select class="selectpicker">
-            <option value="true">true</option>
-            <option value="false">false</option>
+            <option value="1">true</option>
+            <option value="0">false</option>
           </select>
         `,
         reference: `
@@ -832,6 +885,10 @@ const TableFilter = (($) => {
 
     _refreshFormEl () {
       this.$body.find('.selectpicker').selectpicker('refresh')
+      this.$body.find('.datepicker').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: 'zh-cn'
+      })
       this.$body.find('.datetimepicker').datetimepicker({
         format: 'YYYY-MM-DD HH:mm:ss',
         locale: 'zh-cn'

@@ -1,4 +1,7 @@
 .bootstrap-select{
+  &, &:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){
+    width: 172px;
+  }
   &.btn-group{
     .dropdown-toggle{
       &.disabled{

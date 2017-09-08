@@ -24,8 +24,10 @@
                 <option value="str" data-type="string">字符串类型</option>
                 <option value="ref" data-type="reference" data-url="/api?table=ref">引用类型</option>
                 <option value="opt" data-type="choice">选择类型</option>
-                <option value="date" data-type="date-time">日期时间类型</option>
-                <option value="num" data-type="numeric">数字类型</option>
+                <option value="date" data-type="date">日期类型</option>
+                <option value="datetime" data-type="datetime">日期时间类型</option>
+                <option value="int" data-type="integer">整数类型</option>
+                <option value="decimal" data-type="decimal">浮点数类型</option>
                 <option value="bool" data-type="boolean">布尔类型</option>
             </select>
 
