@@ -53,7 +53,80 @@ const TableFilter = (($) => {
       formType: 'text'
     },
     {
+      fieldType: 'small_string',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'medium_string',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'max_string',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'email',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'ip_address',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
       fieldType: 'reference',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'SAMEAS', 'NSAMEAS', 'EMPTYSTRING'
+      ],
+      formType: 'reference'
+    },
+    {
+      fieldType: 'table',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'SAMEAS', 'NSAMEAS', 'EMPTYSTRING'
+      ],
+      formType: 'reference'
+    },
+    {
+      fieldType: 'internal_type',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
         'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
@@ -89,7 +162,26 @@ const TableFilter = (($) => {
       formType: 'dateTime'
     },
     {
+      fieldType: 'time',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
+        'GT', 'GT_AND_EQUALS', 'BETWEEN',
+        'ISEMPTY', 'ISNOTEMPTY', 'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'time'
+    },
+    {
       fieldType: 'integer',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'integer'
+    },
+    {
+      fieldType: 'phone_number',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
         'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
@@ -106,7 +198,27 @@ const TableFilter = (($) => {
         'BETWEEN', 'SAMEAS', 'NSAMEAS',
         'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
       ],
-      formType: 'decimal'
+      formType: 'float'
+    },
+    {
+      fieldType: 'double',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'float'
+    },
+    {
+      fieldType: 'price',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'float'
     },
     {
       fieldType: 'boolean',
@@ -159,12 +271,12 @@ const TableFilter = (($) => {
       `,
       SECTION_FIELD: `
         <span class="tablefilter-row-section field-section">
-          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段" data-live-search="true">${options.options}</select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段" data-live-search="true" data-none-results-text="没有找到匹配 {0}">${options.options}</select>
         </span>
       `,
       SECTION_OPERATOR: `
         <span class="tablefilter-row-section operator-section">
-          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled data-live-search="true"></select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>
         </span>
       `,
       SECTION_VALUE: `
@@ -278,7 +390,7 @@ const TableFilter = (($) => {
             if (event.key === '.') result = false
             break
 
-          case 'decimal':
+          case 'float':
             if (event.key === '.' && value.includes('.')) result = false
             break
         }
@@ -292,7 +404,7 @@ const TableFilter = (($) => {
 
         switch (type) {
           case 'integer':
-          case 'decimal':
+          case 'float':
             value = value.replace(/[^0-9\.]/g, '')
             break
         }
@@ -584,11 +696,12 @@ const TableFilter = (($) => {
       let formElMap = {
         text: `<input class="form-control"/>`,
         integer: `<input class="form-control" data-type="integer"/>`,
-        decimal: `<input class="form-control" data-type="decimal"/>`,
-        select: `<select class="selectpicker" data-live-search="true"></select>`,
-        multipleSelect: `<select class="selectpicker" multiple title="请选择" data-live-search="true"></select>`,
+        float: `<input class="form-control" data-type="float"/>`,
+        select: `<select class="selectpicker" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
+        multipleSelect: `<select class="selectpicker" multiple title="请选择" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
         date: `<input class="form-control datepicker"/>`,
         dateTime: `<input class="form-control datetimepicker"/>`,
+        time: `<input class="form-control timepicker"/>`,
         tagsInput: `<input class="form-control tagsinput"/>`,
         bool: `
           <select class="selectpicker">
@@ -891,6 +1004,10 @@ const TableFilter = (($) => {
       })
       this.$body.find('.datetimepicker').datetimepicker({
         format: 'YYYY-MM-DD HH:mm:ss',
+        locale: 'zh-cn'
+      })
+      this.$body.find('.timepicker').datetimepicker({
+        format: 'HH:mm:ss',
         locale: 'zh-cn'
       })
       this.$body.find('.tagsinput').tagsinput('refresh')

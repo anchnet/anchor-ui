@@ -22,12 +22,23 @@
         <div style="display: none;">
             <select data-for="fields">
                 <option value="str" data-type="string">字符串类型</option>
+                <option value="smallStr" data-type="small_string">短字符串类型</option>
+                <option value="mediumStr" data-type="medium_string">中字符串类型</option>
+                <option value="maxStr" data-type="max_string">长字符串类型</option>
+                <option value="email" data-type="email">邮箱类型</option>
+                <option value="ip" data-type="ip_address">ip类型</option>
                 <option value="ref" data-type="reference" data-url="/api?table=ref">引用类型</option>
+                <option value="table" data-type="table" data-url="/api?table=table">数据表类型</option>
+                <option value="internal" data-type="internal_type" data-url="/api?table=internal">内部类型</option>
                 <option value="opt" data-type="choice">选择类型</option>
                 <option value="date" data-type="date">日期类型</option>
                 <option value="datetime" data-type="datetime">日期时间类型</option>
+                <option value="time" data-type="time">时间类型</option>
                 <option value="int" data-type="integer">整数类型</option>
-                <option value="decimal" data-type="decimal">浮点数类型</option>
+                <option value="phone" data-type="phone_number">电话类型</option>
+                <option value="decimal" data-type="decimal">小数类型</option>
+                <option value="double" data-type="double">浮点数类型</option>
+                <option value="price" data-type="price">价格类型</option>
                 <option value="bool" data-type="boolean">布尔类型</option>
             </select>
 
