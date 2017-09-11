@@ -1,11 +1,15 @@
+$min-width: 1200px - 240px;
+
 .app-main {
   position: relative;
   height: 100%;
+  overflow-x: auto;
   margin-left: 240px;
 }
 
 .app-body {
   position: relative;
+  min-width: $min-width;
   height: calc(100% - 54px);
   overflow-x: hidden;
   overflow-y: auto;
