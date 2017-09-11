@@ -32,4 +32,13 @@
     padding-left: 8px;
     padding-right: 8px;
   }
+
+  .table-bottom {
+    height: 32px;
+    line-height: 32px;
+    .pagination {
+      margin: 0;
+      float: right;
+    }
+  }
 }

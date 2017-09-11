@@ -64,12 +64,14 @@
   // Links within the dropdown menu
   > li > a {
     display: block;
-    padding: 3px 20px;
+    padding: 0 12px;
     clear: both;
     font-weight: normal;
-    line-height: $line-height-base;
+    //line-height: $line-height-base;
+    line-height: 28px;
     color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
+    font-size: $font-size-small;
   }
 }
 
