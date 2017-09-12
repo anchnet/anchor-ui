@@ -53,7 +53,80 @@ const TableFilter = (($) => {
       formType: 'text'
     },
     {
+      fieldType: 'small_string',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'medium_string',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'max_string',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'email',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
+      fieldType: 'ip_address',
+      operators: [
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'IN', 'NOT_IN', 'EMPTYSTRING',
+        'LT_AND_EQUALS', 'GT_AND_EQUALS', 'BETWEEN',
+        'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'text'
+    },
+    {
       fieldType: 'reference',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'SAMEAS', 'NSAMEAS', 'EMPTYSTRING'
+      ],
+      formType: 'reference'
+    },
+    {
+      fieldType: 'table',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
+        'SAMEAS', 'NSAMEAS', 'EMPTYSTRING'
+      ],
+      formType: 'reference'
+    },
+    {
+      fieldType: 'internal_type',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
         'STARTSWITH', 'ENDSWITH', 'LIKE', 'NOTLIKE',
@@ -71,7 +144,16 @@ const TableFilter = (($) => {
       formType: 'select'
     },
     {
-      fieldType: 'date-time',
+      fieldType: 'date',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
+        'GT', 'GT_AND_EQUALS', 'BETWEEN',
+        'ISEMPTY', 'ISNOTEMPTY', 'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'date'
+    },
+    {
+      fieldType: 'datetime',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
         'GT', 'GT_AND_EQUALS', 'BETWEEN',
@@ -80,14 +162,63 @@ const TableFilter = (($) => {
       formType: 'dateTime'
     },
     {
-      fieldType: 'numeric',
+      fieldType: 'time',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'LT', 'LT_AND_EQUALS',
+        'GT', 'GT_AND_EQUALS', 'BETWEEN',
+        'ISEMPTY', 'ISNOTEMPTY', 'SAMEAS', 'NSAMEAS'
+      ],
+      formType: 'time'
+    },
+    {
+      fieldType: 'integer',
       operators: [
         'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
         'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
         'BETWEEN', 'SAMEAS', 'NSAMEAS',
         'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
       ],
-      formType: 'number'
+      formType: 'integer'
+    },
+    {
+      fieldType: 'phone_number',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'integer'
+    },
+    {
+      fieldType: 'decimal',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'float'
+    },
+    {
+      fieldType: 'double',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'float'
+    },
+    {
+      fieldType: 'price',
+      operators: [
+        'EQUALS', 'NOT_EQUALS', 'ISEMPTY', 'ISNOTEMPTY',
+        'LT', 'GT', 'LT_AND_EQUALS', 'GT_AND_EQUALS',
+        'BETWEEN', 'SAMEAS', 'NSAMEAS',
+        'GT_FIELD', 'LT_FIELD', 'GT_OR_EQUALS_FIELD', 'LT_OR_EQUALS_FIELD'
+      ],
+      formType: 'float'
     },
     {
       fieldType: 'boolean',
@@ -140,12 +271,12 @@ const TableFilter = (($) => {
       `,
       SECTION_FIELD: `
         <span class="tablefilter-row-section field-section">
-          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段">${options.options}</select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_FIELD)} selectpicker" title="请选择字段" data-live-search="true" data-none-results-text="没有找到匹配 {0}">${options.options}</select>
         </span>
       `,
       SECTION_OPERATOR: `
         <span class="tablefilter-row-section operator-section">
-          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled></select>
+          <select class="${TableFilter._getClassName(Selector.SELECT_OPERATOR)} selectpicker" title="关系" disabled data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>
         </span>
       `,
       SECTION_VALUE: `
@@ -244,14 +375,53 @@ const TableFilter = (($) => {
 
       let cookieName = `tablefilter-pin-id-${this.$root.prop('id')}`
 
-      this._status.pinned = $.cookie(cookieName) == 1
+      this._status.pinned = Number($.cookie(cookieName)) == 1
       this._adjustPinBtnStyle()
 
       if (this._status.pinned) this.toggle(true)
+
+      this.$root.on('keydown', `${Selector.TABLEFILTER_ROW} input[data-type]`, (event) => {
+        let type = $(event.target).data('type')
+        let value = $(event.target).val()
+        let result = true
+
+        switch (type) {
+          case 'integer':
+            if (event.key === '.') result = false
+            break
+
+          case 'float':
+            if (event.key === '.' && value.includes('.')) result = false
+            break
+        }
+
+        return result
+      })
+
+      this.$root.on('input', `${Selector.TABLEFILTER_ROW} input[data-type]`, (event) => {
+        let type = $(event.target).data('type')
+        let value = $(event.target).val()
+
+        switch (type) {
+          case 'integer':
+          case 'float':
+            value = value.replace(/[^0-9\.]/g, '')
+            break
+        }
+
+        $(event.target).val(value)
+      })
     }
 
     getFieldsOptions () {
       let $options = this.$root.find(Selector.DATA_FIELDS).children()
+
+      $options.each((i, el) => {
+        let value = $(el).attr('value')
+        let text = $(el).text()
+
+        $(el).attr('data-tokens', `${value} ${text}`)
+      })
 
       this._options.fields = this._getHtml($options)
     }
@@ -260,6 +430,13 @@ const TableFilter = (($) => {
       this.$root.find(Selector.DATA_SUB_FIELDS).each((i, el) => {
         let field = $(el).data('sub-field')
         let $options = $(el).children()
+
+        $options.each((i, el) => {
+          let value = $(el).attr('value')
+          let text = $(el).text()
+
+          $(el).attr('data-tokens', `${value} ${text}`)
+        })
 
         this._options.sub[field] = this._getHtml($options)
       })
@@ -400,7 +577,7 @@ const TableFilter = (($) => {
 
           operators.forEach((operator) => {
             let data = OperatorData.find((opt) => opt.operator === operator)
-            let option = `<option value="${data.operator}">${data.text}</option>`
+            let option = `<option value="${data.operator}" data-tokens="${data.operator} ${data.text}">${data.text}</option>`
             let $option = $(option)
             if (!i) $option.attr('selected', 'selected')
 
@@ -518,15 +695,18 @@ const TableFilter = (($) => {
       }
       let formElMap = {
         text: `<input class="form-control"/>`,
-        number: `<input class="form-control" type="number"/>`,
-        select: `<select class="selectpicker"></select>`,
-        multipleSelect: `<select class="selectpicker" multiple title="请选择"></select>`,
+        integer: `<input class="form-control" data-type="integer"/>`,
+        float: `<input class="form-control" data-type="float"/>`,
+        select: `<select class="selectpicker" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
+        multipleSelect: `<select class="selectpicker" multiple title="请选择" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
+        date: `<input class="form-control datepicker"/>`,
         dateTime: `<input class="form-control datetimepicker"/>`,
+        time: `<input class="form-control timepicker"/>`,
         tagsInput: `<input class="form-control tagsinput"/>`,
         bool: `
           <select class="selectpicker">
-            <option value="true">true</option>
-            <option value="false">false</option>
+            <option value="1">true</option>
+            <option value="0">false</option>
           </select>
         `,
         reference: `
@@ -818,8 +998,16 @@ const TableFilter = (($) => {
 
     _refreshFormEl () {
       this.$body.find('.selectpicker').selectpicker('refresh')
+      this.$body.find('.datepicker').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: 'zh-cn'
+      })
       this.$body.find('.datetimepicker').datetimepicker({
         format: 'YYYY-MM-DD HH:mm:ss',
+        locale: 'zh-cn'
+      })
+      this.$body.find('.timepicker').datetimepicker({
+        format: 'HH:mm:ss',
         locale: 'zh-cn'
       })
       this.$body.find('.tagsinput').tagsinput('refresh')

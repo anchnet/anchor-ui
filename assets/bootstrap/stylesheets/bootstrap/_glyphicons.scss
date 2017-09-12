@@ -365,3 +365,31 @@
     }
   }
 }
+
+.prompticon {
+  display: inline-block;
+  background-image: url("../img/icons/status-icons.svg");
+  //告警（大）& 页面操作失败提示图标
+  &.icon-alarm-tips {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -24px;
+  }
+  /*页面操作成功提示图标*/
+  &.icon-opt-success {
+    width: 26px;
+    height: 26px;
+    background-position: -35px -22px;
+  }
+}
+
+.icon-down-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border-top: 6px solid #E2003B;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  vertical-align: middle;
+}

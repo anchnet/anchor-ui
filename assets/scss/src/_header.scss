@@ -2,9 +2,12 @@
  * header
  */
 
+$min-width: 1200px - 240px;
+
 .app-header {
   position: relative;
   z-index: 50;
+  min-width: $min-width;
   height: 54px;
   box-shadow: 0 2px 6px rgba(220, 223, 228, 0.5);
 
@@ -23,6 +26,48 @@
     cursor: pointer;
     &:hover {
       color: $brand-primary;
+      .header-icon {
+        &.icon-console {
+          background-position: 0 -26px;
+        }
+        &.icon-message {
+          background-position: -23px -28px;
+        }
+        &.icon-user {
+          background-position: -44px -23px;
+        }
+        &.icon-help {
+          background-position: -72px -25px;
+        }
+      }
+    }
+    .header-icon {
+      display: inline-block;
+      margin-right: 10px;
+      background-image: url('../img/icons/header-icons.svg');
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      &.icon-console {
+        width: 13px;
+        height: 12px;
+        background-position: 0 -3px;
+      }
+      &.icon-message {
+        width: 11px;
+        height: 8px;
+        background-position: -23px -5px;
+      }
+      &.icon-user {
+        width: 18px;
+        height: 18px;
+        background-position: -44px 0;
+      }
+      &.icon-help {
+        width: 14px;
+        height: 14px;
+        background-position: -72px -2px;
+      }
     }
   }
 }

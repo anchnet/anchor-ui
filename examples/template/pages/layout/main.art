@@ -43,16 +43,16 @@
     <div class="app-header">
         <div class="pull-left">
             <div class="nav-item">
-                <a class="nav-item-title" href="">控制台首页</a>
+                <a class="nav-item-title" href=""><i class="header-icon icon-console"></i>控制台首页</a>
             </div>
         </div>
         <div class="pull-right">
             <div class="nav-item">
-                <a class="nav-item-title" href="">消息</a>
+                <a class="nav-item-title" href=""><i class="header-icon icon-message"></i>消息</a>
             </div>
             <div class="nav-item dropdown">
                 <span id="headerSupport" class="nav-item-title" data-toggle="dropdown">
-                    帮助与服务
+                    <i class="header-icon icon-help"></i>帮助与服务
                     <span class="caret"></span>
                 </span>
                 <ul class="dropdown-menu" aria-labelledby="headerSupport">
@@ -62,7 +62,7 @@
             </div>
             <div class="nav-item dropdown">
                 <span id="headerAccount" class="nav-item-title" data-toggle="dropdown">
-                    fe@51idc.com
+                    <i class="header-icon icon-user"></i>fe@51idc.com
                     <span class="caret"></span>
                 </span>
                 <ul class="dropdown-menu" aria-labelledby="headerAccount">
