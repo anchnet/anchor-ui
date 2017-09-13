@@ -34,14 +34,14 @@
   }
 
   .checkbox-wrapper {
-    width: 20px;
+    width: 14px;
   }
   .checkbox-wrapper, .check-all-wrapper {
     input[type=checkbox] {
       visibility: hidden;
+      margin: 0;
     }
     .checkbox-label {
-      margin-top: 4px;
       cursor: pointer;
       width: 14px;
       height: 14px;
