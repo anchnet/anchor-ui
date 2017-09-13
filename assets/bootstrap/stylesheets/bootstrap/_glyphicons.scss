@@ -366,10 +366,17 @@
   }
   &.optionicon-close {
     background-position: -95px -23px;
+    &:hover,
+    &.active {
+      background-position: -95px 1px;
+    }
   }
-  &:hover,
-  &.active {
-    background-position: -95px 1px;
+  &.optionicon-return {
+    background-position: -114px -24px;
+    &:hover,
+    &.active {
+      background-position: -114px 0;
+    }
   }
 }
 
@@ -380,13 +387,13 @@
   &.icon-alarm-tips {
     width: 24px;
     height: 24px;
-    background-position: 0px -24px;
+    background-position: 0 0;
   }
   /*页面操作成功提示图标*/
   &.icon-opt-success {
     width: 26px;
     height: 26px;
-    background-position: -35px -22px;
+    background-position: -35px 2px;
   }
 }
 
@@ -403,3 +410,23 @@
     border-top: 6px solid #E2003B;
   }
 }
+.icon-data-wrapper {
+  width: 72px;
+  height: 72px;
+  background-color: #d7dbe1;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+  .icon-null-data {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-image: url("../img/icons/status-icons.svg");
+    background-position: 0 -34px;
+    margin-top: 16px;
+  }
+}
+
+
+
