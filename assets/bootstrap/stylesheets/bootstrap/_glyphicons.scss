@@ -364,6 +364,13 @@
       background-position: -78px 0;
     }
   }
+  &.optionicon-close {
+    background-position: -95px -23px;
+  }
+  &:hover,
+  &.active {
+    background-position: -95px 1px;
+  }
 }
 
 .prompticon {
