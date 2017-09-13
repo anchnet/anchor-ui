@@ -2,9 +2,12 @@
  * header
  */
 
+$min-width: 1200px - 240px;
+
 .app-header {
   position: relative;
   z-index: 50;
+  min-width: $min-width;
   height: 54px;
   box-shadow: 0 2px 6px rgba(220, 223, 228, 0.5);
 
