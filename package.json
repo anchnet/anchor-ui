@@ -62,8 +62,5 @@
     "webpack-merge": "^4.1.0"
   },
   "author": "liuzmeng liuzhimengcn@gmail.com",
-  "license": "MIT",
-  "dependencies": {
-    "moment": "^2.18.1"
-  }
+  "license": "MIT"
 }
