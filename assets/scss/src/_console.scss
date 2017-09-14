@@ -1,0 +1,29 @@
+//控制台显示模板
+.console-template {
+  // 滚动条
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #adadad;
+    border-radius: 4px 4px;
+  }
+
+  .console-wrapper {
+    height: 300px;
+    width: 100%;
+    line-height: 18px;
+    padding: 20px 25px;
+    background-color: #2f323a;
+    color: #8892a5;
+    font-size: 12px;
+    overflow: auto;
+    .console-text {
+      line-height: 18px;
+      color: #8892a5;
+      font-size: 12px;
+    }
+  }
+}
