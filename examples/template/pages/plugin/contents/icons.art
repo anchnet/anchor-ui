@@ -26,9 +26,11 @@
     <span class="optionicon optionicon-delete active"></span>
     <span class="optionicon optionicon-horizontal active"></span>
     <span class="optionicon optionicon-close active"></span>
-    <span class="optionicon optionicon-return"></span>
+    <span class="optionicon optionicon-return active"></span>
     <span class="icon-down-arrow"></span>
     <span class="icon-down-arrow active"></span>
+    <span class="glyphicon glyphicon-menu-down"></span>
+    <span class="glyphicon glyphicon-menu-down active"></span>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
