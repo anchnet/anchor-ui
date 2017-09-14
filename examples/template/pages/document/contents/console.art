@@ -1,0 +1,28 @@
+<h2 id="console" class="page-header">按钮</h2>
+
+<h3 id="console-base">控制台基本样式</h3>
+<div class="bs-example" data-example-id="console-base">
+    <div class="console-template">
+        <div class="console-wrapper">
+            10:09:06<br/>
+            43.254.151.10310:09:07<br/>
+            43.254.151.10310:09:08<br/>
+            43.254.151.10310:09:09<br/>
+            43.254.151.10310:09:10<br/>
+            43.254.151.10310:09:11<br/>
+            43.254.151.10310:09:12<br/>
+            43.254.151.10310:09:13<br/>
+            43.254.151.10310:09:14<br/>
+            43.254.151.10310:09:15<br/>
+            43.254.151.103<br/>
+            PING localhost (127.0.0.1) 56(84) bytes of data.<br/>
+            64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.017 ms<br/>
+            64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.026 ms<br/>
+            64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.026 ms<br/>
+            --- localhost ping statistics ---<br/>
+            3 packets transmitted, 3 received, 0% packet loss, time 1999ms<br/>
+            rtt min/avg/max/mdev = 0.017/0.023/0.026/0.004 ms<br/>
+        </div>
+    </div>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
