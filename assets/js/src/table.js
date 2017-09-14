@@ -32,7 +32,8 @@ const Table =(($) => {
     TABLE_BOTTOM: '.table-bottom',
     CELL_HIDE: '.cell-hide',
     CHECK_ROW: '.check-row',
-    CHECK_ALL: '.check-all'
+    CHECK_ALL: '.check-all',
+    CHECK_LABEL: '.checkbox-label'
   }
 
   const Template = (id, options = {}) => {
@@ -44,12 +45,18 @@ const Table =(($) => {
       `,
       TABLE_ROW_CHECKBOX: `
         <td data-renderer="plugin">
-          <input class="${Table._getNameFromClass(Selector.CHECK_ROW)}" type="checkbox"/>
+        <div class="checkbox-wrapper">
+          <label class="${Table._getNameFromClass(Selector.CHECK_LABEL)}">
+            <input class="${Table._getNameFromClass(Selector.CHECK_ROW)}" type="checkbox"/>
+          </label>
+        </div>   
         </td>
       `,
       TABLE_ALL_CHECKBOX: `
         <span class="check-all-wrapper">
-          <input class="${Table._getNameFromClass(Selector.CHECK_ALL)}" type="checkbox"/>
+          <label class="${Table._getNameFromClass(Selector.CHECK_LABEL)}">
+            <input class="${Table._getNameFromClass(Selector.CHECK_ALL)}" type="checkbox"/>
+          </label>
         </span>
       `,
       TABLE_CONFIG_MODAL: `
@@ -154,26 +161,35 @@ const Table =(($) => {
     checkItems (element, type) {
       let checkData = JSON.parse(JSON.stringify(this.checkData))
       let len = this.$tbody.find('tr').length
+      let $checkboxLabel = $(Selector.CHECK_LABEL)
+      let activeClass = 'active'
 
       switch (type) {
         case 'row':
-          let index = $(element).closest('tr').index()
+          let index = $(element).closest('tr').index(),
+              $checkboxRow = $(element).closest(Selector.CHECK_LABEL)
 
           if (checkData.includes(index)) {
             checkData.splice(checkData.indexOf(index), 1)
+            $checkboxRow.removeClass(activeClass)
           } else {
             checkData.push(index)
+            $checkboxRow.addClass(activeClass)
           }
           break
 
         case 'all':
           let checked = $(element).is(':checked')
+
           checkData = []
 
           if (checked) {
             for (let i = 0; i < len; i++) {
               checkData.push(i)
             }
+            $checkboxLabel.addClass(activeClass)
+          }else {
+            $checkboxLabel.removeClass(activeClass)
           }
           break
       }
@@ -187,6 +203,7 @@ const Table =(($) => {
             .find(Selector.CHECK_ROW)
             .add(this.$root.find(Selector.CHECK_ALL))
             .prop('checked', false)
+          $checkboxLabel.removeClass(activeClass)
           break
 
         case len:
@@ -195,10 +212,12 @@ const Table =(($) => {
             .find(Selector.CHECK_ROW)
             .add(this.$root.find(Selector.CHECK_ALL))
             .prop('checked', true)
+          $checkboxLabel.addClass(activeClass)
           break
 
         default:
           this.$root.find(Selector.CHECK_ALL).prop('checked', false)
+          $(Selector.CHECK_ALL).parent(Selector.CHECK_LABEL).removeClass(activeClass)
       }
 
       this.checkData = checkData

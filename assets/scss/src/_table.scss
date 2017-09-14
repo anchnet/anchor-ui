@@ -33,6 +33,52 @@
     padding-right: 8px;
   }
 
+  .checkbox-wrapper {
+    width: 14px;
+  }
+  .checkbox-wrapper, .check-all-wrapper {
+    input[type=checkbox] {
+      visibility: hidden;
+      margin: 0;
+    }
+    .checkbox-label {
+      cursor: pointer;
+      width: 14px;
+      height: 14px;
+      border: 1px solid #d4d4d4;
+      margin-bottom: 0;
+      border-radius: 2px;
+      vertical-align: middle;
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 5px;
+        background: transparent;
+        top: 2px;
+        left: 2px;
+        border: 1px solid #FFFFFF;
+        border-top: none;
+        border-right: none;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+      &:hover {
+        border: 1px solid #e2003b;
+        box-shadow: 0 0 2px #e2003b;
+        cursor: pointer;
+      }
+      &.active {
+        border-color: #e2003b;
+        background-color: #e2003b;
+      }
+    }
+  }
+
   .table-bottom {
     height: 32px;
     line-height: 32px;
