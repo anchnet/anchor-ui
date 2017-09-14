@@ -5,4 +5,5 @@
     {{include './contents/table.art'}}
     {{include './contents/breadcrumb.art'}}
     {{include './contents/console.art'}}
+    {{include './contents/basic-class.art'}}
 </div>

@@ -16,7 +16,11 @@
 
 .zoom {zoom: 1;}
 
-.hidden {visibility: hidden;}
+.ofh {overflow: hidden;}
+.ofa {overflow: auto;}
+.ofs {overflow: scroll;}
+.vbh {visibility: hidden;}
+.vbv {visibility: visible;}
 
 .pr {position: relative;}
 .pa {position: absolute;}
@@ -131,6 +135,9 @@
 .max-w300{max-width: 300px;}
 .max-w350{max-width: 350px;}
 .max-w400{max-width: 400px;}
+.max-w500{max-width: 500px;}
+.max-w600{max-width: 600px;}
+.max-w800{max-width: 800px;}
 
 .min-w25{min-width: 25px;}/* 配置（32GB） */
 .min-w30{min-width: 30px;}
@@ -181,6 +188,9 @@
 .max-h300{max-height: 300px;}
 .max-h350{max-height: 350px;}
 .max-h400{max-height: 400px;}
+.max-h500{max-height: 500px;}
+.max-h600{max-height: 600px;}
+.max-h800{max-height: 800px;}
 
 .min-h20{min-height: 20px;}
 .min-h30{min-height: 30px;}
