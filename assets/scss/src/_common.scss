@@ -19,7 +19,8 @@
   }
 
   &.btn-primary,
-  &.btn-primary-light {
+  &.btn-primary-light,
+  &.btn-danger {
     .glyphicon {
       color: #FFF;
     }

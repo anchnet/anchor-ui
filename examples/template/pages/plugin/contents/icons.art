@@ -34,20 +34,20 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h3 id="icon-increase">弹框提示成功失败图标</h3>
+<h3 id="icon-prompt">弹框提示成功失败图标</h3>
 <div class="bs-example" data-example-id="icon-prompt">
     <span class="prompticon icon-alarm-tips"></span>
     <span class="prompticon icon-opt-success"></span>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h3 id="icon-increase">暂无数据icon</h3>
+<h3 id="icon-null-data">暂无数据icon</h3>
 <div class="bs-example" data-example-id="icon-null-data">
     <span class="icon-data-wrapper"><i class="icon-null-data"></i></span>
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
-<h3 id="icon-increase">loading</h3>
+<h3 id="data-loading">数据加载中</h3>
 <div class="bs-example" data-example-id="data-loading">
     <div class="data-loading">
         <div class="sk-circle">
