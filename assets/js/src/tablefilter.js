@@ -281,7 +281,7 @@ const TableFilter = (($) => {
       `,
       SECTION_VALUE: `
         <span class="tablefilter-row-section value-section">
-          <input class="${TableFilter._getClassName(Selector.INPUT_VALUE)} form-control" placeholder="值" disabled/>
+          <input class="${TableFilter._getClassName(Selector.INPUT_VALUE)} form-control form-element" placeholder="值" disabled/>
         </span>
       `,
       SECTION_BUTTON: `
@@ -629,7 +629,7 @@ const TableFilter = (($) => {
         if (options.value.value && options.value.value.length) {
           let $section = $row.find('.value-section')
 
-          $section.find('select, input').each((i, el) => {
+          $section.find('input.form-element, select.form-element').each((i, el) => {
             let tag = $(el).prop('tagName').toLowerCase()
             let val = options.value.value[i]
 
@@ -694,15 +694,15 @@ const TableFilter = (($) => {
         ],
       }
       let formElMap = {
-        text: `<input class="form-control"/>`,
-        integer: `<input class="form-control" data-type="integer"/>`,
-        float: `<input class="form-control" data-type="float"/>`,
-        select: `<select class="selectpicker" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
-        multipleSelect: `<select class="selectpicker" multiple title="请选择" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
-        date: `<input class="form-control datepicker"/>`,
-        dateTime: `<input class="form-control datetimepicker"/>`,
-        time: `<input class="form-control timepicker"/>`,
-        tagsInput: `<input class="form-control tagsinput"/>`,
+        text: `<input class="form-control form-element"/>`,
+        integer: `<input class="form-control form-element" data-type="integer"/>`,
+        float: `<input class="form-control form-element" data-type="float"/>`,
+        select: `<select class="selectpicker form-element" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
+        multipleSelect: `<select class="selectpicker form-element" multiple title="请选择" data-live-search="true" data-none-results-text="没有找到匹配 {0}"></select>`,
+        date: `<input class="form-control form-element datepicker"/>`,
+        dateTime: `<input class="form-control form-element datetimepicker"/>`,
+        time: `<input class="form-control form-element timepicker"/>`,
+        tagsInput: `<input class="form-control form-element tagsinput"/>`,
         bool: `
           <select class="selectpicker">
             <option value="1">true</option>
