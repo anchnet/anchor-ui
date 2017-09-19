@@ -834,7 +834,7 @@ const TableFilter = (($) => {
           let vals = []
 
           if (field) {
-            $valueSection.find('input, select').each((i, el) => {
+            $valueSection.find('input.form-element, select.form-element').each((i, el) => {
               let tag = $(el).prop('tagName').toLowerCase()
               let val
 
