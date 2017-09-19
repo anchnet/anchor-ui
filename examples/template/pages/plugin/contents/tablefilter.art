@@ -31,6 +31,7 @@
                 <option value="table" data-type="table" data-url="/api?table=table">数据表类型</option>
                 <option value="internal" data-type="internal_type" data-url="/api?table=internal">内部类型</option>
                 <option value="opt" data-type="choice">选择类型</option>
+                <option value="opt2" data-type="choice">选择类型2</option>
                 <option value="date" data-type="date">日期类型</option>
                 <option value="datetime" data-type="datetime">日期时间类型</option>
                 <option value="time" data-type="time">时间类型</option>
@@ -45,6 +46,11 @@
             <select data-sub-field="opt">
                 <option value="opt1">选择1</option>
                 <option value="opt2">选择2</option>
+            </select>
+
+            <select data-sub-field="opt2">
+                <option value="opt1">选择A</option>
+                <option value="opt2">选择B</option>
             </select>
         </div>
     </div>

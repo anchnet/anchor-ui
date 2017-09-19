@@ -726,16 +726,6 @@ const TableFilter = (($) => {
         if (group[type].includes(operator)) renderType = type
       })
 
-      let renderInfo = `${formType}-${renderType}`
-      let prevRenderInfo = $row.data('render-info')
-
-      if (renderInfo === prevRenderInfo) return
-      if (
-        ['text-oneInput', 'text-textInput'].includes(renderInfo) &&
-        ['text-oneInput', 'text-textInput'].includes(prevRenderInfo)
-      ) return
-
-      $row.data('render-info', renderInfo)
       $section.empty()
 
       let content = formEl
