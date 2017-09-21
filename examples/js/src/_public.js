@@ -1,4 +1,4 @@
-const _privateState = {
+const STATIC_DATA = {
   clicked: false,
   apartToParent: '',
   beforeScroll: $(document).scrollTop(),
@@ -26,30 +26,30 @@ export default {
       // 当文档位于顶部区域时
       if (documentScrollTop <= 336) {
         $navSidebar.css({ position: '', top: '', left: ''})
-      } else if (!_privateState.clicked) {    // 延迟加载
+      } else if (!STATIC_DATA.clicked) {    // 延迟加载
         // 判断滚动方向
         let afterScroll = $(this).scrollTop()
-        _privateState.direction = afterScroll - _privateState.beforeScroll >= 0 ? 'down' : 'up'
-        _privateState.beforeScroll = afterScroll
+        STATIC_DATA.direction = afterScroll - STATIC_DATA.beforeScroll >= 0 ? 'down' : 'up'
+        STATIC_DATA.beforeScroll = afterScroll
 
         // 初始化情况处理
-        // if (_privateState.initStatus) {
-        //   _privateState.initStatus = false
+        // if (STATIC_DATA.initStatus) {
+        //   STATIC_DATA.initStatus = false
         // }
 
         let position = '', top = '', left = ''
         // 向下滚动时
-        if (_privateState.direction === 'down') {
+        if (STATIC_DATA.direction === 'down') {
           // 滚动到底部区域时
           if (apartToBottom <= 230) {
             // 记录 DOM 加载完成时与父元素的相对位置
-            if (!_privateState.apartToParent) {
-              _privateState.apartToParent =  elementOffset.top - $navSidebarParent.offset().top + 'px'
+            if (!STATIC_DATA.apartToParent) {
+              STATIC_DATA.apartToParent =  elementOffset.top - $navSidebarParent.offset().top + 'px'
             }
 
             position = 'absolute'
             left = ''
-            top = _privateState.apartToParent
+            top = STATIC_DATA.apartToParent
 
           } else if (apartToTop <= 10) { // 滚动到中间与区域时
             position = 'fixed'
@@ -59,7 +59,7 @@ export default {
         }
 
         // 向上滚动时
-        if (_privateState.direction === 'up') {
+        if (STATIC_DATA.direction === 'up') {
           // 滚动到中间区域时
           if (apartToTop >= 10) {
             position = 'fixed'
@@ -67,18 +67,18 @@ export default {
             left = elementOffset.left + 'px'
 
           } else if (apartToBottom <= 230) {    // 位于底部区域时
-            if (!_privateState.apartToParent) {
-              _privateState.apartToParent =  elementOffset.top - $navSidebarParent.offset().top + 'px'
+            if (!STATIC_DATA.apartToParent) {
+              STATIC_DATA.apartToParent =  elementOffset.top - $navSidebarParent.offset().top + 'px'
             }
             position = 'absolute'
             left = ''
-            top = _privateState.apartToParent
+            top = STATIC_DATA.apartToParent
           }
         }
 
         // 离开底部区域时，清除相对位置信息
         if (apartToBottom > 230) {
-          _privateState.apartToParent = ''
+          STATIC_DATA.apartToParent = ''
         }
 
         $navSidebar.css({ position: position, top: top, left: left })
@@ -86,14 +86,16 @@ export default {
     })
   },
 
-  smoothScroll () {
-    $('#nav-slidebar').on('click', 'a[href^="#"]', function () {
-      _privateState.clicked = true
+  smoothScroll (wrapperElement, scrollElement) {
+    if (!wrapperElement) wrapperElement = $('#nav-slidebar')
+    wrapperElement.on('click', 'a[href^="#"]', function () {
+      STATIC_DATA.clicked = true
       let el = $(this).attr('href')
       let scrollTop = el === '#return-top' ? 0 :Math.ceil($(el).offset().top) - 10
-      $('html, body').animate({scrollTop: scrollTop + 'px'}, 800)
+      if (!scrollElement) scrollElement = $('html, body')
+      scrollElement.animate({scrollTop: scrollTop + 'px'}, 800)
       setTimeout(function () {
-        _privateState.clicked = false
+        STATIC_DATA.clicked = false
       }, 50)
     })
   }

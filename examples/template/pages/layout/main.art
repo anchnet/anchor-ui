@@ -43,7 +43,9 @@
     <div class="app-header">
         <div class="pull-left">
             <div class="nav-item">
-                <a class="nav-item-title" href=""><i class="header-icon icon-console"></i>控制台首页</a>
+                <a class="nav-item-title mr20" href=""><i class="header-icon icon-console"></i>控制台首页</a>
+                <a class="nav-item-title mr20" href="#layout-usual"><i class="glyphicon glyphicon-th-large mr5"></i>通用布局</a>
+                <a class="nav-item-title" href="#layout-information"><i class="glyphicon glyphicon-th-list mr5"></i>信息布局</a>
             </div>
         </div>
         <div class="pull-right">
@@ -74,7 +76,7 @@
     </div>
 
     <div class="app-body">
-        <div class="app-block">
+        <div id="layout-usual" class="app-block">
             <h3>基础布局</h3>
             <div class="bs-example">本页布局</div>
             <figure id="layoutCode" class="highlight"></figure>
@@ -86,6 +88,11 @@
             <h3>顶部</h3>
             <div class="bs-example">↑ 请看上面</div>
             <figure id="headerCode" class="highlight"></figure>
+        </div>
+        <div id="layout-information" class="app-block mt20">
+            {{include './layout-info.art'}}
+            <div>以下是页面代码：</div>
+            <figure id="layoutInfoCode" class="highlight"></figure>
         </div>
     </div>
 </div>
