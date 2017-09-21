@@ -1,0 +1,116 @@
+<div class="panel panel-default">
+    <div class="panel-heading">基本信息</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">名称:</div>songyz_1
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">插件类型:</div>阿里云
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">帐号:</div>aliyun_songyz
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">节点:</div>华北一
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">密码密钥:</div>阿里云
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">执行脚本:</div>test1
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">备注:</div>华北一
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">启动参数</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="layout-group label-w90">
+                    <div class="layout-label">超时（分钟）:</div>60
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w90">
+                    <div class="layout-label">失败回滚:</div>是
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">状态</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">创建时间:</div>2017-09-16 22:22:22
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="layout-group label-w60">
+                    <div class="layout-label">状态:</div>是
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">输出</div>
+    <div class="panel-body plr0-im">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </thead>
+            <tbody>
+            <tr data-id="rowA">
+                <td>a1</td>
+                <td>b1</td>
+                <td>c1</td>
+                <td>d1</td>
+                <td>e1</td>
+                <td>f1</td>
+                <td>g1</td>
+                <td>h1</td>
+            </tr>
+            <tr data-id="rowB">
+                <td>a2</td>
+                <td>b2</td>
+                <td>c2</td>
+                <td>d2</td>
+                <td>e2</td>
+                <td>f2</td>
+                <td>g2</td>
+                <td>h2</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

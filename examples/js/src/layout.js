@@ -1,4 +1,5 @@
 import utils from 'examples/libs/utils'
+import _public from './_public'
 
 /* 布局模板 */
 const layoutTemplate = `
@@ -24,3 +25,7 @@ $('#headerCode').html(utils.chain('.app-header', 'getHtml', 'parseHtmlCode', 'in
 
 /* 代码高亮初始化 */
 utils.highlightCode()
+
+$(function () {
+  _public.smoothScroll($('.app-header'), $('.app-body'))
+})
