@@ -53,19 +53,12 @@
       &:after {
         content: '';
         position: absolute;
-        width: 8px;
-        height: 5px;
-        background: transparent;
+        width: 10px;
+        height: 8px;
         top: 2px;
-        left: 2px;
-        border: 1px solid #FFFFFF;
-        border-top: none;
-        border-right: none;
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        transform: rotate(-45deg);
+        left: 1px;
+        background-image: url("../img/icons/status-icons.svg");
+        background-position: -97px -1px;
       }
       &:hover {
         border: 1px solid #e2003b;
