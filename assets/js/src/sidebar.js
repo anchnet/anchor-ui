@@ -140,7 +140,7 @@ const Sidebar = (($) => {
       let targetHeight
 
       if (isActive) {
-        targetHeight = 40
+        targetHeight = 34
       } else {
         targetHeight = 0
         $menuGroup.children().each((i, el) => {
