@@ -6,7 +6,11 @@
         {{each menus as menu}}
         <div class="menu-group">
             <div class="menu-title">
-                <i class="default-dot"></i>
+                {{if menu['iconClass']}}
+                    <i class="menu-icon icon-cmdb"></i>
+                {{else}}
+                    <i class="default-dot"></i>
+                {{/if}}
                 {{menu['title']}}
             </div>
             {{if menu['children']}}
@@ -14,13 +18,21 @@
             <div class="menu-group">
                 {{if subMenu['children']}}
                 <div class="menu-title">
-                    <i class="default-dot"></i>
+                    {{if subMenu['iconClass']}}
+                        <i class="menu-icon icon-basic-config"></i>
+                    {{else}}
+                        <i class="default-dot"></i>
+                    {{/if}}
                     {{subMenu['title']}}
                 </div>
                 {{each subMenu['children'] as baseMenu}}
                 <div class="menu-group">
                     <a class="menu-title {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
-                        <i class="default-dot"></i>
+                        {{if baseMenu['iconClass']}}
+                            <i class="menu-icon icon-service-middleware"></i>
+                        {{else}}
+                            <i class="default-dot"></i>
+                        {{/if}}
                         {{baseMenu['title']}}
                     </a>
                 </div>

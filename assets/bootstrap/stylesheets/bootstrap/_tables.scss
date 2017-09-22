@@ -23,6 +23,7 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: $line-height-computed;
+  font-size: $font-size-small;
   // Cells
   > thead,
   > tbody,
@@ -36,6 +37,7 @@ th {
         border-top: 1px solid $table-border-color;
         color: $brand-base;
         font-weight: normal;
+        font-size: $font-size-small;
       }
     }
   }

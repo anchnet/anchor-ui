@@ -18,7 +18,7 @@
   display: block;
   position: absolute;
   top: 17px;
-  left: 37px;
+  left: 17px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -29,7 +29,7 @@
   width: 12px;
   background-image: url('../img/icons/nav-icons.svg');
   position: absolute;
-  left: 37px;
+  left: 13px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -74,12 +74,12 @@
     background-color: #2F323A;
   }
   .menu-group {
-    height: 40px;
+    height: 34px;
     overflow: hidden;
   }
   .menu-title {
     @include menu-title;
-    padding-left: 80px;
+    padding-left: 40px;
     padding-right: 35px;
     color: #FFF;
     i.default-dot {
@@ -113,10 +113,13 @@
   }
   .menu-sub-title {
     @include menu-title;
-    padding-left: 80px;
+    padding-left: 40px;
     padding-right: 35px;
     background-color: #1B1D23;
     color: #A5A7AB;
+    font-size: 12px;
+    height: 34px;
+    line-height: 34px;
     &:hover {
       color: #FFF;
       i.menu-icon {
@@ -149,6 +152,7 @@
       &.icon-basic-config {
         width: 13px;
         height: 12px;
+        left: 14px;
         background-position: -34px 1px;
       }
 
@@ -189,7 +193,14 @@
     }
     @for $i from 1 through 10 {
       &.sub-#{$i} {
-        padding-left: #{80 + 10 * ($i - 1)}px;
+        padding-left: #{40 + 10 * ($i - 1)}px;
+        .default-dot {
+          left: #{23 + 10 * ($i - 1)}px;
+          top: 14px;
+        }
+        .menu-icon {
+          left: #{20 + 10 * ($i - 1)}px;
+        }
       }
     }
     &:hover {
