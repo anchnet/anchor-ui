@@ -1,0 +1,82 @@
+/* 横向流程步骤 start */
+.transverse-flow-steps {
+  display: inline-block;
+  width: 100%;
+  ul {
+    li {
+      list-style: none;
+      .unit-step {
+        display: inline-block;
+        float: left;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 180px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        background-color: $table-bg-head;
+        color: #6F777E;
+        label {
+          margin-left: -15px;
+          margin-bottom: 0;
+        }
+        .step-arrow-pre {
+          border-left: 17px solid $table-bg-head;
+        }
+        .step-arrow-next {
+          border-top: 17px solid $table-bg-head;
+          border-bottom: 17px solid $table-bg-head;
+        }
+
+        &.step-past {
+          background-color: #FCEAEF;
+          color: $brand-primary;
+          .step-arrow-pre {
+            border-left: 17px solid #FCEAEF;
+          }
+          .step-arrow-next {
+            border-top: 17px solid #FCEAEF;
+            border-bottom: 17px solid #FCEAEF;
+          }
+          &.last {
+            .step-arrow-next {
+              border-top: 17px solid $brand-primary;
+              border-bottom: 17px solid $brand-primary;
+            }
+          }
+        }
+        &.step-current {
+          background-color: $brand-primary;
+          label {
+            color: #fff;
+          }
+          .step-arrow-pre {
+            border-left: 17px solid $brand-primary;
+          }
+          .step-arrow-next {
+            border-top: 17px solid $table-bg-head;
+            border-bottom: 17px solid $table-bg-head;
+          }
+        }
+      }
+    }
+    .step-arrow {
+      position: absolute;
+      right: -7px;
+      height: 34px;
+      background-color: #fff;
+      z-index: 2;
+      span {
+        display: inline-block;
+        border-left: 17px solid transparent;
+        border-top: 17px solid transparent;
+        border-bottom: 17px solid transparent;
+      }
+    }
+    .step-arrow-next {
+      margin-left: -10px;
+    }
+  }
+}
+/* 横向流程步骤 end */

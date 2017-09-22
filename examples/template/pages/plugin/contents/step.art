@@ -1,0 +1,90 @@
+<h2 id="icon" class="page-header">步骤条</h2>
+
+<h3 id="flow-steps">实例</h3>
+<div class="bs-example" data-example-id="flow-steps">
+    <div class="transverse-flow-steps">
+        <ul>
+            <li>
+                <span class="unit-step step-current">
+                    <label>步骤1</label>
+                        <span class="step-arrow">
+                        <span class="step-arrow-pre"></span>
+                        <span class="step-arrow-next"></span>
+                    </span>
+                </span>
+            </li>
+            <li>
+                <span class="unit-step">
+                    <label>步骤2</label>
+                    <span class="step-arrow">
+                        <span class="step-arrow-pre"></span>
+                        <span class="step-arrow-next"></span>
+                    </span>
+                </span>
+            </li>
+            <li>
+                <span class="unit-step">
+                    <label>步骤3</label>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="transverse-flow-steps">
+        <ul>
+            <li>
+                <span class="unit-step step-past last">
+                    <label>步骤1</label>
+                    <span class="step-arrow">
+                        <span class="step-arrow-pre"></span>
+                        <span class="step-arrow-next"></span>
+                    </span>
+                </span>
+            </li>
+            <li>
+                <span class="unit-step step-current">
+                    <label>步骤2</label>
+                    <span class="step-arrow">
+                        <span class="step-arrow-pre"></span>
+                        <span class="step-arrow-next"></span>
+                    </span>
+                </span>
+            </li>
+            <li>
+                <span class="unit-step">
+                    <label>步骤3</label>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="transverse-flow-steps">
+        <ul>
+            <li>
+                <span class="unit-step step-past">
+                   <label>步骤1</label>
+                   <span class="step-arrow">
+                       <span class="step-arrow-pre"></span>
+                       <span class="step-arrow-next"></span>
+                   </span>
+                </span>
+            </li>
+            <li>
+                <span class="unit-step last step-past">
+                    <label>步骤2</label>
+                    <span class="step-arrow">
+                        <span class="step-arrow-pre"></span>
+                        <span class="step-arrow-next"></span>
+                    </span>
+                </span>
+            </li>
+            <li>
+                <span class="unit-step step-current">
+                     <label>步骤3</label>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<figure class="highlight"><pre><code></code></pre></figure>

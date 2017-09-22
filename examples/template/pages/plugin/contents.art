@@ -8,4 +8,5 @@
     {{include './contents/nav.art'}}
     {{include './contents/tooltips.art'}}
     {{include './contents/panel.art'}}
+    {{include './contents/step.art'}}
 </div>
