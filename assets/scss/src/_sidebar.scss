@@ -26,8 +26,6 @@
 
 @mixin menu-icon {
   display: block;
-  width: 12px;
-  background-image: url('../img/icons/nav-icons.svg');
   position: absolute;
   left: 13px;
   top: 50%;
@@ -117,7 +115,6 @@
     padding-right: 35px;
     background-color: #1B1D23;
     color: #A5A7AB;
-    font-size: 12px;
     height: 34px;
     line-height: 34px;
     &:hover {

@@ -34,6 +34,56 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
+<h3 id="icon-menu">菜单图标</h3>
+<div class="bs-example" data-example-id="icon-menu">
+    <span class="menu-icon icon-create-template"></span>
+    <span class="menu-icon icon-computer-software"></span>
+    <span class="menu-icon icon-network-equipment"></span>
+    <span class="menu-icon icon-structural-design"></span>
+    <span class="menu-icon icon-historical-record"></span>
+    <span class="menu-icon icon-config-manage"></span>
+    <span class="menu-icon icon-jurisdiction"></span>
+    <span class="menu-icon icon-application-authority"></span>
+    <span class="menu-icon icon-data"></span>
+    <span class="menu-icon icon-data-change"></span>
+    <span class="menu-icon icon-number"></span>
+    <span class="menu-icon icon-system-status"></span>
+    <span class="menu-icon icon-histore"></span>
+    <span class="menu-icon icon-mysql"></span>
+    <span class="menu-icon icon-oceanbase"></span>
+    <span class="menu-icon icon-oracle"></span>
+    <span class="menu-icon icon-postgresql"></span>
+    <span class="menu-icon icon-sqlexamine"></span>
+    <span class="menu-icon icon-security"></span>
+    <span class="menu-icon icon-power-supply"></span>
+    <span class="menu-icon icon-monitor"></span>
+    <span class="menu-icon icon-modular"></span>
+    <span class="menu-icon icon-memory"></span>
+    <span class="menu-icon icon-rdb"></span>
+    <span class="menu-icon icon-network"></span>
+    <span class="menu-icon icon-network-interface"></span>
+    <span class="menu-icon icon-network-system"></span>
+    <span class="menu-icon icon-file"></span>
+    <span class="menu-icon icon-system-operation"></span>
+    <span class="menu-icon icon-application-center"></span>
+    <span class="menu-icon icon-volume"></span>
+    <span class="menu-icon icon-message"></span>
+    <span class="menu-icon icon-cloud"></span>
+    <span class="menu-icon icon-mocha-ITOM"></span>
+    <span class="menu-icon icon-dedicated"></span>
+    <span class="menu-icon icon-ip"></span>
+    <span class="menu-icon icon-usb"></span>
+    <span class="menu-icon icon-vpn"></span>
+    <span class="menu-icon icon-innovate"></span>
+    <span class="menu-icon icon-computer"></span>
+    <span class="menu-icon icon-monitor1"></span>
+    <span class="menu-icon icon-operation-manage"></span>
+    <span class="menu-icon icon-go"></span>
+    <span class="menu-icon icon-download"></span>
+    <span class="menu-icon icon-upload"></span>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
 <h3 id="icon-prompt">弹框提示成功失败图标</h3>
 <div class="bs-example" data-example-id="icon-prompt">
     <span class="prompticon icon-alarm-tips"></span>

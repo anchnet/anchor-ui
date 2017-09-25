@@ -543,6 +543,348 @@
   }
 }
 
+.menu-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: $brand-base;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  background-image: url('../img/icons/menu-icons.svg');
+  background-repeat: no-repeat;
+  &.icon-create-template {
+    background-position: 0 0;
+    &:hover,
+    &.active {
+      background-position: 0 -25px;
+    }
+  }
+  &.icon-computer-software {
+    background-position: -22px 1px;
+    &:hover,
+    &.active {
+      background-position: -22px -24px;
+    }
+  }
+  &.icon-network-equipment {
+    background-position: -44px 1px;
+    &:hover,
+    &.active {
+      background-position: -44px -24px;
+    }
+  }
+  &.icon-structural-design {
+    background-position: -66px 1px;
+    &:hover,
+    &.active {
+      background-position: -66px -24px;
+    }
+  }
+  &.icon-historical-record {
+    background-position: -88px 0;
+    &:hover,
+    &.active {
+      background-position: -88px -25px;
+    }
+  }
+  &.icon-config-manage {
+    background-position: -110px 0;
+    &:hover,
+    &.active {
+      background-position: -110px -25px;
+    }
+  }
+  &.icon-jurisdiction {
+    background-position: -132px 0;
+    &:hover,
+    &.active {
+      background-position: -132px -25px;
+    }
+  }
+  &.icon-task {
+    background-position: -154px 0;
+    &:hover,
+    &.active {
+      background-position: -154px -25px;
+    }
+  }
+  &.icon-application-authority {
+    background-position: -176px 0;
+    &:hover,
+    &.active {
+      background-position: -176px -25px;
+    }
+  }
+  &.icon-data {
+    background-position: -198px 0;
+    &:hover,
+    &.active {
+      background-position: -198px -25px;
+    }
+  }
+  &.icon-data-change {
+    background-position: -220px 0;
+    &:hover,
+    &.active {
+      background-position: -220px -25px;
+    }
+  }
+  &.icon-number {
+    background-position: -242px 0;
+    &:hover,
+    &.active {
+      background-position: -242px -25px;
+    }
+  }
+  &.icon-system-status {
+    background-position: -264px 0;
+    &:hover,
+    &.active {
+      background-position: -264px -25px;
+    }
+  }
+  &.icon-histore {
+    background-position: -286px 2px;
+    &:hover,
+    &.active {
+      background-position: -286px -23px;
+    }
+  }
+  &.icon-mysql {
+    background-position: -308px 2px;
+    &:hover,
+    &.active {
+      background-position: -308px -23px;
+    }
+  }
+  &.icon-oceanbase {
+    background-position: -330px 2px;
+    &:hover,
+    &.active {
+      background-position: -330px -23px;
+    }
+  }
+  &.icon-oracle {
+    background-position: -352px 2px;
+    &:hover,
+    &.active {
+      background-position: -352px -23px;
+    }
+  }
+  &.icon-postgresql {
+    background-position: -374px 2px;
+    &:hover,
+    &.active {
+      background-position: -374px -23px;
+    }
+  }
+  &.icon-sqlexamine {
+    background-position: -396px 0;
+    &:hover,
+    &.active {
+      background-position: -396px -25px;
+    }
+  }
+  &.icon-security {
+    height: 18px;
+    background-position: -418px 0;
+    &:hover,
+    &.active {
+      background-position: -418px -25px;
+    }
+  }
+  &.icon-power-supply {
+    height: 15px;
+    background-position: 0 -47px;
+    &:hover,
+    &.active {
+      background-position: 0 -70px ;
+    }
+  }
+  &.icon-monitor {
+    background-position: -22px -46px;
+    &:hover,
+    &.active {
+      background-position: -22px -69px ;
+    }
+  }
+  &.icon-modular {
+    background-position: -44px -47px;
+    &:hover,
+    &.active {
+      background-position: -44px -70px ;
+    }
+  }
+  &.icon-memory {
+    background-position: -66px -45px;
+    &:hover,
+    &.active {
+      background-position: -66px -68px ;
+    }
+  }
+  &.icon-rdb {
+    background-position: -88px -47px;
+    &:hover,
+    &.active {
+      background-position: -88px -70px ;
+    }
+  }
+  &.icon-network {
+    background-position: -110px -47px;
+    &:hover,
+    &.active {
+      background-position: -110px -70px ;
+    }
+  }
+  &.icon-network-interface {
+    background-position: -132px -47px;
+    &:hover,
+    &.active {
+      background-position: -132px -70px ;
+    }
+  }
+  &.icon-network-system {
+    background-position: -154px -47px;
+    &:hover,
+    &.active {
+      background-position: -154px -70px ;
+    }
+  }
+  &.icon-file {
+    background-position: -176px -47px;
+    &:hover,
+    &.active {
+      background-position: -176px -70px ;
+    }
+  }
+  &.icon-system-operation {
+    background-position: -198px -47px;
+    &:hover,
+    &.active {
+      background-position: -198px -70px ;
+    }
+  }
+  &.icon-application-center {
+    background-position: -220px -47px;
+    &:hover,
+    &.active {
+      background-position: -220px -70px ;
+    }
+  }
+  &.icon-volume {
+    background-position: -242px -45px;
+    &:hover,
+    &.active {
+      background-position: -242px -68px ;
+    }
+  }
+  &.icon-message {
+    background-position: -264px -45px;
+    &:hover,
+    &.active {
+      background-position: -264px -68px ;
+    }
+  }
+  &.icon-cloud {
+    background-position: -286px -45px;
+    &:hover,
+    &.active {
+      background-position: -286px -68px ;
+    }
+  }
+  &.icon-mocha-ITOM {
+    background-position: -308px -46px;
+    &:hover,
+    &.active {
+      background-position: -308px -69px ;
+    }
+  }
+  &.icon-dedicated {
+    background-position: -330px -47px;
+    &:hover,
+    &.active {
+      background-position: -330px -70px ;
+    }
+  }
+  &.icon-ip {
+    height: 15px;
+    background-position: -352px -47px;
+    &:hover,
+    &.active {
+      background-position: -352px -70px ;
+    }
+  }
+  &.icon-usb {
+    height: 6px;
+    background-position: -374px -47px;
+    &:hover,
+    &.active {
+      background-position: -374px -70px ;
+    }
+  }
+  &.icon-vpn {
+    background-position: -396px -46px;
+    &:hover,
+    &.active {
+      background-position: -396px -69px ;
+    }
+  }
+  &.icon-innovate {
+    background-position: -418px -46px;
+    &:hover,
+    &.active {
+      background-position: -418px -69px ;
+    }
+  }
+  &.icon-computer {
+    background-position: 0 -93px;
+    &:hover,
+    &.active {
+      background-position: 0 -115px ;
+    }
+  }
+  &.icon-monitor1 {
+    background-position: -22px -92px;
+    &:hover,
+    &.active {
+      background-position: -22px -114px ;
+    }
+  }
+  &.icon-operation-manage {
+    background-position: -44px -92px;
+    &:hover,
+    &.active {
+      background-position: -44px -114px ;
+    }
+  }
+  &.icon-goc {
+    background-position: -66px -92px;
+    &:hover,
+    &.active {
+      background-position: -66px -114px ;
+    }
+  }
+  &.icon-download {
+    background-position: -88px -92px;
+    &:hover,
+    &.active {
+      background-position: -88px -114px ;
+    }
+  }
+  &.icon-upload {
+    background-position: -110px -92px;
+    &:hover,
+    &.active {
+      background-position: -110px -114px ;
+    }
+  }
+}
+
 
 
 

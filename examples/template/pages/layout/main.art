@@ -7,7 +7,7 @@
         <div class="menu-group">
             <div class="menu-title">
                 {{if menu['iconClass']}}
-                    <i class="menu-icon icon-cmdb"></i>
+                    <i class="menu-icon {{menu['iconClass']}}"></i>
                 {{else}}
                     <i class="default-dot"></i>
                 {{/if}}
@@ -19,7 +19,7 @@
                 {{if subMenu['children']}}
                 <div class="menu-title">
                     {{if subMenu['iconClass']}}
-                        <i class="menu-icon icon-basic-config"></i>
+                        <i class="menu-icon {{subMenu['iconClass']}}"></i>
                     {{else}}
                         <i class="default-dot"></i>
                     {{/if}}
@@ -29,7 +29,7 @@
                 <div class="menu-group">
                     <a class="menu-title {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
                         {{if baseMenu['iconClass']}}
-                            <i class="menu-icon icon-service-middleware"></i>
+                            <i class="menu-icon baseMenu['iconClass']"></i>
                         {{else}}
                             <i class="default-dot"></i>
                         {{/if}}

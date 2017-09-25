@@ -4,13 +4,13 @@ let data = {
   menus: [
     {
       title: '菜单组A',
-      iconClass: "icon-basic-config",
+      iconClass: "icon-system-status",
       children: [
         {
           title: '菜单组A1',
-          iconClass: "icon-basic-config",
+          iconClass: "icon-config-manage",
           children: [
-            {title: '菜单项A11', link: '/', iconClass: "icon-basic-config"},
+            {title: '菜单项A11', link: '/', iconClass: "icon-network-equipment"},
             {title: '菜单项A12', link: '/'},
           ]
         },
