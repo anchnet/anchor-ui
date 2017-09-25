@@ -57,7 +57,8 @@
             <div class="nav-item">
                 <a class="nav-item-title mr20" href=""><i class="header-icon icon-console"></i>控制台首页</a>
                 <a class="nav-item-title mr20" href="#layout-usual"><i class="glyphicon glyphicon-th-large mr5"></i>通用布局</a>
-                <a class="nav-item-title" href="#layout-information"><i class="glyphicon glyphicon-th-list mr5"></i>信息布局</a>
+                <a class="nav-item-title mr20" href="#layout-information"><i class="glyphicon glyphicon-th-list mr5"></i>信息布局</a>
+                <a class="nav-item-title" href="#createTemplate"><i class="glyphicon glyphicon-th-list mr5"></i>资源详情</a>
             </div>
         </div>
         <div class="pull-right">
