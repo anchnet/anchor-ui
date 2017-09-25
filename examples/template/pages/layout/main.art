@@ -106,5 +106,10 @@
             <div>以下是页面代码：</div>
             <figure id="layoutInfoCode" class="highlight"></figure>
         </div>
+        <div id="create-template" class="app-block mt20">
+            {{include './create-template.art'}}
+            <div>以下是页面代码：</div>
+            <figure id="createTemplateCode" class="highlight"></figure>
+        </div>
     </div>
 </div>
