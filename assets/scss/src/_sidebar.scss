@@ -17,7 +17,7 @@
 @mixin default-dot {
   display: block;
   position: absolute;
-  top: 17px;
+  top: 14px;
   left: 17px;
   width: 6px;
   height: 6px;
@@ -70,6 +70,9 @@
     height: calc(100% - 54px);
     overflow-y: auto;
     background-color: #2F323A;
+    >.menu-group {
+      height: 40px;
+    }
   }
   .menu-group {
     height: 34px;

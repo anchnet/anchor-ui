@@ -24,6 +24,7 @@ $('#sidebarCode').html(utils.chain('.app-sidebar', 'getHtml', 'parseHtmlCode', '
 $('#headerCode').html(utils.chain('.app-header', 'getHtml', 'parseHtmlCode', 'insertCode'))
 $('#layoutInfoCode').html(utils.chain('#layoutInfoContent', 'getHtml', 'parseHtmlCode', 'insertCode'))
 $('#createTemplateCode').html(utils.chain('#createTemplate', 'getHtml', 'parseHtmlCode', 'insertCode'))
+$('#importInstanceCode').html(utils.chain('#importInstance', 'getHtml', 'parseHtmlCode', 'insertCode'))
 
 /* 代码高亮初始化 */
 utils.highlightCode()

@@ -1,0 +1,251 @@
+<div id="importInstance">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="transverse-flow-steps">
+                <ul>
+                    <li>
+                        <span class="unit-step step-current">
+                            <label>上传文件</label>
+                                <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step">
+                            <label>建立映射</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step">
+                            <label>实例预览</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step">
+                            <label>导入成功</label>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="upload-file-content mb40">
+                <div class="page-btns mb15">
+                    <a href="#" class="btn btn-default-primary mr10">
+                        <i class="glyphicon glyphicon-download mr5"></i>下载模板
+                    </a>
+                </div>
+                 <div class="layout-group label-w50">
+                    <div class="layout-label">文件名：</div>
+                    <input type="input" class="form-control mr20 vm" style="width: 400px; display: inline-block;">
+                    <button type="button" class="btn btn-primary w90">上传文件</button>
+                </div>
+            </div>
+            <div class="btns-wrapper tr pt20 w-100" style="border-top: 1px solid #d8d8d8;">
+                <button type="button" class="btn btn-primary-light btn-rlg w140">下一步</button>
+                <button type="button" class="btn btn-default-primary btn-rlg w140 ml10">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="transverse-flow-steps">
+                <ul>
+                    <li>
+                        <span class="unit-step step-past last">
+                            <label>上传文件</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step step-current">
+                            <label>建立映射</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step">
+                            <label>实例预览</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step">
+                            <label>导入成功</label>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="map-content">
+                <div class="color-primary mb20">*使用说明：1、双击完成选择  2、已选字段为顺序相关，即第一行两个字段相互关联，第二行两个字段相互关联……以此类推</div>
+                <div class="map-content mb30">
+                    字段映射页面结构
+                </div>
+            </div>
+            <div class="btns-wrapper tr pt20 w-100" style="border-top: 1px solid #d8d8d8;">
+                <button type="button" class="btn btn-primary-light btn-rlg w140">上一步</button>
+                <button type="button" class="btn btn-primary-light btn-rlg w140 ml10">下一步</button>
+                <button type="button" class="btn btn-default-primary btn-rlg w140 ml10">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="transverse-flow-steps">
+                <ul>
+                    <li>
+                        <span class="unit-step step-past">
+                            <label>上传文件</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step step-past last">
+                            <label>建立映射</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step step-current">
+                            <label>实例预览</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step">
+                            <label>导入成功</label>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="instance-table">
+                <table class="table">
+                    <thead>
+                        <th>名称</th>
+                        <th>操作系统</th>
+                        <th>操作西永位数</th>
+                        <th>硬盘大小</th>
+                        <th>CPU核数</th>
+                        <th>CPU个数</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>securitygroup</td>
+                            <td>Linux</td>
+                            <td>64</td>
+                            <td>500</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>webserver</td>
+                            <td>Linux</td>
+                            <td>64</td>
+                            <td>500</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>securitygroup</td>
+                            <td>Linux</td>
+                            <td>64</td>
+                            <td>500</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>webserver</td>
+                            <td>Linux</td>
+                            <td>64</td>
+                            <td>500</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btns-wrapper tr pt20 w-100" style="border-top: 1px solid #d8d8d8;">
+                <button type="button" class="btn btn-primary-light btn-rlg w140">上一步</button>
+                <button type="button" class="btn btn-primary-light btn-rlg w140 ml10">导入</button>
+                <button type="button" class="btn btn-default-primary btn-rlg w140 ml10">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="transverse-flow-steps">
+                <ul>
+                    <li>
+                        <span class="unit-step step-past">
+                            <label>上传文件</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step step-past">
+                            <label>建立映射</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step step-past last">
+                            <label>实例预览</label>
+                            <span class="step-arrow">
+                                <span class="step-arrow-pre"></span>
+                                <span class="step-arrow-next"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="unit-step step-current">
+                            <label>导入成功</label>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="success-content mt30">
+                <div class="tc mb20">
+                    <i class="prompticon icon-opt-success vsb" style="transform: scale(1.6)"></i>
+                    <span class="f24 color-primary ml10">实例导入成功！</span>
+                </div>
+                <div class="tc">
+                    <div>您导入的实例已经导入完成，系统将在5s后自动前往到该实例的列表页面。</div>
+                    <button type="button" class="btn btn-primary btn-rlg w140 mt30">立即前往</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

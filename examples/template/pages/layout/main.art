@@ -58,7 +58,8 @@
                 <a class="nav-item-title mr20" href=""><i class="header-icon icon-console"></i>控制台首页</a>
                 <a class="nav-item-title mr20" href="#layout-usual"><i class="glyphicon glyphicon-th-large mr5"></i>通用布局</a>
                 <a class="nav-item-title mr20" href="#layout-information"><i class="glyphicon glyphicon-th-list mr5"></i>信息布局</a>
-                <a class="nav-item-title" href="#createTemplate"><i class="glyphicon glyphicon-th-list mr5"></i>资源详情</a>
+                <a class="nav-item-title mr20" href="#createTemplate"><i class="glyphicon glyphicon-th-list mr5"></i>资源详情</a>
+                <a class="nav-item-title" href="#importInstance"><i class="glyphicon glyphicon-th-list mr5"></i>导入实例</a>
             </div>
         </div>
         <div class="pull-right">
@@ -111,6 +112,11 @@
             {{include './create-template.art'}}
             <div>以下是页面代码：</div>
             <figure id="createTemplateCode" class="highlight"></figure>
+        </div>
+        <div id="import-instance" class="app-block mt20">
+            {{include './import-instance.art'}}
+            <div>以下是页面代码：</div>
+            <figure id="importInstanceCode" class="highlight"></figure>
         </div>
     </div>
 </div>
