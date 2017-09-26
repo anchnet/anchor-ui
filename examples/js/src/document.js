@@ -1,6 +1,11 @@
 import utils from 'examples/libs/utils'
 import _public from './_public'
 
+
+$('#console-scroll-btn').click(() => {
+  $.utils.scrollToBottom($('#console-template'))
+})
+
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()

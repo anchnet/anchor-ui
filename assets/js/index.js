@@ -8,10 +8,13 @@ import './src/tablefilter'
 import './src/transfer'
 import './src/table'
 
+import utils from './src/utils'
+
 !function ($) {
   $.fn.reverse = [].reverse
 
   $.extend({
+    utils: utils,
     ANCHOR_VERSION: '0.3.0'
   })
 }(jQuery);
