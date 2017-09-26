@@ -17,7 +17,7 @@
 @mixin default-dot {
   display: block;
   position: absolute;
-  top: 17px;
+  top: 14px;
   left: 17px;
   width: 6px;
   height: 6px;
@@ -26,8 +26,6 @@
 
 @mixin menu-icon {
   display: block;
-  width: 12px;
-  background-image: url('../img/icons/nav-icons.svg');
   position: absolute;
   left: 13px;
   top: 50%;
@@ -72,6 +70,9 @@
     height: calc(100% - 54px);
     overflow-y: auto;
     background-color: #2F323A;
+    >.menu-group {
+      height: 40px;
+    }
   }
   .menu-group {
     height: 34px;
@@ -117,7 +118,6 @@
     padding-right: 35px;
     background-color: #1B1D23;
     color: #A5A7AB;
-    font-size: 12px;
     height: 34px;
     line-height: 34px;
     &:hover {

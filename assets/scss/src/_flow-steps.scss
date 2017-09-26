@@ -3,9 +3,13 @@
   display: inline-block;
   width: 100%;
   ul {
+    height: 34px;
+    padding-left: 0;
+    margin-bottom: 20px;
     li {
       list-style: none;
       font-size: 0;
+      float: left;
       .unit-step {
         display: inline-block;
         float: left;

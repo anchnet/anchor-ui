@@ -7,7 +7,7 @@
         <div class="menu-group">
             <div class="menu-title">
                 {{if menu['iconClass']}}
-                    <i class="menu-icon icon-cmdb"></i>
+                    <i class="menu-icon {{menu['iconClass']}}"></i>
                 {{else}}
                     <i class="default-dot"></i>
                 {{/if}}
@@ -19,7 +19,7 @@
                 {{if subMenu['children']}}
                 <div class="menu-title">
                     {{if subMenu['iconClass']}}
-                        <i class="menu-icon icon-basic-config"></i>
+                        <i class="menu-icon {{subMenu['iconClass']}}"></i>
                     {{else}}
                         <i class="default-dot"></i>
                     {{/if}}
@@ -29,7 +29,7 @@
                 <div class="menu-group">
                     <a class="menu-title {{if baseMenu['title'] === '菜单项A11'}}selected{{/if}}" href="{{baseMenu['link']}}">
                         {{if baseMenu['iconClass']}}
-                            <i class="menu-icon icon-service-middleware"></i>
+                            <i class="menu-icon baseMenu['iconClass']"></i>
                         {{else}}
                             <i class="default-dot"></i>
                         {{/if}}
@@ -57,7 +57,9 @@
             <div class="nav-item">
                 <a class="nav-item-title mr20" href=""><i class="header-icon icon-console"></i>控制台首页</a>
                 <a class="nav-item-title mr20" href="#layout-usual"><i class="glyphicon glyphicon-th-large mr5"></i>通用布局</a>
-                <a class="nav-item-title" href="#layout-information"><i class="glyphicon glyphicon-th-list mr5"></i>信息布局</a>
+                <a class="nav-item-title mr20" href="#layout-information"><i class="glyphicon glyphicon-th-list mr5"></i>信息布局</a>
+                <a class="nav-item-title mr20" href="#createTemplate"><i class="glyphicon glyphicon-th-list mr5"></i>资源详情</a>
+                <a class="nav-item-title" href="#importInstance"><i class="glyphicon glyphicon-th-list mr5"></i>导入实例</a>
             </div>
         </div>
         <div class="pull-right">
@@ -110,6 +112,11 @@
             {{include './create-template.art'}}
             <div>以下是页面代码：</div>
             <figure id="createTemplateCode" class="highlight"></figure>
+        </div>
+        <div id="import-instance" class="app-block mt20">
+            {{include './import-instance.art'}}
+            <div>以下是页面代码：</div>
+            <figure id="importInstanceCode" class="highlight"></figure>
         </div>
     </div>
 </div>
