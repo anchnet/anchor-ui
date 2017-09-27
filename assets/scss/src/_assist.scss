@@ -20,6 +20,30 @@
     display: inline-block;
   }
 
+  &.label-w30 {
+    @include label-width(30px);
+  }
+  &.label-w33 {
+    @include label-width(33px);
+  }
+  &.label-w35 {
+    @include label-width(35px);
+  }
+  &.label-w38 {
+    @include label-width(38px);
+  }
+  &.label-w40 {
+    @include label-width(40px);
+  }
+  &.label-w43 {
+    @include label-width(43px);
+  }
+  &.label-w45 {
+    @include label-width(45px);
+  }
+  &.label-w48 {
+    @include label-width(48px);
+  }
   &.label-w50 {
     @include label-width(50px);
   }
@@ -83,10 +107,31 @@
   &.label-w250 {
     @include label-width(250px);
   }
+  &.label-w280 {
+    @include label-width(280px);
+  }
   &.label-w300 {
     @include label-width(300px);
   }
+  &.label-w350 {
+    @include label-width(350px);
+  }
   &.label-w400 {
     @include label-width(400px);
+  }
+  &.label-w450 {
+    @include label-width(450px);
+  }
+  &.label-w500 {
+    @include label-width(500px);
+  }
+  &.label-w550 {
+    @include label-width(550px);
+  }
+  &.label-w600 {
+    @include label-width(600px);
+  }
+  &.label-w650 {
+    @include label-width(650px);
   }
 }
