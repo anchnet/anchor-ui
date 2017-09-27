@@ -1,5 +1,6 @@
 //控制台显示模板
 .console-template {
+  position: relative;
   // 滚动条
   ::-webkit-scrollbar {
     height: 8px;
@@ -12,7 +13,9 @@
   }
 
   .console-wrapper {
-    height: 300px;
+    position: relative;
+    min-height: 300px;
+    max-height: 500px;
     width: 100%;
     line-height: 18px;
     padding: 20px 25px;
@@ -20,10 +23,12 @@
     color: #8892a5;
     font-size: 12px;
     overflow: auto;
-    .console-text {
-      line-height: 18px;
-      color: #8892a5;
-      font-size: 12px;
+    .console-content {
+      .console-text {
+        line-height: 18px;
+        color: #8892a5;
+        font-size: 12px;
+      }
     }
   }
 }
