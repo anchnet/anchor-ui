@@ -9,7 +9,9 @@
         <li role="presentation"><a href="#">Messages</a></li>
     </ul>
 </div>
-<figure class="highlight"><pre><code class="html"></code></pre></figure>
+<figure class="highlight">
+    <pre><code class="html"></code></pre>
+</figure>
 
 <h3 id="nav-tabs-primary">通用标签页</h3>
 <p>注意 <code>.nav-tabs-primary</code> 类依赖 <code>.nav</code> 基类。</p>
@@ -26,7 +28,9 @@
       })
     </script>
 </div>
-<figure class="highlight"><pre><code class="html"></code></pre></figure>
+<figure class="highlight">
+    <pre><code class="html"></code></pre>
+</figure>
 
 <h3 id="nav-pills">胶囊式标签页</h3>
 <p>HTML 标记相同，但使用 <code>.nav-pills</code> 类：</p>
@@ -37,5 +41,37 @@
         <li role="presentation"><a href="#">Messages</a></li>
     </ul>
 </div>
-<figure class="highlight"><pre><code class="html"></code></pre></figure>
+<figure class="highlight">
+    <pre><code class="html"></code></pre>
+</figure>
+
+<h3 id="nav-pills">渐隐渐现效果</h3>
+<div class="bs-example" data-example-id="nav-tabs">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+        </li>
+        <li role="presentation">
+            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a>
+        </li>
+        <li role="presentation">
+            <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a>
+        </li>
+        <li role="presentation">
+            <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home">home</div>
+        <div role="tabpanel" class="tab-pane fade" id="profile">profile</div>
+        <div role="tabpanel" class="tab-pane fade" id="messages">messages</div>
+        <div role="tabpanel" class="tab-pane fade" id="settings">settings</div>
+    </div>
+</div>
+<figure class="highlight">
+    <pre><code class="html"></code></pre>
+</figure>
 
