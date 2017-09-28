@@ -97,14 +97,8 @@
       border-radius: 50%;
       background-color: #FFF;
     }
-    i.menu-icon {
+    i.iconfont {
       @include menu-icon;
-      // CMDB
-      &.icon-cmdb {
-        width: 17px;
-        height: 16px;
-        background-position: -1px -6px;
-      }
     }
     &.active, &:hover {
       i.menu-dot {
@@ -122,60 +116,13 @@
     line-height: 34px;
     &:hover {
       color: #FFF;
-      i.menu-icon {
-        // 基础配置项
-        &.icon-basic-config {
-          background-position: -34px -20px;
-        }
-        // 服务中间件
-        &.icon-service-middleware {
-          background-position: -63px -21px;
-        }
-
-        // 业务应用
-        &.icon-business-applications {
-          background-position: -94px -21px;
-        }
-        // CI管理
-        &.icon-ci-manage {
-          background-position: -127px -21px;
-        }
-      }
     }
     i.default-dot {
       @include default-dot;
       background-color: #A5A7AB;
     }
-    i.menu-icon {
+    i.iconfont {
       @include menu-icon;
-      // 基础配置项
-      &.icon-basic-config {
-        width: 13px;
-        height: 12px;
-        left: 14px;
-        background-position: -34px 1px;
-      }
-
-      // 服务中间件
-      &.icon-service-middleware {
-        width: 14px;
-        height: 12px;
-        background-position: -63px 0;
-      }
-
-      // 业务应用
-      &.icon-business-applications {
-        width: 12px;
-        height: 11px;
-        background-position: -94px 0;
-      }
-      // CI管理
-      &.icon-ci-manage {
-        width: 13px;
-        height: 13px;
-        background-position: -127px -1px;
-      }
-
     }
     i.menu-triangle {
       display: block;
@@ -198,7 +145,7 @@
           left: #{23 + 10 * ($i - 1)}px;
           top: 14px;
         }
-        .menu-icon {
+        .iconfont {
           left: #{20 + 10 * ($i - 1)}px;
         }
       }
