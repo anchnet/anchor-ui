@@ -115,4 +115,37 @@
             </table>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="event-container">
+                <div class="event-item">
+                    <div class="state-dot state-success"></div>
+                    <div class="event-time-state col-xs-12">
+                        <span class="mr10">2017-08-08 23:24:11</span>
+                        <span>状态：<span class="color-success">成功</span></span>
+                    </div>
+                    <div class="event-info lh24 clearfix">
+                        <div class="col-xs-3">资源名称：<span class="info-content">webserver</span></div>
+                        <div class="col-xs-3">资源ID：<span class="info-content">asdasda</span></div>
+                        <div class="col-xs-3">资源类型：<span class="info-content">aliyun</span></div>
+                        <div class="col-xs-12">事件描述：<span class="info-content">MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。</span></div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="state-dot state-failed"></div>
+                    <div class="event-time-state col-xs-12">
+                        <span class="mr10">2017-08-08 23:24:11</span>
+                        <span>状态：<span class="color-primary">失败</span></span>
+                    </div>
+                    <div class="event-info lh24 clearfix">
+                        <div class="col-xs-3">资源名称：<span class="info-content">webserverwebserverwebserverwebserver</span></div>
+                        <div class="col-xs-3">资源ID：<span class="info-content">asdasda</span></div>
+                        <div class="col-xs-3">资源类型：<span class="info-content">aliyun</span></div>
+                        <div class="col-xs-12">事件描述：<span class="info-content">MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

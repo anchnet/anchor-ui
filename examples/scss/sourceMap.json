@@ -3,5 +3,6 @@
   "index": "./examples/scss/index.scss",
   "document": "./examples/scss/document.scss",
   "layout": "./examples/scss/layout.scss",
-  "plugin": "./examples/scss/plugin.scss"
+  "plugin": "./examples/scss/plugin.scss",
+  "cloudformation": "./examples/scss/cloudformation.scss"
 }
