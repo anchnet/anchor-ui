@@ -2,11 +2,13 @@
  * sidebar
  */
 
+$single-height: 34px;
+
 @mixin menu-title {
   display: block;
   position: relative;
-  height: 40px;
-  line-height: 40px;
+  height: $single-height;
+  line-height: $single-height;
   font-size: 14px;
   text-decoration: none;
   overflow: hidden;
@@ -17,10 +19,11 @@
 @mixin default-dot {
   display: block;
   position: absolute;
-  top: 14px;
+  top: 50%;
   left: 17px;
   width: 6px;
   height: 6px;
+  margin-top: -3px;
   border-radius: 50%;
 }
 
@@ -71,11 +74,11 @@
     overflow-y: auto;
     background-color: #2F323A;
     >.menu-group {
-      height: 40px;
+      height: $single-height;
     }
   }
   .menu-group {
-    height: 34px;
+    height: $single-height;
     overflow: hidden;
   }
   .menu-title {
@@ -90,10 +93,11 @@
     i.menu-dot {
       display: block;
       position: absolute;
-      top: 17px;
+      top: 50%;
       right: 25px;
       width: 6px;
       height: 6px;
+      margin-top: -3px;
       border-radius: 50%;
       background-color: #FFF;
     }
@@ -127,11 +131,12 @@
     i.menu-triangle {
       display: block;
       position: absolute;
-      top: 16px;
+      top: 50%;
       right: 25px;
       width: 0;
       height: 0;
       line-height: 0;
+      margin-top: -4px;
       border-left: 6px solid #A5A7AB;
       border-top: 4px solid transparent;
       border-bottom: 4px solid transparent;
