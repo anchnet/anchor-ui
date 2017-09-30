@@ -711,7 +711,7 @@ const TableFilter = (($) => {
         `,
         reference: `
           <div class="input-group">
-            <input class="form-control reference-input" readonly/>
+            <input class="form-control form-element reference-input" readonly/>
             <a class="input-group-addon reference-input-addon" href="">
               <span class="glyphicon glyphicon-search"></span>
             </a>
