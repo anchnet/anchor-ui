@@ -160,6 +160,8 @@ const Table =(($) => {
       if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TABLE).length) {
         this.$root.attr('data-toggle', 'table')
       }
+
+      this.$root.addClass('table-component-inited')
     }
 
     checkItems (element, type) {
@@ -296,7 +298,7 @@ const Table =(($) => {
     .on(Event.CHANGE_DATA_API, Selector.CHECK_ROW, {type: 'row'}, Table._checkHandler)
     .on(Event.CHANGE_DATA_API, Selector.CHECK_ALL, {type: 'all'}, Table._checkHandler)
 
-  $(window).on(Event.LOAD_DATA_API, () => {
+  $(document).ready(() => {
     $(Selector.DATA_TABLE).each((i, el) => {
       let $table = $(el)
 

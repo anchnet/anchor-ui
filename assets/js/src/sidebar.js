@@ -229,7 +229,7 @@ const Sidebar = (($) => {
     .on(Event.CLICK_DATA_API, Selector.MENU_TITLE, Sidebar._menuTitleClickHandler)
     .on(Event.CLICK_DATA_API, Selector.MENU_SUB_TITLE, Sidebar._menuTitleClickHandler)
 
-  $(window).on(Event.LOAD_DATA_API, () => {
+  $(document).ready(() => {
     $(Selector.DATA_SIDEBAR).each((i, el) => {
       let $sidebar = $(el)
 
