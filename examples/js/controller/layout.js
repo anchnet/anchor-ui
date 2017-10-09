@@ -15,18 +15,18 @@ let data = {
           ]
         },
         {
-          title: '菜单项A2',
+          title: '菜单组A2',
           children: [
             {title: '菜单项A21', link: '/'},
             {title: '菜单项A22', link: '/'},
           ]
         },
         {
-          title: '菜单项A3',
+          title: '菜单组A3',
           children: [
             {title: '菜单项A31', link: '/'},
             {title: '菜单项A32', link: '/'},
-            {title: '菜单项A32', link: '/'},
+            {title: '菜单项A33', link: '/'},
           ]
         },
         {title: '菜单项A4', link: '/'},

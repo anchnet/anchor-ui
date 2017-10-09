@@ -69,11 +69,46 @@ $single-height: 34px;
     bottom: 0;
     margin: auto;
   }
+  .search-wrapper {
+    position: relative;
+    padding: 10px 15px 10px;
+    .input-search {
+      padding-left: 24px;
+      padding-right: 24px;
+      border: 1px solid #FFF;
+      border-radius: 14px;
+      box-shadow: none;
+      background-color: transparent;
+      color: #FFF;
+    }
+    .glyphicon {
+      color: #FFF;
+    }
+    .glyphicon-filter {
+      position: absolute;
+      top: 18px;
+      left: 24px;
+    }
+    .glyphicon-remove-circle {
+      display: none;
+      position: absolute;
+      top: 17px;
+      right: 21px;
+      font-size: 16px;
+      cursor: pointer;
+      &.active {
+        display: block;
+      }
+    }
+  }
   .menu-wrapper {
     visibility: hidden;
     position: relative;
     height: calc(100% - 54px);
     overflow-y: auto;
+    &.with-search {
+      height: calc(100% - 54px - 48px);
+    }
     >.menu-group {
       height: $single-height;
     }
