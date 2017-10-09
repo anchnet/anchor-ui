@@ -131,6 +131,10 @@ const Sidebar = (($) => {
       }
 
       this.$root.addClass('sidebar-component-inited')
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_SIDEBAR).length) {
+        this.$root.attr('data-toggle', 'sidebar')
+      }
     }
 
     toggleMenuGroup (element, transition = true) {
