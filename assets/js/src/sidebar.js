@@ -129,6 +129,12 @@ const Sidebar = (($) => {
           this.toggleMenuGroup($el[0], false)
         })
       }
+
+      this.$root.addClass('sidebar-component-inited')
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_SIDEBAR).length) {
+        this.$root.attr('data-toggle', 'sidebar')
+      }
     }
 
     toggleMenuGroup (element, transition = true) {
@@ -223,7 +229,7 @@ const Sidebar = (($) => {
     .on(Event.CLICK_DATA_API, Selector.MENU_TITLE, Sidebar._menuTitleClickHandler)
     .on(Event.CLICK_DATA_API, Selector.MENU_SUB_TITLE, Sidebar._menuTitleClickHandler)
 
-  $(window).on(Event.LOAD_DATA_API, () => {
+  $(document).ready(() => {
     $(Selector.DATA_SIDEBAR).each((i, el) => {
       let $sidebar = $(el)
 

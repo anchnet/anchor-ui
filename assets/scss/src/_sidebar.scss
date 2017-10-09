@@ -40,6 +40,7 @@ $single-height: 34px;
   z-index: 50;
   width: 240px;
   height: 100%;
+  background-color: #2F323A;
 
   ::-webkit-scrollbar {
     height: 8px;
@@ -69,10 +70,10 @@ $single-height: 34px;
     margin: auto;
   }
   .menu-wrapper {
+    visibility: hidden;
     position: relative;
     height: calc(100% - 54px);
     overflow-y: auto;
-    background-color: #2F323A;
     >.menu-group {
       height: $single-height;
     }
@@ -148,7 +149,7 @@ $single-height: 34px;
         padding-left: #{40 + 10 * ($i - 1)}px;
         .default-dot {
           left: #{23 + 10 * ($i - 1)}px;
-          top: 14px;
+          top: $single-height / 2;
         }
         .iconfont {
           left: #{20 + 10 * ($i - 1)}px;
@@ -183,4 +184,9 @@ $single-height: 34px;
       }
     }
   }
+}
+
+.sidebar-always-visible .menu-wrapper,
+.sidebar-component-inited .menu-wrapper {
+  visibility: visible !important;
 }

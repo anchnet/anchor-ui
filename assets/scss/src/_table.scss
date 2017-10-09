@@ -2,12 +2,13 @@
  * table
  */
 
-[data-toggle="table"] {
-  visibility: hidden;
-}
-
 .table-wrapper {
-  visibility: visible;
+  visibility: hidden;
+
+  &.table-always-visible,
+  &.table-component-inited {
+    visibility: visible;
+  }
 
   .table-element-wrapper {
     width: 100%;
