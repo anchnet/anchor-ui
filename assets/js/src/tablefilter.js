@@ -411,6 +411,12 @@ const TableFilter = (($) => {
 
         $(event.target).val(value)
       })
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TABLEFILTER).length) {
+        this.$root.attr('data-toggle', 'tablefilter')
+      }
+
+      this.$root.addClass('tablefilter-component-inited')
     }
 
     getFieldsOptions () {
@@ -1055,7 +1061,7 @@ const TableFilter = (($) => {
 
   $(document).on(Event.CLICK_DATA_API, `${Selector.TABLEFILTER_BOTTOM} [data-action]`, TableFilter._actionBtnClickHandler)
 
-  $(window).on(Event.LOAD_DATA_API, () => {
+  $(document).ready(() => {
     $(Selector.DATA_TABLEFILTER).each((i, el) => {
       let $tablefilter = $(el)
 

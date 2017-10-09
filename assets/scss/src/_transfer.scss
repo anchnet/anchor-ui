@@ -2,14 +2,15 @@
  * transfer
  */
 
-[data-toggle="transfer"] {
+.transfer-wrapper {
   height: 410px;
   visibility: hidden;
-}
 
-.transfer-wrapper {
-  overflow: hidden;
-  visibility: visible;
+  &.transfer-always-visible,
+  &.transfer-component-inited {
+    overflow: hidden;
+    visibility: visible;
+  }
 
   .transfer-left, .transfer-right {
     float: left;

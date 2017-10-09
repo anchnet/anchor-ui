@@ -124,6 +124,12 @@ const Transfer = (($) => {
       })
 
       this._refreshSelect()
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TRANSFER).length) {
+        this.$root.attr('data-toggle', 'transfer')
+      }
+
+      this.$root.addClass('transfer-component-inited')
     }
 
     transferItems (element, direction) {
@@ -253,7 +259,7 @@ const Transfer = (($) => {
     .on(Event.CLICK_DATA_API, Selector.SORT_UP, {direction: 'up'}, Transfer._transferBtnClickHandler)
     .on(Event.CLICK_DATA_API, Selector.SORT_DOWN, {direction: 'down'}, Transfer._transferBtnClickHandler)
 
-  $(window).on(Event.LOAD_DATA_API, () => {
+  $(document).ready(() => {
     $(Selector.DATA_TRANSFER).each((i, el) => {
       let $transfer = $(el)
 
