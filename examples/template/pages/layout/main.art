@@ -2,6 +2,11 @@
     <div class="logo-wrapper">
         <img class="logo" src="../../../img/sidebar-logo.svg">
     </div>
+    <div class="search-wrapper">
+        <input class="form-control input-search">
+        <span class="glyphicon glyphicon-filter"></span>
+        <span class="glyphicon glyphicon-remove-circle"></span>
+    </div>
     <div class="menu-wrapper">
         {{each menus as menu}}
         <div class="menu-group">
