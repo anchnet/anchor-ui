@@ -129,6 +129,8 @@ const Sidebar = (($) => {
           this.toggleMenuGroup($el[0], false)
         })
       }
+
+      this.$root.addClass('sidebar-component-inited')
     }
 
     toggleMenuGroup (element, transition = true) {
