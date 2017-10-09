@@ -149,7 +149,7 @@ $single-height: 34px;
         padding-left: #{40 + 10 * ($i - 1)}px;
         .default-dot {
           left: #{23 + 10 * ($i - 1)}px;
-          top: 14px;
+          top: $single-height / 2;
         }
         .iconfont {
           left: #{20 + 10 * ($i - 1)}px;
