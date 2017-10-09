@@ -26,6 +26,8 @@ const Sidebar = (($) => {
 
   const Selector = {
     DATA_SIDEBAR: '[data-toggle="sidebar"]',
+    SEARCH_WRAPPER: '.search-wrapper',
+    INPUT_SEARCH: '.input-search',
     MENU_WRAPPER: '.menu-wrapper',
     MENU_GROUP: '.menu-group',
     MENU_TITLE: '.menu-title',
@@ -119,14 +121,14 @@ const Sidebar = (($) => {
           else if ($menuTitle.length) return
 
           $el.addClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
-          this.toggleMenuGroup($el[0], false)
+          this.toggleMenuGroup($el.get(0), {transition: false})
         })
         $selected.parents(Selector.MENU_GROUP).each((i, el) => {
           let $el = $(el).find(Selector.MENU_TITLE).first()
 
           if (!$el.length) return
 
-          this.toggleMenuGroup($el[0], false)
+          this.toggleMenuGroup($el.get(0), {transition: false})
         })
       }
 
@@ -135,9 +137,73 @@ const Sidebar = (($) => {
       if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_SIDEBAR).length) {
         this.$root.attr('data-toggle', 'sidebar')
       }
+
+      if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
     }
 
-    toggleMenuGroup (element, transition = true) {
+    initSearch () {
+      let $wrapper = this.$root.find(Selector.SEARCH_WRAPPER)
+      let $input = $wrapper.find(Selector.INPUT_SEARCH)
+      let $remove = $wrapper.find('.glyphicon-remove-circle')
+
+      this.$root.find(Selector.MENU_WRAPPER).addClass('with-search')
+
+      $input.on('input', (event) => {
+        let allMenuTitleSelector = `${Selector.MENU_TITLE}, ${Selector.MENU_SUB_TITLE}`
+        let value = $(event.target).val()
+        let $groups = this.$root.find(Selector.MENU_GROUP)
+        let $menuTitles = this.$root.find(allMenuTitleSelector)
+
+        if (value) {
+          $remove.addClass('active')
+          $groups.addClass('hide')
+          $menuTitles.addClass('hide')
+
+          $menuTitles.each((index, menuTitle) => {
+            let titleText = $(menuTitle).text().trim()
+
+            if (new RegExp(value, 'i').test(titleText)) {
+              let $menuGroup = $(menuTitle).closest(Selector.MENU_GROUP)
+              let $activeGroups = $(menuTitle).parents(Selector.MENU_GROUP)
+              let isFirstTitle = $(menuTitle).index($menuGroup.find(allMenuTitleSelector)) === 0
+
+              $(menuTitle).removeClass('hide')
+
+              $activeGroups.each((i, group) => {
+                let $firstMenuTitle = $(group).find(allMenuTitleSelector).eq(0)
+
+                $(group).removeClass('hide')
+                $firstMenuTitle.removeClass('hide')
+
+                this.toggleMenuGroup($firstMenuTitle.get(0), {
+                  active: true,
+                  transition: false
+                })
+              })
+
+              if (isFirstTitle) {
+                $menuGroup.find(Selector.MENU_GROUP).removeClass('hide')
+                $menuGroup.find(allMenuTitleSelector).removeClass('hide')
+              }
+            }
+          })
+        } else {
+          $remove.removeClass('active')
+          $groups.removeClass('hide')
+          $menuTitles.removeClass('hide')
+        }
+      })
+
+      $remove.on('click', (event) => {
+        $input.val('').trigger('input')
+      })
+    }
+
+    toggleMenuGroup (element, options = {}) {
+      let {
+        active = null,
+        transition = true
+      } = options
       let $element = $(element)
       let $menuGroup = $element.closest(Selector.MENU_GROUP)
       let activeClass = Sidebar._getNameFromClass(Selector.ACTIVE)
@@ -145,13 +211,16 @@ const Sidebar = (($) => {
       let currentHeight = $menuGroup.height()
       let targetHeight
 
-      if (isActive) {
-        targetHeight = 34
-      } else {
+      if (active === isActive) return
+      if (active === null) active = !isActive
+
+      if (active) {
         targetHeight = 0
         $menuGroup.children().each((i, el) => {
-          targetHeight += $(el).height()
+          if ($(el).is(':visible')) targetHeight += $(el).height()
         })
+      } else {
+        targetHeight = 34
       }
 
       let transitionDuration
@@ -168,8 +237,7 @@ const Sidebar = (($) => {
         $element.removeClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
       }, 0)
       $menuGroup.animate({height: targetHeight}, transitionDuration, () => {
-        if (isActive) {}
-        else {
+        if (active) {
           setTimeout(() => {
             $menuGroup.css({height: 'auto'})
           }, 0)
