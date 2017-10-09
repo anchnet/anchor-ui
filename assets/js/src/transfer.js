@@ -124,6 +124,10 @@ const Transfer = (($) => {
       })
 
       this._refreshSelect()
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TRANSFER).length) {
+        this.$root.attr('data-toggle', 'transfer')
+      }
     }
 
     transferItems (element, direction) {

@@ -411,6 +411,10 @@ const TableFilter = (($) => {
 
         $(event.target).val(value)
       })
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TABLEFILTER).length) {
+        this.$root.attr('data-toggle', 'tablefilter')
+      }
     }
 
     getFieldsOptions () {

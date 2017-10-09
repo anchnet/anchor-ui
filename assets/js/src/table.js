@@ -49,7 +49,7 @@ const Table =(($) => {
           <label class="${Table._getNameFromClass(Selector.CHECK_LABEL)}">
             <input class="${Table._getNameFromClass(Selector.CHECK_ROW)}" type="checkbox"/>
           </label>
-        </div>   
+        </div>
         </td>
       `,
       TABLE_ALL_CHECKBOX: `
@@ -156,6 +156,10 @@ const Table =(($) => {
       this.$root.find(modalSelector).on('hidden.bs.modal', () => {
         this.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
       })
+
+      if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TABLE).length) {
+        this.$root.attr('data-toggle', 'table')
+      }
     }
 
     checkItems (element, type) {
