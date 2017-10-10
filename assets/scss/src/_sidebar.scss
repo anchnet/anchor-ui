@@ -70,6 +70,7 @@ $single-height: 34px;
     margin: auto;
   }
   .search-wrapper {
+    visibility: hidden;
     position: relative;
     padding: 10px 15px 10px;
     .input-search {
@@ -221,6 +222,8 @@ $single-height: 34px;
   }
 }
 
+.sidebar-always-visible .search-wrapper,
+.sidebar-component-inited .search-wrapper,
 .sidebar-always-visible .menu-wrapper,
 .sidebar-component-inited .menu-wrapper {
   visibility: visible !important;
