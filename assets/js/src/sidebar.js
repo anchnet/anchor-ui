@@ -83,6 +83,7 @@ const Sidebar = (($) => {
       })
 
       let hierarchyCount = 0
+
       hierarchies.forEach((hierarchyItems) => {
         if (hierarchyItems) {
           hierarchyItems.forEach((element) => {
@@ -109,28 +110,7 @@ const Sidebar = (($) => {
         $(el).append(`<i class="${Sidebar._getNameFromClass(Selector.MENU_TRIANGLE)}"></i>`)
       })
 
-      let $selected = this.$root.find(`${Selector.MENU_SUB_TITLE}${Selector.SELECTED}`)
-      if ($selected.length) {
-        let activeClass = Sidebar._getNameFromClass(Selector.ACTIVE)
-        $selected.parents(Selector.MENU_GROUP).each((i, el) => {
-          let $el = $(el).find(Selector.MENU_SUB_TITLE).first()
-          let $menuTitle = $(el).find(Selector.MENU_TITLE)
-
-          if (!$el.length) return
-          else if ($el.attr('href')) return
-          else if ($menuTitle.length) return
-
-          $el.addClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
-          this.toggleMenuGroup($el.get(0), {transition: false})
-        })
-        $selected.parents(Selector.MENU_GROUP).each((i, el) => {
-          let $el = $(el).find(Selector.MENU_TITLE).first()
-
-          if (!$el.length) return
-
-          this.toggleMenuGroup($el.get(0), {transition: false})
-        })
-      }
+      this.toggleSelectedMenuGroup()
 
       if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
 
@@ -156,6 +136,14 @@ const Sidebar = (($) => {
         let $groups = this.$root.find(Selector.MENU_GROUP)
         let $menuTitles = this.$root.find(allMenuTitleSelector)
         let validSearchWord
+
+        $groups.each((i, group) => {
+          let $firstMenuTitle = $(group).find(allMenuTitleSelector).eq(0)
+          this.toggleMenuGroup($firstMenuTitle.get(0), {
+            active: false,
+            transition: false
+          })
+        })
 
         if (value) {
           $remove.addClass('active')
@@ -196,6 +184,8 @@ const Sidebar = (($) => {
           $remove.removeClass('active')
           $groups.removeClass('hide')
           $menuTitles.removeClass('hide')
+
+          this.toggleSelectedMenuGroup()
         }
 
         if (validSearchWord) sessionStorage.setItem(storageKey, validSearchWord)
@@ -251,6 +241,32 @@ const Sidebar = (($) => {
       $menuGroup.animate({height: targetHeight}, transitionDuration, () => {
         if (active) $menuGroup.css({height: 'auto'})
       })
+    }
+
+    toggleSelectedMenuGroup () {
+      let $selected = this.$root.find(`${Selector.MENU_SUB_TITLE}${Selector.SELECTED}`)
+
+      if ($selected.length) {
+        let activeClass = Sidebar._getNameFromClass(Selector.ACTIVE)
+        $selected.parents(Selector.MENU_GROUP).each((i, el) => {
+          let $el = $(el).find(Selector.MENU_SUB_TITLE).first()
+          let $menuTitle = $(el).find(Selector.MENU_TITLE)
+
+          if (!$el.length) return
+          else if ($el.attr('href')) return
+          else if ($menuTitle.length) return
+
+          $el.addClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
+          this.toggleMenuGroup($el.get(0), {transition: false})
+        })
+        $selected.parents(Selector.MENU_GROUP).each((i, el) => {
+          let $el = $(el).find(Selector.MENU_TITLE).first()
+
+          if (!$el.length) return
+
+          this.toggleMenuGroup($el.get(0), {transition: false})
+        })
+      }
     }
 
     // private
