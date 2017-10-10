@@ -3,8 +3,8 @@
         <img class="logo" src="../../../img/sidebar-logo.svg">
     </div>
     <div class="search-wrapper">
-        <input class="form-control input-search">
-        <span class="glyphicon glyphicon-filter"></span>
+        <input class="form-control input-search" placeholder="搜索菜单项">
+        <span class="glyphicon glyphicon-search"></span>
         <span class="glyphicon glyphicon-remove-circle"></span>
     </div>
     <div class="menu-wrapper">
