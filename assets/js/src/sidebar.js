@@ -132,13 +132,13 @@ const Sidebar = (($) => {
         })
       }
 
-      this.$root.addClass('sidebar-component-inited')
+      if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
 
       if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_SIDEBAR).length) {
         this.$root.attr('data-toggle', 'sidebar')
       }
 
-      if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
+      this.$root.addClass('sidebar-component-inited')
     }
 
     initSearch () {
@@ -249,11 +249,7 @@ const Sidebar = (($) => {
         $element.removeClass(Sidebar._getNameFromClass(Selector.NO_TRANSITION))
       }, 0)
       $menuGroup.animate({height: targetHeight}, transitionDuration, () => {
-        if (active) {
-          setTimeout(() => {
-            $menuGroup.css({height: 'auto'})
-          }, 0)
-        }
+        if (active) $menuGroup.css({height: 'auto'})
       })
     }
 
