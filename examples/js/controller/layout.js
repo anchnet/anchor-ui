@@ -35,7 +35,6 @@ let data = {
         {title: '菜单项A7', link: '/'},
         {title: '菜单项A8', link: '/'},
         {title: '菜单项A9', link: '/'},
-        {title: '菜单项A10', link: '/'},
       ]
     },
     {
