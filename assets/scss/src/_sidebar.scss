@@ -72,10 +72,10 @@ $single-height: 34px;
   .search-wrapper {
     visibility: hidden;
     position: relative;
-    padding: 10px 15px 10px;
+    padding: 10px 12px 10px;
     .input-search {
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 27px;
+      padding-right: 27px;
       border: 1px solid #FFF;
       border-radius: 14px;
       box-shadow: none;
@@ -88,13 +88,13 @@ $single-height: 34px;
     .glyphicon-search {
       position: absolute;
       top: 18px;
-      left: 24px;
+      left: 21px;
     }
     .glyphicon-remove-circle {
       display: none;
       position: absolute;
       top: 17px;
-      right: 21px;
+      right: 18px;
       font-size: 16px;
       cursor: pointer;
       &.active {

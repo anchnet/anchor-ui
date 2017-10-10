@@ -4,7 +4,6 @@ let data = {
   menus: [
     {
       title: '菜单组A',
-      iconClass: "icon-system-status",
       children: [
         {
           title: '菜单组A1',
