@@ -145,6 +145,8 @@ const Sidebar = (($) => {
       let $wrapper = this.$root.find(Selector.SEARCH_WRAPPER)
       let $input = $wrapper.find(Selector.INPUT_SEARCH)
       let $remove = $wrapper.find('.glyphicon-remove-circle')
+      let storageKey = 'sidebarSearchWord'
+      let storedSearchWord = sessionStorage.getItem(storageKey)
 
       this.$root.find(Selector.MENU_WRAPPER).addClass('with-search')
 
@@ -153,6 +155,7 @@ const Sidebar = (($) => {
         let value = $(event.target).val()
         let $groups = this.$root.find(Selector.MENU_GROUP)
         let $menuTitles = this.$root.find(allMenuTitleSelector)
+        let validSearchWord
 
         if (value) {
           $remove.addClass('active')
@@ -162,7 +165,7 @@ const Sidebar = (($) => {
           $menuTitles.each((index, menuTitle) => {
             let titleText = $(menuTitle).text().trim()
 
-            if (new RegExp(value, 'i').test(titleText)) {
+            if (titleText.toLowerCase().includes(value.toLowerCase())) {
               let $menuGroup = $(menuTitle).closest(Selector.MENU_GROUP)
               let $activeGroups = $(menuTitle).parents(Selector.MENU_GROUP)
               let isFirstTitle = $(menuTitle).index($menuGroup.find(allMenuTitleSelector)) === 0
@@ -185,6 +188,8 @@ const Sidebar = (($) => {
                 $menuGroup.find(Selector.MENU_GROUP).removeClass('hide')
                 $menuGroup.find(allMenuTitleSelector).removeClass('hide')
               }
+
+              validSearchWord = value
             }
           })
         } else {
@@ -192,11 +197,18 @@ const Sidebar = (($) => {
           $groups.removeClass('hide')
           $menuTitles.removeClass('hide')
         }
+
+        if (validSearchWord) sessionStorage.setItem(storageKey, validSearchWord)
+        else sessionStorage.removeItem(storageKey)
       })
 
       $remove.on('click', (event) => {
         $input.val('').trigger('input')
       })
+
+      if (storedSearchWord !== null) {
+        $input.val(storedSearchWord).trigger('input')
+      }
     }
 
     toggleMenuGroup (element, options = {}) {
