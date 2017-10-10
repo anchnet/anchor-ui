@@ -132,13 +132,15 @@ const Sidebar = (($) => {
         })
       }
 
-      this.$root.addClass('sidebar-component-inited')
+      if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
 
       if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_SIDEBAR).length) {
         this.$root.attr('data-toggle', 'sidebar')
       }
 
-      if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
+      setTimeout(() => {
+        this.$root.addClass('sidebar-component-inited')
+      }, 0)
     }
 
     initSearch () {
