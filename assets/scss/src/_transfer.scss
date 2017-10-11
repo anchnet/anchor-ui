@@ -1,3 +1,5 @@
+@import 'variable';
+
 /**
  * transfer
  */
@@ -31,6 +33,12 @@
       margin-bottom: 10px;
       padding: 8px;
       text-align: center;
+
+      &:hover {
+        .glyphicon {
+          color: $brand-primary;
+        }
+      }
     }
   }
 
