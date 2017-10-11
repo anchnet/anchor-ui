@@ -13,6 +13,11 @@
   .table-element-wrapper {
     width: 100%;
     overflow-x: auto;
+    margin-bottom: 5px;
+
+    .table {
+      margin-bottom: 12px;
+    }
   }
 
   .first-column {
