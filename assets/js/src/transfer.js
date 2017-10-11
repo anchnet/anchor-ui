@@ -110,17 +110,26 @@ const Transfer = (($) => {
           .attr({'data-width': `${this._getConfig().SELECT_WIDTH}px`})
 
         let maxOptions = $(el).data('maxOptions')
+
         if (maxOptions) {
           $(el).attr('data-max-options-text', `最多选择${maxOptions}项`)
         }
 
         $(el).on('changed.bs.select', (event) => {
           let oppositeDirection
+
           if ($(event.target).closest(Selector.BLOCK_LEFT).length) oppositeDirection = 'right'
           else if ($(event.target).closest(Selector.BLOCK_RIGHT).length) oppositeDirection = 'left'
-          this.$select[oppositeDirection].find('option').prop({'selected': false})
+
+          this.$select[oppositeDirection].selectpicker('deselectAll')
           this._refreshSelect()
         })
+      })
+
+      $(document).on('click', (event) => {
+        if ($(event.target).closest('.transfer-btns').length) return
+
+        this.$select.left.add(this.$select.right).selectpicker('deselectAll')
       })
 
       this._refreshSelect()
@@ -148,6 +157,7 @@ const Transfer = (($) => {
         case 'left':
           $selectTo.append($selectItems)
           break
+
         case 'up':
           $selectItems.each((i, el) => {
             let len = $selectTo.find('option').length
@@ -161,6 +171,7 @@ const Transfer = (($) => {
             }
           })
           break
+
         case 'down':
           $selectItems = $selectItems.reverse()
           $selectItems.each((i, el) => {
@@ -182,9 +193,11 @@ const Transfer = (($) => {
 
     val () {
       let val = []
+
       this.$select.right.find('option').each((i, el) => {
         val.push($(el).attr('value'))
       })
+
       return val
     }
 
@@ -196,6 +209,7 @@ const Transfer = (($) => {
 
     _getConfig (config) {
       config = $.extend({}, Default, config)
+
       return config
     }
 
@@ -207,6 +221,7 @@ const Transfer = (($) => {
 
     static _getNameFromClass (className) {
       className = className.replace(/\./g, '')
+
       return className
     }
 
