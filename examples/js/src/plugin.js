@@ -33,4 +33,58 @@ $(document).ready(function () {
       console.log('操作按钮', value, selected)
     })
   }
+
+  {
+    $('#sortable-demo-1').sortable({
+      group: {
+        name: 'sortable-name-1',
+        pull: false,
+        put: false,
+      },
+      sort: true,
+      animation: 100,
+      ghostClass: 'anchor-sortable-ghost',
+      chosenClass: 'anchor-chosen-ghost',
+    })
+  }
+
+  {
+    $('#sortable-demo-2').sortable({
+      group: {
+        name: 'sortable-name-2',
+        pull: false,
+        put: false,
+      },
+      sort: true,
+      animation: 100,
+      ghostClass: 'anchor-sortable-ghost',
+      chosenClass: 'anchor-chosen-ghost',
+    })
+  }
+  {
+    $('#sortable-demo-3').sortable({
+      group: {
+        name: 'sortable-name-3',
+        pull: true,
+        put: ['sortable-name-4'],
+      },
+      sort: true,
+      animation: 100,
+      ghostClass: 'anchor-sortable-ghost',
+      chosenClass: 'anchor-chosen-ghost',
+    })
+  }
+  {
+    $('#sortable-demo-4').sortable({
+      group: {
+        name: 'sortable-name-4',
+        pull: true,
+        put: ['sortable-name-3'],
+      },
+      sort: true,
+      animation: 100,
+      ghostClass: 'anchor-sortable-ghost',
+      chosenClass: 'anchor-chosen-ghost',
+    })
+  }
 })

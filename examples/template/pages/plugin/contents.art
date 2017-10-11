@@ -9,4 +9,5 @@
     {{include './contents/tooltips.art'}}
     {{include './contents/panel.art'}}
     {{include './contents/step.art'}}
+    {{include './contents/sortable.art'}}
 </div>
