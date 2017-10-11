@@ -262,3 +262,12 @@ $color-base: #4b556a;
 .bs-callout-warning {
   border-left-color: #aa6708;
 }
+
+.anchor-sortable-ghost {
+  opacity: .5;
+}
+
+.anchor-chosen-ghost {
+  background-color: #efefef;
+  opacity: .5;
+}

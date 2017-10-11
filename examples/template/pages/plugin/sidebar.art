@@ -59,6 +59,7 @@
             <!--</ul>-->
         </li>
         <li><a href="#flow-steps">步骤条</a></li>
+        <li><a href="#sortable">拖拽</a></li>
         <li><a class="return-top" href="#return-top">返回顶部</a></li>
     </ul>
 </div>

@@ -3,6 +3,7 @@ import '../libs/bootstrap-select/bootstrap-select'
 import '../libs/bootstrap-tagsinput/bootstrap-tagsinput'
 import '../libs/bootstrap-datetimepicker/bootstrap-datetimepicker.min' // 源码（引用方式部分）有修改，更新需注意！
 import '../libs/jquery.cookie/jquery.cookie'
+import '../libs/jquery.fn.sortable/jquery.fn.sortable'
 import './src/sidebar'
 import './src/tablefilter'
 import './src/transfer'
