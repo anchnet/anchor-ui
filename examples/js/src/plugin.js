@@ -60,6 +60,14 @@ $(document).ready(function () {
       ghostClass: 'anchor-sortable-ghost',
       chosenClass: 'anchor-chosen-ghost',
     })
+
+    setTimeout(() => {
+      $('#sortable-demo-2').html(
+        '<div class="layout-group label-w50"><div class="layout-label">标题1:</div>内容1内容1内容1内容1</div>\n' +
+        '<div class="layout-group label-w50"><div class="layout-label">标题2:</div>内容2内容2内容2内容2</div>\n' +
+        '<div class="layout-group label-w50"><div class="layout-label">标题3:</div>内容3内容3内容3内容3</div>'
+      )
+    }, 1000)
   }
   {
     $('#sortable-demo-3').sortable({

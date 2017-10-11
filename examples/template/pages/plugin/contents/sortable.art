@@ -15,14 +15,14 @@
     <script type="text/javascript">
       $('#sortable-demo-1').sortable({
         group: {
-          name: 'sortable-name-1',
-          pull: false,
-          put: false,
+          name: 'sortable-name-1', // sortable 分组名称
+          pull: false, // 是否允许拖出数据行
+          put: false, // 是否允许拖入数据行
         },
-        sort: true,
+        sort: true, // 是否允许组内拖拽排序
         animation: 100,
-        ghostClass: 'anchor-sortable-ghost',
-        chosenClass: 'anchor-chosen-ghost',
+        ghostClass: 'anchor-sortable-ghost', // 被拖拽时的数据样式
+        chosenClass: 'anchor-chosen-ghost', // 被选中拖拽数据样式
       })
     </script>
 </div>
@@ -30,11 +30,7 @@
 
 <h3 id="sortable-list">列表排序</h3>
 <div class="bs-example" data-example-id="sortable-list">
-    <div id="sortable-demo-2">
-        <div class="layout-group label-w50"><div class="layout-label">标题1:</div>内容1内容1内容1内容1</div>
-        <div class="layout-group label-w50"><div class="layout-label">标题2:</div>内容2内容2内容2内容2</div>
-        <div class="layout-group label-w50"><div class="layout-label">标题3:</div>内容3内容3内容3内容3</div>
-    </div>
+    <div id="sortable-demo-2"></div>
     <script type="text/javascript">
       $('#sortable-demo-2').sortable({
         group: {
@@ -76,7 +72,7 @@
           group: {
             name: 'sortable-name-3',
             pull: true,
-            put: ['sortable-name-4'],
+            put: ['sortable-name-4'], // 指定允许拖入的数据组名称
           },
           sort: true,
           animation: 100,
