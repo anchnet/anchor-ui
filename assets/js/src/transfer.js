@@ -38,18 +38,18 @@ const Transfer = (($) => {
   const Template = (id, options) => {
     let templates = {
       LEFT_BUTTONS: `<div class="transfer-btns">
-        <button class="${options.className.right} btn btn-default" type="button">
+        <button class="${options.className.right} btn btn-default-light" type="button">
           <span class="glyphicon glyphicon-menu-right"></span>
         </button>
-        <button class="${options.className.left} btn btn-default" type="button">
+        <button class="${options.className.left} btn btn-default-light" type="button">
           <span class="glyphicon glyphicon-menu-left"></span>
         </button>
       </div>`,
       RIGHT_BUTTONS: `<div class="transfer-btns">
-        <button class="${options.className.up} btn btn-default" type="button">
+        <button class="${options.className.up} btn btn-default-light" type="button">
           <span class="glyphicon glyphicon-menu-up"></span>
         </button>
-        <button class="${options.className.down} btn btn-default" type="button">
+        <button class="${options.className.down} btn btn-default-light" type="button">
           <span class="glyphicon glyphicon-menu-down"></span>
         </button>
       </div>`
