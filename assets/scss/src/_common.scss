@@ -7,8 +7,22 @@
     }
   }
 
-  &.btn-default-light,
-  &.btn-default-base {
+  &.btn-default-light {
+    &:hover {
+      .glyphicon {
+        color: $brand-primary;
+      }
+    }
+    &:active,
+    &.active {
+      .glyphicon {
+        color: #FFF;
+      }
+    }
+  }
+
+  &.btn-default-base,
+  &.btn-default-base-light {
     &:hover,
     &:active,
     &.active {
@@ -20,6 +34,9 @@
 
   &.btn-primary,
   &.btn-primary-light,
+  &.btn-success,
+  &.btn-info,
+  &.btn-warning,
   &.btn-danger {
     .glyphicon {
       color: #FFF;
