@@ -3,7 +3,7 @@ import _public from './_public'
 
 
 $('#console-scroll-btn').click(() => {
-  $.utils.scrollToBottom($('#console-template'))
+  $.utils.scrollToBottom($('#console-template'), true)
 })
 
 $(document).ready(function () {
