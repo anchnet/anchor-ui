@@ -20,13 +20,14 @@ const Utils = (($) => {
     }
 
     // 滚动到底部
-    scrollToBottom (container) {
-      let $container = $(container)
-      let $children = $container.children('*:first-child')
-      let parentHeight = $container.height() || 0
-      let childHeight = $children.height() || 0
-      let scrollTop = childHeight - parentHeight
-      let oldScrollTop = $container.scrollTop()
+    scrollToBottom (container, openWatch = false, baseWatch = 300) {
+      const $container = $(container)
+      const $children = $container.children('*:first-child')
+      const parentHeight = $container.height() || 0
+      const childHeight = $children.height() || 0
+      const scrollTop = childHeight - parentHeight
+      const oldScrollTop = $container.scrollTop()
+      if (openWatch && scrollTop - oldScrollTop > baseWatch) return
       if (scrollTop !== oldScrollTop) {
         this.smoothScroll($container, scrollTop, 300)
       }
