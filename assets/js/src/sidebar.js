@@ -17,7 +17,10 @@ const Sidebar = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
   const TRANSITION_UNIT_DURATION = 13.5
 
-  const Default = {}
+  const Default = {
+    maxWidth: 960,
+    minWidth: 240
+  }
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
@@ -34,9 +37,11 @@ const Sidebar = (($) => {
     MENU_SUB_TITLE: '.menu-sub-title',
     MENU_DOT: '.menu-dot',
     MENU_TRIANGLE: '.menu-triangle',
+    TOGGLE_SIDEBAR: '.toggle-sidebar',
     ACTIVE: '.active',
     SELECTED: '.selected',
-    NO_TRANSITION: '.no-transition'
+    NO_TRANSITION: '.no-transition',
+    APP_MAIN: '.app-main'
   }
 
   /**
@@ -48,7 +53,15 @@ const Sidebar = (($) => {
       this._config = this._getConfig(config)
       this.$root = $(root)
 
+      this._currentWidth = null
+      this._changingWidth = false
+      this._mousePosX = null
+
       this.init()
+      this.initSearch()
+      this.initToggleSidebar()
+
+      this.$root.addClass('sidebar-component-inited')
     }
 
     // getters
@@ -112,16 +125,16 @@ const Sidebar = (($) => {
 
       this.toggleSelectedMenuGroup()
 
-      if (this.$root.find(Selector.SEARCH_WRAPPER).length) this.initSearch()
-
       if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_SIDEBAR).length) {
         this.$root.attr('data-toggle', 'sidebar')
       }
 
-      this.$root.addClass('sidebar-component-inited')
+      this._currentWidth = this.$root.width()
     }
 
     initSearch () {
+      if (!this.$root.find(Selector.SEARCH_WRAPPER).length) return
+
       let $wrapper = this.$root.find(Selector.SEARCH_WRAPPER)
       let $input = $wrapper.find(Selector.INPUT_SEARCH)
       let $remove = $wrapper.find('.glyphicon-remove-circle')
@@ -199,6 +212,51 @@ const Sidebar = (($) => {
       if (storedSearchWord !== null) {
         $input.val(storedSearchWord).trigger('input')
       }
+    }
+
+    initToggleSidebar () {
+      $(document).on('mousedown', (event) => {
+        if ($(event.target).closest(Selector.TOGGLE_SIDEBAR).length) {
+          this._changingWidth = true
+          this._mousePosX = event.clientX
+          this.$root
+            .addClass('no-select')
+            .find('> .component-mask').css({display: 'block'})
+          $(Selector.APP_MAIN)
+            .addClass('no-select')
+            .find('> .component-mask').css({display: 'block'})
+        }
+      })
+
+      $(document).on('mouseup', (event) => {
+        if (this._changingWidth) {
+          this._changingWidth = false
+          this._currentWidth = this.$root.width()
+          this.$root
+            .removeClass('no-select')
+            .find('> .component-mask').css({display: 'none'})
+          $(Selector.APP_MAIN)
+            .removeClass('no-select')
+            .find('> .component-mask').css({display: 'none'})
+
+          let storageKey = 'sidebarWidth'
+
+          sessionStorage.setItem(storageKey, this._currentWidth)
+        }
+      })
+
+      $(document).on('mousemove', (event) => {
+        if (this._changingWidth) {
+          let move = event.clientX - this._mousePosX
+          let sidebarWidth = this._currentWidth + move
+
+          if (sidebarWidth > Sidebar.Default.maxWidth) sidebarWidth = Sidebar.Default.maxWidth
+          else if (sidebarWidth < Sidebar.Default.minWidth) sidebarWidth = Sidebar.Default.minWidth
+
+          this.$root.css({width: sidebarWidth})
+          $(Selector.APP_MAIN).css({'margin-left': sidebarWidth})
+        }
+      })
     }
 
     toggleMenuGroup (element, options = {}) {

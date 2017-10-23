@@ -42,6 +42,7 @@ $single-height: 34px;
   height: 100%;
   background-color: #2F323A;
 
+  /*
   ::-webkit-scrollbar {
     height: 8px;
     width: 8px;
@@ -54,6 +55,7 @@ $single-height: 34px;
       background-color: #7d7d7d;
     }
   }
+  */
 
   .logo-wrapper {
     display: block;
@@ -217,6 +219,23 @@ $single-height: 34px;
         height: 100%;
         background-color: $brand-primary;
       }
+    }
+  }
+  .toggle-sidebar {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 60px;
+    cursor: ew-resize;
+    .toggle-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 60px;
+      background-image: url('../img/icons/sidebar-toggle.svg');
     }
   }
 }

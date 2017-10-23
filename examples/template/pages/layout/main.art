@@ -54,6 +54,10 @@
         </div>
         {{/each}}
     </div>
+    <div class="toggle-sidebar">
+        <div class="toggle-icon"></div>
+    </div>
+    <div class="component-mask"></div>
 </div>
 
 <div class="app-main">
@@ -124,4 +128,6 @@
             <figure id="importInstanceCode" class="highlight"></figure>
         </div>
     </div>
+
+    <div class="component-mask"></div>
 </div>
