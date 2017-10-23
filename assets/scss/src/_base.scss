@@ -432,8 +432,11 @@
 .t2  {text-indent: 2em;}
 .t3  {text-indent: 3.6em;}
 
-//鼠标手势
+/* 鼠标手势 */
 .cp {cursor: pointer;}
 .cd {cursor: default;}
 .cm {cursor: move;}
 .ct {cursor: text;}
+
+/* 禁止用户选择 */
+.no-select {user-select: none;}
