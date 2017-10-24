@@ -42,20 +42,16 @@ $single-height: 34px;
   height: 100%;
   background-color: #2F323A;
 
-  /*
   ::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
+    width: 10px;
     background-color: #1B1D23;
   }
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: #a5a5a5;
-    &:hover {
-      background-color: #7d7d7d;
-    }
+    border-radius: 5px;
+    border: 1px solid rgba(#FFF, 0.3);
+    background-color: #1B1D23;
+    &:hover {}
   }
-  */
 
   .logo-wrapper {
     display: block;
