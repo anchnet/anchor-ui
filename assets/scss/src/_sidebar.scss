@@ -43,23 +43,20 @@ $single-height: 34px;
   background-color: #2F323A;
 
   ::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
+    width: 10px;
     background-color: #1B1D23;
   }
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: #a5a5a5;
-    &:hover {
-      background-color: #7d7d7d;
-    }
+    border-radius: 5px;
+    border: 1px solid rgba(#FFF, 0.3);
+    background-color: #1B1D23;
+    &:hover {}
   }
 
   .logo-wrapper {
     display: block;
     position: relative;
     height: 54px;
-    background-color: $brand-primary;
   }
   .logo {
     position: absolute;
@@ -70,11 +67,12 @@ $single-height: 34px;
     margin: auto;
   }
   .search-wrapper {
+    visibility: hidden;
     position: relative;
-    padding: 10px 15px 10px;
+    padding: 10px 12px 10px;
     .input-search {
-      padding-left: 26px;
-      padding-right: 26px;
+      padding-left: 27px;
+      padding-right: 27px;
       border: 1px solid #FFF;
       border-radius: 14px;
       box-shadow: none;
@@ -87,13 +85,13 @@ $single-height: 34px;
     .glyphicon-search {
       position: absolute;
       top: 18px;
-      left: 24px;
+      left: 21px;
     }
     .glyphicon-remove-circle {
       display: none;
       position: absolute;
       top: 17px;
-      right: 21px;
+      right: 18px;
       font-size: 16px;
       cursor: pointer;
       &.active {
@@ -219,8 +217,27 @@ $single-height: 34px;
       }
     }
   }
+  .toggle-sidebar {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 60px;
+    cursor: ew-resize;
+    .toggle-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 60px;
+      background-image: url('../img/icons/sidebar-toggle.svg');
+    }
+  }
 }
 
+.sidebar-always-visible .search-wrapper,
+.sidebar-component-inited .search-wrapper,
 .sidebar-always-visible .menu-wrapper,
 .sidebar-component-inited .menu-wrapper {
   visibility: visible !important;

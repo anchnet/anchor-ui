@@ -129,7 +129,7 @@
     <i class="iconfont icon-operating-platform"></i>
     <i class="iconfont icon-operation"></i>
     <i class="iconfont icon-overview"></i>
-    <i class="iconfont icon-suspend"></i>
+    <i class="iconfont icon-aborted"></i>
     <i class="iconfont icon-execution-record"></i>
     <i class="iconfont icon-abnormal"></i>
     <i class="iconfont icon-message"></i>
@@ -152,6 +152,11 @@
     <i class="iconfont icon-calendar"></i>
     <i class="iconfont icon-instructions"></i>
     <i class="iconfont icon-wait"></i>
+
+    <i class="iconfont icon-all"></i>
+    <i class="iconfont icon-wait1"></i>
+    <i class="iconfont icon-forbidden"></i>
+    <i class="iconfont icon-timeout"></i>
 
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>

@@ -13,6 +13,11 @@
   .table-element-wrapper {
     width: 100%;
     overflow-x: auto;
+    margin-bottom: 5px;
+
+    .table {
+      margin-bottom: 12px;
+    }
   }
 
   .first-column {
@@ -72,13 +77,12 @@
       }
     }
   }
-
-  .table-bottom {
-    height: 32px;
-    line-height: 32px;
-    .pagination {
-      margin: 0;
-      float: right;
-    }
+}
+.table-bottom {
+  height: 32px;
+  line-height: 32px;
+  .pagination {
+    margin: 0;
+    float: right;
   }
 }
