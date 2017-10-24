@@ -627,7 +627,7 @@
   &.icon-set:before { content: "\e606"; }
   &.icon-operating:before { content: "\e607"; }
   &.icon-import:before { content: "\e608"; }
-  &.icon-Waiting:before { content: "\e609"; }
+  &.icon-running:before { content: "\e609"; }
   &.icon-ECS:before { content: "\e60b"; }
   &.icon-service-middleware:before { content: "\e60c"; }
   &.icon-cabinet:before { content: "\e60d"; }
@@ -656,7 +656,7 @@
   &.icon-operating-platform:before { content: "\e651"; }
   &.icon-operation:before { content: "\e652"; }
   &.icon-overview:before { content: "\e653"; }
-  &.icon-suspend:before { content: "\e654"; }
+  &.icon-aborted:before { content: "\e654"; }
   &.icon-execution-record:before { content: "\e655"; }
   &.icon-abnormal:before { content: "\e657"; }
   &.icon-message:before { content: "\e658"; }
