@@ -164,7 +164,7 @@ const Table =(($) => {
         this.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
       })
 
-      this.$thead.find('th.sort').on('click', (event) => {
+      this.$thead.find('th[sortable]').on('click', (event) => {
         let html = $('<div>').append($(event.target).clone()).html()
         this.$root.trigger(Event.SORT_CHANGED, html)
       })
