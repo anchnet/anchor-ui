@@ -8,8 +8,8 @@
             <thead>
                 <tr>
                     <th data-value="valueA">A</th>
-                    <th data-value="valueB">B</th>
-                    <th data-value="valueC">C</th>
+                    <th class="sort" data-value="valueB">B</th>
+                    <th class="sort sort-desc" data-value="valueC">C</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,6 +48,9 @@
     <script>
         $('#basicTable').on('filter.changed.anchor.table', function (event, data) {
             console.log('字段更新', data.data)
+        })
+        $('#basicTable').on('sort.changed.anchor.table', function (event, data) {
+            console.log('排序更新', data)
         })
         $('#basicTableOpt a').on('click', function (event) {
             event.preventDefault()
