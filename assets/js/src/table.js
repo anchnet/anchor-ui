@@ -128,14 +128,13 @@ const Table =(($) => {
       let options = []
 
       this.$thead.find('th').each((i, el) => {
-        let $el = $(el).closest('th')
-        let text = $el.data('text') || $el.text()
-        let value = $el.data('value') || text
-        let sortAsc = $el.hasClass('sort-asc')
-        let sortDesc = $el.hasClass('sort-desc')
+        let text = $(el).data('text') || $(el).text()
+        let value = $(el).data('value') || text
+        let sortAsc = $(el).hasClass('sort-asc')
+        let sortDesc = $(el).hasClass('sort-desc')
 
-        if (sortAsc) $el.append('<i class="glyphicon glyphicon-triangle-top"></i>')
-        else if (sortDesc) $el.append('<i class="glyphicon glyphicon-triangle-bottom"></i>')
+        if (sortAsc) $(el).append('<i class="glyphicon glyphicon-triangle-top"></i>')
+        else if (sortDesc) $(el).append('<i class="glyphicon glyphicon-triangle-bottom"></i>')
 
         options.push(Template('SELECT_OPTION', {text, value}))
       })
@@ -165,7 +164,8 @@ const Table =(($) => {
       })
 
       this.$thead.find('th[sortable]').on('click', (event) => {
-        let html = $('<div>').append($(event.target).clone()).html()
+        let $th = $(event.target).closest('th')
+        let html = $('<div>').append($th.clone()).html()
         this.$root.trigger(Event.SORT_CHANGED, html)
       })
 
