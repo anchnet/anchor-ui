@@ -21,7 +21,8 @@ const Table =(($) => {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
     CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
     CHANGE_DATA_API: `change${EVENT_KEY}${DATA_API_KEY}`,
-    FILTER_CHANGED: `filter.changed${EVENT_KEY}`
+    FILTER_CHANGED: `filter.changed${EVENT_KEY}`,
+    SORT_CHANGED: `sort.changed${EVENT_KEY}`
   }
 
   const Selector = {
@@ -127,8 +128,14 @@ const Table =(($) => {
       let options = []
 
       this.$thead.find('th').each((i, el) => {
-        let text = $(el).data('text') || $(el).text()
-        let value = $(el).data('value') || text
+        let $el = $(el).closest('th')
+        let text = $el.data('text') || $el.text()
+        let value = $el.data('value') || text
+        let sortAsc = $el.hasClass('sort-asc')
+        let sortDesc = $el.hasClass('sort-desc')
+
+        if (sortAsc) $el.append('<i class="glyphicon glyphicon-triangle-top"></i>')
+        else if (sortDesc) $el.append('<i class="glyphicon glyphicon-triangle-bottom"></i>')
 
         options.push(Template('SELECT_OPTION', {text, value}))
       })
@@ -155,6 +162,11 @@ const Table =(($) => {
 
       this.$root.find(modalSelector).on('hidden.bs.modal', () => {
         this.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
+      })
+
+      this.$thead.find('th.sort').on('click', (event) => {
+        let html = $('<div>').append($(event.target).clone()).html()
+        this.$root.trigger(Event.SORT_CHANGED, html)
       })
 
       if (!$('<div>').append(this.$root.clone()).find(Selector.DATA_TABLE).length) {

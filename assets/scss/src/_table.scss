@@ -20,6 +20,17 @@
     }
   }
 
+  th {
+    &.sort {
+      cursor: pointer;
+
+      .glyphicon {
+        margin-left: 5px;
+        color: $brand-primary;
+      }
+    }
+  }
+
   .first-column {
     width: 36px;
   }

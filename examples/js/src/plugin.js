@@ -26,6 +26,10 @@ $(document).ready(function () {
       console.log('字段更新', data.data)
     })
 
+    $('#basicTable').on('sort.changed.anchor.table', function (event, data) {
+      console.log('排序更新', data)
+    })
+
     $('#basicTableOpt a').on('click', function (event) {
       event.preventDefault()
       var value = $(this).data('opt')
