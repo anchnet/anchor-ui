@@ -21,7 +21,7 @@
   }
 
   th {
-    &.sort {
+    &[sortable] {
       cursor: pointer;
 
       .glyphicon {

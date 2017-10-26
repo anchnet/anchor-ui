@@ -8,8 +8,8 @@
             <thead>
                 <tr>
                     <th data-value="valueA">A</th>
-                    <th class="sort" data-value="valueB">B</th>
-                    <th class="sort sort-desc" data-value="valueC">C</th>
+                    <th sortable data-value="valueB">B</th>
+                    <th class="sort sort-desc" sortable data-value="valueC">C</th>
                 </tr>
             </thead>
             <tbody>
