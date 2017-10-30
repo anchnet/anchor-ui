@@ -554,48 +554,48 @@
   url('../fonts/iconfont/iconfont.svg?t=1508812408549#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.iconfont {
-  &.color-success {
+.color-success {
+  &.iconfont, .iconfont {
     &:hover,
     &.active{
       color: #10C935;
     }
   }
 }
-.iconfont {
-  &.color-running {
+.color-running {
+  &.iconfont, .iconfont {
     &:hover,
     &.active{
       color: #1C91EC;
     }
   }
 }
-.iconfont {
-  &.color-wait {
+.color-wait {
+  &.iconfont, .iconfont {
     &:hover,
     &.active{
       color: #FFA400;
     }
   }
 }
-.iconfont {
-  &.color-aborted {
+.color-aborted {
+  &.iconfont, .iconfont {
     &:hover,
     &.active{
       color: #89909A;
     }
   }
 }
-.iconfont {
-  &.color-forbidden {
+.color-forbidden {
+  &.iconfont, .iconfont {
     &:hover,
     &.active{
       color: #15D3E8;
     }
   }
 }
-.iconfont {
-  &.color-timeout {
+.color-timeout {
+  &.iconfont, .iconfont {
     &:hover,
     &.active{
       color: #FE4D29;
