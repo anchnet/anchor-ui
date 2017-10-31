@@ -64,6 +64,7 @@ const Transfer = (($) => {
   class Transfer {
     constructor (root, config) {
       this._config = this._getConfig(config)
+
       this.$root = $(root)
       this.$block = {}
       this.$block.left = this.$root.find(Selector.BLOCK_LEFT)
@@ -71,6 +72,8 @@ const Transfer = (($) => {
       this.$select = {}
       this.$select.left = this.$block.left.find('select')
       this.$select.right = this.$block.right.find('select')
+
+      this.deselectLock = false
 
       this.init()
     }
@@ -116,13 +119,19 @@ const Transfer = (($) => {
         }
 
         $(el).on('changed.bs.select', (event) => {
-          let oppositeDirection
+          if (this.deselectLock) return
+          this.deselectLock = true
 
+          let oppositeDirection
           if ($(event.target).closest(Selector.BLOCK_LEFT).length) oppositeDirection = 'right'
           else if ($(event.target).closest(Selector.BLOCK_RIGHT).length) oppositeDirection = 'left'
 
           this.$select[oppositeDirection].selectpicker('deselectAll')
           this._refreshSelect()
+
+          setTimeout(() => {
+            this.deselectLock = false
+          }, 0)
         })
       })
 
