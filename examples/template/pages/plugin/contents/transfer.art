@@ -12,7 +12,7 @@
         </div>
         <div class="transfer-right">
             <select multiple>
-                <% for (var i = 100; i < 105; i++) { %>
+                <% for (var i = 100; i < 115; i++) { %>
                 <option value="<%= i %>">option <%= i %></option>
                 <% } %>
             </select>

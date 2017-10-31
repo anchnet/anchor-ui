@@ -1,3 +1,5 @@
+const xdhelper = require('xdhelper')
+
 /**
  * transfer
  */
@@ -194,6 +196,36 @@ const Transfer = (($) => {
               }
             }
           })
+          break
+      }
+
+      let $scrollMenu = this.$root.find('.transfer-right .dropdown-menu.inner')
+      let currentScrollPosition = $scrollMenu.scrollTop()
+      let selectedItemsIndex = []
+
+      $selectItems.each((i, el) => {
+        let index = $(el).index()
+        selectedItemsIndex.push(index)
+      })
+
+      switch (direction) {
+        case 'up':
+          {
+            let firstIndex = xdhelper.getArrLeastItem(selectedItemsIndex)
+            let shouldScrollPosition = firstIndex * 28
+
+            if (currentScrollPosition > shouldScrollPosition) $scrollMenu.scrollTop(shouldScrollPosition)
+          }
+          break
+
+        case 'down':
+          {
+            let lastIndex = xdhelper.getArrGreatestItem(selectedItemsIndex)
+            let shouldScrollPosition = lastIndex * 28 - 12 * 28 + 28
+
+            if (shouldScrollPosition < 0) shouldScrollPosition = 0
+            if (currentScrollPosition < shouldScrollPosition) $scrollMenu.scrollTop(shouldScrollPosition)
+          }
           break
       }
 
