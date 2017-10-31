@@ -1,3 +1,5 @@
+const xdhelper = require('xdhelper')
+
 /**
  * transfer
  */
@@ -64,6 +66,7 @@ const Transfer = (($) => {
   class Transfer {
     constructor (root, config) {
       this._config = this._getConfig(config)
+
       this.$root = $(root)
       this.$block = {}
       this.$block.left = this.$root.find(Selector.BLOCK_LEFT)
@@ -71,6 +74,8 @@ const Transfer = (($) => {
       this.$select = {}
       this.$select.left = this.$block.left.find('select')
       this.$select.right = this.$block.right.find('select')
+
+      this.deselectLock = false
 
       this.init()
     }
@@ -116,13 +121,19 @@ const Transfer = (($) => {
         }
 
         $(el).on('changed.bs.select', (event) => {
-          let oppositeDirection
+          if (this.deselectLock) return
+          this.deselectLock = true
 
+          let oppositeDirection
           if ($(event.target).closest(Selector.BLOCK_LEFT).length) oppositeDirection = 'right'
           else if ($(event.target).closest(Selector.BLOCK_RIGHT).length) oppositeDirection = 'left'
 
           this.$select[oppositeDirection].selectpicker('deselectAll')
           this._refreshSelect()
+
+          setTimeout(() => {
+            this.deselectLock = false
+          }, 0)
         })
       })
 
@@ -185,6 +196,36 @@ const Transfer = (($) => {
               }
             }
           })
+          break
+      }
+
+      let $scrollMenu = this.$root.find('.transfer-right .dropdown-menu.inner')
+      let currentScrollPosition = $scrollMenu.scrollTop()
+      let selectedItemsIndex = []
+
+      $selectItems.each((i, el) => {
+        let index = $(el).index()
+        selectedItemsIndex.push(index)
+      })
+
+      switch (direction) {
+        case 'up':
+          {
+            let firstIndex = xdhelper.getArrLeastItem(selectedItemsIndex)
+            let shouldScrollPosition = firstIndex * 28
+
+            if (currentScrollPosition > shouldScrollPosition) $scrollMenu.scrollTop(shouldScrollPosition)
+          }
+          break
+
+        case 'down':
+          {
+            let lastIndex = xdhelper.getArrGreatestItem(selectedItemsIndex)
+            let shouldScrollPosition = lastIndex * 28 - 12 * 28 + 28
+
+            if (shouldScrollPosition < 0) shouldScrollPosition = 0
+            if (currentScrollPosition < shouldScrollPosition) $scrollMenu.scrollTop(shouldScrollPosition)
+          }
           break
       }
 
