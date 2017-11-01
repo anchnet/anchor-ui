@@ -160,7 +160,7 @@ const Table =(($) => {
       })
 
       this.$root.find(modalSelector).on('hidden.bs.modal', () => {
-        this.$root.find(Selector.DATA_TRANSFER).transfer('deselectAll')
+        this.$root.find(Selector.DATA_TRANSFER).transfer('reset')
       })
 
       this.$thead.find('th[sortable]').on('click', (event) => {
