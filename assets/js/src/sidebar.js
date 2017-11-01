@@ -225,6 +225,7 @@ const Sidebar = (($) => {
           $(Selector.APP_MAIN)
             .addClass('no-select')
             .find('> .component-mask').css({display: 'block'})
+          $('html, body').addClass('cursor-ew-resize')
         }
       })
 
@@ -238,6 +239,7 @@ const Sidebar = (($) => {
           $(Selector.APP_MAIN)
             .removeClass('no-select')
             .find('> .component-mask').css({display: 'none'})
+          $('html, body').removeClass('cursor-ew-resize')
 
           let storageKey = 'sidebarWidth'
 

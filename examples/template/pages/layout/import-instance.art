@@ -247,5 +247,20 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label for="dd" class="sr-only">Time Pick</label>
+
+                    <input type="text" id="dd" name="dd" data-format="MM/DD/YYYY" placeholder="date"  class="form-control"/>
+
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <input type='button' id='clear' Value='Clear Date'>
 
 </div>
