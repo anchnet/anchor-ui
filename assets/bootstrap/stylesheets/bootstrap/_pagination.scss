@@ -87,3 +87,105 @@
 .pagination-sm {
   @include pagination-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }
+
+
+.anchor-pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: $line-height-computed 0;
+  border-radius: $border-radius-base;
+  font-size: 0;
+  .pagination-number {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    .pagination-operate {
+      display: inline-block;
+      background-image: url('../img/icons/select-number.svg');
+      width: 22px;
+      height: 22px;
+      vertical-align: middle;
+      cursor: pointer;
+      &.prev {
+        background-position: 0 -81px;
+      }
+      &.next {
+        background-position: -27px -81px;
+      }
+      &.active, &:hover {
+        &.prev {
+          background-position: 0 -27px;
+        }
+        &.next {
+          background-position: -27px -27px;
+        }
+      }
+      &.disabled {
+        cursor: not-allowed;
+        &.prev {
+          background-position: 0 -54px;
+        }
+        &.next {
+          background-position: -27px -54px;
+        }
+      }
+    }
+    .pagination-list {
+      display: inline-block;
+      height: 22px;
+      padding-left: 0;
+      cursor: pointer;
+      margin-bottom: 0;
+      vertical-align: middle;
+      > li {
+        display: inline; // Remove list-style and block-level defaults
+        > a,
+        > span {
+          position: relative;
+          float: left; // Collapse white-space
+          padding: 0 6px;
+          height: 22px;
+          line-height: 22px;
+          text-decoration: none;
+          color: #4B556A;
+        }
+      }
+      > li > a,
+      > li > span {
+        &:hover,
+        &:focus {
+          z-index: 2;
+          color: $pagination-color;
+        }
+      }
+
+      > .active > a,
+      > .active > span {
+        &,
+        &:hover,
+        &:focus {
+          z-index: 3;
+          color: $pagination-color;
+          cursor: default;
+        }
+      }
+    }
+  }
+  .pagination-select {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    font-size: 12px;
+    .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+      font-size: 12px;
+    }
+    > span {
+      margin-left: 10px;
+    }
+    .btn {
+      line-height: 20px;
+      height: 22px;
+      padding: 0 8px;
+    }
+  }
+}
