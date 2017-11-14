@@ -199,3 +199,172 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
+<h3 id="pagination">分页</h3>
+<div class="bs-example" data-example-id="pagination">
+    <div>
+        <div>page<=10：</div>
+        <div class="anchor-pagination">
+            <div class="pagination-number">
+                <span class="pagination-operate prev"></span>
+                <ul class="pagination-list">
+                    <li><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li class="active"><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li><span>6</span></li>
+                    <li><span>7</span></li>
+                    <li><span>8</span></li>
+                    <li><span>9</span></li>
+                    <li><span>10</span></li>
+                </ul>
+                <span class="pagination-operate next"></span>
+            </div>
+            <div class="pagination-select">
+                <select class="selectpicker" data-width="90px">
+                    <option>10条/页</option>
+                    <option>50条/页</option>
+                    <option>100条/页</option>
+                </select>
+                <span>共 100 条</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>选中第1页：</div>
+        <div class="anchor-pagination">
+            <div class="pagination-number">
+                <ul class="pagination-list">
+                    <li class="active"><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li><span>6</span></li>
+                    <li><span>7</span></li>
+                    <li><span>8</span></li>
+                    <li><span>9</span></li>
+                    <li><span>10</span></li>
+                </ul>
+                <span class="pagination-operate next"></span>
+            </div>
+            <div class="pagination-select">
+                <select class="selectpicker" data-width="90px">
+                    <option>10条/页</option>
+                    <option>50条/页</option>
+                    <option>100条/页</option>
+                </select>
+                <span>共 100 条</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>选中前5页：</div>
+        <div class="anchor-pagination">
+            <div class="pagination-number">
+                <span class="pagination-operate prev"></span>
+                <ul class="pagination-list">
+                    <li><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li class="active"><span>5</span></li>
+                    <li><span>...</span></li>
+                    <li><span>35</span></li>
+                </ul>
+                <span class="pagination-operate next"></span>
+            </div>
+            <div class="pagination-select">
+                <select class="selectpicker" data-width="90px">
+                    <option>10条/页</option>
+                    <option>50条/页</option>
+                    <option>100条/页</option>
+                </select>
+                <span>共 100 条</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>选中后5页：</div>
+        <div class="anchor-pagination">
+            <div class="pagination-number">
+                <span class="pagination-operate prev"></span>
+                <ul class="pagination-list">
+                    <li><span>1</span></li>
+                    <li><span>...</span></li>
+                    <li><span>31</span></li>
+                    <li><span>32</span></li>
+                    <li class="active"><span>33</span></li>
+                    <li><span>34</span></li>
+                    <li><span>35</span></li>
+                </ul>
+                <span class="pagination-operate next"></span>
+            </div>
+            <div class="pagination-select">
+                <select class="selectpicker" data-width="90px">
+                    <option>10条/页</option>
+                    <option>50条/页</option>
+                    <option>100条/页</option>
+                </select>
+                <span>共 100 条</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>选中最后页：</div>
+        <div class="anchor-pagination">
+            <div class="pagination-number">
+                <span class="pagination-operate prev"></span>
+                <ul class="pagination-list">
+                    <li><span>1</span></li>
+                    <li><span>...</span></li>
+                    <li><span>31</span></li>
+                    <li><span>32</span></li>
+                    <li><span>33</span></li>
+                    <li><span>34</span></li>
+                    <li class="active"><span>35</span></li>
+                </ul>
+            </div>
+            <div class="pagination-select">
+                <select class="selectpicker" data-width="90px">
+                    <option>10条/页</option>
+                    <option>50条/页</option>
+                    <option>100条/页</option>
+                </select>
+                <span>共 100 条</span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>选中中间页：</div>
+        <div class="anchor-pagination">
+            <div class="pagination-number">
+                <span class="pagination-operate prev"></span>
+                <ul class="pagination-list">
+                    <li><span>1</span></li>
+                    <li><span>...</span></li>
+                    <li><span>31</span></li>
+                    <li><span>32</span></li>
+                    <li class="active"><span>33</span></li>
+                    <li><span>34</span></li>
+                    <li><span>35</span></li>
+                    <li><span>...</span></li>
+                    <li><span>40</span></li>
+                </ul>
+                <span class="pagination-operate next"></span>
+            </div>
+            <div class="pagination-select">
+                <select class="selectpicker" data-width="90px">
+                    <option>10条/页</option>
+                    <option>50条/页</option>
+                    <option>100条/页</option>
+                </select>
+                <span>共 100 条</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<figure class="highlight"><pre><code></code></pre></figure>
+

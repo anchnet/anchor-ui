@@ -92,8 +92,11 @@
 .table-bottom {
   height: 32px;
   line-height: 32px;
-  .pagination {
+  .pagination, .anchor-pagination {
     margin: 0;
     float: right;
+  }
+  .anchor-pagination {
+    margin-top: 5px;
   }
 }
