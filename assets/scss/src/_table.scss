@@ -20,6 +20,17 @@
     }
   }
 
+  th {
+    &[sortable] {
+      cursor: pointer;
+
+      .glyphicon {
+        margin-left: 5px;
+        color: $brand-primary;
+      }
+    }
+  }
+
   .first-column {
     width: 36px;
   }
@@ -81,8 +92,11 @@
 .table-bottom {
   height: 32px;
   line-height: 32px;
-  .pagination {
+  .pagination, .anchor-pagination {
     margin: 0;
     float: right;
+  }
+  .anchor-pagination {
+    margin-top: 5px;
   }
 }

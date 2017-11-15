@@ -5,11 +5,14 @@
 .color-tips {color: #89909a;}
 .color-border {color: #d4d4d4;}
 //状态颜色
-.color-success {color: #10C935}
-.color-abnormal {color: #FE4D26;}
-.color-execution {color: #1C91EC;}
-.color-waiting {color: #FFA400;}
-.color-suspend {color: #89909A;}
+.color-success {color: #10C935;}
+.color-running {color: #1C91EC;}
+.color-wait {color: #FFA400;}
+.color-abnormal {color: #E2003B;}
+.color-aborted {color: #89909A;}
+.color-forbidden {color: #15D3E8;}
+.color-timeout {color: #FE4D29;}
+
 
 /* 单行显示 */
 .single-line {
@@ -437,6 +440,7 @@
 .cd {cursor: default;}
 .cm {cursor: move;}
 .ct {cursor: text;}
+.cursor-ew-resize {cursor: ew-resize;}
 
 /* 禁止用户选择 */
 .no-select {user-select: none;}
