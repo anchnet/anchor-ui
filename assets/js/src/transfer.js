@@ -147,7 +147,9 @@ const Transfer = (($) => {
       $(document).on('click', (event) => {
         if ($(event.target).closest('.transfer-btns').length) return
 
-        this.$select.left.add(this.$select.right).selectpicker('deselectAll')
+        setTimeout(() => {
+          this.deselectAll()
+        }, 100)
       })
 
       this._refreshSelect()
