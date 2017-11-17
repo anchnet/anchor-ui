@@ -160,6 +160,13 @@
 
     <i class="iconfont icon-close-password"></i>
     <i class="iconfont icon-display-password"></i>
+    <i class="iconfont icon-create-schedule"></i>
+    <i class="iconfont icon-create-ci"></i>
+    <i class="iconfont icon-command"></i>
+    <i class="iconfont icon-ci-list"></i>
+    <i class="iconfont icon-cloudformation1"></i>
+    <i class="iconfont icon-schedule"></i>
+    <i class="iconfont icon-script"></i>
 
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
