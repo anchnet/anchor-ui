@@ -18,7 +18,8 @@ const Transfer = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    SELECT_WIDTH: 280
+    clickDeselect: true,
+    selectWidth: 280
   }
 
   const Event = {
@@ -119,7 +120,7 @@ const Transfer = (($) => {
       this.$select.left.add(this.$select.right).each((i, el) => {
         $(el)
           .addClass('selectpicker')
-          .attr({'data-width': `${this._getConfig().SELECT_WIDTH}px`})
+          .attr({'data-width': `${this._config.selectWidth}px`})
 
         let maxOptions = $(el).data('maxOptions')
 
@@ -146,8 +147,11 @@ const Transfer = (($) => {
 
       $(document).on('click', (event) => {
         if ($(event.target).closest('.transfer-btns').length) return
-
-        this.$select.left.add(this.$select.right).selectpicker('deselectAll')
+        if (this._config.clickDeselect) {
+          setTimeout(() => {
+            this.deselectAll()
+          }, 100)
+        }
       })
 
       this._refreshSelect()
