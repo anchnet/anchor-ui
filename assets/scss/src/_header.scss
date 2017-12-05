@@ -39,6 +39,9 @@ $min-width: 1200px - 240px;
         &.icon-help {
           background-position: -72px -25px;
         }
+        &.icon-smarteye {
+          background-position: -96px -25px;
+        }
       }
     }
     .header-icon {
@@ -67,6 +70,11 @@ $min-width: 1200px - 240px;
         width: 14px;
         height: 14px;
         background-position: -72px -2px;
+      }
+      &.icon-smarteye {
+        width: 16px;
+        height: 14px;
+        background-position: -96px -2px;
       }
     }
   }
