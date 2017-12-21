@@ -33,6 +33,15 @@
   > p + p {
     margin-top: 5px;
   }
+
+  .close {
+    color: #FFFFFF;
+    opacity: .7;
+    &:hover {
+      color: #FFFFFF;
+      opacity: 1;
+    }
+  }
 }
 
 // Dismissible alerts
@@ -59,19 +68,24 @@
 .alert-success {
   //@include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
   @include alert-variant($alert-success, $alert-success, #FFFFFF);
+  box-shadow: 0 4px 6px 0 rgba(16,201,83,0.24);
 }
 
 .alert-info {
   //@include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
   @include alert-variant($alert-info, $alert-info, #FFFFFF);
+  box-shadow: 0 4px 6px 0 rgba(0,142,242,0.24);
 }
 
 .alert-warning {
   //@include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
   @include alert-variant($alert-warning, $alert-warning, #FFFFFF);
+  box-shadow: 0 4px 6px 0 rgba(0,142,242,0.2);
+
 }
 
 .alert-danger {
   //@include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
   @include alert-variant($alert-danger, $alert-danger, #FFFFFF);
+  box-shadow: 0 4px 6px 0 rgba(254,77,38,0.24);
 }
