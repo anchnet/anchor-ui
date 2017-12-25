@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import '../bootstrap/javascripts/bootstrap'
 import '../libs/bootstrap-select/bootstrap-select'
 import '../libs/bootstrap-tagsinput/bootstrap-tagsinput'
@@ -11,7 +13,7 @@ import './src/table'
 
 import utils from './src/utils'
 
-!function ($) {
+! function ($) {
   $.fn.reverse = [].reverse
 
   $.extend({
