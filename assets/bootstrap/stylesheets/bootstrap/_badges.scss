@@ -89,6 +89,10 @@
     color: #fff;
     background-color: #343a40;
   }
+  &.badge-base {
+    color: #fff;
+    background-color: #4B556A;
+  }
 }
 
 // Hover state, but only for links
@@ -100,3 +104,4 @@ a.badge {
     cursor: pointer;
   }
 }
+
