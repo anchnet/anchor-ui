@@ -39,12 +39,21 @@
       line-height: 12px;
     }
   }
+  &.progress-danger {
+    background-color: rgba(217, 83, 79, 0.15);
+    height: 12px;
+    border-radius: 0;
+    .progress-bar {
+      background-color: $progress-bar-danger-bg;
+      line-height: 12px;
+    }
+  }
 }
 
 // Bar of progress
 .progress-bar {
   float: left;
-  width: 0%;
+  width: 0;
   height: 100%;
   font-size: $font-size-small;
   line-height: $line-height-computed;
