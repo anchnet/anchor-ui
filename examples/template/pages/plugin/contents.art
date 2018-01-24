@@ -10,4 +10,5 @@
     {{include './contents/panel.art'}}
     {{include './contents/step.art'}}
     {{include './contents/sortable.art'}}
+    {{include './contents/slider.art'}}
 </div>

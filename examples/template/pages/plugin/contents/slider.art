@@ -1,0 +1,28 @@
+<h2 id="slider" class="page-header">滑块</h2>
+
+<h3 id="slider">实例</h3>
+<div class="bs-example" data-example-id="slider">
+    <div class="slider-component" data-toggle="slider">
+        <div class="rc-slider duration-slider">
+            <div class="custom-slide-handle" style="left: 0;">
+                <span class="stripes-wrapper">
+                    <span class="stripe"></span>
+                    <span class="stripe"></span>
+                </span>
+            </div>
+            <div class="rc-slider-mark">
+                <span class="rc-slider-mark-text tl active">
+                    <span class="low">低</span>
+                </span>
+                <span class="rc-slider-mark-text tc">
+                    <span class="middle">中</span>
+                </span>
+                <span class="rc-slider-mark-text tr">
+                    <span class="high">高</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<figure class="highlight"><pre><code></code></pre></figure>

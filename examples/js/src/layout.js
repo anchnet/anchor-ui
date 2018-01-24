@@ -28,23 +28,3 @@ $('#importInstanceCode').html(utils.chain('#importInstance', 'getHtml', 'parseHt
 
 /* 代码高亮初始化 */
 utils.highlightCode()
-
-$(function () {
-  _public.smoothScroll($('.app-header'), $('.app-body'))
-
-  var myTextarea = document.getElementById('editor');
-  var CodeMirrorEditor = CodeMirror.fromTextArea(myTextarea, {
-    lineWrapping: true,         //是否换行
-    foldGutter: true,           //是否折叠
-    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"], //添加行号栏，折叠栏
-    lineNumbers: true,          //是否显示行号
-    matchBrackets: true,
-    autoCloseBrackets: true,
-    mode: {name: "javascript", json: true},
-    // mode: "application/ld+json",
-    lineWrapping: true,
-    indentWithTabs: true,
-    readOnly: true,
-  });
-
-})
