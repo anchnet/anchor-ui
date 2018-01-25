@@ -15,7 +15,9 @@ const Slider =(($) => {
   const DATA_API_KEY = '.data-api'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {}
+  const Default = {
+    activeKey: 0
+  }
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
@@ -41,6 +43,7 @@ const Slider =(($) => {
     constructor(root, config) {
       this._config = this._getConfig(config)
       this.$root = $(root)
+      this.activeKey = 0
       this.init()
     }
     // getters
@@ -56,14 +59,25 @@ const Slider =(($) => {
     // public
     init () {
       this.$root.find(Selector.SIDER_HANDLE)
+      this.changeSlider(null, 'init', this._config.activeKey)
     }
 
-    changeSlider (clientX, action = 'mousemove') {
+    getActiveKey() {
+      $(Selector.RC_SLIDER_MARK_TEXT).each(function(index) {
+        let $this = $(this)
+        if($(this).hasClass('active')) this.activeKey = index
+      })
+      console.log(this.activeKey)
+      return this.activeKey
+    }
+
+    changeSlider (clientX, action = 'mousemove', index) {
       let siderHandle = $(Selector.SIDER_HANDLE)
       let slider = $(Selector.DATA_SLIDER),
           left = slider.offset().left,
           width = slider.width(),
-          activeIndex
+          perWidth = width/($(Selector.RC_SLIDER_MARK_TEXT).length - 1)
+      this.activeKey =  index ? index : Math.round((clientX - left)/perWidth)
       siderHandle.css('left', `${clientX - left}px`)
       if(clientX - left < 0) {
         siderHandle.css('left', 0)
@@ -71,11 +85,9 @@ const Slider =(($) => {
       if(clientX - left > width) {
         siderHandle.css('left', width)
       }
-      let perWidth = width/($(Selector.RC_SLIDER_MARK_TEXT).length - 1)
-      activeIndex = Math.round((clientX - left)/perWidth)
       if(action !== 'mousemove') {
-        siderHandle.css('left', `${activeIndex*perWidth}px`)
-        $(Selector.RC_SLIDER_MARK_TEXT).removeClass('active').eq(activeIndex).addClass('active')
+        siderHandle.css('left', `${this.activeKey*perWidth}px`)
+        $(Selector.RC_SLIDER_MARK_TEXT).removeClass('active').eq(this.activeKey).addClass('active')
       }
     }
 
@@ -144,6 +156,7 @@ const Slider =(($) => {
 
       $(target).data(DATA_KEY).toggleSlider(event)
     }
+
     static  _siderHandleClickHandler (event) {
       let target = $(event.target).closest(Selector.DATA_SLIDER)[0]
       if (!$(target).length) return

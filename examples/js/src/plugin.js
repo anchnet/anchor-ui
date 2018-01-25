@@ -99,4 +99,9 @@ $(document).ready(function () {
       chosenClass: 'anchor-chosen-ghost',
     })
   }
+
+  {
+    $('[data-toggle="slider"]').slider({'activeKey': 1})
+    $('[data-toggle="slider"]').slider('getActiveKey')
+  }
 })

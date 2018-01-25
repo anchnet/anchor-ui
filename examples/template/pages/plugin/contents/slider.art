@@ -26,3 +26,12 @@
 </div>
 
 <figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="slider-methods">Methods</h3>
+<p>初始化</p>
+<h4><code> $('[data-toggle="slider"]').slider({'activeKey': 1})</code></h4>
+<p>参数activeKey: 当前初始化的active索引（默认是0）</p>
+
+<p>获取当前选中的索引值</p>
+<h4><code>$('[data-toggle="slider"]').slider('getActiveKey')</code></h4>
+
