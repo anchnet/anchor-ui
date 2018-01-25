@@ -1,5 +1,6 @@
 .slider-component {
   display: inline-block;
+  margin-bottom: 25px;
   .rc-slider {
     display: inline-block;
     position: relative;
@@ -16,7 +17,6 @@
       cursor: pointer;
       background-color: #FFFFFF;
       box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
-      transform: translateX(-50%);
       .stripes-wrapper {
         position: absolute;
         top: 0;
@@ -43,25 +43,33 @@
       border-radius: 0;
     }
     .rc-slider-mark {
-      top: 18px;
-      font-size: 0;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      font-size: 12px;
+      z-index: 3;
+      top: 5px;
       .rc-slider-mark-text {
-        transform: translateY(15px);
+        transform: translate(6px,10px);
         color: #999;
         font-size: 12px;
         white-space: nowrap;
         display: inline-block;
-        width: 33.3333333%;
         user-select: none;
+        position: absolute;
+        text-align: center;
         &.active {
-          .low{
-              color: #10C953;
+          .text-0 {
+            color: #10C953;
           }
-          .middle {
-              color: #FFA400;
+          .text-1 {
+            color: #B1AF3C;
           }
-          .high {
-              color: #FE4D26;
+          .text-2 {
+            color: #FF8731;
+          }
+          .text-3 {
+            color: #FE4D26;
           }
         }
       }

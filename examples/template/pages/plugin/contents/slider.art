@@ -11,18 +11,27 @@
                 </span>
             </div>
             <div class="rc-slider-mark">
-                <span class="rc-slider-mark-text tl active">
-                    <span class="low">低</span>
+                <span class="rc-slider-mark-text active">
+                    <span class="text-0">低</span>
                 </span>
-                <span class="rc-slider-mark-text tc">
-                    <span class="middle">中</span>
+                <span class="rc-slider-mark-text">
+                    <span class="text-1">中</span>
                 </span>
-                <span class="rc-slider-mark-text tr">
-                    <span class="high">高</span>
+                <span class="rc-slider-mark-text">
+                    <span class="text-2">高</span>
+                </span>
+                <span class="rc-slider-mark-text">
+                    <span class="text-3">严重</span>
                 </span>
             </div>
         </div>
     </div>
+    <script  type="text/javascript">
+        //获取点击后的索引值
+        $('[data-toggle="slider"]').on('change.anchor.slider', function(e, key){
+          console.log(key)
+        })
+    </script>
 </div>
 
 <figure class="highlight"><pre><code></code></pre></figure>
@@ -34,4 +43,13 @@
 
 <p>获取当前选中的索引值</p>
 <h4><code>$('[data-toggle="slider"]').slider('getActiveKey')</code></h4>
+
+<p>禁止事件</p>
+<h4><code>$('[data-toggle="slider"]').slider('disableToggle')</code></h4>
+
+<p>禁止事件</p>
+<h4><code>$('[data-toggle="slider"]').slider('ableToggle')</code></h4>
+
+
+
 

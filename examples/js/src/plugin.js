@@ -103,5 +103,9 @@ $(document).ready(function () {
   {
     $('[data-toggle="slider"]').slider({'activeKey': 1})
     $('[data-toggle="slider"]').slider('getActiveKey')
+    // $('[data-toggle="slider"]').slider('disableToggle')
+    $('[data-toggle="slider"]').on('change.anchor.slider', function(e, key){
+      console.log(key)
+    })
   }
 })
