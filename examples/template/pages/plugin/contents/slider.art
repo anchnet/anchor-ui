@@ -4,7 +4,7 @@
 <div class="bs-example" data-example-id="slider">
     <div class="slider-component" data-toggle="slider">
         <div class="rc-slider">
-            <div class="custom-slide-handle" style="left: 0;">
+            <div class="custom-slide-handle">
                 <span class="stripes-wrapper">
                     <span class="stripe"></span>
                     <span class="stripe"></span>
