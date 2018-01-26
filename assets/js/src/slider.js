@@ -44,7 +44,6 @@ const Slider =(($) => {
     constructor(root, config) {
       this._config = this._getConfig(config)
       this.$root = $(root)
-      this.activeKey = 0
       this.init()
     }
     // getters
@@ -63,13 +62,15 @@ const Slider =(($) => {
       let sliderWidth = $(Selector.DATA_SLIDER).width(),
           handleWidth = $(Selector.SIDER_HANDLE).width(),
           allWidth = (sliderWidth-handleWidth)/sliderWidth,
-          width = allWidth*100/(count-1)
+          width = allWidth*100/(count-1),
+          currentLeft
       $(Selector.RC_SLIDER_MARK_TEXT).css('width', `${width}%`)
       $(Selector.RC_SLIDER_MARK_TEXT).each(function(index) {
         let $this = $(this)
         $this.css({'left': `${width*index}%`, 'margin-left': `-${width/2}%`})
       })
-      this.changeSlider(null, 'init', this._config.activeKey)
+      currentLeft = $(Selector.RC_SLIDER_MARK_TEXT).eq(this._config.activeKey).position().left
+      this.changeSliderTextActive (currentLeft, this._config.activeKey)
     }
 
     getActiveKey() {
@@ -92,22 +93,25 @@ const Slider =(($) => {
         .on(Event.MOUSE_DOWN_DATA_API, Selector.SIDER_HANDLE, Slider._siderHandleMouseDownHandler)
         .on(Event.CLICK_DATA_API, Selector.RC_SLIDER, Slider._siderHandleClickHandler)
     }
+
+    changeSliderTextActive (currentLeft, activeKey) {
+      $(Selector.SIDER_HANDLE).css('left', `${currentLeft - 6}px`)
+      $(Selector.RC_SLIDER_MARK_TEXT).removeClass('active').eq(activeKey).addClass('active')
+    }
+
     changeSlider (clientX, action = 'mousemove', index) {
-      let siderHandle = $(Selector.SIDER_HANDLE)
-      let slider = $(Selector.DATA_SLIDER),
-          left = slider.offset().left,
-          width = slider.width(),
+      let left = $(Selector.DATA_SLIDER).offset().left,
+          width = $(Selector.DATA_SLIDER).width(),
           perWidth = width/($(Selector.RC_SLIDER_MARK_TEXT).length - 1),
           activeKey =  index ? index : Math.round((clientX - left)/perWidth),
           currentLeft = $(Selector.RC_SLIDER_MARK_TEXT).eq(activeKey).position().left
       if(clientX - left < 0) {
-        siderHandle.css('left', 0)
+        $(Selector.SIDER_HANDLE).css('left', 0)
       }
       if(clientX - left > width) {
-        siderHandle.css('left', width)
+        $(Selector.SIDER_HANDLE).css('left', width)
       }
-      siderHandle.css('left', `${currentLeft - 6}px`)
-      $(Selector.RC_SLIDER_MARK_TEXT).removeClass('active').eq(activeKey).addClass('active')
+      this.changeSliderTextActive (currentLeft, activeKey)
       this.$root.trigger(Event.CHANGE_DATA_API, {activeKey})
     }
 
