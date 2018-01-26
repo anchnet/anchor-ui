@@ -100,18 +100,15 @@ const Slider =(($) => {
           perWidth = width/($(Selector.RC_SLIDER_MARK_TEXT).length - 1),
           activeKey =  index ? index : Math.round((clientX - left)/perWidth),
           currentLeft = $(Selector.RC_SLIDER_MARK_TEXT).eq(activeKey).position().left
-      siderHandle.css('left', `${clientX - left}px`)
       if(clientX - left < 0) {
         siderHandle.css('left', 0)
       }
       if(clientX - left > width) {
         siderHandle.css('left', width)
       }
-      if(action !== 'mousemove') {
-        siderHandle.css('left', `${currentLeft - 6}px`)
-        $(Selector.RC_SLIDER_MARK_TEXT).removeClass('active').eq(activeKey).addClass('active')
-        this.$root.trigger(Event.CHANGE_DATA_API, {activeKey})
-      }
+      siderHandle.css('left', `${currentLeft - 6}px`)
+      $(Selector.RC_SLIDER_MARK_TEXT).removeClass('active').eq(activeKey).addClass('active')
+      this.$root.trigger(Event.CHANGE_DATA_API, {activeKey})
     }
 
     toggleSlider (event) {

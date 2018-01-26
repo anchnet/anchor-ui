@@ -3,7 +3,7 @@
 <h3 id="slider">实例</h3>
 <div class="bs-example" data-example-id="slider">
     <div class="slider-component" data-toggle="slider">
-        <div class="rc-slider duration-slider">
+        <div class="rc-slider">
             <div class="custom-slide-handle" style="left: 0;">
                 <span class="stripes-wrapper">
                     <span class="stripe"></span>
@@ -44,10 +44,10 @@
 <p>获取当前选中的索引值</p>
 <h4><code>$('[data-toggle="slider"]').slider('getActiveKey')</code></h4>
 
-<p>禁止事件</p>
+<p>禁止拖动点击事件</p>
 <h4><code>$('[data-toggle="slider"]').slider('disableToggle')</code></h4>
 
-<p>禁止事件</p>
+<p>绑定拖动点击事件</p>
 <h4><code>$('[data-toggle="slider"]').slider('ableToggle')</code></h4>
 
 
