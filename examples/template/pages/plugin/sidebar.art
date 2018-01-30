@@ -40,6 +40,7 @@
                 <!--<li><a href="#button-methods">方法</a></li>-->
             <!--</ul>-->
         </li>
+        <li><a href="#label">标签</a></li>
         <li><a href="#tablefilter">表格过滤器</a></li>
         <li><a href="#transfer">穿梭框</a></li>
         <li><a href="#table">表格</a></li>
