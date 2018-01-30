@@ -138,6 +138,20 @@
       &:last-child {
         border-color: #FFFFFF;
       }
+      &:first-child {
+        &:before {
+          background-color: #ffffff;
+        }
+      }
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        background-color: #E7E8E9;
+        height: 5px;
+        position: absolute;
+        left: -1px;
+      }
       .event-title {
         font-size: 14px;
       }
@@ -148,7 +162,7 @@
       .state-dot {
         position: absolute;
         left: -5px;
-        top: 0;
+        top: 5px;
         display: inline-block;
         width: 9px;
         height: 9px;
