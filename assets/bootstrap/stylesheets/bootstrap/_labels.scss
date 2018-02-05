@@ -4,9 +4,9 @@
 
 .label {
   display: inline;
-  padding: .2em .6em .3em;
+  padding: .25em .6em;
   font-size: 75%;
-  font-weight: bold;
+  //font-weight: bold;
   line-height: 1;
   color: $label-color;
   text-align: center;
@@ -63,4 +63,29 @@ a.label {
 
 .label-danger {
   @include label-variant($label-danger-bg);
+}
+
+.anchor-default {
+  @include label-variant($brand-primary);
+}
+.anchor-danger {
+  @include label-variant($alert-danger);
+}
+.anchor-warning {
+  @include label-variant($alert-warning);
+}
+.anchor-success {
+  @include label-variant($alert-success);
+}
+.anchor-info {
+  @include label-variant($alert-info);
+}
+.anchor-c1e6ff {
+  @include label-variant(#c1e6ff);
+  color: $alert-info;
+}
+
+.anchor-ebfaf0 {
+  @include label-variant(#EBFAF0);
+  color: $alert-success;
 }

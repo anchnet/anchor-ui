@@ -1,0 +1,14 @@
+<h2 id="label" class="page-header">标签</h2>
+
+<h3 id="label-example">实例</h3>
+<div class="bs-example" data-example-id="label-example">
+    <span class="label anchor-default">Default</span>
+    <span class="label anchor-success">Success</span>
+    <span class="label anchor-info">Info</span>
+    <span class="label anchor-warning">Warning</span>
+    <span class="label anchor-danger">Danger</span>
+    <span class="label anchor-c1e6ff">C1E6FF</span>
+    <span class="label anchor-ebfaf0">EBFAF0</span>
+
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>

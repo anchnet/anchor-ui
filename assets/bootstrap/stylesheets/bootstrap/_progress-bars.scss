@@ -30,12 +30,30 @@
   background-color: $progress-bg;
   border-radius: $progress-border-radius;
   @include box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
+  &.progress-base {
+    background-color: rgba(16,201,83,0.15);
+    height: 12px;
+    border-radius: 0;
+    .progress-bar {
+      background-color: $alert-success;
+      line-height: 12px;
+    }
+  }
+  &.progress-danger {
+    background-color: rgba(217, 83, 79, 0.15);
+    height: 12px;
+    border-radius: 0;
+    .progress-bar {
+      background-color: $progress-bar-danger-bg;
+      line-height: 12px;
+    }
+  }
 }
 
 // Bar of progress
 .progress-bar {
   float: left;
-  width: 0%;
+  width: 0;
   height: 100%;
   font-size: $font-size-small;
   line-height: $line-height-computed;

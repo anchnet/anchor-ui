@@ -38,7 +38,7 @@
     <p>
         <span>功能样式类：</span>
 
-        <button type="button" class="btn btn-success">成功提示</button>
+        <button type="button" class="btn btn-success"><span class="iconfont icon-add mr5"></span>成功提示</button>
 
         <button type="button" class="btn btn-info">一般提示</button>
 
