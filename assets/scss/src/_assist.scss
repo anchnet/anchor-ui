@@ -104,6 +104,12 @@
   &.label-w200 {
     @include label-width(200px);
   }
+  &.label-w210 {
+    @include label-width(210px);
+  }
+  &.label-w220 {
+    @include label-width(220px);
+  }
   &.label-w230 {
     @include label-width(230px);
   }
