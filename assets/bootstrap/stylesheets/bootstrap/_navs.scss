@@ -117,6 +117,16 @@
   > li {
     float: left;
     margin-bottom: -1px;
+    &.active{
+      &:not(:first-child) {
+        a {
+          border-left-color: transparent;
+          &:hover {
+            border-left-color: transparent;
+          }
+        }
+      }
+    }
 
     > a, > .nav-tabs-primary-item {
       color: $brand-base;
