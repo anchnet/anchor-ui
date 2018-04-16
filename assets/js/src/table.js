@@ -15,7 +15,9 @@ const Table =(($) => {
   const DATA_API_KEY = '.data-api'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {}
+  const Default = {
+    showConfigIcon: true
+  }
 
   const Event = {
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
@@ -41,7 +43,7 @@ const Table =(($) => {
     let templates = {
       TABLE_CONFIG: `
         <th class="first-column" data-renderer="plugin">
-          <span class="table-config glyphicon glyphicon-cog" data-toggle="modal" data-target="#${options.modalId}"></span>
+          <span class="table-config glyphicon glyphicon-cog" style="display: ${options.showConfigIcon ? 'inline' : 'none'}" data-toggle="modal" data-target="#${options.modalId}"></span>
         </th>
       `,
       TABLE_ROW_CHECKBOX: `
@@ -141,7 +143,10 @@ const Table =(($) => {
 
       this.$root.addClass(Table._getNameFromClass(Selector.TABLE_WRAPPER))
       this.$table.wrap('<div class="table-element-wrapper"></div>')
-      this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {modalId}))
+      this.$thead.find('tr').prepend(Template('TABLE_CONFIG', {
+        modalId,
+        showConfigIcon: this._config.showConfigIcon,
+      }))
       this.$tbody.find('tr').prepend(Template('TABLE_ROW_CHECKBOX'))
       this.$bottom.prepend(Template('TABLE_ALL_CHECKBOX'))
       this.$root.append(Template('TABLE_CONFIG_MODAL', {
