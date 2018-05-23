@@ -55,6 +55,44 @@
   .nav-pills > li > a > & {
     margin-left: 3px;
   }
+
+  // 添加badge样式
+  &.badge-primary {
+    color: #fff;
+    background-color: #007bff;
+  }
+  &.badge-secondary {
+    color: #fff;
+    background-color: #868e96;
+  }
+  &.badge-success {
+    color: #fff;
+    background-color: $alert-success;
+  }
+  &.badge-danger {
+    color: #fff;
+    background-color: $alert-danger;
+  }
+  &.badge-warning {
+    color: #111;
+    background-color: $alert-warning;
+  }
+  &.badge-info {
+    color: #fff;
+    background-color: $alert-info;
+  }
+  &.badge-light {
+    color: #111;
+    background-color: #f8f9fa;
+  }
+  &.badge-dark {
+    color: #fff;
+    background-color: #343a40;
+  }
+  &.badge-base {
+    color: #fff;
+    background-color: #4B556A;
+  }
 }
 
 // Hover state, but only for links
@@ -66,3 +104,4 @@ a.badge {
     cursor: pointer;
   }
 }
+

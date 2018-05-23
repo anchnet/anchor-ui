@@ -2,6 +2,7 @@
     {{include './contents/icons.art'}}
     {{include './contents/bootstrap-select.art'}}
     {{include './contents/button.art'}}
+    {{include './contents/label.art'}}
     {{include './contents/tablefilter.art'}}
     {{include './contents/transfer.art'}}
     {{include './contents/table.art'}}
@@ -10,4 +11,5 @@
     {{include './contents/panel.art'}}
     {{include './contents/step.art'}}
     {{include './contents/sortable.art'}}
+    {{include './contents/slider.art'}}
 </div>

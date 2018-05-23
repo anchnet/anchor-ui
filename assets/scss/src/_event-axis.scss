@@ -1,0 +1,191 @@
+.event-axis-component {
+  padding-top: 10px;
+  font-size: 12px;
+  padding-left: 40px;
+  &.time-prominent {
+    padding-left: 105px;
+    .event-container {
+      .event-item {
+        padding-bottom: 25px;
+      }
+    }
+  }
+  .event-container {
+    color: #999999;
+    border-left: 1px solid #E7E8E9;
+    .event-item {
+      margin-left: 43px;
+      position: relative;
+      background: #FFFFFF;
+      box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.10);
+      border-radius: 2px;
+      margin-bottom: 25px;
+      line-height: 20px;
+      margin-right: 10px;
+      &:last-child{
+        &:after {
+          content: "";
+          display: inline-block;
+          width: 2px;
+          height: 100%;
+          background-color: #FFFFFF;
+          position: absolute;
+          left: -45px;
+          top: 16px;
+        }
+      }
+      &:nth-child(1) {
+        .state-dot {
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 2px;
+            background-color: #ffffff;
+            position: absolute;
+            height: 17px;
+            top: -19px;
+            left: 7px;
+          }
+        }
+      }
+      .data-container {
+        position: absolute;
+        left: -140px;
+        top: 12px;
+        text-align: right;
+        color: #4B556A;
+      }
+      .state-dot {
+        position: absolute;
+        left: -54px;
+        top: 16px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        z-index: 10;
+        text-align: center;
+        border: 2px solid #008EF2;
+        background-color: #ffffff;
+      }
+      .event-info {
+        color: #999999;
+        padding: 15px 20px 5px;
+        position: relative;
+        cursor: pointer;
+        height: 40px;
+        line-height: 20px;
+        &:before {
+          display: block;
+          overflow: hidden;
+          position: absolute;
+          width: 0;
+          height: 0;
+          line-height: 0;
+          border-right: 15px solid #e7e8e9;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          left: -15px;
+          top: 17px;
+        }
+        &:after {
+          display: block;
+          overflow: hidden;
+          position: absolute;
+          border-right: 14px solid #FFFFFF;
+          border-top: 9px solid transparent;
+          border-bottom: 9px solid transparent;
+          left: -14px;
+          top: 18px;
+        }
+      }
+      .info-content {
+        color: #4B556A;
+        display: inline-block;
+        max-width: calc(100% - 60px);
+        word-break: break-all;
+        vertical-align: top;
+        i {
+          font-style: normal;
+        }
+      }
+      .event-detail {
+        border-top: 1px dashed #E7E8E9;
+        padding: 10px 0 20px;
+        margin: 0 20px;
+        .detail-title {
+          line-height: 24px;
+          color: #4B556A;
+          padding-left: 15px;
+        }
+      }
+    }
+
+  }
+}
+
+.time-base-component {
+  font-size: 12px;
+  .event-container {
+    color: #999999;
+    .event-item {
+      padding-left: 20px;
+      position: relative;
+      border-left: 1px solid #E7E8E9;
+      padding-bottom: 25px;
+      color: #4B556A;
+      line-height: 20px;
+      &:last-child {
+        border-color: #FFFFFF;
+      }
+      &:first-child {
+        &:before {
+          background-color: #ffffff;
+        }
+      }
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        background-color: #E7E8E9;
+        height: 5px;
+        position: absolute;
+        left: -1px;
+      }
+      .event-title {
+        font-size: 14px;
+      }
+      .event-time-state {
+        margin-bottom: 5px;
+        color: #999999;
+      }
+      .state-dot {
+        position: absolute;
+        left: -5px;
+        top: 5px;
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: #008EF2;
+        &.state-success {
+          background-color: #10C935;
+        }
+        &.state-failed {
+          background-color: #E2003B;
+        }
+      }
+    }
+  }
+
+  .event-info {
+    color: #999999;
+    .info-content {
+      color: #002500;
+      display: inline-block;
+      max-width: calc(100% - 60px);
+      word-break: break-all;
+      vertical-align: top;
+    }
+  }
+}

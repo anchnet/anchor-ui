@@ -1,0 +1,55 @@
+<h2 id="slider" class="page-header">滑块</h2>
+
+<h3 id="slider">实例</h3>
+<div class="bs-example" data-example-id="slider">
+    <div class="slider-component" data-toggle="slider">
+        <div class="rc-slider">
+            <div class="custom-slide-handle">
+                <span class="stripes-wrapper">
+                    <span class="stripe"></span>
+                    <span class="stripe"></span>
+                </span>
+            </div>
+            <div class="rc-slider-mark">
+                <span class="rc-slider-mark-text active">
+                    <span class="text-0">低</span>
+                </span>
+                <span class="rc-slider-mark-text">
+                    <span class="text-1">中</span>
+                </span>
+                <span class="rc-slider-mark-text">
+                    <span class="text-2">高</span>
+                </span>
+                <span class="rc-slider-mark-text">
+                    <span class="text-3">严重</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script  type="text/javascript">
+        //获取点击后的索引值
+        $('[data-toggle="slider"]').on('change.anchor.slider', function(e, key){
+          console.log(key)
+        })
+    </script>
+</div>
+
+<figure class="highlight"><pre><code></code></pre></figure>
+
+<h3 id="slider-methods">Methods</h3>
+<p>初始化</p>
+<h4><code> $('[data-toggle="slider"]').slider({'activeKey': 1})</code></h4>
+<p>参数activeKey: 当前初始化的active索引（默认是0）</p>
+
+<p>获取当前选中的索引值</p>
+<h4><code>$('[data-toggle="slider"]').slider('getActiveKey')</code></h4>
+
+<p>禁止拖动点击事件</p>
+<h4><code>$('[data-toggle="slider"]').slider('disableToggle')</code></h4>
+
+<p>绑定拖动点击事件</p>
+<h4><code>$('[data-toggle="slider"]').slider('ableToggle')</code></h4>
+
+
+
+

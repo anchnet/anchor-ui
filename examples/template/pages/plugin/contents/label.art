@@ -1,0 +1,17 @@
+<h2 id="label" class="page-header">标签</h2>
+
+<h3 id="label-example">实例</h3>
+<div class="bs-example" data-example-id="label-example">
+    <span class="label anchor-default">Default</span>
+    <span class="label anchor-success">Success</span>
+    <span class="label anchor-info">Info</span>
+    <span class="label anchor-warning">Warning</span>
+    <span class="label anchor-danger">Danger</span>
+    <span class="label anchor-c1e6ff">c1e6ff</span>
+    <span class="label anchor-ebfaf0">ebfaf0</span>
+    <span class="label anchor-c1e6ff">c1e6ff<i class="label-delete iconfont icon-msnui-close"></i></span>
+    <span class="label anchor-ebfaf0">ebfaf0<i class="label-delete iconfont icon-msnui-close"></i></span>
+    <span class="label anchor-ffe5df">ffe5df<i class="label-delete iconfont icon-msnui-close"></i></span>
+    <span class="label anchor-fff2da">fff2da<i class="label-delete iconfont icon-msnui-close"></i></span>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>

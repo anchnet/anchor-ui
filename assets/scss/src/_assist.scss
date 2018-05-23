@@ -96,13 +96,19 @@
     @include label-width(160px);
   }
   &.label-w170 {
-    @include label-width(160px);
+    @include label-width(170px);
   }
   &.label-w180 {
     @include label-width(180px);
   }
   &.label-w200 {
     @include label-width(200px);
+  }
+  &.label-w210 {
+    @include label-width(210px);
+  }
+  &.label-w220 {
+    @include label-width(220px);
   }
   &.label-w230 {
     @include label-width(230px);

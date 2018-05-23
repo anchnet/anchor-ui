@@ -1,367 +1,211 @@
 <div id="createTemplate">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="transverse-flow-steps">
-                <ul>
-                    <li>
-                        <span class="unit-step step-current">
-                            <label>创建模版</label>
-                                <span class="step-arrow">
-                                <span class="step-arrow-pre"></span>
-                                <span class="step-arrow-next"></span>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="unit-step">
-                            <label>模版数据</label>
-                            <span class="step-arrow">
-                                <span class="step-arrow-pre"></span>
-                                <span class="step-arrow-next"></span>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="unit-step">
-                            <label>启动栈</label>
-                            <span class="step-arrow">
-                                <span class="step-arrow-pre"></span>
-                                <span class="step-arrow-next"></span>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="unit-step">
-                            <label>创建成功</label>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <div class="template-content mb30">
-                <div class="color-primary f14 mb30">请选择一个模板</div>
-                <div class="layout-group label-w150">
-                    <div class="layout-label tl"><input type="radio" name="template"><span class="pl5">使用系统推荐模版：</span></div>
-                    <select class="selectpicker" data-width="400px">
-                        <option>option1</option>
-                        <option>option2</option>
-                        <option>option3</option>
-                    </select>
-                </div>
-                <div class="layout-group label-w150">
-                    <div class="layout-label tl"><input type="radio" name="template"><span class="pl5">从当前资源中抽取模版：</span></div>
-                    <button type="button" class="btn btn-primary-light disabled">抽取</button>
-                </div>
-                <div class="layout-group label-w150">
-                    <div class="layout-label tl"><input type="radio" name="template"><span class="pl5">从URL中选取：</span></div>
-                    <div>
-                        <input type="input" class="form-control vm" style="width: 400px; display: inline-block;">
-                        <button type="button" class="btn btn-primary-light disabled ml10">选取</button>
-                    </div>
-                </div>
-                <div class="layout-group label-w150">
-                    <div class="layout-label tl">
-                        <input type="radio" name="template" checked><span class="pl5">创建一个新模版</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btns-wrapper tr pt20 w-100" style="border-top: 1px solid #d8d8d8;">
-                <button type="button" class="btn btn-primary-light btn-rlg w140">下一步</button>
-                <button type="button" class="btn btn-default-primary btn-rlg w140 ml10">取消</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="transverse-flow-steps">
-                <ul>
-                    <li>
-                        <span class="unit-step step-past last">
-                            <label>创建模版</label>
-                            <span class="step-arrow">
-                                <span class="step-arrow-pre"></span>
-                                <span class="step-arrow-next"></span>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="unit-step step-current">
-                            <label>模版数据</label>
-                            <span class="step-arrow">
-                                <span class="step-arrow-pre"></span>
-                                <span class="step-arrow-next"></span>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="unit-step">
-                            <label>启动栈</label>
-                            <span class="step-arrow">
-                                <span class="step-arrow-pre"></span>
-                                <span class="step-arrow-next"></span>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="unit-step">
-                            <label>创建成功</label>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <div class="template-data mb40" >
-                <textarea id="editor" name="editor">{
-    "ROSTemplateFormatVersion": "2015-09-01",
-    "Description": "One simple ECS instance and a security group. The user only needs to specify the image ID.",
-    "Parameters": {
-    "ImageId": {
-      "Type": "String",
-      "Description": "Image Id, represents the image resource to startup one ECS instance,, <a href='#/product/cn-shenzhen/list/imageList' target='_blank'>View image resources</a>",
-      "Default": "centos_7_03_64_40G_alibase_20170710.vhd"
-    },
-    "InstanceType": {
-      "Type": "String",
-      "Description": "The instance type",
-      "AllowedValues": [
-        "ecs.s1.small",
-        "ecs.n4.small",
-        "ecs.n4.large",
-        "ecs.n4.xlarge",
-        "ecs.mn4.small",
-        "ecs.mn4.large",
-        "ecs.mn4.xlarge",
-        "ecs.n1.small",
-        "ecs.n1.medium",
-        "ecs.n1.large"
-      ],
-      "Default": "ecs.n4.large"
-    }
-  }
-}</textarea>
-            </div>
-            <div class="btns-wrapper tr pt20 w-100" style="border-top: 1px solid #d8d8d8;">
-                <button type="button" class="btn btn-primary-light btn-rlg w140">上一步</button>
-                <button type="button" class="btn btn-primary-light btn-rlg w140 ml10">下一步</button>
-                <button type="button" class="btn btn-default-primary btn-rlg w140 ml10">取消</button>
-            </div>
-        </div>
-    </div>
-     <div class="panel panel-default">
-         <div class="panel-body">
-             <div class="transverse-flow-steps">
-                 <ul>
-                     <li>
-                         <span class="unit-step step-past">
-                             <label>创建模版</label>
-                             <span class="step-arrow">
-                                 <span class="step-arrow-pre"></span>
-                                 <span class="step-arrow-next"></span>
+    <div class="event-axis-component time-prominent">
+         <div class="event-container">
+             <div class="event-item">
+                 <div class="clearfix">
+                     <div class="data-container">
+                         <div class="f14 lineh20">16:34:55</div>
+                         <div>2018-01-16</div>
+                     </div>
+                     <div class="state-dot"></div>
+                     <div class="event-info lh24 clearfix">
+                         <div class="col-xs-3">变更类型：<span class="info-content color-green">更新配置</span>
+                         </div>
+                         <div class="col-xs-3">操作人：<span class="info-content">system</span>
+                         </div>
+                     </div>
+                     <div class="event-detail">
+                         <div class="clearfix">
+                             <div class="detail-title">变更内容</div>
+                             <div class="col-xs-3">SSH 认证方式：
+                             <span class="info-content">
+                                <i class="color-green">password</i>
                              </span>
-                         </span>
-                     </li>
-                     <li>
-                         <span class="unit-step step-past last">
-                             <label>模版数据</label>
-                             <span class="step-arrow">
-                                 <span class="step-arrow-pre"></span>
-                                 <span class="step-arrow-next"></span>
-                             </span>
-                         </span>
-                     </li>
-                     <li>
-                         <span class="unit-step step-current">
-                             <label>启动栈</label>
-                             <span class="step-arrow">
-                                 <span class="step-arrow-pre"></span>
-                                 <span class="step-arrow-next"></span>
-                             </span>
-                         </span>
-                    </li>
-                    <li>
-                        <span class="unit-step">
-                            <label>创建成功</label>
-                        </span>
-                    </li>
-                 </ul>
-             </div>
-             <div class="stack-content mb20 clearfix">
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">模板名称：</div>
-                    <input type="input" class="form-control" style="width: 280px;" placeholder="请输入模板名称">
-                </div>
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">插件类型：</div>
-                    <select class="selectpicker" data-width="280px">
-                        <option>阿里云</option>
-                        <option>option2</option>
-                        <option>option3</option>
-                    </select>
-                </div>
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">账号：</div>
-                    <select class="selectpicker" data-width="280px">
-                        <option>阿里云</option>
-                        <option>option2</option>
-                        <option>option3</option>
-                    </select>
-                </div>
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">节点：</div>
-                    <select class="selectpicker" data-width="280px">
-                        <option>华北1</option>
-                        <option>option2</option>
-                        <option>option3</option>
-                    </select>
-                </div>
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">密码密钥：</div>
-                    <select class="selectpicker" data-width="280px">
-                        <option>阿里云</option>
-                        <option>option2</option>
-                        <option>option3</option>
-                    </select>
-                </div>
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">执行脚本：</div>
-                    <select class="selectpicker" data-width="280px">
-                        <option>阿里云</option>
-                        <option>option2</option>
-                        <option>option3</option>
-                    </select>
-                </div>
-                <div class="col-xs-6 layout-group label-w110">
-                    <div class="layout-label">创建超时（分钟）：</div>
-                    <input type="input" class="form-control mr20" style="width: 280px; display: inline-block;" placeholder="请输入超时时间">
-                    <input type="checkbox" name="isback"><span class="pl6">是否回滚</span>
-                </div>
-             </div>
-             <div class="param-content pt25" style="border-top: 1px dashed #d8d8d8;">
-                 <div class="layout-group label-w160">
-                     <div class="layout-label">Imaged（镜像ID）：</div>
-                     <input type="input" class="form-control" style="width: 280px;" placeholder="请输入镜像ID">
-                 </div>
-                 <div class="layout-group label-w160">
-                      <div class="layout-label">InstanceType（主机类型）：</div>
-                      <select class="selectpicker" data-width="280px">
-                          <option>ecs.n4.large</option>
-                          <option>option2</option>
-                          <option>option3</option>
-                      </select>
+                             </div>
+                         </div>
+                     </div>
                  </div>
              </div>
-             <div class="btns-wrapper tr pt20 w-100" style="margin-top: 250px; border-top: 1px solid #d8d8d8;">
-                 <button type="button" class="btn btn-primary-light btn-rlg w140">上一步</button>
-                 <button type="button" class="btn btn-primary-light btn-rlg w140 ml10" data-toggle="modal" data-target="#preview-modal">预览</button>
-                 <button type="button" class="btn btn-primary-light btn-rlg w140 ml10">创建</button>
-                 <button type="button" class="btn btn-default-primary btn-rlg w140 ml10">取消</button>
+             <div class="event-item">
+                 <div class="clearfix">
+                     <div class="data-container">
+                         <div class="f14 lineh20">16:34:37</div>
+                         <div>2018-01-16</div>
+                     </div>
+                     <div class="state-dot"></div>
+                     <div class="event-info clearfix">
+                         <div class="col-xs-3">变更类型：<span class="info-content color-green">更新配置</span>
+                         </div>
+                         <div class="col-xs-3">操作人：<span class="info-content">system</span>
+                         </div>
+                     </div>
+                     <div class="event-detail">
+                         <div class="clearfix">
+                             <div class="detail-title">变更内容</div>
+                             <div class="col-xs-3">登录密码：
+                                <span class="info-content">
+                                    <i class="color-green">123</i>
+                                </span>
+                             </div>
+                             <div class="col-xs-3">用户名：
+                                <span class="info-content">
+                                    <i class="color-green">root</i>
+                                </span>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
              </div>
+             <div class="event-item">
+                  <div class="clearfix">
+                      <div class="state-dot"></div>
+                      <div class="event-info clearfix">
+                          <div class="col-xs-3">变更类型：<span class="info-content color-green">更新配置</span>
+                          </div>
+                          <div class="col-xs-3">操作人：<span class="info-content">system</span>
+                          </div>
+                      </div>
+                      <div class="event-detail">
+                          <div class="clearfix">
+                              <div class="detail-title">变更内容</div>
+                              <div class="col-xs-3">登录密码：
+                                 <span class="info-content">
+                                     <i class="color-green">123</i>
+                                 </span>
+                              </div>
+                              <div class="col-xs-3">用户名：
+                                 <span class="info-content">
+                                     <i class="color-green">root</i>
+                                 </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
          </div>
-         <div class="modal fade  fade" id="preview-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">资源栈预览</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="w-25">资源名称</th>
-                                    <th class="w-30">资源类型</th>
-                                    <th class="w-45">资源属性</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>webserver</td>
-                                    <td>aliyun:esc:instance</td>
-                                    <td>
-                                    <div style="min-width: 300px; padding: 8px 100px 8px 6px; border: 1px solid #d8d8d8;">
-                                    {
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                    }
-                                    </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>webserver</td>
-                                    <td>aliyun:esc:instance</td>
-                                    <td><div style="padding: 8px 100px 8px 6px; border: 1px solid #d8d8d8;">
-                                    {
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                        “Instancechanargetype”:postpaid
-                                    }
-                                    </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer" style="text-align: center;">
-                        <button type="button" class="btn btn-primary-base w90" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-         </div>
-
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="transverse-flow-steps">
-                    <ul>
-                        <li>
-                            <span class="unit-step step-past">
-                                <label>创建模版</label>
-                                <span class="step-arrow">
-                                    <span class="step-arrow-pre"></span>
-                                    <span class="step-arrow-next"></span>
-                                </span>
-                             </span>
-                        </li>
-                        <li>
-                            <span class="unit-step step-past">
-                                <label>模版数据</label>
-                                <span class="step-arrow">
-                                    <span class="step-arrow-pre"></span>
-                                    <span class="step-arrow-next"></span>
-                                </span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="unit-step step-past last">
-                                <label>启动栈</label>
-                                <span class="step-arrow">
-                                    <span class="step-arrow-pre"></span>
-                                    <span class="step-arrow-next"></span>
-                                </span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="unit-step step-current">
-                                <label>创建成功</label>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="success-content mt30">
-                    <div class="tc mb20">
-                        <i class="prompticon icon-opt-success vsb" style="transform: scale(1.6)"></i>
-                        <span class="f24 color-primary ml10">资源栈创建成功！</span>
-                    </div>
-                    <div class="tc">
-                        <div>您创建的资源栈已经创建完成，系统将在5s后自动前往到该资源栈的概览页面。</div>
-                        <button type="button" class="btn btn-primary btn-rlg w140 mt30">立即前往</button>
-                    </div>
-                </div>
-            </div>
-        </div>
      </div>
 
+    <div class="event-axis-component">
+        <div class="event-container">
+            <div class="event-item">
+                <div class="clearfix">
+                    <div class="state-dot"></div>
+                    <div class="event-info clearfix">
+                         <div class="col-xs-6">张当当<span class="info-content color-green">提交</span>事件：
+                         </div>
+                         <div class="col-xs-6 tr">2017-08-08 23:24:25</div>
+                    </div>
+                    <div class="event-detail">
+                         <div class="clearfix">
+                             <div class="col-xs-12">审核结果：
+                                <span class="info-content">
+                                    <i class="color-green">bug修复</i>
+                                </span>
+                             </div>
+                             <div class="col-xs-12">解决方案：
+                                <span class="info-content">
+                                    蛋蛋大开绿灯那看到你啊都快拉到哪里都拿了十多年啊都拿上来卡德纳斯了卡德纳斯考虑到那时阿奎罗到哪里都拿胜地筽阿斯顿才能设计课程那刹那
+                                </span>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="clearfix">
+                    <div class="state-dot"></div>
+                    <div class="event-info clearfix">
+                         <div class="col-xs-6">张当当<span class="info-content color-green">提交</span>事件：
+                         </div>
+                         <div class="col-xs-6 tr">2017-08-08 23:24:25</div>
+                    </div>
+                    <div class="event-detail">
+                         <div class="clearfix">
+                             <div class="col-xs-12">审核结果：
+                                <span class="info-content">
+                                    <i class="color-green">bug修复</i>
+                                </span>
+                             </div>
+                             <div class="col-xs-12">解决方案：
+                                <span class="info-content">
+                                    蛋蛋大开绿灯那看到你啊都快拉到哪里都拿了十多年啊都拿上来卡德纳斯了卡德纳斯考虑到那时阿奎罗到哪里都拿胜地筽阿斯顿才能设计课程那刹那
+                                </span>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="clearfix">
+                    <div class="state-dot"></div>
+                    <div class="event-info clearfix">
+                         <div class="col-xs-6">张当当<span class="info-content color-green">提交</span>事件：
+                         </div>
+                         <div class="col-xs-6 tr">2017-08-08 23:24:25</div>
+                    </div>
+                    <div class="event-detail">
+                         <div class="clearfix">
+                             <div class="col-xs-12">审核结果：
+                                <span class="info-content">
+                                    <i class="color-green">bug修复</i>
+                                </span>
+                             </div>
+                             <div class="col-xs-12">解决方案：
+                                <span class="info-content">
+                                    蛋蛋大开绿灯那看到你啊都快拉到哪里都拿了十多年啊都拿上来卡德纳斯了卡德纳斯考虑到那时阿奎罗到哪里都拿胜地筽阿斯顿才能设计课程那刹那
+                                </span>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="time-base-component">
+        <div class="event-container">
+            <div class="event-item">
+                <div class="state-dot state-success"></div>
+                <div class="event-time-state col-xs-12">
+                    <span class="mr10">2017-08-08 23:24:11</span>
+                    <span>状态：<span class="color-success">成功</span></span>
+                </div>
+                <div class="event-info lh24 clearfix">
+                    <div class="col-xs-3">资源名称：<span class="info-content">webserver</span>
+                    </div>
+                    <div class="col-xs-3">资源ID：<span class="info-content">asdasda</span>
+                    </div>
+                    <div class="col-xs-3">资源类型：<span class="info-content">aliyun</span>
+                    </div>
+                    <div class="col-xs-12">事件描述：<span class="info-content">MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="state-dot state-failed"></div>
+                <div class="event-time-state">
+                    <span class="mr10">2017-08-08 23:24:11</span>
+                    <span>状态：<span class="color-primary">失败</span></span>
+                </div>
+                <div class="event-info lh24 clearfix">
+                    <div class="col-xs-3">资源名称：<span class="info-content">webserverwebserverwebserverwebserver</span>
+                    </div>
+                    <div class="col-xs-3">资源ID：<span class="info-content">asdasda</span>
+                    </div>
+                    <div class="col-xs-3">资源类型：<span class="info-content">aliyun</span>
+                    </div>
+                    <div class="col-xs-12">事件描述：<span class="info-content">MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。MySQl服务器运行失败，尝试失败回滚。</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="state-dot"></div>
+                <div class="event-title">大菠萝</div>
+                <div>您提交的请求我们已受理，我们会立即帮您查看您的问题。</div>
+                <div class="event-time-state">2017-08-08 23:24:11</div>
+            </div>
+        </div>
+    </div>
 </div>

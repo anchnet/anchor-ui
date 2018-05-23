@@ -11,6 +11,19 @@
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>
 
+<h3 id="badge">badge</h3>
+<div class="bs-example" data-example-id="badge">
+    <span class="badge badge-primary">Primary</span>
+    <span class="badge badge-secondary">Secondary</span>
+    <span class="badge badge-success">Success</span>
+    <span class="badge badge-danger">Danger</span>
+    <span class="badge badge-warning">Warning</span>
+    <span class="badge badge-info">Info</span>
+    <span class="badge badge-light">Light</span>
+    <span class="badge badge-dark">Dark</span>
+</div>
+<figure class="highlight"><pre><code></code></pre></figure>
+
 <h3 id="icon-increase">新增 boostrap 之外的图标</h3>
 <div class="bs-example" data-example-id="icon-increase">
     <span class="optionicon optionicon-add"></span>
@@ -167,6 +180,9 @@
     <i class="iconfont icon-cloudformation1"></i>
     <i class="iconfont icon-schedule"></i>
     <i class="iconfont icon-script"></i>
+    <i class="iconfont icon-close"></i>
+    <i class="iconfont icon-msnui-close"></i>
+    <i class="iconfont icon-delete-data"></i>
 
 </div>
 <figure class="highlight"><pre><code></code></pre></figure>

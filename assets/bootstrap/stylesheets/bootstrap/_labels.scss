@@ -3,10 +3,11 @@
 // --------------------------------------------------
 
 .label {
+  position: relative;
   display: inline;
-  padding: .2em .6em .3em;
+  padding: .25em .6em;
   font-size: 75%;
-  font-weight: bold;
+  //font-weight: bold;
   line-height: 1;
   color: $label-color;
   text-align: center;
@@ -25,6 +26,17 @@
   .btn & {
     position: relative;
     top: -1px;
+  }
+
+  .label-delete {
+    position: relative;
+    left: .2em;
+    top: .1em;
+    display: inline-block;
+    vertical-align: top;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -63,4 +75,56 @@ a.label {
 
 .label-danger {
   @include label-variant($label-danger-bg);
+}
+
+.anchor-default {
+  @include label-variant($brand-primary);
+}
+
+.anchor-danger {
+  @include label-variant($alert-danger);
+}
+
+.anchor-warning {
+  @include label-variant($alert-warning);
+}
+
+.anchor-success {
+  @include label-variant($alert-success);
+}
+
+.anchor-info {
+  @include label-variant($alert-info);
+}
+
+.anchor-c1e6ff {
+  @include label-variant(#c1e6ff);
+  color: $alert-info;
+  .label-delete:hover {
+    color: $alert-info;
+  }
+}
+
+.anchor-ebfaf0 {
+  @include label-variant(#EBFAF0);
+  color: $alert-success;
+  .label-delete:hover {
+    color: $alert-success;
+  }
+}
+
+.anchor-ffe5df {
+  @include label-variant(#ffe5df);
+  color: $label-fe4d26;
+  .label-delete:hover {
+    color: $label-fe4d26;
+  }
+}
+
+.anchor-fff2da {
+  @include label-variant(#fff2da);
+  color: $label-ffa400;
+  .label-delete:hover {
+    color: $label-ffa400;
+  }
 }
