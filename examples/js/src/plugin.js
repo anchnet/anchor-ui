@@ -20,6 +20,11 @@ $(document).ready(function () {
     })
   }
 
+  /* 过滤器组件 */
+  {
+    $('#basicTransfer').transfer()
+  }
+
   /* 表格组件 */
   {
     $('#basicTable').on('filter.changed.anchor.table', function (event, data) {
