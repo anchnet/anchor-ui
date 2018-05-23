@@ -19,7 +19,8 @@ const Transfer = (($) => {
 
   const Default = {
     clickDeselect: true,
-    selectWidth: 280
+    selectWidth: 280,
+    liveSearch: false,
   }
 
   const Event = {
@@ -116,6 +117,13 @@ const Transfer = (($) => {
           down: Transfer._getNameFromClass(Selector.SORT_DOWN)
         }
       }))
+
+      if (this._config.liveSearch) {
+        this.$select.left.addClass('select-left').attr({
+          'data-live-search': true,
+          'data-none-results-text': '没有找到匹配 {0}',
+        })
+      }
 
       this.$select.left.add(this.$select.right).each((i, el) => {
         $(el)
@@ -248,6 +256,19 @@ const Transfer = (($) => {
 
       this.$select.right.find('option').each((i, el) => {
         val.push($(el).attr('value'))
+      })
+
+      return val
+    }
+
+    fullVal () {
+      let val = []
+
+      this.$select.right.find('option').each((i, el) => {
+        val.push({
+          value: $(el).attr('value'),
+          text: $(el).text()
+        })
       })
 
       return val
