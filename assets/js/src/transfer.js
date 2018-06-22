@@ -76,10 +76,6 @@ const Transfer = (($) => {
       this.$select = {}
       this.$select.left = this.$block.left.find('select')
       this.$select.right = this.$block.right.find('select')
-      this.selectOptions = {
-        left: null,
-        right: null
-      }
 
       this.deselectLock = false
 
@@ -100,9 +96,6 @@ const Transfer = (($) => {
 
     init () {
       this.$root.addClass(Transfer._getNameFromClass(Selector.TRANSFER_WRAPPER))
-
-      this.selectOptions.left = this.$root.find('.transfer-left select').html()
-      this.selectOptions.right = this.$root.find('.transfer-right select').html()
 
       this.$block.left.append(Template('LEFT_BUTTONS', {
         className: {
@@ -279,8 +272,11 @@ const Transfer = (($) => {
     }
 
     reset () {
-      this.$root.find('.transfer-left select').html(this.selectOptions.left)
-      this.$root.find('.transfer-right select').html(this.selectOptions.right)
+      let selectOptionsLeft = this.$root.find('.transfer-left select').html()
+      let selectOptionsRight = this.$root.find('.transfer-right select').html()
+
+      this.$root.find('.transfer-left select').html(selectOptionsLeft)
+      this.$root.find('.transfer-right select').html(selectOptionsRight)
 
       this._refreshSelect()
     }
