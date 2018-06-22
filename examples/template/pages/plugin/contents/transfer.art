@@ -2,7 +2,7 @@
 
 <h3 id="transfer-example">实例</h3>
 <div class="bs-example" data-example-id="transfer-example">
-    <div id="basicTransfer" data-live-search="true">
+    <div id="basicTransfer" data-toggle="transfer" data-live-search="true">
         <div class="transfer-left">
             <select multiple>
                 <% for (var i = 0; i <= 15; i++) { %>
@@ -32,3 +32,5 @@
 <p>获取右框的完整数据（值+文字）</p>
 <h4><code>$().transfer('deselectAll')</code></h4>
 <p>取消所有选中状态</p>
+<h4><code>$().transfer('reset')</code></h4>
+<p>更新数据后刷新组件UI</p>

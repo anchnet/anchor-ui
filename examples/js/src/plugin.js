@@ -22,7 +22,10 @@ $(document).ready(function () {
 
   /* 过滤器组件 */
   {
-    $('#basicTransfer').transfer()
+    setTimeout(() => {
+      $('#basicTransfer .transfer-left select').prepend('<option value="-1">option -1</option>')
+      $('#basicTransfer').transfer('reset')
+    }, 1000)
   }
 
   /* 表格组件 */
